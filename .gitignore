@@ -1,0 +1,4 @@
+system/cache/
+
+assets/pdfs/tratamientos/*
+!assets/pdfs/tratamientos/*.txt
