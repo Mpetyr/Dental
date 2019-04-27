@@ -1777,7 +1777,7 @@ $('#TableHistoriaMovimientoPlacas').on('click', '.anular-placa', function(event)
 		showCancelButton: true,
 		confirmButtonColor: "#007AFF",
 		cancelButtonColor: "#d43f3a",
-		text: "¿Anular receta?"
+		text: "¿Anular placa?"
 	}).then((result) => {
 		if (result.value) {
 			$.getJSON(path+'historia/movimiento/anularPlaca', {id}, function(json, textStatus) {

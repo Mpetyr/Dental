@@ -345,24 +345,6 @@
                 <input type="text" name="frecRep" class="form-control input-sm" value="<?= $exploracion->frec_exp ?>">
               </div>
             </div>
-            <div class="col-md-3">
-              <div class="form-group">
-                <label class="control-label">Peso</label>
-                <input type="text" name="peso" class="form-control" value="<?= $exploracion->peso_exp ?>">
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="form-group">
-                <label class="control-label">Talla</label>
-                <input type="text" name="talla" class="form-control" value="<?= $exploracion->talla_exp ?>">
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="form-group">
-                <label class="control-label">Masa</label>
-                <input type="text" name="masa" class="form-control" value="<?= $exploracion->masa_exp ?>">
-              </div>
-            </div>
           </div>
             </div>
             <!-- /.box-body -->
@@ -386,19 +368,19 @@
             <div class="col-md-3">
               <div class="form-group">
                 <label class="control-label">Peso:</label>
-                <input type="text" name="PA" class="form-control input-sm" value="<?= $exploracion->pa_exp ?>">
+                <input type="text" name="peso" class="form-control input-sm" value="<?= $exploracion->peso_exp ?>">
               </div>
             </div>
             <div class="col-md-3">
               <div class="form-group">
                 <label class="control-label">Talla:</label>
-                <input type="text" name="pulso" class="form-control input-sm" value="<?= $exploracion->pulso_exp ?>">
+                <input type="text" name="talla" class="form-control input-sm" value="<?= $exploracion->talla_exp ?>">
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label class="control-label">Indice Masa Corporal</label>
-                <input type="text" name="temperatura" class="form-control input-sm" value="<?= $exploracion->temperat_exp ?>">
+                <input type="text" name="masa" class="form-control input-sm" value="<?= $exploracion->masa_exp ?>">
               </div>
             </div>
            
