@@ -51,4 +51,18 @@ class User_model extends CI_Model
 		$this->db->where("codi_usu",$id);
 		 $this->db->update("usuario",$data);
 	}
+
+	function verificaLogin($email,$password)
+	{
+		$query = $this->db->from('usuario')
+		->where('email',$email)
+		->where('pass_usu',$password)
+		->get();
+
+		if ($query->num_rows() > 0) {
+			return $query->row();
+		}else{
+			return false;
+		}
+	}
 }

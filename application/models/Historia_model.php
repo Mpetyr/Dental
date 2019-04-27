@@ -11,7 +11,7 @@ class Historia_model extends CI_Model {
 		$queryLike = $this->db->get();
 
 		$this->db->from('paciente');
-		$this->db->select('codi_pac,CONCAT(nomb_pac," ",apel_pac) AS NombresApellidos,fena_pac,dni_pac, DATE(fecha_registro) as fecha_registro');
+		$this->db->select('codi_pac,CONCAT(nomb_pac," ",apel_pac) AS NombresApellidos,edad_pac,dni_pac, DATE(fecha_registro) as fecha_registro,esta_pac');
 		$this->db->where('DATE(fecha_registro) >=',$data['desde']);
 		$this->db->where('DATE(fecha_registro) <=',$data['hasta']);
 		if (isset($data['nombresApellidos'])) {
@@ -26,9 +26,17 @@ class Historia_model extends CI_Model {
 		
 		$row = [];
 		foreach ($query->result() as $q) {
-			$opciones = '<a href="'.base_url('historia/movimiento/historia/'.$q->codi_pac).'" class="btn btn-info btn-xs"><i class="fa fa-edit"></i></a>';
+			if ($q->esta_pac=='S') {
+				$estado = '<label class="label label-success">Activo</label>';
+			}elseif($q->esta_pac=='N'){
+				$estado = '<label class="label label-info" style="text-align: center;">Inactivo</label>';
+			}	
+
+			$opciones = '<div class="btn-footer text-center">
+
+			<a href="'.base_url('historia/movimiento/historia/'.$q->codi_pac).'" class="btn btn-info btn-xs" style="text-align:center"><i class="fa fa-edit"></i></a>';
 	    
-			$row[] = [$q->codi_pac,$q->NombresApellidos,$q->fena_pac,$q->dni_pac,$q->fecha_registro,'',$opciones];
+			$row[] = [$q->codi_pac,$q->NombresApellidos,$q->edad_pac,$q->dni_pac,$q->fecha_registro,'',$estado,$opciones];
 		}
 		$result['aaData'] = $row;
 		return $result;

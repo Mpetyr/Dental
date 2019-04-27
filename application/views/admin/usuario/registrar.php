@@ -30,8 +30,8 @@
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
-<body class="hold-transition register-page">
-  <form action="../../index.html" method="post">
+<body data-path="<?= base_url() ?>" class="hold-transition register-page">
+ 
 <div class="register-box" style="margin: 2px auto;">
   <div class="register-logo" style="margin-bottom: 10px;">
       <img src="/DentiDev/images/Empresa/logo.png">
@@ -39,21 +39,25 @@
   </div>
 
   <div class="register-box-body" >
+     <form id="FormRegistrarUsuario" action="<?= base_url('regpersona/guardarusuario')?>" method="POST" autocomplete="off" >
     <h4 class="login-box-msg">Registra tus Datos</h4>
 
+
+      
     
-      <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="Apellidos">
+      <div class="form-group">
+        <input name="apellidos" type="text" class="form-control" placeholder="Apellidos" >
         <span class="glyphicon glyphicon-hand-left form-control-feedback"></span>
       </div>
 
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="Nombres">
+        <input name="nombres" type="text" class="form-control" placeholder="Nombres">
         <span class="glyphicon glyphicon-hand-left form-control-feedback"></span>
       </div>
 
         <div class="form-group has-feedback">
-        <select class="form-control input-sm" required="" name="estadocivil" >
+        <select class="form-control input-sm" name="tipo_documento" >
+                                  <option value="">--Tipo Documento--</option>
                                   <option value="1">DNI</option>
                                   <option value="2">RUC</option>
                                   <option value="3">PASAPORTE</option>
@@ -64,36 +68,37 @@
       </div>
 
          <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="Documento">
+        <input name="documento" type="text" class="form-control" placeholder="Documento">
         <span class="glyphicon glyphicon-edit form-control-feedback"></span>
       </div>
 
-          <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="Odontologos">
-        <span class="glyphicon glyphicon-user form-control-feedback"></span>
-      </div>
 
-       <div class="form-group has-feedback">
-        <select  name="departamento" class="select2 form-control input-sm">
-                      <!-- <option value="">--Rol usuario--</option> -->
+       <div class="form-group has-feedback" visible="false">
+        <select  name="tipo_usuario" class="form-control input-sm" style="display:none" >
+                    
                     <?php foreach ($roles as $r): ?>
-                      <option value="<?= $r->codi_rol ?>"><?= $r->nomb_rol ?></option>
+                      <option value="<?= $r->codi_rol ?>"><?= $r->nomb_rol ?> </option>
                     <?php endforeach ?>
                     </select>
       </div>
 
       <div class="form-group has-feedback">
-        <input type="email" class="form-control" placeholder="Email">
+        <input name="email" type="email" class="form-control" placeholder="Email">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
 
         <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="Usuario">
+        <input name="usuario" type="text" class="form-control" placeholder="Usuario">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Password">
+        <input name="password" type="password" class="form-control" placeholder="Password">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+      </div>
+
+         <div class="form-group has-feedback">
+        <input name="passconf" type="password" class="form-control" placeholder="Retype password">
+        <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
       </div>
 
       <div class="row">
@@ -118,7 +123,8 @@
       <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Siguenos en Facebook</a>
     
     </div> -->
-
+  
+ </form>
   </div>
   <!-- /.form-box -->
 </div>
@@ -126,13 +132,23 @@
 
 <!-- jQuery 3 -->
 <script src="<?php echo base_url();?>assets/template/jquery/jquery.min.js"></script>
-<!-- Bootstrap 3.3.7 -->
-<script src="<?php echo base_url();?>assets/template/bootstrap/js/bootstrap.min.js"></script>
-<!-- iCheck -->
-<script src="<?php echo base_url();?>assets/plugins/iCheck/icheck.min.js"></script>
+<script src="<?= base_url();?>assets/plugins/jquery-validate/jquery.validate.js"></script>
+<script src="<?= base_url();?>assets/plugins/jquery-validate/additional-methods.js"></script>
+<script src="<?= base_url();?>assets/plugins/jquery-validate/localization/messages_es.js"></script>
+<script src="<?= base_url();?>assets/plugins/jquery-form/jquery.form.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="<?php echo base_url();?>assets/plugins/iCheck/icheck.min.js"></script>
 <script src="<?php echo base_url();?>assets/template/bootstrap/jsregistro/jquery.backstretch.js"></script>
   <script src="<?php echo base_url();?>assets/template/bootstrap/jsregistro/jquery.backstretch.min.js"></script>
    <script src="<?php echo base_url();?>assets/template/bootstrap/jsregistro/scripts.js"></script>
+
+
+<script src="<?php echo base_url();?>assets/validacion.js?>"></script>
+
+<script language="javascript">
+    var base_url = '<?php echo base_url(); ?>';
+    var path = '<?= base_url(); ?>';
+</script>
 <script>
   $(function () {
     $('input').iCheck({
@@ -142,6 +158,6 @@
     });
   });
 </script>
- </form>
+
 </body>
 </html>
