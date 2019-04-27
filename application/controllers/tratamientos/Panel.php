@@ -122,7 +122,8 @@ class Panel extends CI_Controller {
 		}else{
 			$resp['success'] = true;
 			$this->db->where('codi_tra',$id)
-			->set('estado_tra',2)
+			->set('estado_tra',TRATAMIENTO_ANULADO)
+			->set('estadopago_tra',ANULADO)
 			->update('tratamiento');
 		}
 

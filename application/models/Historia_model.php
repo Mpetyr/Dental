@@ -39,11 +39,13 @@ class Historia_model extends CI_Model {
 		$this->db->from('paciente_alergia');
 		$this->db->join('alergia','paciente_alergia.cod_ale = alergia.cod_ale');
 		$this->db->where('codi_pac',$data['paciente']);
+		$this->db->where('pacale_estado',1);
 		$queryLike = $this->db->get();
 
 		$this->db->from('paciente_alergia');
 		$this->db->join('alergia','paciente_alergia.cod_ale = alergia.cod_ale');
 		$this->db->where('codi_pac',$data['paciente']);
+		$this->db->where('pacale_estado',1);
 		if ($data['length']!=-1) {
 			$this->db->limit($data['length'],$data['start']);
 		}
@@ -59,8 +61,99 @@ class Historia_model extends CI_Model {
 		
 		$row = [];
 		foreach ($query->result() as $q) {
-			$boton = '<button data-id="'.$q->pacale_id.'" class="anular-alergia btn btn-danger btn-xs">Anular</button>';
+			$boton = '<button data-id="'.$q->pacale_id.'" class="editar-alergia btn btn-warning btn-xs" data-toggle="modal" data-target="#ModalEditarAlergia">Editar</button>';
+			$boton .= '<button data-id="'.$q->pacale_id.'" class="anular-alergia btn btn-danger btn-xs">Anular</button>';
 			$row[] = [$q->pacale_id,$q->nombre_ale,$q->pacale_observacion,$boton];
+		}
+		$result['aaData'] = $row;
+		return $result;
+	}
+
+	function getRecetas($data)
+	{
+		$this->db->from('paciente_receta');
+		$this->db->join('medico','paciente_receta.codi_med = medico.codi_med');
+		$this->db->where('codi_pac',$data['paciente']);
+		$this->db->where('pacrec_estado',1);
+		$queryLike = $this->db->get();
+
+		$this->db->from('paciente_receta');
+		$this->db->select('pacrec_id,pacrec_fecha,pacrec_hora,pacrec_asunto,nomb_med,apel_med,a.desc_enf as diagnostico01,b.desc_enf as diagnostico02, c.desc_enf as diagnostico03');
+		$this->db->join('medico','paciente_receta.codi_med = medico.codi_med');
+		$this->db->join('enfermedad as a','paciente_receta.codi_enf01 = a.codi_enf','left');
+		$this->db->join('enfermedad as b','paciente_receta.codi_enf02 = b.codi_enf','left');
+		$this->db->join('enfermedad as c','paciente_receta.codi_enf03 = c.codi_enf','left');
+		$this->db->where('codi_pac',$data['paciente']);
+		$this->db->where('pacrec_estado',1);
+		if ($data['length']!=-1) {
+			$this->db->limit($data['length'],$data['start']);
+		}
+		if (isset($data['orderCampo'])) {
+			$this->db->order_by($data['orderCampo'],$data['orderDireccion']);
+		}
+		$query = $this->db->get();
+
+		$result = array();
+		$result['sEcho'] = $data['sEcho'];
+		$result['iTotalRecords'] = $queryLike->num_rows();
+		$result['iTotalDisplayRecords'] = $queryLike->num_rows();
+		
+		$row = [];
+		foreach ($query->result() as $q) {
+			$boton = '<button data-id="'.$q->pacrec_id.'" class="editar-receta btn btn-warning btn-xs" data-toggle="modal" data-target="#ModalEditarReceta">Editar</button>';
+			$boton .= '<button data-id="'.$q->pacrec_id.'" class="anular-receta btn btn-danger btn-xs">Anular</button>';
+			$diagnostico = $q->diagnostico01;
+			if ($q->diagnostico02!='') {
+				$diagnostico .= ' | '.$q->diagnostico02;
+			}
+			if ($q->diagnostico03!='') {
+				$diagnostico .= ' | '.$q->diagnostico03;
+			}
+			$row[] = [
+				$q->pacrec_fecha.' '.$q->pacrec_hora,
+				$q->pacrec_asunto,
+				$q->nomb_med.' '.$q->apel_med,
+				$diagnostico,
+				$boton
+			];
+		}
+		$result['aaData'] = $row;
+		return $result;
+	}
+
+	function getPlacas($data)
+	{
+		$this->db->from('paciente_placa');
+		$this->db->where('pla_estado',1);
+		$queryLike = $this->db->get();
+
+		$this->db->from('paciente_placa');
+		$this->db->where('pla_estado',1);
+		if ($data['length']!=-1) {
+			$this->db->limit($data['length'],$data['start']);
+		}
+		if (isset($data['orderCampo'])) {
+			$this->db->order_by($data['orderCampo'],$data['orderDireccion']);
+		}
+		$query = $this->db->get();
+
+		$result = array();
+		$result['sEcho'] = $data['sEcho'];
+		$result['iTotalRecords'] = $queryLike->num_rows();
+		$result['iTotalDisplayRecords'] = $queryLike->num_rows();
+		
+		$row = [];
+		foreach ($query->result() as $q) {
+			$boton = '<button data-id="'.$q->pla_id.'" class="anular-placa btn btn-danger btn-xs">Anular</button>';
+			$archivo = '
+			<a data-fancybox="gallery" href="'.base_url('assets/uploads/placas/'.$q->pla_archivo).'"><i class="fa fa-image"></i> Ver placa</a>';
+			$row[] = [
+				$q->pla_fecha,
+				$q->pla_nombre,
+				$q->pla_notas,
+				$archivo,
+				$boton
+			];
 		}
 		$result['aaData'] = $row;
 		return $result;

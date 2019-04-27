@@ -82,13 +82,26 @@ $('.timepicker').timepicker({
 	stepping:15,
 	showMeridian:false
 });
+/*=====  End of DATEPICKER  ======*/
+
+
 /*===============================
 =            SELECT2            =
 ===============================*/
 $(".select2").select2();
 /*=====  End of SELECT2  ======*/
 
-/*=====  End of DATEPICKER  ======*/
+
+/*===================================
+=            HORA ACTUAL            =
+===================================*/
+function hora(){
+	var f=new Date();
+	cad=f.getHours()+":"+f.getMinutes()+":"+f.getSeconds(); 
+	return window.status =cad;
+}
+/*=====  End of HORA ACTUAL  ======*/
+
 
 /*===================================================
 =            ENVIAR FORMULIARIO POR AJAX            =
@@ -1466,6 +1479,13 @@ $('#FormHistoriaMovimientoAgregarAlergia').validate({
 	}
 });
 
+$('#FormHistoriaMovimientoDatosPaciente').validate({
+	submitHandler:function() {
+		enviarFormulario('#FormHistoriaMovimientoDatosPaciente',function(json){
+		})
+	}
+});
+
 $('#FormHistoriaMovimientoPacienteEnfermedad').validate({
 	submitHandler:function() {
 		enviarFormulario('#FormHistoriaMovimientoPacienteEnfermedad',function(json){
@@ -1487,6 +1507,45 @@ $('#FormHistoriaMovimientoPacienteExploracion').validate({
 	}
 });
 
+
+
+$('#FormHistoriaMovimientoPacienteConsulta input[type=radio]').change(function(event) {
+	var textarea = $(this).parent().parent().parent().next().find('textarea');
+	var valor = $(this).val();
+	if (valor == '0') {
+		textarea.prop('disabled',true);
+	}
+	if (valor == '1') {
+		textarea.prop('disabled',false);
+	}
+});
+
+$('#TableHistoriaMovimientoAlergias').on('click', '.editar-alergia', function(event) {
+	event.preventDefault();
+	var id = $(this).data('id');
+	$.getJSON(path+'historia/movimiento/getAlergia', {id}, function(json, textStatus) {
+		$('#FormHistoriaMovimientoEditarAlergia input[name=id]').val(json.pacale_id);
+		$('#FormHistoriaMovimientoEditarAlergia select[name=alergia]').val(json.cod_ale);
+		$('#FormHistoriaMovimientoEditarAlergia textarea[name=observacion]').val(json.pacale_observacion);
+	});
+});
+
+$('#FormHistoriaMovimientoEditarAlergia').validate({
+	rules:{
+		alergia:{required:true},
+		id:{required:true},
+	},
+	submitHandler:function() {
+		$('#ModalEditarAlergia').modal('hide');
+		enviarFormulario('#FormHistoriaMovimientoEditarAlergia',function(json){
+			if (json.success) {
+				$('#TableHistoriaMovimientoAlergias').DataTable().ajax.reload();
+				$('#FormHistoriaMovimientoEditarAlergia select[name=alergia]').val('');
+				$('#FormHistoriaMovimientoEditarAlergia input[name=observacion]').val('');
+			}
+		})
+	}
+});
 
 $('#TableHistoriaMovimientoAlergias').on('click', '.anular-alergia', function(event) {
 	event.preventDefault();
@@ -1522,6 +1581,223 @@ $('#TableHistoriaMovimientoAlergias').on('click', '.anular-alergia', function(ev
 	});
 });
 
+
+$('#TableHistoriaMovimientoRecetas').DataTable({
+	"language": {"url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"},
+	"searching": false,
+	"processing": true,
+	"serverSide": true,
+	"iDisplayLength": 25,
+	"aLengthMenu": [[25, 50, 100, -1], [25, 50, 100, 'Todos']],
+	"aaSorting": [[1, 'desc']],
+	"ajax": {
+		"url": path+'historia/movimiento/jsonRecetas',
+		"type": "POST",
+		"data": function (d) {
+			d.paciente = $("#HistoriaContenido").data('paciente');
+		}
+	},
+	"columns": [
+		{"orderable":true},
+		{"orderable":true},
+		{"orderable":false},
+		{"orderable":false},
+		{"orderable":false}
+	]
+});
+
+$('#ModalAgregarReceta').click(function(event) {
+	$('input[name=hora]').val(hora());
+});
+
+$('#FormHistoriaMovimientoAgregarReceta').validate({
+	ignore: [],
+	rules:{
+		receta:{required:true},
+		diagnostico01:{required:true},
+		indicaciones:{required:true}
+	},
+	submitHandler:function() {
+		enviarFormulario('#FormHistoriaMovimientoAgregarReceta',function(json){
+			if (json.success) {
+				$('#TableHistoriaMovimientoRecetas').DataTable().ajax.reload();
+			}
+			$('#ModalAgregarReceta').modal('hide');
+			$('FormHistoriaMovimientoAgregarRecetainput[name=asunto]').val('');
+			$('#FormHistoriaMovimientoAgregarReceta input[name=asunto]').val('');
+			$('#FormHistoriaMovimientoAgregarReceta textarea[name=receta]').val('');
+			$('#FormHistoriaMovimientoAgregarReceta select[name=diagnostico01]').select2('val', '');
+			$('#FormHistoriaMovimientoAgregarReceta select[name=diagnostico02]').select2('val', '');
+			$('#FormHistoriaMovimientoAgregarReceta select[name=diagnostico03]').select2('val', '');
+			$('#FormHistoriaMovimientoAgregarReceta textarea[name=indicaciones]').val('');
+		})
+	}
+});
+
+$('#TableHistoriaMovimientoRecetas').on('click', '.editar-receta', function(event) {
+	event.preventDefault();
+	$('input[name=hora]').val(hora());
+	var id = $(this).data('id');
+	$.getJSON(path+'historia/movimiento/getReceta', {id}, function(json, textStatus) {
+		$('#FormHistoriaMovimientoEditarReceta input[name=id]').val(json.pacrec_id);
+		$('#FormHistoriaMovimientoEditarReceta input[name=asunto]').val(json.pacrec_asunto);
+		$('#FormHistoriaMovimientoEditarReceta textarea[name=receta]').val(json.pacrec_receta);
+		$('#FormHistoriaMovimientoEditarReceta select[name=diagnostico01]').select2('val',json.codi_enf01);
+		$('#FormHistoriaMovimientoEditarReceta select[name=diagnostico02]').select2('val',json.codi_enf02);
+		$('#FormHistoriaMovimientoEditarReceta select[name=diagnostico03]').select2('val',json.codi_enf03);
+		$('#FormHistoriaMovimientoEditarReceta textarea[name=indicaciones]').val(json.pacrec_indicaciones);
+	});
+});
+
+$('#FormHistoriaMovimientoEditarReceta').validate({
+	ignore: [],
+	rules:{
+		receta:{required:true},
+		diagnostico01:{required:true},
+		indicaciones:{required:true}
+	},
+	submitHandler:function() {
+		enviarFormulario('#FormHistoriaMovimientoEditarReceta',function(json){
+			if (json.success) {
+				$('#TableHistoriaMovimientoRecetas').DataTable().ajax.reload();
+			}
+			$('#ModalEditarReceta').modal('hide');
+			$('#FormHistoriaMovimientoEditarReceta input[name=asunto]').val('');
+			$('#FormHistoriaMovimientoEditarReceta input[name=asunto]').val('');
+			$('#FormHistoriaMovimientoEditarReceta textarea[name=receta]').val('');
+			$('#FormHistoriaMovimientoEditarReceta select[name=diagnostico01]').select2('val', '');
+			$('#FormHistoriaMovimientoEditarReceta select[name=diagnostico02]').select2('val', '');
+			$('#FormHistoriaMovimientoEditarReceta select[name=diagnostico03]').select2('val', '');
+			$('#FormHistoriaMovimientoEditarReceta textarea[name=indicaciones]').val('');
+		})
+	}
+});
+
+$('#TableHistoriaMovimientoRecetas').on('click', '.anular-receta', function(event) {
+	event.preventDefault();
+	var id = $(this).data('id');
+	Swal.fire({
+		title: "Confirmar",
+		type: "warning",
+		cancelButtonText:'No',
+		confirmButtonText:'Si',
+		showCancelButton: true,
+		confirmButtonColor: "#007AFF",
+		cancelButtonColor: "#d43f3a",
+		text: "¿Anular receta?"
+	}).then((result) => {
+		if (result.value) {
+			$.getJSON(path+'historia/movimiento/anularReceta', {id}, function(json, textStatus) {
+				if (json.success) {
+					Swal.fire({
+						title: "Buen trabajo",
+						text: "La solicitud ha sido procesada.",
+						type: "success"
+					});
+					$('#TableHistoriaMovimientoRecetas').DataTable().ajax.reload();
+				}else{
+					Swal.fire({
+						title: "Error",
+						text: "Ocurrio un error, vuelva a intentarlo.",
+						type: "error"
+					});
+				}
+			});
+		}
+	});
+});
+
+$('#TableHistoriaMovimientoPlacas').DataTable({
+	"language": {"url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"},
+	"searching": false,
+	"processing": true,
+	"serverSide": true,
+	"iDisplayLength": 25,
+	"aLengthMenu": [[25, 50, 100, -1], [25, 50, 100, 'Todos']],
+	"aaSorting": [[0, 'desc']],
+	"ajax": {
+		"url": path+'historia/movimiento/jsonPlacas',
+		"type": "POST",
+		"data": function (d) {
+			d.paciente = $("#HistoriaContenido").data('paciente');
+		}
+	},
+	"columns": [
+		{"orderable":true},
+		{"orderable":true},
+		{"orderable":false},
+		{"orderable":false},
+		{"orderable":false}
+	]
+});
+
+
+$("#placaArchivo").pekeUpload({
+	url:path+'historia/movimiento/subir',
+	data:{
+		id:$("#HistoriaContenido").data('paciente')
+	},
+	allowedExtensions:'png|jpg',
+	limit:1,
+	btnText:'Buscar imagen',
+	delfiletext:'',
+	limitError:'',
+	showErrorAlerts:false,
+	onFileSuccess: function(file,data){
+		$('#FormHistoriaMovimientoAgregarPlaca input[name=archivo]').val(data.name);
+	}
+});
+
+$('#FormHistoriaMovimientoAgregarPlaca').validate({
+	rules:{
+		nombre:{required:true}
+	},
+	submitHandler:function() {
+		enviarFormulario('#FormHistoriaMovimientoAgregarPlaca',function(json){
+			if (json.success) {
+				$('#TableHistoriaMovimientoPlacas').DataTable().ajax.reload();
+			}
+			$('#ModalAgregarPlaca').modal('hide');
+			$('#FormHistoriaMovimientoAgregarPlaca input[name=nombre]').val('');
+			$('#FormHistoriaMovimientoAgregarPlaca texarea[name=notas]').val('');
+			$('.pekecontainer').empty();
+		})
+	}
+});
+
+$('#TableHistoriaMovimientoPlacas').on('click', '.anular-placa', function(event) {
+	event.preventDefault();
+	var id = $(this).data('id');
+	Swal.fire({
+		title: "Confirmar",
+		type: "warning",
+		cancelButtonText:'No',
+		confirmButtonText:'Si',
+		showCancelButton: true,
+		confirmButtonColor: "#007AFF",
+		cancelButtonColor: "#d43f3a",
+		text: "¿Anular receta?"
+	}).then((result) => {
+		if (result.value) {
+			$.getJSON(path+'historia/movimiento/anularPlaca', {id}, function(json, textStatus) {
+				if (json.success) {
+					Swal.fire({
+						title: "Buen trabajo",
+						text: "La solicitud ha sido procesada.",
+						type: "success"
+					});
+					$('#TableHistoriaMovimientoPlacas').DataTable().ajax.reload();
+				}else{
+					Swal.fire({
+						title: "Error",
+						text: "Ocurrio un error, vuelva a intentarlo.",
+						type: "error"
+					});
+				}
+			});
+		}
+	});
+});
 
 /*=====  End of HISTORIA - MOVIMIENTO  ======*/
 
