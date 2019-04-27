@@ -69,7 +69,7 @@
                    <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label class="col-form-label">Nombres *</label>
+                      <label>Nombres *</label>
                       <input type="text" name="nombre" class="form-control input-sm" placeholder="Nombres">
                     </div>
                   </div>

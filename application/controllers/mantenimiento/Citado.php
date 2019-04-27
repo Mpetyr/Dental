@@ -10,6 +10,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
      public function __construct()
      {
         parent::__construct();
+        if(!$this->session->userdata("login")){
+            redirect(base_url());
+        }
         $this->load->model('citado_model');
      }
 

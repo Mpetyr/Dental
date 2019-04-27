@@ -597,15 +597,15 @@ $('#TableTratamientosPanel tbody').on('click', 'td.details-control', function ()
 function formatTratamientosDetalle (d) {
 	var folios = jQuery.parseJSON(d[9]);
 	var table = `
-	<h4>Procedimientos</h4>
+	<h4><i class="fa fa-list" aria-hidden="true"></i> Detalle</h4>
 	<table class="table table-bordered tabla-condensed table-hover">
 								<thead>
-									<tr class="info">
-										<th>Procedimiento</th>
-										<th>Cant.</th>
-										<th>Precio Unit.</th>
-										<th>Descuento</th>
-										<th>Subtotal</th>
+									<tr class="btn-success">
+										<th style="text-align: center">Procedimiento</th>
+										<th style="text-align: center">Cant.</th>
+										<th style="text-align: center">Precio Unit.</th>
+										<th style="text-align: center">Descuento</th>
+										<th style="text-align: center">Subtotal</th>
 									<tr>
 								</thead>`;
 	$.each(folios, function(index, val) {
@@ -621,16 +621,16 @@ function formatTratamientosDetalle (d) {
 
 	if (d[11]==1) { //CUOTAS
 		var pagos = jQuery.parseJSON(d[10]);
-		table += `<h4>Pagos Cuotas</h4>
+		table += `<h4><i class="fa fa-cc-visa" aria-hidden="true"></i> Pagos cuotas</h4>
 								<table class="table table-bordered tabla-condensed table-hover">
 									<thead>
-										<tr class="success">
+										<tr class="btn-danger">
 											<th></th>
-											<th>N° Cuota</th>
-											<th>Fecha Registro</th>
-											<th>Fecha Vencimiento</th>
-											<th>Monto</th>
-											<th>Comprobante</th>
+											<th style="text-align: center">N° Cuota</th>
+											<th style="text-align: center">Fecha Registro</th>
+											<th style="text-align: center">Fecha Vencimiento</th>
+											<th style="text-align: center">Monto</th>
+											<th style="text-align: center">Comprobante</th>
 											<th></th>
 										<tr>
 									</thead>`;
@@ -762,8 +762,8 @@ $('#TratamientoAgregarProcedimiento').click(function(event) {
 
 var TableTratamientoProcedimientosModal = $('#TableTratamientoProcedimientosModal').DataTable({
 	"language": {"url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"},
-	"iDisplayLength": 25,
-	"aLengthMenu": [[25, 50, 100], [25, 50, 100]],
+	"iDisplayLength": 10,
+	"aLengthMenu": [[10, 50, 100], [10, 50, 100]],
 	"aaSorting": [[0, 'asc']],
 	"columns": [
 		null,
@@ -1362,8 +1362,8 @@ $('#TableHistoriaMovimiento').DataTable({
 	"searching": false,
 	"processing": true,
 	"serverSide": true,
-	"iDisplayLength": 25,
-	"aLengthMenu": [[25, 50, 100, -1], [25, 50, 100, 'Todos']],
+	"iDisplayLength": 10,
+	"aLengthMenu": [[10,25, 50, 100, -1], [10,25, 50, 100, 'Todos']],
 	"aaSorting": [[1, 'desc']],
 	"ajax": {
 		"url": path+'historia/movimiento/jsonHistoriaClinica',
@@ -1377,6 +1377,7 @@ $('#TableHistoriaMovimiento').DataTable({
 	"columns": [
 		{"orderable":true},
 		{"orderable":true},
+		{"orderable":false},
 		{"orderable":false},
 		{"orderable":false},
 		{"orderable":false},
@@ -2900,6 +2901,266 @@ $('#TableMantenimientoMoneda tbody').on('click', '.anular', function(event) {
 		if (json.success) {
 				
 		 $('#TableMantenimientoMoneda').DataTable().ajax.reload();
+		}
+	});
+			}
+		})
+
+});
+
+/*========================================
+=            BANCO - LISTADO       =
+===========================================*/
+
+var TableMantenimientoBanco =  $('#TableMantenimientoBanco').DataTable({
+	"language": {
+		"url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
+	},
+	"searching": false,
+	"processing": true,
+	"serverSide": true,
+	"iDisplayLength": 25,
+	"aLengthMenu": [[25, 50, 100, -1], [25, 50, 100, 'Todos']],
+	"aaSorting": [[0, 'desc']],
+	"ajax": {
+		"url": path+'mantenimiento/banco/jsonBanco',
+		"type": "GET",
+		"data": function (d) {
+			d.banco = $("input[name=banco]").val();
+		
+		}
+	},
+	"columns": [
+		{"orderable":true},
+		{"orderable":true},
+		{"orderable":true},
+		{"orderable":false},
+		
+	]
+});
+
+$('#BancoFormBusqueda').validate({
+	submitHandler:function() {
+		$('#TableMantenimientoBanco').DataTable().ajax.reload();
+	}
+});
+
+/*==========================================
+		 BANCO - VALIDAR Y REGISTRAR
+===========================================*/
+
+$('#FormRegistrarBanco').validate({
+	ignore: [],
+	rules: {
+
+		descripcion:{required:true},
+		estado:{required:true},
+
+		
+	
+	},
+
+	submit:function(form){
+		form.submit();
+	}
+	
+});
+
+/*=========================================*/
+/*=====ANULAR BANCO===================*/
+
+$('#TableMantenimientoBanco tbody').on('click', '.anular', function(event) {
+	event.preventDefault();
+	let id = $(this).data('id');
+	Swal.fire({
+			title: "Confirmar",
+			type: "warning",
+			cancelButtonText:'No',
+			confirmButtonText:'Si',
+			showCancelButton: true,
+			confirmButtonColor: "#007AFF",
+			cancelButtonColor: "#d43f3a",
+			text: "¿Anular Tipo Moneda?"
+		}).then((result) => {
+			if (result.value) {
+				$.getJSON(path+'mantenimiento/banco/anular', {id}, function(json, textStatus) {
+		if (json.success) {
+				
+		 $('#TableMantenimientoBanco').DataTable().ajax.reload();
+		}
+	});
+			}
+		})
+
+});
+
+/*========================================
+=            TIPO TARJETA - LISTADO       =
+===========================================*/
+
+var TableMantenimientoTarjeta =  $('#TableMantenimientoTarjeta').DataTable({
+	"language": {
+		"url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
+	},
+	"searching": false,
+	"processing": true,
+	"serverSide": true,
+	"iDisplayLength": 25,
+	"aLengthMenu": [[25, 50, 100, -1], [25, 50, 100, 'Todos']],
+	"aaSorting": [[0, 'desc']],
+	"ajax": {
+		"url": path+'mantenimiento/tarjeta/jsonTarjeta',
+		"type": "GET",
+		"data": function (d) {
+			d.tipo_tarjeta = $("input[name=tipo_tarjeta]").val();
+		
+		}
+	},
+	"columns": [
+		{"orderable":true},
+		{"orderable":true},
+		{"orderable":true},
+		{"orderable":false},
+		
+	]
+});
+
+$('#TarjetaFormBusqueda').validate({
+	submitHandler:function() {
+		$('#TableMantenimientoTarjeta').DataTable().ajax.reload();
+	}
+});
+
+/*==========================================
+		 TIPO DE TARJETA - VALIDAR Y REGISTRAR
+===========================================*/
+
+$('#FormRegistrarTarjeta').validate({
+	ignore: [],
+	rules: {
+
+		descripcion:{required:true},
+		estado:{required:true},
+
+		
+	
+	},
+
+	submit:function(form){
+		form.submit();
+	}
+	
+});
+
+
+/*=========================================*/
+/*=====ANULAR TIPO DE TARJETA==============*/
+
+$('#TableMantenimientoTarjeta tbody').on('click', '.anular', function(event) {
+	event.preventDefault();
+	let id = $(this).data('id');
+	Swal.fire({
+			title: "Confirmar",
+			type: "warning",
+			cancelButtonText:'No',
+			confirmButtonText:'Si',
+			showCancelButton: true,
+			confirmButtonColor: "#007AFF",
+			cancelButtonColor: "#d43f3a",
+			text: "¿Anular Tipo de tarjeta?"
+		}).then((result) => {
+			if (result.value) {
+				$.getJSON(path+'mantenimiento/tarjeta/anular', {id}, function(json, textStatus) {
+		if (json.success) {
+				
+		 $('#TableMantenimientoTarjeta').DataTable().ajax.reload();
+		}
+	});
+			}
+		})
+
+});
+
+
+/*========================================
+=            ALERGIA - LISTADO       =
+===========================================*/
+
+var TableMantenimientoAlergia =  $('#TableMantenimientoAlergia').DataTable({
+	"language": {
+		"url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
+	},
+	"searching": false,
+	"processing": true,
+	"serverSide": true,
+	"iDisplayLength": 25,
+	"aLengthMenu": [[25, 50, 100, -1], [25, 50, 100, 'Todos']],
+	"aaSorting": [[0, 'desc']],
+	"ajax": {
+		"url": path+'mantenimiento/alergia/jsonAlergia',
+		"type": "GET",
+		"data": function (d) {
+			d.alergia = $("input[name=alergia]").val();
+		
+		}
+	},
+	"columns": [
+		{"orderable":true},
+		{"orderable":true},
+		{"orderable":false},
+		
+	]
+});
+
+$('#AlergiaFormBusqueda').validate({
+	submitHandler:function() {
+		$('#TableMantenimientoAlergia').DataTable().ajax.reload();
+	}
+});
+
+/*==========================================
+		 ALERGIA - VALIDAR Y REGISTRAR
+===========================================*/
+
+$('#FormRegistrarAlergia').validate({
+	ignore: [],
+	rules: {
+
+		descripcion:{required:true},
+		estado:{required:true},
+
+		
+	
+	},
+
+	submit:function(form){
+		form.submit();
+	}
+	
+});
+
+
+/*=========================================*/
+/*=====ANULAR ALERGIA======================*/
+
+$('#TableMantenimientoAlergia tbody').on('click', '.anular', function(event) {
+	event.preventDefault();
+	let id = $(this).data('id');
+	Swal.fire({
+			title: "Confirmar",
+			type: "warning",
+			cancelButtonText:'No',
+			confirmButtonText:'Si',
+			showCancelButton: true,
+			confirmButtonColor: "#007AFF",
+			cancelButtonColor: "#d43f3a",
+			text: "¿Anular Alergia?"
+		}).then((result) => {
+			if (result.value) {
+				$.getJSON(path+'mantenimiento/alergia/anular', {id}, function(json, textStatus) {
+		if (json.success) {
+				
+		 $('#TableMantenimientoAlergia').DataTable().ajax.reload();
 		}
 	});
 			}

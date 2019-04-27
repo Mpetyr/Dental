@@ -2,7 +2,7 @@
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
   <section class="content-header">
-    <h1>Citas<!-- <small>Registrar</small> --></h1>
+    <h1>Citas</h1>
   </section>
   <!-- Main content -->
   <section class="content">
@@ -10,7 +10,7 @@
       <div class="col-md-12">
         <div class="box">
           <div class="box-header">
-            <h3 class="box-title">Registrar MODIFICADO</h3>
+
           </div>
           <!-- /.box-header -->
           <div class="box-body">
@@ -27,12 +27,12 @@
                         </div>
                       </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-5">
                       <div class="row">
                         <div class="col-md-12">
                           <div class="form-group">
                             <label class="control-label">Especialidad</label>
-                            <select name="especialidad" class="form-control">
+                            <select name="especialidad" class="form-control input-sm">
                               <option value="">Seleccione</option>
                               <?php foreach ($especialidad as $e): ?>
                               <option value="<?= $e->cod_especialidad ?>"><?= $e->nombre_especialidad ?></option>
@@ -45,7 +45,7 @@
                         <div class="col-md-12">
                           <div class="form-group">
                             <label class="control-label">Médico</label>
-                            <select name="medico" class="form-control">
+                            <select name="medico" class="form-control input-sm">
                             </select>
                           </div>
                         </div>
@@ -59,8 +59,8 @@
                   </div>
                 </div>
                 <div class="col-md-4" id="totales">
-                  <label style="margin-top:50px;font-size: 16px" class="control-label">Total Ocupados: <span id="total-ocupados"></span></label> <br>
-                  <label style="font-size: 16px" class="control-label">Total Disponibles: <span id="total-disponibles"></span></label>
+                  <label style="margin-top:50px;font-size: 14px" class="control-label">Total Ocupados: <span id="total-ocupados"></span></label> <br>
+                  <label style="font-size: 14px" class="control-label">Total Disponibles: <span id="total-disponibles"></span></label>
                 </div>
                 
               </div>
@@ -77,19 +77,19 @@
             <div class="row">
               <div class="col-md-12">
                 <div class="table-responsive">
-                  <table id="HorariosCita" class="table table-bordered table-condensed table-hover">
+                  <table id="HorariosCita" class="table table-bordered">
                     <thead>
                       <input type="hidden" name="busquedaEspecialidad">
                       <input type="hidden" name="busquedaMedico">
                       <input type="hidden" name="busquedaMedicoNombre">
                       <input type="hidden" name="busquedaFecha">
-                      <tr class="info">
-                        <th>Hora</th>
-                        <th>Historia</th>
-                        <th>Paciente</th>
-                        <th>Secuencia</th>
-                        <th>Observación</th>
-                        <th>Estado</th>
+                      <tr class="btn-primary">
+                        <th style="text-align: center">Hora</th>
+                        <th style="text-align: center">Historia</th>
+                        <th style="text-align: center">Paciente</th>
+                        <th style="text-align: center">Secuencia</th>
+                        <th style="text-align: center">Observación</th>
+                        <th style="text-align: center">Estado</th>
                         <th></th>
                       </tr>
                     </thead>
