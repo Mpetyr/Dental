@@ -2,3 +2,6 @@ system/cache/
 
 assets/pdfs/tratamientos/*
 !assets/pdfs/tratamientos/*.txt
+
+assets/uploads/placas/*
+!assets/uploads/placas/*.txt

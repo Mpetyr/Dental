@@ -1,36 +1,38 @@
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
-  <section class="content-header">
+    <section class="content-header">
     <h1>Tratamientos</h1>
+      <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-dashboard"></i> Modulo</a></li>
+      <li><a href="#">tratamiento</a></li>
+      <li class="active">editar</li>
+    </ol>
   </section>
+
   <!-- Main content -->
   <section class="content">
     <div class="row">
       <div class="col-md-12">
-        <div class="box">
-          <div class="box-header">
-            <h3 class="box-title">NUEVO PLAN DE TRATAMIENTO</h3>
-          </div>
+        <div class="box box-info">
+           <form id="TratamientosFormNuevo" autocomplete="off" method="POST" action="<?= base_url('tratamientos/panel/editarGuardarTratamiento') ?>">
+             <ol class="breadcrumb">
+                     
+                      <li><a href="<?= base_url('tratamientos/panel') ?>"><i class="fa fa-hand-o-left"></i> Regresar</a></li>
+                     
+                  </ol>
           <!-- /.box-header -->
           <div class="box-body">
-            <div class="row">
-              <div class="col-md-12">
-                <div class="form-group">
-                  <a href="<?= base_url('tratamientos/panel') ?>" class="btn btn-md btn-info btn-fill">
-                    <i class="fa fa-long-arrow-left"></i>
-                    Volver
-                  </a>
-                </div>
-              </div>
-            </div>
-            <form id="TratamientosFormNuevo" autocomplete="off" method="POST" action="<?= base_url('tratamientos/panel/editarGuardarTratamiento') ?>">
+
+   
+           <div class="box box-default box-solid box-default ">
+                <div class="box-body">
               <input type="hidden" name="id_tratamiento" value="<?= $tratamiento->codi_tra ?>">
               <div class="row">
                 <div class="col-md-2">
                   <div class="form-group">
                     <label class="control-label">Fecha</label>
-                    <input type="text" class="form-control" value="<?= date('Y-m-d') ?>" disabled>
+                    <input type="text" class="form-control input-sm" value="<?= date('Y-m-d') ?>" disabled>
                   </div>
                 </div>
               </div>
@@ -38,7 +40,7 @@
                 <div class="col-md-4">
                   <div class="form-group">
                     <label class="control-label">Especialidad</label>
-                    <select name="especialidad" class="form-control">
+                    <select name="especialidad" class="form-control input-sm">
                       <option value="">Seleccione</option>
                       <?php foreach ($especialidades as $e): ?>
                       <option 
@@ -54,7 +56,7 @@
                 <div class="col-md-4">
                   <div class="form-group">
                     <label class="control-label">Médico</label>
-                    <select name="medico" class="form-control">
+                    <select name="medico" class="form-control input-sm">
                       <option value="">Seleccione</option>
                       <?php foreach ($medicos as $m): ?>
                       <option 
@@ -73,7 +75,7 @@
                 <div class="col-md-4">
                   <div class="form-group">
                     <label class="control-label">Paciente</label>
-                    <select name="paciente" class="form-control">
+                    <select name="paciente" class="form-control input-sm">
                       <option value="">Seleccione</option>
                       <?php foreach ($pacientes as $p): ?>
                       <option 
@@ -88,28 +90,35 @@
                 <div class="col-md-4">
                   <div class="form-group">
                     <label class="control-label">Asunto</label>
-                    <input type="text" name="asunto" class="form-control" placeholder="Asunto" value="<?= $tratamiento->asunto_tra ?>">
+                    <input type="text" name="asunto" class="form-control input-sm" placeholder="Asunto" value="<?= $tratamiento->asunto_tra ?>">
                   </div>
                 </div>
                 <div class="col-md-4">
                   <div class="form-group">
                     <label class="control-label">Obsevación</label>
-                    <input type="text" name="observacion" class="form-control" placeholder="Observación" value="<?= $tratamiento->observacion_tra ?>">
+                    <input type="text" name="observacion" class="form-control input-sm" placeholder="Observación" value="<?= $tratamiento->observacion_tra ?>">
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
               <hr>
-              <h4>Procedimientos</h4>
+   
               <div class="row">
+                
+                <div class="table-responsive">
                 <div class="col-md-12">
                   <div class="form-group">
-                    <button type="button" class="pull-right btn btn-md btn-info" id="TratamientoAgregarProcedimiento"><i class="fa fa-plus"></i> Agregar</button>
+                    <button type="button" class="pull-left btn btn-md btn-success" id="TratamientoAgregarProcedimiento"><i class="fa fa-plus"></i> Agregar</button>
                   </div>
                 </div>
+                <hr>
                 <div class="col-md-12">
+                   <div class="box box-default box-solid box-default ">
+                <div class="box-body">
                   <table id="TableTratamientoProcedimiento" class="table table-bordered">
                     <thead>
-                      <tr>
+                      <tr class="btn-primary">
                         <th>Código</th>
                         <th>Nombre</th>
                         <th width="100">Cantidad</th>
@@ -145,12 +154,17 @@
                     </tfoot>
                   </table>
                 </div>
-                <div class="col-md-12">
-                  <button type="submit" class="btn btn-success btn-md btn-fill"><i class="fa fa-save"></i> Guardar</button>
-                </div>
               </div>
-            </form>
+                </div>
+                <div class="col-md-12">
+                  <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-save"></i> Guardar</button>
+                </div>
+
+
+              </div>
           </div>
+          </div>
+            </form>
           <!-- /.box-body -->
         </div>
         <!-- /.box -->

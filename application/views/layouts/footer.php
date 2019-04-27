@@ -45,9 +45,7 @@
 <!-- DataTables -->
 
 <script src="<?php echo base_url();?>assets/template/datatables/js/jquery.dataTables.min.js"></script>
-<!-- <script src="<?php echo base_url();?>assets/template/datatables.net/js/jquery.dataTables.min.js"></script> -->
-<!-- <script src="<?php echo base_url();?>assets/template/datatables.net/js/jquery.dataTables.js"></script>
-<script src="<?php echo base_url();?>assets/template/datatables.net-bs/js/dataTables.bootstrap.js"></script> -->
+
 <script src="<?php echo base_url();?>assets/template/datatables/js/dataTables.bootstrap.js"></script>
 
 <script src="<?php echo base_url();?>assets/template/bootstrap/js/bootstrap-datepicker.min.js"></script>
@@ -61,13 +59,7 @@
 <script src="<?= base_url() ?>assets/plugins/timepicker/bootstrap-timepicker.min.js"></script>
 <script src="<?php echo base_url();?>assets/template/bootstrap/js/app.min.js" type="text/javascript"></script>
 
-<!-- <script src="<?php echo base_url();?>assets/template/dataTables-export/js/dataTables.buttons.min.js"></script>
-<script src="<?php echo base_url();?>assets/template/dataTables-export/js/buttons.flash.min.js"></script>
-<script src="<?php echo base_url();?>assets/template/datatables-export/js/jszip.min.js"></script>
-<script src="<?php echo base_url();?>assets/template/datatables-export/js/pdfmake.min.js"></script>
-<script src="<?php echo base_url();?>assets/template/datatables-export/js/vfs_fonts.js"></script>
-<script src="<?php echo base_url();?>assets/template/datatables-export/js/buttons.html5.min.js"></script>
-<script src="<?php echo base_url();?>assets/template/datatables-export/js/buttons.print.min.js"></script> -->
+
 
 
 <script src="<?= base_url();?>assets/plugins/select2/select2.full.min.js"></script>
@@ -79,6 +71,8 @@
 
 <script src="<?= base_url();?>assets/plugins/input-mask/jquery.inputmask.bundle.js"></script>
 <script src="<?= base_url();?>assets/plugins/input-mask/jquery.mask.min.js"></script>
+
+<script src="<?= base_url();?>assets/pekebyte/js/pekeUpload.js"></script>
 
 <script src="<?= base_url();?>assets/main.js?v=<?= time() ?>"></script>
 

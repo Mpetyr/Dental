@@ -70,6 +70,7 @@
             <div class="row">
                   <div class="col-md-2">
                     <div class="form-group">
+                   
                       <label class="col-form-label">Codigo *</label>
                       <input type="text" name="codigo" class="form-control" value="<?php echo $medicos->codi_med;?>">
                     </div>

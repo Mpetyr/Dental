@@ -1,86 +1,85 @@
-<!-- Content Wrapper. Contains page content -->
+
 <div class="content-wrapper">
-  <!-- Content Header (Page header) -->
-  <section class="content-header">
-    <h1>Tratamientos</h1>
-  </section>
-  <!-- Main content -->
+
   <section class="content">
     <div class="row">
       <div class="col-md-12">
         <div class="box">
-          <div class="box-header">
-            <h3 class="box-title">Listado</h3>
+          <div class="box-header box-form-header">
+            <h3 class="box-title">Listado de Tratamientos</h3>
+
+
           </div>
           <!-- /.box-header -->
           <div class="box-body">
-            <div class="row">
-              <div class="col-md-6">
-                <label class="control-label">Busqueda por fecha</label>
-              </div>
-            </div>
+            <div class="box box-default box-solid box-default ">
+                <div class="box-body">
             <form id="TratamientosFormBusqueda" target="_blank" action="<?= base_url('tratamientos/panel/imprimirListadoTratamientos') ?>" autocomplete="off" method="off">
               <div class="row">
                 <div class="col-md-2">
+                   
                   <div class="form-group">
                     <label class="control-label">Desde</label>
-                    <input type="text" name="desde" class="form-control datepicker" value="<?= date('Y-m-d') ?>">
+                    <input  name="desde" class="form-control input-sm datepicker text-box single-line" value="<?= date('Y-m-d') ?>">
                   </div>
                 </div>
                 <div class="col-md-2">
                   <div class="form-group">
                     <label class="control-label">Hasta</label>
-                    <input type="text" name="hasta" class="form-control datepicker" value="<?= date('Y-m-d') ?>">
+                    <input  name="hasta" class="form-control input-sm datepicker text-box single-line" value="<?= date('Y-m-d') ?>">
                   </div>
                 </div>
                 <div class="col-md-2">
                   <div class="form-group">
                     <label class="control-label">Estado</label>
-                    <select name="estado" class="form-control">
+                    <select name="estado" class="form-control input-sm">
                       <option value="Activo">Activo</option>
                       <option value="Anulado">Anulado</option>
                     </select>
                   </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                   <div class="form-group">
                     <label class="control-label">Busqueda por Paciente</label>
-                    <input type="text" name="paciente" class="form-control">
+                    <input type="text" name="paciente" class="form-control input-sm">
                   </div>
                 </div>
                 <div class="col-md-2">
-                  <button type="submit" style="margin-top:24px" class="btn btn-success btn-md"><i class="fa fa-search"></i> Buscar</button>
+                  <button type="submit" style="margin-top:24px" class="btn btn-primary btn-sm"><i class="fa fa-search"></i> Buscar</button>
+
                 </div>
+
               </div>
+
             </form>
+          </div>
+        </div>
             <div class="row">
               <div class="col-md-12">
                 <div class="form-group">
-                  <a target="_blank" id="TratamientosImprimirLista" class="btn btn-info btn-md"><i class="fa fa-print"></i> Imprimir Lista</a>
-                  <a href="<?= base_url('tratamientos/panel/nuevo') ?>" class="btn btn-info btn-md right">Agregar Tratamiento</a>
+                  <a target="_blank" id="TratamientosImprimirLista" class="btn btn-primary btn-sm"><i class="fa fa-print"></i> Imprimir Lista</a>
+                  <a href="<?= base_url('tratamientos/panel/nuevo') ?>" class="btn btn-success btn-sm right"><i class="fa fa-plus" aria-hidden="true"></i> Agregar Tratamiento</a>
                 </div>
               </div>
             </div>
             <div class="row">
               <div class="col-md-12">
-                <div class="">
-                  <table id="TableTratamientosPanel" class="table table-bordered table-condensed table-hover">
+                <div class="table-responsive">
+                  <table id="TableTratamientosPanel" class="table table-bordered table-striped table-hover">
                     <thead>
-                      <tr>
+                      <tr class="btn-primary btn-xs">
                         <th></th>
-                        <th>Secuencia</th>
-                        <th>Paciente</th>
-                        <th>Asunto</th>
-                        <th>Fecha</th>
-                        <th>Total</th>
-                        <th>Cond. Pago</th>
-                        <th>Estado</th>
-                        <th></th>
+                        <th style="text-align: center">Secuencia</th>
+                        <th style="text-align: center">Paciente</th>
+                        <th style="text-align: center">Asunto</th>
+                        <th style="text-align: center">Fecha</th>
+                        <th style="text-align: center">Total</th>
+                        <th style="text-align: center">Pago</th>
+                        <th style="text-align: center">Estado</th>
+                        <th style="text-align: center">Opciones</th>
                       </tr>
                     </thead>
-                    <tbody>
-                      
-                    </tbody>
+                
                   </table>
                 </div>
               </div>

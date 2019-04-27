@@ -12,53 +12,47 @@
       <div role="tabpanel" class="tab-pane active" id="enfermedad">
         <form id="FormHistoriaMovimientoPacienteEnfermedad" action="<?= base_url('historia/movimiento/guardarPacienteEnfermedad') ?>" method="post">
           <input type="hidden" name="paciente" value="<?= $this->uri->segment(4) ?>">
+         
           <div class="row">
             <div class="col-md-12">
-              <div class="form-group pull-right">
-                <button type="submit" class="btn btn-info">Guardar</button>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-4">
               <div class="form-group">
-                <label class="control-label">Tiempo de enfermedad</label>
-                <input type="text" name="tiempoEnfermedad" class="form-control" value="<?= $enfermedad->tiempo_enfact ?>">
+                <label class="control-label">Tiempo de enfermedad:</label>
+                <input type="text" name="tiempoEnfermedad" class="form-control input-sm" value="<?= $enfermedad->tiempo_enfact ?>">
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
-                <label class="control-label">Motivo de la consulta</label>
-                <textarea name="motivoConsulta" class="form-control" rows="5"><?= $enfermedad->motivo_enfact ?></textarea>
+                <label class="control-label">Motivo de la consulta:</label>
+                <textarea name="motivoConsulta" class="form-control input-sm" rows="3"><?= $enfermedad->motivo_enfact ?></textarea>
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <label class="control-label">Signos y sintomas principales</label>
-                <textarea name="signosSintomas" class="form-control" rows="5"><?= $enfermedad->signo_enfact ?></textarea>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <label class="control-label">Antecedentes personales</label>
-                <textarea name="antecedentesPersonales" class="form-control" rows="5"><?= $enfermedad->antecper_enfact ?></textarea>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <label class="control-label">Antecedentes Familiares</label>
-                <textarea name="antecedentesFamiliares" class="form-control" rows="5"><?= $enfermedad->antecfam_enfact ?></textarea>
+                <label class="control-label">Signos y sintomas principales:</label>
+                <textarea name="signosSintomas" class="form-control input-sm" rows="3"><?= $enfermedad->signo_enfact ?></textarea>
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
-                <label class="control-label">Esta tomando algun medicamento</label>
+                <label class="control-label">Antecedentes personales:</label>
+                <textarea name="antecedentesPersonales" class="form-control input-sm" rows="3"><?= $enfermedad->antecper_enfact ?></textarea>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="control-label">Antecedentes Familiares:</label>
+                <textarea name="antecedentesFamiliares" class="form-control input-sm" rows="3"><?= $enfermedad->antecfam_enfact ?></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="control-label">Esta tomando algun medicamento:</label>
                 <div>
                   <label class="radio-inline">
                     <input type="radio" name="tomandoMedicamento" value="1" <?= ($enfermedad->medicam_enfact=='1')?'checked':'' ?>> Si
@@ -71,22 +65,30 @@
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <label class="control-label">Nombre del medicamento</label>
-                <input type="text" name="nombreMedicamento" class="form-control" value="<?= $enfermedad->nommedicam_enfact ?>">
+                <label class="control-label">Nombre del medicamento:</label>
+                <input type="text" name="nombreMedicamento" class="form-control input-sm" value="<?= $enfermedad->nommedicam_enfact ?>">
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
-                <label class="control-label">Motivo de uso</label>
-                <input type="text" name="motivoUso" class="form-control" value="<?= $enfermedad->motivomedi_enfact ?>">
+                <label class="control-label">Motivo de uso:</label>
+                <input type="text" name="motivoUso" class="form-control input-sm" value="<?= $enfermedad->motivomedi_enfact ?>">
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <label class="control-label">Dosis</label>
-                <input type="text" name="dosis" class="form-control" value="<?= $enfermedad->dosis_enfact ?>">
+                <label class="control-label">Dosis:</label>
+                <input type="text" name="dosis" class="form-control input-sm" value="<?= $enfermedad->dosis_enfact ?>">
+              </div>
+            </div>
+          </div>
+
+           <div class="row">
+            <div class="col-md-12">
+              <div class="form-group pull-right">
+                <button type="submit" class="btn btn-info">Guardar</button>
               </div>
             </div>
           </div>
@@ -95,13 +97,7 @@
       <div role="tabpanel" class="tab-pane" id="consulta">
         <form id="FormHistoriaMovimientoPacienteConsulta" action="<?= base_url('historia/movimiento/guardarPacienteConsulta') ?>" method="post">
           <input type="hidden" name="paciente" value="<?= $this->uri->segment(4) ?>">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="form-group pull-right">
-                <button type="submit" class="btn btn-info">Guardar</button>
-              </div>
-            </div>
-          </div>
+        
           <div class="row">
             <div class="col-md-12">
               <label class="control-label">¿Ha tenido alguna vez tratamiento de ortodoncia?</label>
@@ -118,7 +114,7 @@
             </div>
             <div class="col-md-9">
               <div class="form-group">
-                <textarea name="algunaVezMedicamentoTexto" class="form-control" rows="2"><?= $consulta->ortodtexto_paccon ?></textarea>
+                <textarea name="algunaVezMedicamentoTexto" class="form-control" rows="2" <?= ($consulta->ortod_paccon=='0' OR $consulta->ortod_paccon=='')?'disabled':'' ?>><?= $consulta->ortodtexto_paccon ?></textarea>
               </div>
             </div>
           </div>
@@ -138,7 +134,7 @@
             </div>
             <div class="col-md-9">
               <div class="form-group">
-                <textarea name="tomandoMedicamentoTexto" class="form-control" rows="2"><?= $consulta->medictexto_paccon ?></textarea>
+                <textarea name="tomandoMedicamentoTexto" class="form-control" rows="2" <?= ($consulta->medic_paccon=='0' OR $consulta->medic_paccon=='')?'disabled':'' ?>><?= $consulta->medictexto_paccon ?></textarea>
               </div>
             </div>
           </div>
@@ -158,7 +154,9 @@
             </div>
             <div class="col-md-9">
               <div class="form-group">
-                <textarea name="alergicoAnestesicoTexto" class="form-control" rows="2"><?= $consulta->alergicotexto_paccon ?></textarea>
+                <textarea name="alergicoAnestesicoTexto" class="form-control" rows="2"
+                   <?= ($consulta->alergico_paccon=='0' OR $consulta->alergico_paccon=='')?'disabled':'' ?>
+                ><?= $consulta->alergicotexto_paccon ?></textarea>
               </div>
             </div>
           </div>
@@ -178,7 +176,9 @@
             </div>
             <div class="col-md-9">
               <div class="form-group">
-                <textarea name="hospitalizadoCirugiaTexto" class="form-control" rows="2"><?= $consulta->hosptexto_paccon ?></textarea>
+                <textarea name="hospitalizadoCirugiaTexto" class="form-control" rows="2"
+                 <?= ($consulta->hosp_paccon=='0' OR $consulta->hosp_paccon=='')?'disabled':'' ?>
+                ><?= $consulta->hosptexto_paccon ?></textarea>
               </div>
             </div>
           </div>
@@ -198,7 +198,9 @@
             </div>
             <div class="col-md-9">
               <div class="form-group">
-                <textarea name="transtornoNerviosoEmocionalTexto" class="form-control" rows="2"><?= $consulta->transtexto_paccon ?></textarea>
+                <textarea name="transtornoNerviosoEmocionalTexto" class="form-control" rows="2"
+                  <?= ($consulta->trans_paccon=='0' OR $consulta->trans_paccon=='')?'disabled':'' ?>
+                ><?= $consulta->transtexto_paccon ?></textarea>
               </div>
             </div>
           </div>
@@ -228,13 +230,16 @@
                   <label class="radio-inline">
                     <input type="radio" name="padeceEnfermedad" value="Tuberculosis" <?= ($consulta->padece_paccon=='Tuberculosis')?'checked':'' ?>>Tuberculosis
                   </label>
+                      </div>
+
+
                   <label class="radio-inline">
                     <input type="radio" name="padeceEnfermedad" value="Diabetes" <?= ($consulta->padece_paccon=='Diabetes')?'checked':'' ?>>Diabetes
                   </label>
                   <label class="radio-inline">
                     <input type="radio" name="padeceEnfermedad" value="Otras" <?= ($consulta->padece_paccon=='Otras')?'checked':'' ?>>Otras
                   </label>
-                </div>
+            
               </div>
             </div>
           </div>
@@ -254,7 +259,9 @@
             </div>
             <div class="col-md-9">
               <div class="form-group">
-                <textarea name="cepillaDientesTexto" class="form-control" rows="2"><?= $consulta->cepillatexto_paccon ?></textarea>
+                <textarea name="cepillaDientesTexto" class="form-control" rows="2" 
+                  <?= ($consulta->cepilla_paccon=='0' OR $consulta->cepilla_paccon=='')?'disabled':'' ?>
+                ><?= $consulta->cepillatexto_paccon ?></textarea>
               </div>
             </div>
           </div>
@@ -272,9 +279,20 @@
                 </label>
               </div>
             </div>
+
+
             <div class="col-md-9">
               <div class="form-group">
-                <textarea name="presionArterialTexto" class="form-control" rows="2"><?= $consulta->presiontexto_paccon ?></textarea>
+                <textarea name="presionArterialTexto" class="form-control" rows="2"
+                <?= ($consulta->presion_paccon=='0' OR $consulta->presion_paccon=='')?'disabled':'' ?>
+                ><?= $consulta->presiontexto_paccon ?></textarea>
+              </div>
+            </div>
+          </div>
+            <div class="row">
+            <div class="col-md-12">
+              <div class="form-group pull-right">
+                <button type="submit" class="btn btn-info">Guardar</button>
               </div>
             </div>
           </div>
@@ -283,62 +301,140 @@
       <div role="tabpanel" class="tab-pane" id="exploracion">
         <form id="FormHistoriaMovimientoPacienteExploracion" action="<?= base_url('historia/movimiento/guardarPacienteExploracion') ?>" method="post">
           <input type="hidden" name="paciente" value="<?= $this->uri->segment(4) ?>">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="form-group pull-right">
-                <button type="submit" class="btn btn-info">Guardar</button>
+          
+               <div class="col-md-14">
+          <div class="box box-default box-solid">
+            <div class="box-header with-border">
+              <h6 class="box-title">Funciones Vitales</h6>
+
+              <div class="box-tools pull-right">
+               
               </div>
+              <!-- /.box-tools -->
             </div>
-          </div>
-          <div class="row">
-            <div class="col-md-3">
+            <!-- /.box-header -->
+            <div class="box-body">
+                  <div class="row">
+            <div class="col-md-2">
               <div class="form-group">
                 <label class="control-label">P.A</label>
-                <input type="text" name="PA" class="form-control" value="<?= $exploracion->pa_exp ?>">
+                <input type="text" name="PA" class="form-control input-sm" value="<?= $exploracion->pa_exp ?>">
               </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
               <div class="form-group">
                 <label class="control-label">Pulso</label>
-                <input type="text" name="pulso" class="form-control" value="<?= $exploracion->pulso_exp ?>">
+                <input type="text" name="pulso" class="form-control input-sm" value="<?= $exploracion->pulso_exp ?>">
               </div>
             </div>
             <div class="col-md-3">
               <div class="form-group">
                 <label class="control-label">Temperatura</label>
-                <input type="text" name="temperatura" class="form-control" value="<?= $exploracion->temperat_exp ?>">
+                <input type="text" name="temperatura" class="form-control input-sm" value="<?= $exploracion->temperat_exp ?>">
               </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
               <div class="form-group">
                 <label class="control-label">F.C</label>
-                <input type="text" name="FC" class="form-control" value="<?= $exploracion->fc_exp ?>">
+                <input type="text" name="FC" class="form-control input-sm" value="<?= $exploracion->fc_exp ?>">
               </div>
             </div>
             <div class="col-md-3">
               <div class="form-group">
                 <label class="control-label">Frec. Resp.</label>
-                <input type="text" name="frecRep" class="form-control" value="<?= $exploracion->frec_exp ?>">
+                <input type="text" name="frecRep" class="form-control input-sm" value="<?= $exploracion->frec_exp ?>">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label class="control-label">Peso</label>
+                <input type="text" name="peso" class="form-control" value="<?= $exploracion->peso_exp ?>">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label class="control-label">Talla</label>
+                <input type="text" name="talla" class="form-control" value="<?= $exploracion->talla_exp ?>">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label class="control-label">Masa</label>
+                <input type="text" name="masa" class="form-control" value="<?= $exploracion->masa_exp ?>">
               </div>
             </div>
           </div>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+
+                  <div class="col-md-14">
+          <div class="box box-default box-solid">
+            <div class="box-header with-border">
+              <h6 class="box-title">Peso - Talla</h6>
+
+              <div class="box-tools pull-right">
+               
+              </div>
+              <!-- /.box-tools -->
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                  <div class="row">
+            <div class="col-md-3">
+              <div class="form-group">
+                <label class="control-label">Peso:</label>
+                <input type="text" name="PA" class="form-control input-sm" value="<?= $exploracion->pa_exp ?>">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label class="control-label">Talla:</label>
+                <input type="text" name="pulso" class="form-control input-sm" value="<?= $exploracion->pulso_exp ?>">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="control-label">Indice Masa Corporal</label>
+                <input type="text" name="temperatura" class="form-control input-sm" value="<?= $exploracion->temperat_exp ?>">
+              </div>
+            </div>
+           
+          
+          </div>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+      
           <div class="row">
             <div class="col-md-12">
               <div class="form-group">
                 <label class="control-label">Examen clínico general</label>
-                <textarea name="examenClinicoGeneral" class="form-control" rows="4"><?= $exploracion->clinico_exp ?></textarea>
+                <textarea name="examenClinicoGeneral" class="form-control input-sm" rows="3"><?= $exploracion->clinico_exp ?></textarea>
               </div>
             </div>
             <div class="col-md-12">
               <div class="form-group">
                 <label class="control-label">Examen complementario</label>
-                <textarea name="examenComplementario" class="form-control" rows="4"><?= $exploracion->complement_exp ?></textarea>
+                <textarea name="examenComplementario" class="form-control input-sm" rows="3"><?= $exploracion->complement_exp ?></textarea>
               </div>
             </div>
             <div class="col-md-12">
               <div class="form-group">
                 <label class="control-label">Odontoestomatologico</label>
-                <textarea name="odontoestomatologico" class="form-control" rows="4"><?= $exploracion->odontoesto_exp ?></textarea>
+                <textarea name="odontoestomatologico" class="form-control input-sm" rows="3"><?= $exploracion->odontoesto_exp ?></textarea>
+              </div>
+            </div>
+          </div>
+
+             <div class="row">
+            <div class="col-md-12">
+              <div class="form-group pull-right">
+                <button type="submit" class="btn btn-info">Guardar</button>
               </div>
             </div>
           </div>
@@ -400,7 +496,48 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label class="control-label">Observación</label>
-                <input type="text" name="observacion" class="form-control">
+                <textarea name="observacion" class="form-control" rows="4"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Cancelar</button>
+          <button type="submit" class="btn btn-info"><i class="fa fa-save"></i> Guardar</button>
+        </div>
+      </form>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<div id="ModalEditarAlergia" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-md" role="document">
+    <div class="modal-content ">
+      <form id="FormHistoriaMovimientoEditarAlergia" action="<?= base_url('historia/movimiento/editarAlergia') ?>" method="post" autocomplete="off">
+        <input type="hidden" name="paciente" value="<?= $this->uri->segment(4) ?>">
+        <input type="hidden" name="id">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Editar Alergia</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="control-label">Alergia</label>
+                <select name="alergia" class="form-control">
+                  <option value=""></option>
+                  <?php foreach ($alergias as $a): ?>
+                  <option value="<?= $a->cod_ale ?>"><?= $a->nombre_ale ?></option>
+                  <?php endforeach ?>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="control-label">Observación</label>
+                <textarea name="observacion" class="form-control" rows="4"></textarea>
               </div>
             </div>
           </div>

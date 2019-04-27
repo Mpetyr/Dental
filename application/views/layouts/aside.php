@@ -57,6 +57,7 @@
                             <li><a href="<?php echo base_url();?>mantenimiento/categoria"><i class="fa fa fa-diamond"></i>Categoria</a></li>
                             <li><a href="<?php echo base_url();?>mantenimiento/especialidad"><i class="fa fa-plus-square"></i>Especialidad</a></li>
                                  <li><a href="<?php echo base_url();?>mantenimiento/citado"><i class="fa fa-stethoscope"></i>Tipo citado</a></li>
+                            <li><a href="<?php echo base_url();?>mantenimiento/alergia"><i class="fa fa-stethoscope"></i>Alergia</a></li>
                              </ul>
                             </li> 
 
@@ -147,7 +148,7 @@
                         </a>
                         <ul class="treeview-menu">
                             <li><a href="<?= base_url('historia/movimiento')?>"><i class="fa fa-circle-o"></i>Movimiento</a></li>
-                            <li><a href="../../index.html"><i class="fa fa-circle-o"></i>Kardex</a></li>
+                            <li><a href="<?php echo base_url();?>historia/movimiento"><i class="fa fa-circle-o"></i>Kardex</a></li>
                         </ul>
                     </li>
 
