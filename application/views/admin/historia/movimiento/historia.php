@@ -20,6 +20,8 @@
                   <?php
                     $this->load->view('admin/historia/movimiento/datos_paciente');
                     $this->load->view('admin/historia/movimiento/exploracion_fisica');
+                    $this->load->view('admin/historia/movimiento/receta');
+                    $this->load->view('admin/historia/movimiento/placas');
                   ?>
                 </div>
               </div>
@@ -30,14 +32,14 @@
                   <h5><?= $paciente->nomb_pac.' '.$paciente->apel_pac ?></h5>
                 </div>
                 <div id="HistoriaMenu" class="list-group">
-                  <a href="#" data-id="HistoriaContenidoDatosPaciente" class="list-group-item active">Datos paciente</a>
+                  <a href="#" data-id="HistoriaContenidoDatosPaciente" class="list-group-item">Datos paciente</a>
                   <a href="#" data-id="HistoriaContenidoExploracionFisica" class="list-group-item">Exploración física paciente</a>
                   <a href="#" class="list-group-item">Odontograma</a>
                   <a href="#" class="list-group-item">Diagnostico</a>
                   <a href="#" class="list-group-item">Evolución</a>
-                  <a href="#" class="list-group-item">Examenes Auxiliares - Placas</a>
+                  <a href="#" data-id="HistoriaContenidoPlacas" class="list-group-item active">Examenes Auxiliares - Placas</a>
                   <a href="#" class="list-group-item">Tratamientos realizados</a>
-                  <a href="#" class="list-group-item">Receta</a>
+                  <a href="#" data-id="HistoriaContenidoReceta" class="list-group-item">Receta</a>
                   <a href="#" class="list-group-item">Citas</a>
                 </div>
               </div>

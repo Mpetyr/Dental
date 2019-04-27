@@ -93,6 +93,7 @@ define('TRATAMIENTO_ANULADO', 2);
 define('POR_COBRAR', 1);
 define('PROCESO', 2);
 define('COBRADO', 3);
+define('ANULADO', 4);
 
 //TIPO PAGO
 define('CUOTAS', 1);

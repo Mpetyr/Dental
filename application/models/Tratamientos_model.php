@@ -59,6 +59,8 @@ class Tratamientos_model extends CI_Model {
 				$estado = '<label class="label label-info">Proceso</label>';
 			}elseif($q->estadopago_tra==COBRADO){
 				$estado = '<label class="label label-success">Cobrado</label>';
+			}elseif($q->estadopago_tra==ANULADO){
+				$estado = '<label class="label label-danger">Anulado</label>';
 			}
 
 			$opciones = '<div class="btn-group">

@@ -80,6 +80,8 @@
 <script src="<?= base_url();?>assets/plugins/input-mask/jquery.inputmask.bundle.js"></script>
 <script src="<?= base_url();?>assets/plugins/input-mask/jquery.mask.min.js"></script>
 
+<script src="<?= base_url();?>assets/pekebyte/js/pekeUpload.js"></script>
+
 <script src="<?= base_url();?>assets/main.js?v=<?= time() ?>"></script>
 
 

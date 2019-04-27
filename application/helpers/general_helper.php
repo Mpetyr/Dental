@@ -50,4 +50,13 @@ function filaEstadoCita($estado)
 	return $res;
 }
 
+
+function edad($fecha_nacimiento) { 
+    $tiempo = strtotime($fecha); 
+    $ahora = time(); 
+    $edad = ($ahora-$tiempo)/(60*60*24*365.25); 
+    $edad = floor($edad); 
+    return $edad; 
+} 
+
 ?>

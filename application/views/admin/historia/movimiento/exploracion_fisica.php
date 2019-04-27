@@ -118,7 +118,7 @@
             </div>
             <div class="col-md-9">
               <div class="form-group">
-                <textarea name="algunaVezMedicamentoTexto" class="form-control" rows="2"><?= $consulta->ortodtexto_paccon ?></textarea>
+                <textarea name="algunaVezMedicamentoTexto" class="form-control" rows="2" <?= ($consulta->ortod_paccon=='0' OR $consulta->ortod_paccon=='')?'disabled':'' ?>><?= $consulta->ortodtexto_paccon ?></textarea>
               </div>
             </div>
           </div>
@@ -138,7 +138,7 @@
             </div>
             <div class="col-md-9">
               <div class="form-group">
-                <textarea name="tomandoMedicamentoTexto" class="form-control" rows="2"><?= $consulta->medictexto_paccon ?></textarea>
+                <textarea name="tomandoMedicamentoTexto" class="form-control" rows="2" <?= ($consulta->medic_paccon=='0' OR $consulta->medic_paccon=='')?'disabled':'' ?>><?= $consulta->medictexto_paccon ?></textarea>
               </div>
             </div>
           </div>
@@ -158,7 +158,9 @@
             </div>
             <div class="col-md-9">
               <div class="form-group">
-                <textarea name="alergicoAnestesicoTexto" class="form-control" rows="2"><?= $consulta->alergicotexto_paccon ?></textarea>
+                <textarea name="alergicoAnestesicoTexto" class="form-control" rows="2"
+                   <?= ($consulta->alergico_paccon=='0' OR $consulta->alergico_paccon=='')?'disabled':'' ?>
+                ><?= $consulta->alergicotexto_paccon ?></textarea>
               </div>
             </div>
           </div>
@@ -178,7 +180,9 @@
             </div>
             <div class="col-md-9">
               <div class="form-group">
-                <textarea name="hospitalizadoCirugiaTexto" class="form-control" rows="2"><?= $consulta->hosptexto_paccon ?></textarea>
+                <textarea name="hospitalizadoCirugiaTexto" class="form-control" rows="2"
+                 <?= ($consulta->hosp_paccon=='0' OR $consulta->hosp_paccon=='')?'disabled':'' ?>
+                ><?= $consulta->hosptexto_paccon ?></textarea>
               </div>
             </div>
           </div>
@@ -198,7 +202,9 @@
             </div>
             <div class="col-md-9">
               <div class="form-group">
-                <textarea name="transtornoNerviosoEmocionalTexto" class="form-control" rows="2"><?= $consulta->transtexto_paccon ?></textarea>
+                <textarea name="transtornoNerviosoEmocionalTexto" class="form-control" rows="2"
+                  <?= ($consulta->trans_paccon=='0' OR $consulta->trans_paccon=='')?'disabled':'' ?>
+                ><?= $consulta->transtexto_paccon ?></textarea>
               </div>
             </div>
           </div>
@@ -254,7 +260,9 @@
             </div>
             <div class="col-md-9">
               <div class="form-group">
-                <textarea name="cepillaDientesTexto" class="form-control" rows="2"><?= $consulta->cepillatexto_paccon ?></textarea>
+                <textarea name="cepillaDientesTexto" class="form-control" rows="2" 
+                  <?= ($consulta->cepilla_paccon=='0' OR $consulta->cepilla_paccon=='')?'disabled':'' ?>
+                ><?= $consulta->cepillatexto_paccon ?></textarea>
               </div>
             </div>
           </div>
@@ -274,7 +282,9 @@
             </div>
             <div class="col-md-9">
               <div class="form-group">
-                <textarea name="presionArterialTexto" class="form-control" rows="2"><?= $consulta->presiontexto_paccon ?></textarea>
+                <textarea name="presionArterialTexto" class="form-control" rows="2"
+                <?= ($consulta->presion_paccon=='0' OR $consulta->presion_paccon=='')?'disabled':'' ?>
+                ><?= $consulta->presiontexto_paccon ?></textarea>
               </div>
             </div>
           </div>
@@ -319,6 +329,24 @@
               <div class="form-group">
                 <label class="control-label">Frec. Resp.</label>
                 <input type="text" name="frecRep" class="form-control" value="<?= $exploracion->frec_exp ?>">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label class="control-label">Peso</label>
+                <input type="text" name="peso" class="form-control" value="<?= $exploracion->peso_exp ?>">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label class="control-label">Talla</label>
+                <input type="text" name="talla" class="form-control" value="<?= $exploracion->talla_exp ?>">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label class="control-label">Masa</label>
+                <input type="text" name="masa" class="form-control" value="<?= $exploracion->masa_exp ?>">
               </div>
             </div>
           </div>
@@ -400,7 +428,48 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label class="control-label">Observación</label>
-                <input type="text" name="observacion" class="form-control">
+                <textarea name="observacion" class="form-control" rows="4"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Cancelar</button>
+          <button type="submit" class="btn btn-info"><i class="fa fa-save"></i> Guardar</button>
+        </div>
+      </form>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<div id="ModalEditarAlergia" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-md" role="document">
+    <div class="modal-content ">
+      <form id="FormHistoriaMovimientoEditarAlergia" action="<?= base_url('historia/movimiento/editarAlergia') ?>" method="post" autocomplete="off">
+        <input type="hidden" name="paciente" value="<?= $this->uri->segment(4) ?>">
+        <input type="hidden" name="id">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Editar Alergia</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="control-label">Alergia</label>
+                <select name="alergia" class="form-control">
+                  <option value=""></option>
+                  <?php foreach ($alergias as $a): ?>
+                  <option value="<?= $a->cod_ale ?>"><?= $a->nombre_ale ?></option>
+                  <?php endforeach ?>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="control-label">Observación</label>
+                <textarea name="observacion" class="form-control" rows="4"></textarea>
               </div>
             </div>
           </div>
