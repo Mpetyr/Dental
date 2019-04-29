@@ -132,10 +132,12 @@ class Historia_model extends CI_Model {
 	function getPlacas($data)
 	{
 		$this->db->from('paciente_placa');
+		$this->db->where('codi_pac',$data['paciente']);
 		$this->db->where('pla_estado',1);
 		$queryLike = $this->db->get();
 
 		$this->db->from('paciente_placa');
+		$this->db->where('codi_pac',$data['paciente']);
 		$this->db->where('pla_estado',1);
 		if ($data['length']!=-1) {
 			$this->db->limit($data['length'],$data['start']);
