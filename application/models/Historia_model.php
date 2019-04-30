@@ -109,6 +109,7 @@ class Historia_model extends CI_Model {
 		$row = [];
 		foreach ($query->result() as $q) {
 			$boton = '<button data-id="'.$q->pacrec_id.'" class="editar-receta btn btn-warning btn-xs" data-toggle="modal" data-target="#ModalEditarReceta">Editar</button>';
+			$boton .= '<a href="'.base_url('historia/movimiento/imprimirReceta/'.$q->pacrec_id).'" class="btn btn-success btn-xs" target="_blank" >Imprimir</a>';
 			$boton .= '<button data-id="'.$q->pacrec_id.'" class="anular-receta btn btn-danger btn-xs">Anular</button>';
 			$diagnostico = $q->diagnostico01;
 			if ($q->diagnostico02!='') {
