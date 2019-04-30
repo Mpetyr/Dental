@@ -99,7 +99,7 @@
                 this.obj.click();
             },
             handlebuttonevents: function() {
-                $(document).on("change", this.obj.selector, function() {
+                $(this).on("change", this.obj.selector, function() {
                     pekeUpload.checkFile(pekeUpload.obj[0].files[0]);
                 });
                 $(document).on('click','.pkdel',function(){
@@ -190,6 +190,7 @@
                 return null;
             },
             checkExtension: function(file) {
+                console.log(file);
                 if (options.allowedExtensions == "") {
                     return true;
                 }
