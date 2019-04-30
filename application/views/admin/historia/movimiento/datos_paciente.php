@@ -4,13 +4,6 @@
     <form id="FormHistoriaMovimientoDatosPaciente" action="<?= base_url('historia/movimiento/guardarDatosPaciente') ?>" method="POST">
       <input type="hidden" name="paciente" value="<?= $this->uri->segment(4) ?>">
       <div class="row">
-        <div class="col-md-12">
-          <div class="form-group pull-right">
-            <button type="submit" class="btn btn-info">Guardar</button>
-          </div>
-        </div>
-      </div>
-      <div class="row">
         <div class="col-md-6">
           <div class="form-group">
             <label class="control-label">Apellidos</label>
@@ -100,7 +93,7 @@
         <div class="col-md-3">
           <div class="form-group">
             <label class="control-label">Pais</label>
-            <select name="pais" class="form-control select2">
+            <select name="pais" class="form-control select2" style="width: 100%">
               <option value=""></option>
               <?php foreach ($paises as $p): ?>
               <option value="<?= $p->id ?>" <?= ($p->id==$paciente->pais_id)?'selected':'' ?>><?= $p->nombre ?></option>
@@ -141,12 +134,19 @@
       </div>
 
       <div class="row">
-         <div class="col-md-12">
-              <div class="form-group">
-                <label class="control-label">Observacion:</label>
-                <textarea name="observacion" class="form-control" rows="2" value="<?= $paciente->observacion ?>"></textarea>
-              </div>
-            </div>
+        <div class="col-md-12">
+          <div class="form-group">
+            <label class="control-label">Observacion:</label>
+            <textarea name="observacion" class="form-control" rows="3" value="<?= $paciente->observacion ?>"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group pull-right">
+            <button type="submit" class="btn btn-info">Guardar</button>
+          </div>
+        </div>
       </div>
     </form>
   </div>
