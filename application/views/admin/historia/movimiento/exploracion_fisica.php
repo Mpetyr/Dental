@@ -314,43 +314,65 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-                  <div class="row">
-            <div class="col-md-2">
-              <div class="form-group">
-                <label class="control-label">P.A</label>
-                <input type="text" name="PA" class="form-control input-sm" value="<?= $exploracion->pa_exp ?>">
-              </div>
-            </div>
-            <div class="col-md-2">
-              <div class="form-group">
-                <label class="control-label">Pulso</label>
+                  <div class="form-horizontal form-valid">
+<div class="form-group">
+  
+                <div class="col-sm-3 val-smk">
+                   <label class="control-label">Presion arterial:</label>
+                    <div class="input-group">
+                     <input type="text" name="PA" class="form-control input-sm" value="<?= $exploracion->pa_exp ?>">
+                 <div class="input-group-addon">
+                   mn Hg
+                 </div>
+                  </div>
+                </div>  
+            <div class="col-sm-3 val-smk">
+                <label class="control-label">Pulso:</label>
+              <div class="input-group">
                 <input type="text" name="pulso" class="form-control input-sm" value="<?= $exploracion->pulso_exp ?>">
+                 <div class="input-group-addon">
+                 / min
+                 </div>
               </div>
             </div>
-            <div class="col-md-3">
-              <div class="form-group">
-                <label class="control-label">Temperatura</label>
+            <div class="col-sm-3 val-smk">
+             
+                <label class="control-label">Temperatura:</label>
+                 <div class="input-group">
                 <input type="text" name="temperatura" class="form-control input-sm" value="<?= $exploracion->temperat_exp ?>">
+                <div class="input-group-addon">
+                  º C
+                 </div>
               </div>
             </div>
-            <div class="col-md-2">
-              <div class="form-group">
-                <label class="control-label">F.C</label>
+            <div class="col-sm-3 val-smk">
+                <label class="control-label">Frecuencia cardiaca:</label>
+              <div class="input-group">
+              
                 <input type="text" name="FC" class="form-control input-sm" value="<?= $exploracion->fc_exp ?>">
+                <div class="input-group-addon">
+                  x min.
+                 </div>
               </div>
             </div>
-            <div class="col-md-3">
-              <div class="form-group">
-                <label class="control-label">Frec. Resp.</label>
+            <div class="col-sm-3 val-smk">
+                      <label class="control-label">Frec. Respiratoria:</label>
+              <div class="input-group">
+        
                 <input type="text" name="frecRep" class="form-control input-sm" value="<?= $exploracion->frec_exp ?>">
+                 <div class="input-group-addon">
+                  / min
+                 </div>
               </div>
             </div>
           </div>
+        </div>
             </div>
             <!-- /.box-body -->
           </div>
           <!-- /.box -->
         </div>
+
 
                   <div class="col-md-14">
           <div class="box box-default box-solid">
@@ -364,27 +386,41 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-                  <div class="row">
-            <div class="col-md-3">
-              <div class="form-group">
-                <label class="control-label">Peso:</label>
+                  <div class="form-horizontal form-valid">
+                    <div class="form-group">
+  
+            <div class="col-sm-3 val-smk">
+               <label class="control-label">Peso:</label>
+              <div class="input-group">
+               
                 <input type="text" name="peso" class="form-control input-sm" value="<?= $exploracion->peso_exp ?>">
+                <div class="input-group-addon">
+                   Kg.
+                 </div>
               </div>
             </div>
-            <div class="col-md-3">
-              <div class="form-group">
-                <label class="control-label">Talla:</label>
+            <div class="col-sm-3 val-smk">
+              <label class="control-label">Talla:</label>
+              <div class="input-group">
+                
                 <input type="text" name="talla" class="form-control input-sm" value="<?= $exploracion->talla_exp ?>">
+                 <div class="input-group-addon">
+                   m.
+                 </div>
               </div>
             </div>
-            <div class="col-md-4">
-              <div class="form-group">
-                <label class="control-label">Indice Masa Corporal</label>
+            <div class="col-sm-3 val-smk">
+               <label class="control-label">IMC:</label>
+              <div class="input-group">
+               
                 <input type="text" name="masa" class="form-control input-sm" value="<?= $exploracion->masa_exp ?>">
+                <div class="input-group-addon">
+                   Kg/m.
+                 </div>
               </div>
             </div>
            
-          
+          </div>
           </div>
             </div>
             <!-- /.box-body -->
@@ -426,7 +462,7 @@
         <div class="row">
           <div class="col-md-12">
             <div class="form-group">
-              <button class="btn btn-success btn-md" data-toggle="modal" data-target="#ModalAgregarAlergia">Agregar</button>
+              <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#ModalAgregarAlergia"><i class="fa fa-plus" aria-hidden="true"></i> Agregar</button>
             </div>
           </div>
         </div>
@@ -434,11 +470,11 @@
           <div class="col-md-12">
             <table id="TableHistoriaMovimientoAlergias" class="table table-bordered">
               <thead>
-                <tr>
-                  <th>Secuencia</th>
-                  <th>Nombre</th>
-                  <th>Observación</th>
-                  <th>Opciones</th>
+                <tr class="btn-primary btn-xs">
+                  <th style="text-align: center;" width="10">Secuencia</th>
+                  <th style="text-align: center;">Nombre</th>
+                  <th style="text-align: center;">Observación</th>
+                  <th style="text-align: center;">Opciones</th>
                 </tr>
               </thead>
               <tbody>
@@ -466,9 +502,9 @@
           <div class="row">
             <div class="col-md-12">
               <div class="form-group">
-                <label class="control-label">Alergia</label>
+                <label class="control-label">Alergia:</label>
                 <select name="alergia" class="form-control">
-                  <option value=""></option>
+                  <option value="">--Selecciona--</option>
                   <?php foreach ($alergias as $a): ?>
                   <option value="<?= $a->cod_ale ?>"><?= $a->nombre_ale ?></option>
                   <?php endforeach ?>
@@ -477,8 +513,8 @@
             </div>
             <div class="col-md-12">
               <div class="form-group">
-                <label class="control-label">Observación</label>
-                <textarea name="observacion" class="form-control" rows="4"></textarea>
+                <label class="control-label">Observación:</label>
+                <textarea name="observacion" class="form-control input-sm" rows="3"></textarea>
               </div>
             </div>
           </div>
@@ -508,7 +544,7 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label class="control-label">Alergia</label>
-                <select name="alergia" class="form-control">
+                <select name="alergia" class="form-control input-sm">
                   <option value=""></option>
                   <?php foreach ($alergias as $a): ?>
                   <option value="<?= $a->cod_ale ?>"><?= $a->nombre_ale ?></option>
@@ -519,7 +555,7 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label class="control-label">Observación</label>
-                <textarea name="observacion" class="form-control" rows="4"></textarea>
+                <textarea name="observacion" class="form-control input-sm" rows="4"></textarea>
               </div>
             </div>
           </div>

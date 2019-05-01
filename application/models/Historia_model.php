@@ -69,8 +69,11 @@ class Historia_model extends CI_Model {
 		
 		$row = [];
 		foreach ($query->result() as $q) {
-			$boton = '<button data-id="'.$q->pacale_id.'" class="editar-alergia btn btn-warning btn-xs" data-toggle="modal" data-target="#ModalEditarAlergia">Editar</button>';
-			$boton .= '<button data-id="'.$q->pacale_id.'" class="anular-alergia btn btn-danger btn-xs">Anular</button>';
+			$boton = '<div class="btn-footer text-center">
+			<button data-id="'.$q->pacale_id.'" class="editar-alergia btn btn-warning btn-xs" data-toggle="modal" data-target="#ModalEditarAlergia">Editar</button>';
+
+
+			$boton .= '<a></a> <button data-id="'.$q->pacale_id.'" class="anular-alergia btn btn-danger btn-xs">Anular</button>';
 			$row[] = [$q->pacale_id,$q->nombre_ale,$q->pacale_observacion,$boton];
 		}
 		$result['aaData'] = $row;
@@ -108,7 +111,9 @@ class Historia_model extends CI_Model {
 		
 		$row = [];
 		foreach ($query->result() as $q) {
-			$boton = '<button data-id="'.$q->pacrec_id.'" class="editar-receta btn btn-warning btn-xs" data-toggle="modal" data-target="#ModalEditarReceta">Editar</button>';
+			$boton = '<div class="btn-footer text-center">
+
+			<button data-id="'.$q->pacrec_id.'" class="editar-receta btn btn-warning btn-xs" data-toggle="modal" data-target="#ModalEditarReceta">Editar</button>';
 			$boton .= '<button data-id="'.$q->pacrec_id.'" class="anular-receta btn btn-danger btn-xs">Anular</button>';
 			$diagnostico = $q->diagnostico01;
 			if ($q->diagnostico02!='') {
@@ -152,7 +157,9 @@ class Historia_model extends CI_Model {
 		
 		$row = [];
 		foreach ($query->result() as $q) {
-			$boton = '<button data-id="'.$q->pla_id.'" class="anular-placa btn btn-danger btn-xs">Anular</button>';
+			$boton = '<div class="btn-footer text-center">
+
+			<button data-id="'.$q->pla_id.'" class="anular-placa btn btn-danger btn-xs">Anular</button>';
 			$archivo = '
 			<a data-fancybox="gallery" href="'.base_url('assets/uploads/placas/'.$q->pla_archivo).'"><i class="fa fa-image"></i> Ver placa</a>';
 			$row[] = [

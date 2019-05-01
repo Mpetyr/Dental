@@ -109,7 +109,7 @@ class Movimiento extends CI_Controller {
 		$data['estudios_pac'] = $this->input->post('estudios');
 		$data['civi_pac'] = $this->input->post('estadoCivil');
 		$data['emai_pac'] = $this->input->post('email');
-		$data['id'] = $this->input->post('pais');
+		$data['pais_id'] = $this->input->post('pais');
 		$data['departamento_id'] = $this->input->post('departamento');
 		$data['provincia_id'] = $this->input->post('provinca');
 		$data['distrito_id'] = $this->input->post('distrito');
