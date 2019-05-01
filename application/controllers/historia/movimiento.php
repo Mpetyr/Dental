@@ -448,9 +448,9 @@ class Movimiento extends CI_Controller {
 	{
 		$config['upload_path'] = 'assets/uploads/placas/';
 		$config['allowed_types'] = 'pdf|png|jpg|jpeg';
-		$config['max_size'] = '30000';
-		$config['max_width'] = '30000';
-		$config['max_height'] = '30000';
+		$config['max_size'] = '38400';
+		$config['max_width'] = '40000';
+		$config['max_height'] = '40000';
 		$this->upload->initialize($config);
 		if ($this->upload->do_upload('placaArchivo')){
 			$upload = $this->upload->data();
