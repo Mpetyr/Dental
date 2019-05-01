@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Registration Page</title>
+  <title>DentalSac | Registrate</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -34,7 +34,7 @@
  
 <div class="register-box" style="margin: 2px auto;">
   <div class="register-logo" style="margin-bottom: 10px;">
-      <img src="/DentiDev/images/Empresa/logo.png">
+      <img style="width:40%;margin-top: unset;" src="<?= base_url() ?>assets/img/dentalsac.png">
     <!-- <a href="../../index2.html"><b>Admin</b>LTE</a> -->
   </div>
 

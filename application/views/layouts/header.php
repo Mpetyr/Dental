@@ -47,7 +47,7 @@
     <div class="wrapper">
         <header class="main-header">
            <a href="<?= base_url('dashboard') ?>" class="logo">
-               <center>  <img style="width:30%;margin-top: unset;" src="<?= base_url() ?>assets/img/logo_dental.png"> </center> 
+               <center>  <img style="width:60%;margin-top: auto;" src="<?= base_url() ?>assets/img/dentalsac.png"> </center> 
            </a>
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top">

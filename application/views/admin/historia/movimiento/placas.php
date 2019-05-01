@@ -6,7 +6,7 @@
     <div class="row">
       <div class="col-md-12">
         <div class="form-group">
-          <button class="btn btn-success" data-toggle="modal" data-target="#ModalAgregarPlaca">Agregar</button>
+          <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#ModalAgregarPlaca"><i class="fa fa-plus" aria-hidden="true"></i> Agregar</button>
         </div>
       </div>
     </div>
@@ -14,17 +14,15 @@
       <div class="col-md-12">
         <table id="TableHistoriaMovimientoPlacas" class="table table-bordered">
           <thead>
-            <tr>
-              <th>Fecha</th>
-              <th>Nombre</th>
-              <th>Notas</th>
-              <th>Archivo</th>
-              <th></th>
+            <tr class="btn-primary btn-xs">
+              <th style="text-align: center;">Fecha</th>
+              <th style="text-align: center;">Nombre</th>
+              <th style="text-align: center;">Notas</th>
+              <th style="text-align: center;">Archivo</th>
+              <th style="text-align: center;">Opciones</th>
             </tr>
           </thead>
-          <tbody>
-            
-          </tbody>
+     
         </table>
       </div>
     </div>
@@ -52,13 +50,13 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label class="control-label">Nombre de la Placa</label>
-                <input type="text" name="nombre" class="form-control">
+                <input type="text" name="nombre" class="form-control input-sm">
               </div>
             </div>
             <div class="col-md-12">
               <div class="form-group">
                 <label class="control-label">Notas</label>
-                <textarea name="notas" class="form-control" rows="5"></textarea>
+                <textarea name="notas" class="form-control input-sm" rows="5"></textarea>
               </div>
             </div>
           </div>
