@@ -109,9 +109,9 @@ class Movimiento extends CI_Controller {
 		$data['estudios_pac'] = $this->input->post('estudios');
 		$data['civi_pac'] = $this->input->post('estadoCivil');
 		$data['emai_pac'] = $this->input->post('email');
-		$data['id'] = $this->input->post('pais');
+		$data['pais_id'] = $this->input->post('pais');
 		$data['departamento_id'] = $this->input->post('departamento');
-		$data['provincia_id'] = $this->input->post('provinca');
+		$data['provincia_id'] = $this->input->post('provincia');
 		$data['distrito_id'] = $this->input->post('distrito');
 
 		$where['codi_pac'] = $this->input->post('paciente');
@@ -395,6 +395,33 @@ class Movimiento extends CI_Controller {
 			$resp['success'] = false;
 		}
 		echo json_encode($resp);
+	}
+
+	function imprimirReceta($id)
+	{
+		$this->mpdf = new mPDF('utf-8','A4','','',
+			10, //LEFT
+			10, //RIGHT
+			40, //TOP
+			50, //BOTTOM
+			10, //HEADER
+			10);
+		$data['receta'] = $this->db->from('paciente_receta')
+		->select('nomb_pac,apel_pac,fena_pac,peso_exp,pacrec_receta,pacrec_indicaciones,pacrec_fecha')
+		->join('paciente','paciente_receta.codi_pac = paciente.codi_pac')
+		->join('paciente_exploracion','paciente.codi_pac = paciente_exploracion.codi_pac')
+		->where('pacrec_id',$id)
+		->get()->row();
+		$html = $this->load->view('admin/historia/movimiento/receta_imprimir/contenido',$data,TRUE);
+		$htmlHeader = $this->load->view('admin/historia/movimiento/receta_imprimir/header',NULL,true);
+		$htmlFooter = $this->load->view('admin/historia/movimiento/receta_imprimir/footer',NULL,true);
+		$css = $css = file_get_contents('assets/styles_pdf.css');
+		$this->mpdf->SetTitle('Tratamientos');
+		$this->mpdf->setHTMLHeader($htmlHeader);
+		$this->mpdf->setHTMLFooter($htmlFooter);
+		$this->mpdf->writeHTML($css,1);
+		$this->mpdf->writeHTML($html,2);
+		$this->mpdf->Output('Receta','I');
 	}
 
 	function jsonPlacas()

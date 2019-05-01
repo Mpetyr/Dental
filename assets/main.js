@@ -1404,38 +1404,38 @@ $('#HistoriaMenu a').click(function(event) {
 	$('#HistoriaContenido #'+id).show();
 });
 
-$('#FormHistoriaDatosPaciente select[name=departamento]').change(function(event) {
+$('#FormHistoriaMovimientoDatosPaciente select[name=departamento]').change(function(event) {
 	getProvinciasHistoriaPaciente();
 });
 
-$('#FormHistoriaDatosPaciente select[name=provincia]').change(function(event) {
+$('#FormHistoriaMovimientoDatosPaciente select[name=provincia]').change(function(event) {
 	getDistritosHistoriaPaciente();
 });
 
 function getProvinciasHistoriaPaciente()
 {
-	$('#FormHistoriaDatosPaciente select[name=provincia]').prop('disabled',true);
-	let departamento = $('#FormHistoriaDatosPaciente select[name=departamento]').val();
+	$('#FormHistoriaMovimientoDatosPaciente select[name=provincia]').prop('disabled',true);
+	let departamento = $('#FormHistoriaMovimientoDatosPaciente select[name=departamento]').val();
 	$.getJSON(path+'mantenimiento/paciente/getProvincias', {'departamento':departamento}, function(json, textStatus) {
 		let option = '';
 		$.each(json, function(index, val) {
 			 option += `<option value="${val['provincia_id']}">${val['provincia_nombre']}</option>`;
 		});
-		$('#FormHistoriaDatosPaciente select[name=provincia]').html(option).prop('disabled',false)
+		$('#FormHistoriaMovimientoDatosPaciente select[name=provincia]').html(option).prop('disabled',false)
 		getDistritosHistoriaPaciente();
 	});
 }
 
 function getDistritosHistoriaPaciente()
 {
-	$('#FormHistoriaDatosPaciente select[name=distrito]').prop('disabled',true);
-	let provincia = $('#FormHistoriaDatosPaciente select[name=provincia]').val();
+	$('#FormHistoriaMovimientoDatosPaciente select[name=distrito]').prop('disabled',true);
+	let provincia = $('#FormHistoriaMovimientoDatosPaciente select[name=provincia]').val();
 	$.getJSON(path+'mantenimiento/paciente/getDistritos', {'provincia':provincia}, function(json, textStatus) {
 		let option = '';
 		$.each(json, function(index, val) {
 			 option += `<option value="${val['distrito_id']}">${val['distrito_nombre']}</option>`;
 		});
-		$('#FormHistoriaDatosPaciente select[name=distrito]').html(option).prop('disabled',false);
+		$('#FormHistoriaMovimientoDatosPaciente select[name=distrito]').html(option).prop('disabled',false);
 	});
 }
 
@@ -1732,22 +1732,23 @@ $('#TableHistoriaMovimientoPlacas').DataTable({
 	]
 });
 
-
-$("#placaArchivo").pekeUpload({
-	url:path+'historia/movimiento/subir',
-	data:{
-		id:$("#HistoriaContenido").data('paciente')
-	},
-	allowedExtensions:'png|jpg',
-	limit:1,
-	btnText:'Buscar imagen',
-	delfiletext:'',
-	limitError:'',
-	showErrorAlerts:false,
-	onFileSuccess: function(file,data){
-		$('#FormHistoriaMovimientoAgregarPlaca input[name=archivo]').val(data.name);
-	}
-});
+if ($("#placaArchivo").length) {
+	$("#placaArchivo").pekeUpload({
+		url:path+'historia/movimiento/subir',
+		data:{
+			id:$("#HistoriaContenido").data('paciente')
+		},
+		allowedExtensions:'png|jpg',
+		limit:1,
+		btnText:'Buscar imagen',
+		delfiletext:'',
+		limitError:'',
+		showErrorAlerts:false,
+		onFileSuccess: function(file,data){
+			$('#FormHistoriaMovimientoAgregarPlaca input[name=archivo]').val(data.name);
+		}
+	});
+}
 
 $('#FormHistoriaMovimientoAgregarPlaca').validate({
 	rules:{
