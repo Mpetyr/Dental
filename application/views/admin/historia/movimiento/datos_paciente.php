@@ -6,14 +6,14 @@
       <div class="row">
         <div class="col-md-6">
           <div class="form-group">
-            <label class="control-label">Apellidos</label>
-            <input type="text" name="apellidos" class="form-control" value="<?= $paciente->apel_pac ?>">
+            <label class="control-label">Apellidos:</label>
+            <input type="text" name="apellidos" class="form-control input-sm" value="<?= $paciente->apel_pac ?>">
           </div>
         </div>
         <div class="col-md-6">
           <div class="form-group">
             <label class="control-label">Nombres:</label>
-            <input type="text" name="nombres" class="form-control" value="<?= $paciente->nomb_pac ?>">
+            <input type="text" name="nombres" class="form-control input-sm" value="<?= $paciente->nomb_pac ?>">
           </div>
         </div>
         <div class="col-md-2">
@@ -63,7 +63,7 @@
         <div class="col-md-4">
           <div class="form-group">
             <label class="control-label">Estudios</label>
-            <select name="estudios" class="form-control">
+            <select name="estudios" class="form-control input-sm">
               <option value="S" <?= ($paciente->estudios_pac=='S')?'selected':'' ?>>SECUNDARIA COMPLETA</option>
               <option value="U" <?= ($paciente->estudios_pac=='U')?'selected':'' ?>>SUPERIOR</option>
               <option value="P" <?= ($paciente->estudios_pac=='P')?'selected':'' ?>>PRIMARIA COMPLETA</option>
@@ -93,7 +93,7 @@
         <div class="col-md-3">
           <div class="form-group">
             <label class="control-label">Pais</label>
-            <select name="pais" class="form-control select2" style="width: 100%">
+            <select name="pais" class="form-control select2 input-sm" style="width: 100%">
               <option value=""></option>
               <?php foreach ($paises as $p): ?>
               <option value="<?= $p->id ?>" <?= ($p->id==$paciente->pais_id)?'selected':'' ?>><?= $p->nombre ?></option>
@@ -101,7 +101,7 @@
             </select>
           </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
           <div class="form-group">
             <label class="control-label">Departamento</label>
             <select name="departamento" class="form-control input-sm">
@@ -142,6 +142,14 @@
         </div>
       </div>
       <div class="row">
+        <div class="col-md-12">
+          <div class="form-group pull-right">
+            <button type="submit" class="btn btn-info">Guardar</button>
+          </div>
+        </div>
+      </div>
+
+          <div class="row">
         <div class="col-md-12">
           <div class="form-group pull-right">
             <button type="submit" class="btn btn-info">Guardar</button>
