@@ -79,12 +79,15 @@ class Tarifario_model extends  CI_Model{
 
 
 			$botones = '<div class="btn-footer text-center">
-                                          
+                                          			
                                                    <a href="'.base_url('mantenimiento/tarifario/editar/'.$q->id_procedimiento).'"class="btn btn-primary" style="padding:2px 5px;margin:0px 2px"> <i class="fa fa-edit"></i> </a>
                                                    
-                                                           
+                                                      
+                                                    
                                                      <button data-id="'.$q->id_procedimiento.'" class="anularTarifario btn btn-danger" style="padding:2px 5px;margin:0px 2px" >
-                                                         <i class="glyphicon glyphicon-trash"></i> </button>';
+                                                         <i class="glyphicon glyphicon-trash"></i> </button>
+                                                        ' ;
+                                                         
             
 			$row[] = [$q->id_procedimiento,$q->NombreConcepto,$q->NombreMedida,$q->NombreCategoria,$q->nombre,$q->prec_procedimiento,$q->fecha_registro,$estado,$botones];
 		}
