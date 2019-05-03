@@ -1732,23 +1732,24 @@ $('#TableHistoriaMovimientoPlacas').DataTable({
 	]
 });
 
-if ($("#placaArchivo").length) {
-	$("#placaArchivo").pekeUpload({
-		url:path+'historia/movimiento/subir',
-		data:{
-			id:$("#HistoriaContenido").data('paciente')
-		},
-		allowedExtensions:'png|jpg',
-		limit:1,
-		btnText:'Buscar imagen',
-		delfiletext:'',
-		limitError:'',
-		showErrorAlerts:false,
-		onFileSuccess: function(file,data){
-			$('#FormHistoriaMovimientoAgregarPlaca input[name=archivo]').val(data.name);
-		}
-	});
-}
+
+$('#SubirPlaca').fileupload({
+  url: path+'historia/movimiento/subir',
+  dataType: 'json',
+  done: function (e, data) {
+  	var image = `<image src="${ path+'assets/uploads/placas/thumbs/'+data.result.name}">`;
+  	$('#files').html(image);
+  	$('#FormHistoriaMovimientoAgregarPlaca input[name=archivo]').val(data.result.name);
+  },
+  progressall: function (e, data) {
+    var progress = parseInt(data.loaded / data.total * 100, 10);
+    $('#progress .progress-bar').css(
+      'width',
+      progress + '%'
+    );
+  }
+}).prop('disabled', !$.support.fileInput)
+	.parent().addClass($.support.fileInput ? undefined : 'disabled');
 
 $('#FormHistoriaMovimientoAgregarPlaca').validate({
 	rules:{

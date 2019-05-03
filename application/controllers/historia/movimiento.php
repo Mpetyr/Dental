@@ -458,9 +458,16 @@ class Movimiento extends CI_Controller {
 			$resp = [];
 			$resp['success'] = 1;
 			$resp['name'] = $upload['file_name'];
+
+			$this->load->library('Image_moo');
+			$this->image_moo
+				->load('assets/uploads/placas/'.$resp['name'])
+				->resize_crop(100,100)
+				->save('assets/uploads/placas/thumbs/'.$resp['name']);
 			echo json_encode($resp);
 		}
 	}
+
 
 	function agregarPlaca()
 	{

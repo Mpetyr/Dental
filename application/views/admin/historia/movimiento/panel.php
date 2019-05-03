@@ -6,37 +6,35 @@
     <div class="row">
       <div class="col-md-12">
          <div class="box box-info">
-      
-
           <div class="box-body">
             <div class="box box-default box-solid box-default ">
               <div class="box-body">
-                    <form id="HistoriaMovimientoBusqueda" action="" autocomplete="off">
-              <div class="row">
-                <div class="col-md-2">
-                  <div class="form-group">
-                    <label class="control-label">Desde:</label>
-                    <input type="text" name="desde" class="form-control datepicker input-sm" value="<?= date('Y-m-d') ?>">
+                <form id="HistoriaMovimientoBusqueda" action="" autocomplete="off">
+                  <div class="row">
+                    <div class="col-md-2">
+                      <div class="form-group">
+                        <label class="control-label">Desde:</label>
+                        <input type="text" name="desde" class="form-control datepicker input-sm" value="<?= date('Y-m-d') ?>">
+                      </div>
+                    </div>
+                    <div class="col-md-2">
+                      <div class="form-group">
+                        <label class="control-label">Hasta:</label>
+                        <input type="text" name="hasta" class="form-control datepicker input-sm" value="<?= date('Y-m-d') ?>">
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label class="control-label">Nombres Apellidos:</label>
+                        <input type="text" name="nombresApellidos" class="form-control input-sm">
+                      </div>
+                    </div>
+                    <div class="col-md-2">
+                      <button type="submit" style="margin-top:24px" class="btn btn-success btn-sm"><i class="fa fa-search"></i> Buscar</button>
+                    </div>
                   </div>
-                </div>
-                <div class="col-md-2">
-                  <div class="form-group">
-                    <label class="control-label">Hasta:</label>
-                    <input type="text" name="hasta" class="form-control datepicker input-sm" value="<?= date('Y-m-d') ?>">
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="form-group">
-                    <label class="control-label">Nombres Apellidos:</label>
-                    <input type="text" name="nombresApellidos" class="form-control input-sm">
-                  </div>
-                </div>
-                <div class="col-md-2">
-                  <button type="submit" style="margin-top:24px" class="btn btn-success btn-sm"><i class="fa fa-search"></i> Buscar</button>
-                </div>
+                </form>
               </div>
-            </form>
-                </div>
             </div>
                    <div class="row">
                          <div class="col-md-12">

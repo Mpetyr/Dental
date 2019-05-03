@@ -38,7 +38,7 @@
     <link rel="stylesheet" href="<?= base_url();?>assets/plugins/calendar/css/calendar.css">
 
     <link rel="stylesheet" href="<?= base_url() ?>assets/plugins/datedropper3/datedropper.css">
-    
+    <link rel="stylesheet" href="<?= base_url() ?>assets/jquery-upload/css/jquery.fileupload.css">
     <link rel="stylesheet" href="<?= base_url() ?>assets/styles.css?v=08042019">
     <script src="<?php echo base_url();?>assets/template/jquery/jquery.min.js"></script>
 </head>

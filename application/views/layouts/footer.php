@@ -72,7 +72,11 @@
 <script src="<?= base_url();?>assets/plugins/input-mask/jquery.inputmask.bundle.js"></script>
 <script src="<?= base_url();?>assets/plugins/input-mask/jquery.mask.min.js"></script>
 
-<script src="<?= base_url();?>assets/pekebyte/js/pekeUpload.js"></script>
+<script src="<?= base_url();?>assets/jquery-upload/js/vendor/jquery.ui.widget.js"></script>
+<!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
+<script src="<?= base_url();?>assets/jquery-upload/js/jquery.iframe-transport.js"></script>
+<!-- The basic File Upload plugin -->
+<script src="<?= base_url();?>assets/jquery-upload/js/jquery.fileupload.js"></script>
 
 <script src="<?= base_url();?>assets/main.js?v=<?= time() ?>"></script>
 

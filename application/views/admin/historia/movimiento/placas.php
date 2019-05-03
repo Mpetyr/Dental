@@ -44,7 +44,20 @@
           <div class="row">
             <div class="col-md-12">
               <div class="form-group">
-                <input id="placaArchivo" type="file" name="placaArchivo" />
+                <span class="btn btn-success fileinput-button">
+                  <i class="glyphicon glyphicon-plus"></i>
+                  <span>Buscar Archivo...</span>
+                  <input id="SubirPlaca" type="file" name="placaArchivo">
+                </span>
+                <br><br>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div id="progress" class="progress">
+                        <div class="progress-bar progress-bar-success"></div>
+                    </div>
+                  </div>
+                </div>
+                <div id="files"></div>
               </div>
             </div>
             <div class="col-md-12">

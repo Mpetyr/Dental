@@ -3,5 +3,10 @@ system/cache/
 assets/pdfs/tratamientos/*
 !assets/pdfs/tratamientos/*.txt
 
-assets/uploads/placas/*
-!assets/uploads/placas/*.txt
+assets/uploads/placas/*.jpg
+assets/uploads/placas/*.jpeg
+assets/uploads/placas/*.png
+
+assets/uploads/placas/thumbs/*.jpg
+assets/uploads/placas/thumbs/*.jpeg
+assets/uploads/placas/thumbs/*.png
