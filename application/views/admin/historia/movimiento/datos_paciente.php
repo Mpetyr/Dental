@@ -149,13 +149,7 @@
         </div>
       </div>
 
-          <div class="row">
-        <div class="col-md-12">
-          <div class="form-group pull-right">
-            <button type="submit" class="btn btn-info">Guardar</button>
-          </div>
-        </div>
-      </div>
+   
     </form>
   </div>
 </div>

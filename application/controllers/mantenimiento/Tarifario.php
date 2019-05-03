@@ -6,9 +6,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  */
 class Tarifario extends CI_Controller
 {
+	private $permisos;
 	public function __construct()
 	{
 		parent::__construct();
+		if(!$this->session->userdata("login")){
+			redirect(base_url());
+		}
+		$this->permisos = $this->backend_lib->control();
 		$this->load->model('tarifario_model');
 	}
 
@@ -17,6 +22,7 @@ class Tarifario extends CI_Controller
 		$data['tipo_conceptos'] = $this->modelgeneral->getTable('tipo_concepto');
 		$data['unidad_medidades'] = $this->modelgeneral->getTable('unidad_medida');
 		$data['categorias'] = $this->modelgeneral->getTable('categoria');
+		$data['permisos'] =$this->permisos;
 		$this->load->view('layouts/header');
 		$this->load->view('layouts/aside');
 		$this->load->view('admin/procedimiento/listarprocedimiento',$data);

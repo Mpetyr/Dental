@@ -119,7 +119,7 @@
                             <li><a href="<?= base_url('tratamientos/comprobantes') ?>"><i class="fa fa-sign-out"></i>Comprobantes</a>
                         </ul>
                     </li>
-
+<!-- 
                     <li class="treeview">
                         <a href="#">
                             <i class="fa fa-inbox "></i> <span>Caja</span>
@@ -128,8 +128,7 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <!-- <li><a href="<?php echo base_url();?>emotiones/Presentacion_modulos"><i class="fa fa-circle-o"></i>Caritas</a></li>
-                            <li><a href="../../index.html"><i class="fa fa-circle-o"></i> Generar Factura</a></li> -->
+                           
                             <li><a href="<?= base_url('tratamientos/panel') ?>"><i class="fa fa-folder-open-o"></i>Apertura</a>
                              <li><a href="<?= base_url('tratamientos/panel') ?>"><i class="fa fa-lock"></i>Cierre</a>
                                  <li><a href="<?= base_url('tratamientos/panel') ?>"><i class="fa fa-hand-o-right"></i>Consulta de caja</a>
@@ -138,7 +137,7 @@
                                  <li><a href="<?= base_url('tratamientos/panel') ?>"><i class="fa fa-exchange"></i>Transferencia</a>
                         </ul>
                     </li>
-
+ -->
                     <li class="treeview">
                         <a href="#">
                             <i class="fa fa-file-text-o "></i> <span>Historia clinica</span>
@@ -152,22 +151,7 @@
                         </ul>
                     </li>
 
-                     <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-cubes text-green fa-lg"></i> <span>Movimientos</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="<?php echo base_url();?>tramas/sistemas/registrartrama"><i class="fa fa-circle-o"></i>registrar</a></li>
-                            <li><a href="<?php echo base_url();?>tramas/sistemas/listartrama"><i class="fa fa-circle-o"></i>procesar</a></li>
-                        </ul>
-                         <ul class="treeview-menu">
-                            <li><a href="<?php echo base_url();?>emotiones/caritasfeliz"><i class="fa fa-circle-o"></i>Prefacturación</a></li>
-
-                        </ul>
-                    </li>
+             
                     <li class="treeview">
                         <a href="#">
                             <i class="fa fa-print fa-lg"></i> <span>Reportes</span>
@@ -194,10 +178,11 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="<?php echo base_url();?>mantenimiento/Tipo_documento"><i class="fa fa-bars"></i>Menu</a></li>
+                         
                             
                              <li><a href="<?php echo base_url();?>mantenimiento/Permisos"><i class="fa fa-id-card"></i> Rol</a></li>
                              <li><a href="<?php echo base_url();?>mantenimiento/usuario"><i class="fa fa-user-o"></i> Usuarios</a></li>
+                             <li><a href="<?php echo base_url();?>administrador/permisos"><i class="fa fa-unlock-alt fa-2"></i> Permisos</a></li>
                         </ul>
                     </li>
                 </ul>

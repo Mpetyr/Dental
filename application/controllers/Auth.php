@@ -40,7 +40,7 @@ class Auth extends CI_Controller
 			'codi_usu' => $res->codi_usu,
 			'apellido' => $res->apellido,
 			'nombre' => $res->nombre,
-			'id_rol' => $res->id_rol,
+			'rol' => $res->codi_rol,
 			'tipo_documento' => $res->tipo_documento,
 			'logi_usu' =>$res->logi_usu,
 			'pass_usu' =>$res->pass_usu,

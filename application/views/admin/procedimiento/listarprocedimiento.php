@@ -33,8 +33,14 @@
           <div class="box box-info">
                  
                    <ol class="breadcrumb">
+
                       <li><a href="<?= base_url('mantenimiento/tarifario') ?>"><i class="fa fa-refresh"></i> Lista</a></li>
-                      <li><a href="<?= base_url('mantenimiento/tarifario/nuevo') ?>"><i class="fa fa-user-plus"></i> Nuevo</a></li>
+
+                      <li>
+                        <?php if($permisos->insert ==1):?>
+                        <a href="<?= base_url('mantenimiento/tarifario/nuevo') ?>"><i class="fa fa-user-plus"></i> Nuevo</a>
+                      <?php endif;?>
+                      </li>
                      
                   </ol>
               <!-- tools box -->
@@ -82,16 +88,16 @@
                   <table id="TableMantenimientoProcedimiento" class="table table-bordered table-striped table-sm">
                     <thead>
                       <tr class="info">
-                        <th style="background-color: #3c8dbc; color: white;">N°</th>
-                        <th style="background-color: #3c8dbc; color: white;">Concepto</th>
-                        <th style="background-color: #3c8dbc; color: white;">Medida</th>
-                        <th style="background-color: #3c8dbc; color: white;">Categoria</th>
+                        <th style="background-color: #3c8dbc; color: white; text-align: center;">N°</th>
+                        <th style="background-color: #3c8dbc; color: white; text-align: center;">Concepto</th>
+                        <th style="background-color: #3c8dbc; color: white; text-align: center;">Medida</th>
+                        <th style="background-color: #3c8dbc; color: white; text-align: center;">Categoria</th>
                        
-                        <th style="background-color: #3c8dbc; color: white;">Descripcion</th>
-                        <th style="background-color: #3c8dbc; color: white;">Precio</th>
-                        <th style="background-color: #3c8dbc; color: white;">F.registro</th>
-                        <th style="background-color: #3c8dbc; color: white;">Estado</th>
-                        <th style="background-color: #3c8dbc; color: white;">Opciones</th>
+                        <th style="background-color: #3c8dbc; color: white; text-align: center;">Descripcion</th>
+                        <th style="background-color: #3c8dbc; color: white; text-align: center;">Precio</th>
+                        <th style="background-color: #3c8dbc; color: white; text-align: center;">F.registro</th>
+                        <th style="background-color: #3c8dbc; color: white; text-align: center;">Estado</th>
+                        <th style="background-color: #3c8dbc; color: white; text-align: center;">Opciones</th>
                          <th></th>
                       </tr>
                     </thead>
