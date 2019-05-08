@@ -29,7 +29,7 @@
           <!-- /.box-header -->
           <div class="box-body">
             <div class="row">
-              <div class="col-md-9">
+              <div class="col-md-10">
                 <div id="HistoriaContenido" data-paciente="<?= $this->uri->segment(4) ?>">
                   <?php
                     $this->load->view('admin/historia/movimiento/datos_paciente');
@@ -40,7 +40,7 @@
                   ?>
                 </div>
               </div>
-              <div class="col-md-3">
+              <div class="col-md-2">
                 <div class="text-center">
                   <img src="<?= base_url('assets/img/avatar04.png') ?>" class="img-circle">
                   <h4>H.C: <?= $paciente->codi_pac ?></h4>

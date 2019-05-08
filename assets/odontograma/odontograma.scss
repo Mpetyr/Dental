@@ -1,0 +1,59 @@
+#odontograma{
+  display: flex;
+  align-items: start;
+  justify-content: center;
+}
+$anchoTotal:  100%;
+$anchoDiente: $anchoTotal / 16;
+$altoDiente: 16%;
+$altoDienteCentro: 18.2%;
+
+#odontograma-contenido{
+  position: relative;
+	
+	.cursor{
+		position: absolute;
+		width: $anchoDiente;
+		&:hover{
+			box-shadow: 0px 2px 29px -6px rgba(0,0,0,0.75);
+		}
+	}
+	//CUADRANTE UNO
+	@for $i from 1 through 16{
+		.cursor-#{$i} {
+			height: $altoDiente;
+			top: 6%;
+			left: ($i - 1) * $anchoDiente;
+			background: url('CoronaCompleta_be_arriba.png');
+			background-repeat: none;
+		}
+	}
+
+	//CUADRANTE DOS
+	@for $i from 17 through 26{
+		.cursor-#{$i} {
+			height: $altoDienteCentro;
+			top: 31.5%;
+			left: ($i - 14) * $anchoDiente;
+		}
+	}
+
+	//CUADRANTE TRES
+	@for $i from 27 through 36{
+		.cursor-#{$i} {
+			height: $altoDienteCentro;
+			top: 50%;
+			left: ($i - 24) * $anchoDiente;
+		}
+	}
+
+	//CUADRANTE TRES
+	@for $i from 37 through 52{
+		.cursor-#{$i} {
+			height: $altoDiente;
+			top: 78%;
+			left: ($i - 37) * $anchoDiente;
+		}
+	}
+
+}

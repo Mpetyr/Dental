@@ -499,6 +499,11 @@ class Movimiento extends CI_Controller {
 		echo json_encode($resp);
 	}
 
+	function odontograma()
+	{
+		
+	}
+
 }
 
 /* End of file movimiento.php */
