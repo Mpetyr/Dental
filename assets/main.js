@@ -182,7 +182,8 @@ function warnBeforeRedirect(linkURL) {
 =            CITAS REGISTRAR            =
 =======================================*/
 
-$('select[name=especialidad]').change(function(event) {
+$('#FormCitas select[name=especialidad], #FormAgendaFiltro select[name=especialidad]').change(function(event) {
+	
 	let especialidad = $(this).val();
 	$.ajax({
 		url: base_url+'citas/registrar/getMedicos',
@@ -195,9 +196,10 @@ $('select[name=especialidad]').change(function(event) {
 		$.each(response, function(index, val) {
 			 option += `<option value="${val['codi_med']}">${val['nomb_med']+' '+val['apel_med']}</option>`;
 		});
-		$('select[name=medico]').empty().html(option);
+		$('#FormCitas select[name=medico], #FormAgendaFiltro select[name=medico]').empty().html(option);
 	});
 });
+
 
 
 $('#FormCitas').validate({
@@ -1480,6 +1482,187 @@ $('#FormHistoriaMovimientoAgregarAlergia').validate({
 	}
 });
 
+
+$('#TableHistoriaMovimientoEvolucion').DataTable({
+	"language": {"url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"},
+	"searching": false,
+	"processing": true,
+	"serverSide": true,
+	"iDisplayLength": 25,
+	"aLengthMenu": [[25, 50, 100, -1], [25, 50, 100, 'Todos']],
+	"aaSorting": [[1, 'desc']],
+	"ajax": {
+		"url": path+'historia/movimiento/jsonEvolucion',
+		"type": "POST",
+		"data": function (d) {
+			d.paciente = $("#HistoriaContenido").data('paciente');
+		}
+	},
+	"columns": [
+		{"orderable":true},
+		{"orderable":true},
+		{"orderable":true},
+		{"orderable":true},
+		{"orderable":false}
+	]
+});
+
+
+$('#FormHistoriaMovimientoAgregarEvolucion').validate({
+	rules:{
+		especialidad:{required:true},
+		medico:{required:true},
+		fecha_registro:{required:true},
+		evolucion:{required:true}
+	},
+	submitHandler:function() {
+		$('#ModalAgregarEvolucion').modal('hide');
+		enviarFormulario('#FormHistoriaMovimientoAgregarEvolucion',function(json){
+			if (json.success) {
+				$('#TableHistoriaMovimientoEvolucion').DataTable().ajax.reload();
+				$('#FormHistoriaMovimientoAgregarEvolucion select[name=especialidad]').select2('val','');
+				$('#FormHistoriaMovimientoAgregarEvolucion select[name=medico]').select2('val','');
+				$('#FormHistoriaMovimientoAgregarEvolucion datepicker[name=fecha_evolucion]').datepicker('setDate',null);
+				$('#FormHistoriaMovimientoAgregarEvolucion textarea[name=evolucion]').val('');
+				
+			
+			}
+
+
+		})
+	}
+});
+
+function getMedicosPorEspecialidadSelect2($esp,$selectMedico)
+{
+	var especialidad = $esp;
+	$.ajax({
+		url: base_url+'historia/movimiento/getMedicos',
+		type: 'POST',
+		dataType: 'JSON',
+		data: {'especialidad':especialidad}
+	})
+	.done(function(response) {
+		$($selectMedico).select2('val','');
+		$($selectMedico).select2({
+		    data: response,
+		});
+	});
+}
+
+/*$('#FormHistoriaMovimientoEditarEvolucion select[name=especialidad]').change(function(event) {
+	getMedicosPorEspecialidadSelect2($(this),'#FormHistoriaMovimientoEditarEvolucion select[name=medico]');
+});*/
+
+
+
+$('#TableHistoriaMovimientoEvolucion').on('click', '.editar-evolucion', function(event) {
+	event.preventDefault();
+	var id = $(this).data('id');
+	$.getJSON(path+'historia/movimiento/getEvolucion', {id}, function(json, textStatus) {
+		$('#FormHistoriaMovimientoEditarEvolucion select[name=especialidad]').select2({
+		    data: json.especialidades,
+		});
+		$('#FormHistoriaMovimientoEditarEvolucion select[name=medico]').select2('val',json.cod_especialidad);
+	
+		$('#FormHistoriaMovimientoEditarEvolucion select[name=medico]').select2({
+		    data: json.medicos
+		});
+		$('#FormHistoriaMovimientoEditarEvolucion select[name=medico]').select2('val',json.codi_med);
+		
+		$('#FormHistoriaMovimientoEditarEvolucion input[name=id]').val(json.pacevol_id);
+		$('#FormHistoriaMovimientoEditarEvolucion datepicker[name=fecha_evolucion]').val(json.fecha_evolucion);
+		$('#FormHistoriaMovimientoEditarEvolucion textarea[name=evolucion]').val(json.pacevol_descripcion);
+	//	$('#FormHistoriaMovimientoEditarAlergia textarea[name=observacion]').val(json.pacale_observacion);
+	});
+});
+
+$('#FormHistoriaMovimientoEditarEvolucion').validate({
+	ignore: [],
+	rules:{
+		id:{required:true},
+		especialidad:{required:true},
+		medico:{required:true},
+		fecha_registro:{required:true},
+		evolucion:{required:true}
+	},
+	submitHandler:function() {
+		$('#ModalEditarEvolucion').modal('hide');
+		enviarFormulario('#FormHistoriaMovimientoEditarEvolucion',function(json){
+			if (json.success) {
+				$('#TableHistoriaMovimientoEvolucion').DataTable().ajax.reload();
+				$('#FormHistoriaMovimientoEditarEvolucion select[name=especialidad]').select2('val', '');
+				$('#FormHistoriaMovimientoEditarEvolucion select[name=medico]').select2('val', '');
+				$('#FormHistoriaMovimientoEditarEvolucion datepicker[name=fecha_evolucion]').datepicker('setDate',null);
+				$('#FormHistoriaMovimientoEditarEvolucion textarea[name=evolucion]').val('');
+			}
+		})
+	}
+});
+
+
+$('#TableHistoriaMovimientoEvolucion').on('click', '.anular-evolucion', function(event) {
+	event.preventDefault();
+	var id = $(this).data('id');
+	Swal.fire({
+		title: "Confirmar",
+		type: "warning",
+		cancelButtonText:'No',
+		confirmButtonText:'Si',
+		showCancelButton: true,
+		confirmButtonColor: "#007AFF",
+		cancelButtonColor: "#d43f3a",
+		text: "¿Anular evolucion?"
+	}).then((result) => {
+		if (result.value) {
+			$.getJSON(path+'historia/movimiento/anularEvolucion', {id}, function(json, textStatus) {
+				if (json.success) {
+					Swal.fire({
+						title: "Buen trabajo",
+						text: "La solicitud ha sido procesada.",
+						type: "success"
+					});
+					$('#TableHistoriaMovimientoEvolucion').DataTable().ajax.reload();
+				}else{
+					Swal.fire({
+						title: "Error",
+						text: "Ocurrio un error, vuelva a intentarlo.",
+						type: "error"
+					});
+				}
+			});
+		}
+	});
+});
+
+
+$('#TableHistoriaMovimientoCita').DataTable({
+	"language": {"url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"},
+	"searching": false,
+	"processing": true,
+	"serverSide": true,
+	"iDisplayLength": 25,
+	"aLengthMenu": [[25, 50, 100, -1], [25, 50, 100, 'Todos']],
+	"aaSorting": [[1, 'desc']],
+	"ajax": {
+		"url": path+'historia/movimiento/jsonCitasHistoria',
+		"type": "POST",
+		"data": function (d) {
+			d.paciente = $("#HistoriaContenido").data('paciente');
+		}
+	},
+	"columns": [
+		{"orderable":true},
+		{"orderable":true},
+		{"orderable":true},
+		{"orderable":true},
+		{"orderable":true},
+		{"orderable":false}
+	]
+});
+
+
+
 $('#FormHistoriaMovimientoDatosPaciente').validate({
 	submitHandler:function() {
 		enviarFormulario('#FormHistoriaMovimientoDatosPaciente',function(json){
@@ -1732,17 +1915,21 @@ $('#TableHistoriaMovimientoPlacas').DataTable({
 	]
 });
 
+$('#ButtonAgregarPlaca').click(function(event) {
+	$('#progress .progress-bar, #files').hide();
+});
 
 $('#SubirPlaca').fileupload({
   url: path+'historia/movimiento/subir',
   dataType: 'json',
   done: function (e, data) {
   	var image = `<image src="${ path+'assets/uploads/placas/thumbs/'+data.result.name}">`;
-  	$('#files').html(image);
+  	$('#files').show().html(image);
   	$('#FormHistoriaMovimientoAgregarPlaca input[name=archivo]').val(data.result.name);
   },
   progressall: function (e, data) {
     var progress = parseInt(data.loaded / data.total * 100, 10);
+    $('#progress .progress-bar').show();
     $('#progress .progress-bar').css(
       'width',
       progress + '%'

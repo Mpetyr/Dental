@@ -204,7 +204,7 @@
             <div class="col-md-12">
               <div class="form-group">
                 <div class="checkbox">
-                  <label><input type="checkbox" name="notificar">Notificar correo del paciente</label>
+                  <label><input type="checkbox"    name="notificar" checked="true" >Notificar correo del paciente</label>
                 </div>
               </div>
             </div>

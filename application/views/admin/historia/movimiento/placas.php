@@ -6,7 +6,7 @@
     <div class="row">
       <div class="col-md-12">
         <div class="form-group">
-          <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#ModalAgregarPlaca"><i class="fa fa-plus" aria-hidden="true"></i> Agregar</button>
+          <button id="ButtonAgregarPlaca" class="btn btn-success btn-sm" data-toggle="modal" data-target="#ModalAgregarPlaca"><i class="fa fa-plus" aria-hidden="true"></i> Agregar</button>
         </div>
       </div>
     </div>

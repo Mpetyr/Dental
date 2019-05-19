@@ -44,7 +44,7 @@
         <link rel="stylesheet" href="<?php echo base_url();?>assets/template/bootstrap/css/odontogeneral.css">
     <script src="<?php echo base_url();?>assets/template/jquery/jquery.min.js"></script>
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-blue sidebar-collapse sidebar-mini">
     <!-- Site wrapper -->
     <div class="wrapper">
         <header class="main-header">

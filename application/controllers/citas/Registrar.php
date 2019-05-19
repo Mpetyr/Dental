@@ -106,7 +106,7 @@ class Registrar extends CI_Controller {
 		$this->form_validation->set_rules('especialidad', '', 'required');
 		$this->form_validation->set_rules('paciente', '', 'required');
 		$this->form_validation->set_rules('motivo', '', 'required');
-		$this->form_validation->set_rules('observacion', '', 'required');
+		$this->form_validation->set_rules('observacion', '', '');
 		if ($this->form_validation->run() == TRUE){
 			$data['codi_pac'] = $this->input->post('paciente');
 			$data['codi_med'] = $this->input->post('medico');
@@ -164,7 +164,7 @@ class Registrar extends CI_Controller {
     $this->email->to($data['cita']->emai_pac); 
     $this->email->subject('Notificación de Clinica Dental'); 
     $this->email->message($mensaje); 
-    $this->email->send(); 
+   // $this->email->send(); 
 	}
 
 	function getCita()
@@ -181,7 +181,7 @@ class Registrar extends CI_Controller {
 		$this->form_validation->set_rules('medicoEditar', '', 'required');
 		$this->form_validation->set_rules('especialidadEditar', '', 'required');
 		$this->form_validation->set_rules('motivo', '', 'required');
-		$this->form_validation->set_rules('observacion', '', 'required');
+		$this->form_validation->set_rules('observacion', '', '');
 		if ($this->form_validation->run() == TRUE){
 			$data['codi_med'] = $this->input->post('medicoEditar');
 			$data['cod_especialidad'] = $this->input->post('especialidadEditar');

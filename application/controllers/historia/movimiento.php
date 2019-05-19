@@ -17,9 +17,10 @@ class Movimiento extends CI_Controller {
 
 	public function index()
 	{
+		
 		$this->load->view('layouts/header');
 		$this->load->view('layouts/aside');
-		$this->load->view('admin/historia/movimiento/panel');
+		$this->load->view('admin/historia/movimiento/panel',$data);
 		$this->load->view('layouts/footer');
 	}
 
@@ -55,6 +56,7 @@ class Movimiento extends CI_Controller {
 
 	function historia($id)
 	{
+		
 		$data['paciente'] = $this->modelgeneral->getTableWhereRow('paciente',['codi_pac'=>$id]);
 		$data['departamentos'] = $this->modelgeneral->getTable('departamento');
 		$data['provincias'] = $this->modelgeneral->getTableWhere('provincia',['departamento_id'=>$data['paciente']->departamento_id]);
@@ -65,6 +67,11 @@ class Movimiento extends CI_Controller {
 		$data['exploracion'] = $this->modelgeneral->getTableWhereRow('paciente_exploracion',['codi_pac'=>$id]);
 		$data['paises'] = $this->modelgeneral->getTable('paises');
 		$data['diagnosticos'] = $this->modelgeneral->getTableWhere('enfermedad',['esta_enf'=>'A']);
+
+		$data['especialidad'] = $this->modelgeneral->getTable('especialidad');
+		$data['medicos']=$this->modelgeneral->getTableWhere('medico',['cod_especialidad'=>$data['especialidad']->cod_especialidad]);
+														
+	    
 		$this->load->view('layouts/header');
 		$this->load->view('layouts/aside');
 		$this->load->view('admin/historia/movimiento/historia',$data);
@@ -220,6 +227,142 @@ class Movimiento extends CI_Controller {
 		$datos = $this->historia_model->getAlergias($data);
 		header('content-type: application/json; charset=utf-8');
 		echo json_encode($datos);
+	}
+
+
+	public function jsonCitasHistoria()
+	{
+		$data['start'] = $this->input->get_post('start', true);
+		$data['length'] = $this->input->get_post('length', true);
+		$data['sEcho']  = $this->input->get_post('_', true);
+
+		$columns = array('codi_cit','fech_cit','nombre_especialidad','medico','nomb_citado');
+		$orderCampo = $this->input->get_post('order', true);
+		$orderCampo = $orderCampo[0]['column'];
+		$orderCampo = $columns[$orderCampo];
+		$orderDireccion = $this->input->get_post('order', true);
+		$orderDireccion = $orderDireccion[0]['dir'];
+		$data['orderCampo'] = $orderCampo;
+		$data['orderDireccion'] = $orderDireccion;
+		$data['paciente'] = $this->input->get_post('paciente');		
+		$datos = $this->historia_model->getListadoCitas($data);
+		header('content-type: application/json; charset=utf-8');
+		echo json_encode($datos);
+
+	}
+
+
+	
+	public function jsonEvolucion()
+	{
+		$data['start'] = $this->input->get_post('start', true);
+		$data['length'] = $this->input->get_post('length', true);
+		$data['sEcho']  = $this->input->get_post('_', true);
+
+		$columns = array('fecha_evolucion','pacevol_descripcion','medico','nombre_especialidad');
+		$orderCampo = $this->input->get_post('order', true);
+		$orderCampo = $orderCampo[0]['column'];
+		$orderCampo = $columns[$orderCampo];
+		$orderDireccion = $this->input->get_post('order', true);
+		$orderDireccion = $orderDireccion[0]['dir'];
+		$data['orderCampo'] = $orderCampo;
+		$data['orderDireccion'] = $orderDireccion;
+		$data['paciente'] = $this->input->get_post('paciente');		
+		$datos = $this->historia_model->getEvolucion($data);
+		header('content-type: application/json; charset=utf-8');
+		echo json_encode($datos);
+	}
+
+	function agregarEvolucion()
+	{
+		$this->form_validation->set_rules('paciente','','required');
+		$this->form_validation->set_rules('especialidad','','required');
+		$this->form_validation->set_rules('medico','','required');
+		$this->form_validation->set_rules('evolucion','','required');
+		$this->form_validation->set_rules('fecha','','required');
+		if($this->form_validation->run() == TRUE){
+			$data['codi_pac'] = $this->input->post('paciente');
+			$data['cod_especialidad'] = $this->input->post('especialidad');
+			$data['codi_med']= $this->input->post('medico');
+			$data['pacevol_descripcion']= $this->input->post('evolucion');
+			$data['fecha_evolucion']=$this->input->post('fecha');
+			$insert = $this->modelgeneral->insertRegist('paciente_evolucion',$data);
+			$resp =[];
+			if(!is_null($insert)){
+				$resp['success'] = true;
+			}else{
+				$resp['success'] = false;
+			}
+            echo json_encode($resp);
+		}
+
+	}
+
+	function getEvolucion()
+	{
+		$id = $this->input->get('id');
+		$evolucion = $this->modelgeneral->getTableWhereRow('paciente_evolucion',['pacevol_id'=>$id]);
+		$evolucion->especialidades = $this->db->from('especialidad')
+						->select('cod_especialidad as id, nombre_especialidad as text')
+						->get()->result();
+		$evolucion->medicos = $this->db->from('medico')
+								->select('codi_med as id,CONCAT(COALESCE(nomb_med,"")," ",COALESCE(apel_med,"")) AS text')
+								->where('cod_especialidad',$evolucion->cod_especialidad)
+								->get()->result();
+		header('content-type: application/json; charset=utf-8');
+		echo json_encode($evolucion);
+	}
+
+	function getMedicos()
+	{
+		$especialidad = $this->input->get_post('especialidad');
+		$resp = $this->db->from('medico')
+		->select('codi_med as id,CONCAT(COALESCE(nomb_med,"")," ",COALESCE(apel_med,"")) AS text')
+		->where('cod_especialidad',$especialidad)
+		->get()->result();
+		echo json_encode($resp);
+	}
+
+	function editarEvolucion()
+	{
+		$this->form_validation->set_rules('id','','required');
+		$this->form_validation->set_rules('paciente','','required');
+		$this->form_validation->set_rules('especialidad','','required');
+		$this->form_validation->set_rules('medico','','required');
+		$this->form_validation->set_rules('evolucion','','required');
+		$this->form_validation->set_rules('fecha','','required');
+		if($this->form_validation->run() == TRUE){
+
+			$data['codi_pac'] = $this->input->post('paciente');
+			$data['cod_especialidad'] = $this->input->post('especialidad');
+			$data['codi_med']= $this->input->post('medico');
+			$data['pacevol_descripcion']= $this->input->post('evolucion');
+			$data['fecha_evolucion']=$this->input->post('fecha');
+			$where['pacevol_id'] = $this->input->post('id');
+			$edit = $this->modelgeneral->editRegist('paciente_evolucion',$where,$data);
+			$resp =[];
+			if(!is_null($edit)){
+				$resp['success'] = true;
+			}else{
+				$resp['success'] = false;
+			}
+            echo json_encode($resp);
+		}
+	}
+
+		function anularEvolucion()
+	{
+		$where['pacevol_id'] = $this->input->get('id');
+		$data['pacevol_estado'] = 2;//anulado
+		$edit = $this->modelgeneral->editRegist('paciente_evolucion',$where,$data);
+		$resp = [];
+		if ($edit) {
+			$resp['success'] = true;
+		}else{
+			$resp['success'] = false;
+		}
+
+		echo json_encode($resp);
 	}
 
 	function agregarAlergia()
@@ -497,6 +640,32 @@ class Movimiento extends CI_Controller {
 			$resp['success'] = false;
 		}
 		echo json_encode($resp);
+	}
+
+
+	function imprimirHistoria($id)
+	{
+		
+		$this->mpdf = new mPDF('utf-8','A4','','',
+			5, //LEFT
+			5, //RIGHT
+			8, //TOP
+			50, //BOTTOM
+			10, //HEADER
+			10);
+		$data['historia'] = $this->historia_model->getHistoriaImprimir($id);
+
+		$html = $this->load->view('admin/historia/imprimir/contenido',$data,TRUE);
+		//$htmlHeader = $this->load->view('admin/historia/imprimir/header',NULL,true);
+		$htmlFooter = $this->load->view('admin/historia/imprimir/footer',NULL,true);
+		$css = $css = file_get_contents('assets/styles_pdf.css');
+		$this->mpdf->SetTitle('Historia');
+		$this->mpdf->setHTMLHeader($htmlHeader);
+		$this->mpdf->setHTMLFooter($htmlFooter);
+		$this->mpdf->writeHTML($css,1);
+		$this->mpdf->writeHTML($html,2);
+		$this->mpdf->Output('Historia','I');
+
 	}
 
 }
