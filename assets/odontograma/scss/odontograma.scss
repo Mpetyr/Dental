@@ -1,0 +1,178 @@
+#odontograma{
+  display: flex;
+  align-items: start;
+  justify-content: center;
+}
+$anchoTotal:  100%;
+$anchoDiente: ($anchoTotal / 16);
+$altoDiente: 9.6%;
+$altoDienteCentro: 9.7%;
+
+#odontograma-contenido{
+	border: 1px solid red;
+	position: relative;
+	img{
+		vertical-align: middle;
+	}
+	
+	.cursor{
+		position: absolute;
+		width: $anchoDiente;
+		z-index: 500;
+		&:hover{
+			/*box-shadow: 0px 2px 29px -6px rgba(0,0,0,0.75);*/
+		}
+	}
+	
+	.hallazgos{
+		width: $anchoDiente;
+		position: absolute;
+		background-position-x: center;
+		background-repeat: no-repeat;
+	}
+	
+	.corona{
+		background-size: 90% auto;
+		background-image: url('../images/corona.png');
+	}
+
+	.erupcion{
+		background-size: 40% auto;
+		background-image: url('../images/erupcion.png');
+	}
+
+	.aparatoOrtoFijoBuenInicio{
+		background-image: url('../images/AparatoOrtoFijoBueno.png');
+		height: 3%;
+		background-size: cover;
+	}
+
+	.aparatoOrtoFijoBuenFin{
+		background-image: url('../images/AparatoOrtoFijoBueno.png');
+		height: 3%;
+		background-size: cover;
+		transform: rotate(180deg);
+	}
+
+	.lineaBuen{
+		background-image: url('../images/lineaAzul.png');
+		height: 3%;
+		background-size: cover;
+	}
+	//CUADRANTE UNO
+	@for $i from 1 through 16{
+		.cursor-#{$i} {
+			height: $altoDiente;
+			top: 10.5%;
+			left: (($i - 1) * $anchoDiente);
+		}
+		.corona-#{$i}{
+			height: $altoDiente;
+			left: (($i - 1) * $anchoDiente);
+			top: 10.7%;
+			background-position-y: bottom;
+		}
+
+		.erupcion-#{$i}{
+			height: $altoDiente;
+			left: (($i - 1) * $anchoDiente);
+			top: 9.5%;
+			background-position-y: 35%;
+		}
+
+		.aparatoOrtoFijoBuenInicio-#{$i},.aparatoOrtoFijoBuenFin-#{$i}, .lineaBuen-#{$i}{
+			left: (($i - 1) * $anchoDiente);
+			top: 3.5%;
+		}
+	}
+
+	//CUADRANTE DOS
+	@for $i from 17 through 26{
+		.cursor-#{$i} {
+			height: $altoDienteCentro;
+			top: 34%;
+			left: ($i - 14) * $anchoDiente;
+		}
+
+		.corona-#{$i}{
+			height: $altoDienteCentro;
+			left: (($i - 14) * $anchoDiente);
+			top: 36.4%;
+			background-position-y: 62%;
+		}
+
+		.erupcion-#{$i}{
+			height: $altoDiente;
+			left: (($i - 14) * $anchoDiente);
+			top: 33%;
+			background-position-y: 35%;
+		}
+
+		.aparatoOrtoFijoBuenInicio-#{$i}, .aparatoOrtoFijoBuenFin-#{$i}, .lineaBuen-#{$i}{
+			left: (($i - 14) * $anchoDiente);
+			top: 30%;
+		}
+
+
+	}
+	
+	//CUADRANTE TRES
+	@for $i from 27 through 36{
+		.cursor-#{$i} {
+			height: $altoDienteCentro;
+			top: 54.5%;
+			left: ($i - 24) * $anchoDiente;
+		}
+		.corona-#{$i}{
+			height: $altoDienteCentro;
+			left: (($i - 24) * $anchoDiente)-0.1%; //CORRECCION
+			top: 52.2%;
+			background-position-y: 41%;
+		}
+
+		.erupcion-#{$i}{
+			height: $altoDiente;
+			left: (($i - 24) * $anchoDiente);
+			top: 56%;
+			background-position-y: 35%;
+			transform: rotate(180deg);
+		}
+
+		.aparatoOrtoFijoBuenInicio-#{$i}, .aparatoOrtoFijoBuenFin-#{$i}, .lineaBuen-#{$i}{
+			left: (($i - 24) * $anchoDiente);
+			top: 66.5%;
+		}
+	}
+
+	//CUADRANTE CUATRO
+	@for $i from 37 through 52{
+		.cursor-#{$i} {
+			height: $altoDiente;
+			top: 78.8%;
+			left: ($i - 37) * $anchoDiente;
+		}
+
+		.corona-#{$i}{
+			height: $altoDienteCentro;
+			left: (($i - 37) * $anchoDiente);
+			top: 78.8%;
+			background-position-y: top;
+		}
+
+		.erupcion-#{$i}{
+			height: $altoDiente;
+			left: (($i - 37) * $anchoDiente);
+			top: 80.2%;
+			background-position-y: 35%;
+			transform: rotate(180deg);
+		}
+
+		.aparatoOrtoFijoBuenInicio-#{$i}, .aparatoOrtoFijoBuenFin-#{$i}, .lineaBuen-#{$i}{
+			left: (($i - 37) * $anchoDiente);
+			top: 93.5%;
+		}
+	}
+
+
+
+}

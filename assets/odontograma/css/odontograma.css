@@ -1,0 +1,1010 @@
+#odontograma {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: start;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center; }
+
+#odontograma-contenido {
+  border: 1px solid red;
+  position: relative; }
+  #odontograma-contenido img {
+    vertical-align: middle; }
+  #odontograma-contenido .cursor {
+    position: absolute;
+    width: 6.25%;
+    z-index: 500; }
+    #odontograma-contenido .cursor:hover {
+      /*box-shadow: 0px 2px 29px -6px rgba(0,0,0,0.75);*/ }
+  #odontograma-contenido .hallazgos {
+    width: 6.25%;
+    position: absolute;
+    background-position-x: center;
+    background-repeat: no-repeat; }
+  #odontograma-contenido .corona {
+    background-size: 90% auto;
+    background-image: url("../images/corona.png"); }
+  #odontograma-contenido .erupcion {
+    background-size: 40% auto;
+    background-image: url("../images/erupcion.png"); }
+  #odontograma-contenido .aparatoOrtoFijoBuenInicio {
+    background-image: url("../images/AparatoOrtoFijoBueno.png");
+    height: 3%;
+    background-size: cover; }
+  #odontograma-contenido .aparatoOrtoFijoBuenFin {
+    background-image: url("../images/AparatoOrtoFijoBueno.png");
+    height: 3%;
+    background-size: cover;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .lineaBuen {
+    background-image: url("../images/lineaAzul.png");
+    height: 3%;
+    background-size: cover; }
+  #odontograma-contenido .cursor-1 {
+    height: 9.6%;
+    top: 10.5%;
+    left: 0%; }
+  #odontograma-contenido .corona-1 {
+    height: 9.6%;
+    left: 0%;
+    top: 10.7%;
+    background-position-y: bottom; }
+  #odontograma-contenido .erupcion-1 {
+    height: 9.6%;
+    left: 0%;
+    top: 9.5%;
+    background-position-y: 35%; }
+  #odontograma-contenido .aparatoOrtoFijoBuenInicio-1, #odontograma-contenido .aparatoOrtoFijoBuenFin-1, #odontograma-contenido .lineaBuen-1 {
+    left: 0%;
+    top: 3.5%; }
+  #odontograma-contenido .cursor-2 {
+    height: 9.6%;
+    top: 10.5%;
+    left: 6.25%; }
+  #odontograma-contenido .corona-2 {
+    height: 9.6%;
+    left: 6.25%;
+    top: 10.7%;
+    background-position-y: bottom; }
+  #odontograma-contenido .erupcion-2 {
+    height: 9.6%;
+    left: 6.25%;
+    top: 9.5%;
+    background-position-y: 35%; }
+  #odontograma-contenido .aparatoOrtoFijoBuenInicio-2, #odontograma-contenido .aparatoOrtoFijoBuenFin-2, #odontograma-contenido .lineaBuen-2 {
+    left: 6.25%;
+    top: 3.5%; }
+  #odontograma-contenido .cursor-3 {
+    height: 9.6%;
+    top: 10.5%;
+    left: 12.5%; }
+  #odontograma-contenido .corona-3 {
+    height: 9.6%;
+    left: 12.5%;
+    top: 10.7%;
+    background-position-y: bottom; }
+  #odontograma-contenido .erupcion-3 {
+    height: 9.6%;
+    left: 12.5%;
+    top: 9.5%;
+    background-position-y: 35%; }
+  #odontograma-contenido .aparatoOrtoFijoBuenInicio-3, #odontograma-contenido .aparatoOrtoFijoBuenFin-3, #odontograma-contenido .lineaBuen-3 {
+    left: 12.5%;
+    top: 3.5%; }
+  #odontograma-contenido .cursor-4 {
+    height: 9.6%;
+    top: 10.5%;
+    left: 18.75%; }
+  #odontograma-contenido .corona-4 {
+    height: 9.6%;
+    left: 18.75%;
+    top: 10.7%;
+    background-position-y: bottom; }
+  #odontograma-contenido .erupcion-4 {
+    height: 9.6%;
+    left: 18.75%;
+    top: 9.5%;
+    background-position-y: 35%; }
+  #odontograma-contenido .aparatoOrtoFijoBuenInicio-4, #odontograma-contenido .aparatoOrtoFijoBuenFin-4, #odontograma-contenido .lineaBuen-4 {
+    left: 18.75%;
+    top: 3.5%; }
+  #odontograma-contenido .cursor-5 {
+    height: 9.6%;
+    top: 10.5%;
+    left: 25%; }
+  #odontograma-contenido .corona-5 {
+    height: 9.6%;
+    left: 25%;
+    top: 10.7%;
+    background-position-y: bottom; }
+  #odontograma-contenido .erupcion-5 {
+    height: 9.6%;
+    left: 25%;
+    top: 9.5%;
+    background-position-y: 35%; }
+  #odontograma-contenido .aparatoOrtoFijoBuenInicio-5, #odontograma-contenido .aparatoOrtoFijoBuenFin-5, #odontograma-contenido .lineaBuen-5 {
+    left: 25%;
+    top: 3.5%; }
+  #odontograma-contenido .cursor-6 {
+    height: 9.6%;
+    top: 10.5%;
+    left: 31.25%; }
+  #odontograma-contenido .corona-6 {
+    height: 9.6%;
+    left: 31.25%;
+    top: 10.7%;
+    background-position-y: bottom; }
+  #odontograma-contenido .erupcion-6 {
+    height: 9.6%;
+    left: 31.25%;
+    top: 9.5%;
+    background-position-y: 35%; }
+  #odontograma-contenido .aparatoOrtoFijoBuenInicio-6, #odontograma-contenido .aparatoOrtoFijoBuenFin-6, #odontograma-contenido .lineaBuen-6 {
+    left: 31.25%;
+    top: 3.5%; }
+  #odontograma-contenido .cursor-7 {
+    height: 9.6%;
+    top: 10.5%;
+    left: 37.5%; }
+  #odontograma-contenido .corona-7 {
+    height: 9.6%;
+    left: 37.5%;
+    top: 10.7%;
+    background-position-y: bottom; }
+  #odontograma-contenido .erupcion-7 {
+    height: 9.6%;
+    left: 37.5%;
+    top: 9.5%;
+    background-position-y: 35%; }
+  #odontograma-contenido .aparatoOrtoFijoBuenInicio-7, #odontograma-contenido .aparatoOrtoFijoBuenFin-7, #odontograma-contenido .lineaBuen-7 {
+    left: 37.5%;
+    top: 3.5%; }
+  #odontograma-contenido .cursor-8 {
+    height: 9.6%;
+    top: 10.5%;
+    left: 43.75%; }
+  #odontograma-contenido .corona-8 {
+    height: 9.6%;
+    left: 43.75%;
+    top: 10.7%;
+    background-position-y: bottom; }
+  #odontograma-contenido .erupcion-8 {
+    height: 9.6%;
+    left: 43.75%;
+    top: 9.5%;
+    background-position-y: 35%; }
+  #odontograma-contenido .aparatoOrtoFijoBuenInicio-8, #odontograma-contenido .aparatoOrtoFijoBuenFin-8, #odontograma-contenido .lineaBuen-8 {
+    left: 43.75%;
+    top: 3.5%; }
+  #odontograma-contenido .cursor-9 {
+    height: 9.6%;
+    top: 10.5%;
+    left: 50%; }
+  #odontograma-contenido .corona-9 {
+    height: 9.6%;
+    left: 50%;
+    top: 10.7%;
+    background-position-y: bottom; }
+  #odontograma-contenido .erupcion-9 {
+    height: 9.6%;
+    left: 50%;
+    top: 9.5%;
+    background-position-y: 35%; }
+  #odontograma-contenido .aparatoOrtoFijoBuenInicio-9, #odontograma-contenido .aparatoOrtoFijoBuenFin-9, #odontograma-contenido .lineaBuen-9 {
+    left: 50%;
+    top: 3.5%; }
+  #odontograma-contenido .cursor-10 {
+    height: 9.6%;
+    top: 10.5%;
+    left: 56.25%; }
+  #odontograma-contenido .corona-10 {
+    height: 9.6%;
+    left: 56.25%;
+    top: 10.7%;
+    background-position-y: bottom; }
+  #odontograma-contenido .erupcion-10 {
+    height: 9.6%;
+    left: 56.25%;
+    top: 9.5%;
+    background-position-y: 35%; }
+  #odontograma-contenido .aparatoOrtoFijoBuenInicio-10, #odontograma-contenido .aparatoOrtoFijoBuenFin-10, #odontograma-contenido .lineaBuen-10 {
+    left: 56.25%;
+    top: 3.5%; }
+  #odontograma-contenido .cursor-11 {
+    height: 9.6%;
+    top: 10.5%;
+    left: 62.5%; }
+  #odontograma-contenido .corona-11 {
+    height: 9.6%;
+    left: 62.5%;
+    top: 10.7%;
+    background-position-y: bottom; }
+  #odontograma-contenido .erupcion-11 {
+    height: 9.6%;
+    left: 62.5%;
+    top: 9.5%;
+    background-position-y: 35%; }
+  #odontograma-contenido .aparatoOrtoFijoBuenInicio-11, #odontograma-contenido .aparatoOrtoFijoBuenFin-11, #odontograma-contenido .lineaBuen-11 {
+    left: 62.5%;
+    top: 3.5%; }
+  #odontograma-contenido .cursor-12 {
+    height: 9.6%;
+    top: 10.5%;
+    left: 68.75%; }
+  #odontograma-contenido .corona-12 {
+    height: 9.6%;
+    left: 68.75%;
+    top: 10.7%;
+    background-position-y: bottom; }
+  #odontograma-contenido .erupcion-12 {
+    height: 9.6%;
+    left: 68.75%;
+    top: 9.5%;
+    background-position-y: 35%; }
+  #odontograma-contenido .aparatoOrtoFijoBuenInicio-12, #odontograma-contenido .aparatoOrtoFijoBuenFin-12, #odontograma-contenido .lineaBuen-12 {
+    left: 68.75%;
+    top: 3.5%; }
+  #odontograma-contenido .cursor-13 {
+    height: 9.6%;
+    top: 10.5%;
+    left: 75%; }
+  #odontograma-contenido .corona-13 {
+    height: 9.6%;
+    left: 75%;
+    top: 10.7%;
+    background-position-y: bottom; }
+  #odontograma-contenido .erupcion-13 {
+    height: 9.6%;
+    left: 75%;
+    top: 9.5%;
+    background-position-y: 35%; }
+  #odontograma-contenido .aparatoOrtoFijoBuenInicio-13, #odontograma-contenido .aparatoOrtoFijoBuenFin-13, #odontograma-contenido .lineaBuen-13 {
+    left: 75%;
+    top: 3.5%; }
+  #odontograma-contenido .cursor-14 {
+    height: 9.6%;
+    top: 10.5%;
+    left: 81.25%; }
+  #odontograma-contenido .corona-14 {
+    height: 9.6%;
+    left: 81.25%;
+    top: 10.7%;
+    background-position-y: bottom; }
+  #odontograma-contenido .erupcion-14 {
+    height: 9.6%;
+    left: 81.25%;
+    top: 9.5%;
+    background-position-y: 35%; }
+  #odontograma-contenido .aparatoOrtoFijoBuenInicio-14, #odontograma-contenido .aparatoOrtoFijoBuenFin-14, #odontograma-contenido .lineaBuen-14 {
+    left: 81.25%;
+    top: 3.5%; }
+  #odontograma-contenido .cursor-15 {
+    height: 9.6%;
+    top: 10.5%;
+    left: 87.5%; }
+  #odontograma-contenido .corona-15 {
+    height: 9.6%;
+    left: 87.5%;
+    top: 10.7%;
+    background-position-y: bottom; }
+  #odontograma-contenido .erupcion-15 {
+    height: 9.6%;
+    left: 87.5%;
+    top: 9.5%;
+    background-position-y: 35%; }
+  #odontograma-contenido .aparatoOrtoFijoBuenInicio-15, #odontograma-contenido .aparatoOrtoFijoBuenFin-15, #odontograma-contenido .lineaBuen-15 {
+    left: 87.5%;
+    top: 3.5%; }
+  #odontograma-contenido .cursor-16 {
+    height: 9.6%;
+    top: 10.5%;
+    left: 93.75%; }
+  #odontograma-contenido .corona-16 {
+    height: 9.6%;
+    left: 93.75%;
+    top: 10.7%;
+    background-position-y: bottom; }
+  #odontograma-contenido .erupcion-16 {
+    height: 9.6%;
+    left: 93.75%;
+    top: 9.5%;
+    background-position-y: 35%; }
+  #odontograma-contenido .aparatoOrtoFijoBuenInicio-16, #odontograma-contenido .aparatoOrtoFijoBuenFin-16, #odontograma-contenido .lineaBuen-16 {
+    left: 93.75%;
+    top: 3.5%; }
+  #odontograma-contenido .cursor-17 {
+    height: 9.7%;
+    top: 34%;
+    left: 18.75%; }
+  #odontograma-contenido .corona-17 {
+    height: 9.7%;
+    left: 18.75%;
+    top: 36.4%;
+    background-position-y: 62%; }
+  #odontograma-contenido .erupcion-17 {
+    height: 9.6%;
+    left: 18.75%;
+    top: 33%;
+    background-position-y: 35%; }
+  #odontograma-contenido .aparatoOrtoFijoBuenInicio-17, #odontograma-contenido .aparatoOrtoFijoBuenFin-17, #odontograma-contenido .lineaBuen-17 {
+    left: 18.75%;
+    top: 30%; }
+  #odontograma-contenido .cursor-18 {
+    height: 9.7%;
+    top: 34%;
+    left: 25%; }
+  #odontograma-contenido .corona-18 {
+    height: 9.7%;
+    left: 25%;
+    top: 36.4%;
+    background-position-y: 62%; }
+  #odontograma-contenido .erupcion-18 {
+    height: 9.6%;
+    left: 25%;
+    top: 33%;
+    background-position-y: 35%; }
+  #odontograma-contenido .aparatoOrtoFijoBuenInicio-18, #odontograma-contenido .aparatoOrtoFijoBuenFin-18, #odontograma-contenido .lineaBuen-18 {
+    left: 25%;
+    top: 30%; }
+  #odontograma-contenido .cursor-19 {
+    height: 9.7%;
+    top: 34%;
+    left: 31.25%; }
+  #odontograma-contenido .corona-19 {
+    height: 9.7%;
+    left: 31.25%;
+    top: 36.4%;
+    background-position-y: 62%; }
+  #odontograma-contenido .erupcion-19 {
+    height: 9.6%;
+    left: 31.25%;
+    top: 33%;
+    background-position-y: 35%; }
+  #odontograma-contenido .aparatoOrtoFijoBuenInicio-19, #odontograma-contenido .aparatoOrtoFijoBuenFin-19, #odontograma-contenido .lineaBuen-19 {
+    left: 31.25%;
+    top: 30%; }
+  #odontograma-contenido .cursor-20 {
+    height: 9.7%;
+    top: 34%;
+    left: 37.5%; }
+  #odontograma-contenido .corona-20 {
+    height: 9.7%;
+    left: 37.5%;
+    top: 36.4%;
+    background-position-y: 62%; }
+  #odontograma-contenido .erupcion-20 {
+    height: 9.6%;
+    left: 37.5%;
+    top: 33%;
+    background-position-y: 35%; }
+  #odontograma-contenido .aparatoOrtoFijoBuenInicio-20, #odontograma-contenido .aparatoOrtoFijoBuenFin-20, #odontograma-contenido .lineaBuen-20 {
+    left: 37.5%;
+    top: 30%; }
+  #odontograma-contenido .cursor-21 {
+    height: 9.7%;
+    top: 34%;
+    left: 43.75%; }
+  #odontograma-contenido .corona-21 {
+    height: 9.7%;
+    left: 43.75%;
+    top: 36.4%;
+    background-position-y: 62%; }
+  #odontograma-contenido .erupcion-21 {
+    height: 9.6%;
+    left: 43.75%;
+    top: 33%;
+    background-position-y: 35%; }
+  #odontograma-contenido .aparatoOrtoFijoBuenInicio-21, #odontograma-contenido .aparatoOrtoFijoBuenFin-21, #odontograma-contenido .lineaBuen-21 {
+    left: 43.75%;
+    top: 30%; }
+  #odontograma-contenido .cursor-22 {
+    height: 9.7%;
+    top: 34%;
+    left: 50%; }
+  #odontograma-contenido .corona-22 {
+    height: 9.7%;
+    left: 50%;
+    top: 36.4%;
+    background-position-y: 62%; }
+  #odontograma-contenido .erupcion-22 {
+    height: 9.6%;
+    left: 50%;
+    top: 33%;
+    background-position-y: 35%; }
+  #odontograma-contenido .aparatoOrtoFijoBuenInicio-22, #odontograma-contenido .aparatoOrtoFijoBuenFin-22, #odontograma-contenido .lineaBuen-22 {
+    left: 50%;
+    top: 30%; }
+  #odontograma-contenido .cursor-23 {
+    height: 9.7%;
+    top: 34%;
+    left: 56.25%; }
+  #odontograma-contenido .corona-23 {
+    height: 9.7%;
+    left: 56.25%;
+    top: 36.4%;
+    background-position-y: 62%; }
+  #odontograma-contenido .erupcion-23 {
+    height: 9.6%;
+    left: 56.25%;
+    top: 33%;
+    background-position-y: 35%; }
+  #odontograma-contenido .aparatoOrtoFijoBuenInicio-23, #odontograma-contenido .aparatoOrtoFijoBuenFin-23, #odontograma-contenido .lineaBuen-23 {
+    left: 56.25%;
+    top: 30%; }
+  #odontograma-contenido .cursor-24 {
+    height: 9.7%;
+    top: 34%;
+    left: 62.5%; }
+  #odontograma-contenido .corona-24 {
+    height: 9.7%;
+    left: 62.5%;
+    top: 36.4%;
+    background-position-y: 62%; }
+  #odontograma-contenido .erupcion-24 {
+    height: 9.6%;
+    left: 62.5%;
+    top: 33%;
+    background-position-y: 35%; }
+  #odontograma-contenido .aparatoOrtoFijoBuenInicio-24, #odontograma-contenido .aparatoOrtoFijoBuenFin-24, #odontograma-contenido .lineaBuen-24 {
+    left: 62.5%;
+    top: 30%; }
+  #odontograma-contenido .cursor-25 {
+    height: 9.7%;
+    top: 34%;
+    left: 68.75%; }
+  #odontograma-contenido .corona-25 {
+    height: 9.7%;
+    left: 68.75%;
+    top: 36.4%;
+    background-position-y: 62%; }
+  #odontograma-contenido .erupcion-25 {
+    height: 9.6%;
+    left: 68.75%;
+    top: 33%;
+    background-position-y: 35%; }
+  #odontograma-contenido .aparatoOrtoFijoBuenInicio-25, #odontograma-contenido .aparatoOrtoFijoBuenFin-25, #odontograma-contenido .lineaBuen-25 {
+    left: 68.75%;
+    top: 30%; }
+  #odontograma-contenido .cursor-26 {
+    height: 9.7%;
+    top: 34%;
+    left: 75%; }
+  #odontograma-contenido .corona-26 {
+    height: 9.7%;
+    left: 75%;
+    top: 36.4%;
+    background-position-y: 62%; }
+  #odontograma-contenido .erupcion-26 {
+    height: 9.6%;
+    left: 75%;
+    top: 33%;
+    background-position-y: 35%; }
+  #odontograma-contenido .aparatoOrtoFijoBuenInicio-26, #odontograma-contenido .aparatoOrtoFijoBuenFin-26, #odontograma-contenido .lineaBuen-26 {
+    left: 75%;
+    top: 30%; }
+  #odontograma-contenido .cursor-27 {
+    height: 9.7%;
+    top: 54.5%;
+    left: 18.75%; }
+  #odontograma-contenido .corona-27 {
+    height: 9.7%;
+    left: 18.65%;
+    top: 52.2%;
+    background-position-y: 41%; }
+  #odontograma-contenido .erupcion-27 {
+    height: 9.6%;
+    left: 18.75%;
+    top: 56%;
+    background-position-y: 35%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .aparatoOrtoFijoBuenInicio-27, #odontograma-contenido .aparatoOrtoFijoBuenFin-27, #odontograma-contenido .lineaBuen-27 {
+    left: 18.75%;
+    top: 66.5%; }
+  #odontograma-contenido .cursor-28 {
+    height: 9.7%;
+    top: 54.5%;
+    left: 25%; }
+  #odontograma-contenido .corona-28 {
+    height: 9.7%;
+    left: 24.9%;
+    top: 52.2%;
+    background-position-y: 41%; }
+  #odontograma-contenido .erupcion-28 {
+    height: 9.6%;
+    left: 25%;
+    top: 56%;
+    background-position-y: 35%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .aparatoOrtoFijoBuenInicio-28, #odontograma-contenido .aparatoOrtoFijoBuenFin-28, #odontograma-contenido .lineaBuen-28 {
+    left: 25%;
+    top: 66.5%; }
+  #odontograma-contenido .cursor-29 {
+    height: 9.7%;
+    top: 54.5%;
+    left: 31.25%; }
+  #odontograma-contenido .corona-29 {
+    height: 9.7%;
+    left: 31.15%;
+    top: 52.2%;
+    background-position-y: 41%; }
+  #odontograma-contenido .erupcion-29 {
+    height: 9.6%;
+    left: 31.25%;
+    top: 56%;
+    background-position-y: 35%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .aparatoOrtoFijoBuenInicio-29, #odontograma-contenido .aparatoOrtoFijoBuenFin-29, #odontograma-contenido .lineaBuen-29 {
+    left: 31.25%;
+    top: 66.5%; }
+  #odontograma-contenido .cursor-30 {
+    height: 9.7%;
+    top: 54.5%;
+    left: 37.5%; }
+  #odontograma-contenido .corona-30 {
+    height: 9.7%;
+    left: 37.4%;
+    top: 52.2%;
+    background-position-y: 41%; }
+  #odontograma-contenido .erupcion-30 {
+    height: 9.6%;
+    left: 37.5%;
+    top: 56%;
+    background-position-y: 35%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .aparatoOrtoFijoBuenInicio-30, #odontograma-contenido .aparatoOrtoFijoBuenFin-30, #odontograma-contenido .lineaBuen-30 {
+    left: 37.5%;
+    top: 66.5%; }
+  #odontograma-contenido .cursor-31 {
+    height: 9.7%;
+    top: 54.5%;
+    left: 43.75%; }
+  #odontograma-contenido .corona-31 {
+    height: 9.7%;
+    left: 43.65%;
+    top: 52.2%;
+    background-position-y: 41%; }
+  #odontograma-contenido .erupcion-31 {
+    height: 9.6%;
+    left: 43.75%;
+    top: 56%;
+    background-position-y: 35%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .aparatoOrtoFijoBuenInicio-31, #odontograma-contenido .aparatoOrtoFijoBuenFin-31, #odontograma-contenido .lineaBuen-31 {
+    left: 43.75%;
+    top: 66.5%; }
+  #odontograma-contenido .cursor-32 {
+    height: 9.7%;
+    top: 54.5%;
+    left: 50%; }
+  #odontograma-contenido .corona-32 {
+    height: 9.7%;
+    left: 49.9%;
+    top: 52.2%;
+    background-position-y: 41%; }
+  #odontograma-contenido .erupcion-32 {
+    height: 9.6%;
+    left: 50%;
+    top: 56%;
+    background-position-y: 35%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .aparatoOrtoFijoBuenInicio-32, #odontograma-contenido .aparatoOrtoFijoBuenFin-32, #odontograma-contenido .lineaBuen-32 {
+    left: 50%;
+    top: 66.5%; }
+  #odontograma-contenido .cursor-33 {
+    height: 9.7%;
+    top: 54.5%;
+    left: 56.25%; }
+  #odontograma-contenido .corona-33 {
+    height: 9.7%;
+    left: 56.15%;
+    top: 52.2%;
+    background-position-y: 41%; }
+  #odontograma-contenido .erupcion-33 {
+    height: 9.6%;
+    left: 56.25%;
+    top: 56%;
+    background-position-y: 35%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .aparatoOrtoFijoBuenInicio-33, #odontograma-contenido .aparatoOrtoFijoBuenFin-33, #odontograma-contenido .lineaBuen-33 {
+    left: 56.25%;
+    top: 66.5%; }
+  #odontograma-contenido .cursor-34 {
+    height: 9.7%;
+    top: 54.5%;
+    left: 62.5%; }
+  #odontograma-contenido .corona-34 {
+    height: 9.7%;
+    left: 62.4%;
+    top: 52.2%;
+    background-position-y: 41%; }
+  #odontograma-contenido .erupcion-34 {
+    height: 9.6%;
+    left: 62.5%;
+    top: 56%;
+    background-position-y: 35%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .aparatoOrtoFijoBuenInicio-34, #odontograma-contenido .aparatoOrtoFijoBuenFin-34, #odontograma-contenido .lineaBuen-34 {
+    left: 62.5%;
+    top: 66.5%; }
+  #odontograma-contenido .cursor-35 {
+    height: 9.7%;
+    top: 54.5%;
+    left: 68.75%; }
+  #odontograma-contenido .corona-35 {
+    height: 9.7%;
+    left: 68.65%;
+    top: 52.2%;
+    background-position-y: 41%; }
+  #odontograma-contenido .erupcion-35 {
+    height: 9.6%;
+    left: 68.75%;
+    top: 56%;
+    background-position-y: 35%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .aparatoOrtoFijoBuenInicio-35, #odontograma-contenido .aparatoOrtoFijoBuenFin-35, #odontograma-contenido .lineaBuen-35 {
+    left: 68.75%;
+    top: 66.5%; }
+  #odontograma-contenido .cursor-36 {
+    height: 9.7%;
+    top: 54.5%;
+    left: 75%; }
+  #odontograma-contenido .corona-36 {
+    height: 9.7%;
+    left: 74.9%;
+    top: 52.2%;
+    background-position-y: 41%; }
+  #odontograma-contenido .erupcion-36 {
+    height: 9.6%;
+    left: 75%;
+    top: 56%;
+    background-position-y: 35%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .aparatoOrtoFijoBuenInicio-36, #odontograma-contenido .aparatoOrtoFijoBuenFin-36, #odontograma-contenido .lineaBuen-36 {
+    left: 75%;
+    top: 66.5%; }
+  #odontograma-contenido .cursor-37 {
+    height: 9.6%;
+    top: 78.8%;
+    left: 0%; }
+  #odontograma-contenido .corona-37 {
+    height: 9.7%;
+    left: 0%;
+    top: 78.8%;
+    background-position-y: top; }
+  #odontograma-contenido .erupcion-37 {
+    height: 9.6%;
+    left: 0%;
+    top: 80.2%;
+    background-position-y: 35%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .aparatoOrtoFijoBuenInicio-37, #odontograma-contenido .aparatoOrtoFijoBuenFin-37, #odontograma-contenido .lineaBuen-37 {
+    left: 0%;
+    top: 93.5%; }
+  #odontograma-contenido .cursor-38 {
+    height: 9.6%;
+    top: 78.8%;
+    left: 6.25%; }
+  #odontograma-contenido .corona-38 {
+    height: 9.7%;
+    left: 6.25%;
+    top: 78.8%;
+    background-position-y: top; }
+  #odontograma-contenido .erupcion-38 {
+    height: 9.6%;
+    left: 6.25%;
+    top: 80.2%;
+    background-position-y: 35%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .aparatoOrtoFijoBuenInicio-38, #odontograma-contenido .aparatoOrtoFijoBuenFin-38, #odontograma-contenido .lineaBuen-38 {
+    left: 6.25%;
+    top: 93.5%; }
+  #odontograma-contenido .cursor-39 {
+    height: 9.6%;
+    top: 78.8%;
+    left: 12.5%; }
+  #odontograma-contenido .corona-39 {
+    height: 9.7%;
+    left: 12.5%;
+    top: 78.8%;
+    background-position-y: top; }
+  #odontograma-contenido .erupcion-39 {
+    height: 9.6%;
+    left: 12.5%;
+    top: 80.2%;
+    background-position-y: 35%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .aparatoOrtoFijoBuenInicio-39, #odontograma-contenido .aparatoOrtoFijoBuenFin-39, #odontograma-contenido .lineaBuen-39 {
+    left: 12.5%;
+    top: 93.5%; }
+  #odontograma-contenido .cursor-40 {
+    height: 9.6%;
+    top: 78.8%;
+    left: 18.75%; }
+  #odontograma-contenido .corona-40 {
+    height: 9.7%;
+    left: 18.75%;
+    top: 78.8%;
+    background-position-y: top; }
+  #odontograma-contenido .erupcion-40 {
+    height: 9.6%;
+    left: 18.75%;
+    top: 80.2%;
+    background-position-y: 35%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .aparatoOrtoFijoBuenInicio-40, #odontograma-contenido .aparatoOrtoFijoBuenFin-40, #odontograma-contenido .lineaBuen-40 {
+    left: 18.75%;
+    top: 93.5%; }
+  #odontograma-contenido .cursor-41 {
+    height: 9.6%;
+    top: 78.8%;
+    left: 25%; }
+  #odontograma-contenido .corona-41 {
+    height: 9.7%;
+    left: 25%;
+    top: 78.8%;
+    background-position-y: top; }
+  #odontograma-contenido .erupcion-41 {
+    height: 9.6%;
+    left: 25%;
+    top: 80.2%;
+    background-position-y: 35%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .aparatoOrtoFijoBuenInicio-41, #odontograma-contenido .aparatoOrtoFijoBuenFin-41, #odontograma-contenido .lineaBuen-41 {
+    left: 25%;
+    top: 93.5%; }
+  #odontograma-contenido .cursor-42 {
+    height: 9.6%;
+    top: 78.8%;
+    left: 31.25%; }
+  #odontograma-contenido .corona-42 {
+    height: 9.7%;
+    left: 31.25%;
+    top: 78.8%;
+    background-position-y: top; }
+  #odontograma-contenido .erupcion-42 {
+    height: 9.6%;
+    left: 31.25%;
+    top: 80.2%;
+    background-position-y: 35%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .aparatoOrtoFijoBuenInicio-42, #odontograma-contenido .aparatoOrtoFijoBuenFin-42, #odontograma-contenido .lineaBuen-42 {
+    left: 31.25%;
+    top: 93.5%; }
+  #odontograma-contenido .cursor-43 {
+    height: 9.6%;
+    top: 78.8%;
+    left: 37.5%; }
+  #odontograma-contenido .corona-43 {
+    height: 9.7%;
+    left: 37.5%;
+    top: 78.8%;
+    background-position-y: top; }
+  #odontograma-contenido .erupcion-43 {
+    height: 9.6%;
+    left: 37.5%;
+    top: 80.2%;
+    background-position-y: 35%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .aparatoOrtoFijoBuenInicio-43, #odontograma-contenido .aparatoOrtoFijoBuenFin-43, #odontograma-contenido .lineaBuen-43 {
+    left: 37.5%;
+    top: 93.5%; }
+  #odontograma-contenido .cursor-44 {
+    height: 9.6%;
+    top: 78.8%;
+    left: 43.75%; }
+  #odontograma-contenido .corona-44 {
+    height: 9.7%;
+    left: 43.75%;
+    top: 78.8%;
+    background-position-y: top; }
+  #odontograma-contenido .erupcion-44 {
+    height: 9.6%;
+    left: 43.75%;
+    top: 80.2%;
+    background-position-y: 35%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .aparatoOrtoFijoBuenInicio-44, #odontograma-contenido .aparatoOrtoFijoBuenFin-44, #odontograma-contenido .lineaBuen-44 {
+    left: 43.75%;
+    top: 93.5%; }
+  #odontograma-contenido .cursor-45 {
+    height: 9.6%;
+    top: 78.8%;
+    left: 50%; }
+  #odontograma-contenido .corona-45 {
+    height: 9.7%;
+    left: 50%;
+    top: 78.8%;
+    background-position-y: top; }
+  #odontograma-contenido .erupcion-45 {
+    height: 9.6%;
+    left: 50%;
+    top: 80.2%;
+    background-position-y: 35%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .aparatoOrtoFijoBuenInicio-45, #odontograma-contenido .aparatoOrtoFijoBuenFin-45, #odontograma-contenido .lineaBuen-45 {
+    left: 50%;
+    top: 93.5%; }
+  #odontograma-contenido .cursor-46 {
+    height: 9.6%;
+    top: 78.8%;
+    left: 56.25%; }
+  #odontograma-contenido .corona-46 {
+    height: 9.7%;
+    left: 56.25%;
+    top: 78.8%;
+    background-position-y: top; }
+  #odontograma-contenido .erupcion-46 {
+    height: 9.6%;
+    left: 56.25%;
+    top: 80.2%;
+    background-position-y: 35%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .aparatoOrtoFijoBuenInicio-46, #odontograma-contenido .aparatoOrtoFijoBuenFin-46, #odontograma-contenido .lineaBuen-46 {
+    left: 56.25%;
+    top: 93.5%; }
+  #odontograma-contenido .cursor-47 {
+    height: 9.6%;
+    top: 78.8%;
+    left: 62.5%; }
+  #odontograma-contenido .corona-47 {
+    height: 9.7%;
+    left: 62.5%;
+    top: 78.8%;
+    background-position-y: top; }
+  #odontograma-contenido .erupcion-47 {
+    height: 9.6%;
+    left: 62.5%;
+    top: 80.2%;
+    background-position-y: 35%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .aparatoOrtoFijoBuenInicio-47, #odontograma-contenido .aparatoOrtoFijoBuenFin-47, #odontograma-contenido .lineaBuen-47 {
+    left: 62.5%;
+    top: 93.5%; }
+  #odontograma-contenido .cursor-48 {
+    height: 9.6%;
+    top: 78.8%;
+    left: 68.75%; }
+  #odontograma-contenido .corona-48 {
+    height: 9.7%;
+    left: 68.75%;
+    top: 78.8%;
+    background-position-y: top; }
+  #odontograma-contenido .erupcion-48 {
+    height: 9.6%;
+    left: 68.75%;
+    top: 80.2%;
+    background-position-y: 35%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .aparatoOrtoFijoBuenInicio-48, #odontograma-contenido .aparatoOrtoFijoBuenFin-48, #odontograma-contenido .lineaBuen-48 {
+    left: 68.75%;
+    top: 93.5%; }
+  #odontograma-contenido .cursor-49 {
+    height: 9.6%;
+    top: 78.8%;
+    left: 75%; }
+  #odontograma-contenido .corona-49 {
+    height: 9.7%;
+    left: 75%;
+    top: 78.8%;
+    background-position-y: top; }
+  #odontograma-contenido .erupcion-49 {
+    height: 9.6%;
+    left: 75%;
+    top: 80.2%;
+    background-position-y: 35%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .aparatoOrtoFijoBuenInicio-49, #odontograma-contenido .aparatoOrtoFijoBuenFin-49, #odontograma-contenido .lineaBuen-49 {
+    left: 75%;
+    top: 93.5%; }
+  #odontograma-contenido .cursor-50 {
+    height: 9.6%;
+    top: 78.8%;
+    left: 81.25%; }
+  #odontograma-contenido .corona-50 {
+    height: 9.7%;
+    left: 81.25%;
+    top: 78.8%;
+    background-position-y: top; }
+  #odontograma-contenido .erupcion-50 {
+    height: 9.6%;
+    left: 81.25%;
+    top: 80.2%;
+    background-position-y: 35%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .aparatoOrtoFijoBuenInicio-50, #odontograma-contenido .aparatoOrtoFijoBuenFin-50, #odontograma-contenido .lineaBuen-50 {
+    left: 81.25%;
+    top: 93.5%; }
+  #odontograma-contenido .cursor-51 {
+    height: 9.6%;
+    top: 78.8%;
+    left: 87.5%; }
+  #odontograma-contenido .corona-51 {
+    height: 9.7%;
+    left: 87.5%;
+    top: 78.8%;
+    background-position-y: top; }
+  #odontograma-contenido .erupcion-51 {
+    height: 9.6%;
+    left: 87.5%;
+    top: 80.2%;
+    background-position-y: 35%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .aparatoOrtoFijoBuenInicio-51, #odontograma-contenido .aparatoOrtoFijoBuenFin-51, #odontograma-contenido .lineaBuen-51 {
+    left: 87.5%;
+    top: 93.5%; }
+  #odontograma-contenido .cursor-52 {
+    height: 9.6%;
+    top: 78.8%;
+    left: 93.75%; }
+  #odontograma-contenido .corona-52 {
+    height: 9.7%;
+    left: 93.75%;
+    top: 78.8%;
+    background-position-y: top; }
+  #odontograma-contenido .erupcion-52 {
+    height: 9.6%;
+    left: 93.75%;
+    top: 80.2%;
+    background-position-y: 35%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .aparatoOrtoFijoBuenInicio-52, #odontograma-contenido .aparatoOrtoFijoBuenFin-52, #odontograma-contenido .lineaBuen-52 {
+    left: 93.75%;
+    top: 93.5%; }
