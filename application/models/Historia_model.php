@@ -300,10 +300,9 @@ class Historia_model extends CI_Model {
 
 
 			$botones = '<div class="btn-footer text-center">
-                                          
-                                                   <a href="'.base_url('mantenimiento/medico/editar/'.$q->codi_cit).'" class="btn btn-primary" style="padding:2px 5px;margin:0px 2px"> <i class="fa fa-edit"></i> </a>';
+			<button data-id="'.$q->codi_cit.'" class="editar-citahistoria btn btn-warning btn-xs" data-toggle="modal" data-target="#ModalEditarCitaHistoria">Editar</button>';
 
-			$row[] = [$q->codi_cit,$q->fech_cit,$q->nombre_especialidad,$q->medico,$q->nomb_citado,$estado,$botones];
+			$row[] = [$q->codi_cit,$q->fech_cit,$q->nombre_especialidad,$q->medico,$q->nomb_citado,$botones];
 		}
 		$result['aaData'] = $row;
 		return $result;

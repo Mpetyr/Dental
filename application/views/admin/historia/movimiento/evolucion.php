@@ -19,7 +19,7 @@
                   <th style="text-align: center;">Descripcion evolucion</th>
                   <th style="text-align: center;">Medico evoluciona</th>
                   <th style="text-align: center;">Especialidad</th>
-                  <th style="text-align: center;">Especialidad</th>
+                
                   <th style="text-align: center;">Opciones</th>
                 </tr>
               </thead>

@@ -1636,32 +1636,6 @@ $('#TableHistoriaMovimientoEvolucion').on('click', '.anular-evolucion', function
 });
 
 
-$('#TableHistoriaMovimientoCita').DataTable({
-	"language": {"url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"},
-	"searching": false,
-	"processing": true,
-	"serverSide": true,
-	"iDisplayLength": 25,
-	"aLengthMenu": [[25, 50, 100, -1], [25, 50, 100, 'Todos']],
-	"aaSorting": [[1, 'desc']],
-	"ajax": {
-		"url": path+'historia/movimiento/jsonCitasHistoria',
-		"type": "POST",
-		"data": function (d) {
-			d.paciente = $("#HistoriaContenido").data('paciente');
-		}
-	},
-	"columns": [
-		{"orderable":true},
-		{"orderable":true},
-		{"orderable":true},
-		{"orderable":true},
-		{"orderable":true},
-		{"orderable":false}
-	]
-});
-
-
 
 $('#FormHistoriaMovimientoDatosPaciente').validate({
 	submitHandler:function() {
@@ -3271,6 +3245,116 @@ $('#TableMantenimientoTarjeta tbody').on('click', '.anular', function(event) {
 });
 
 
+
+$('#TableHistoriaMovimientoCita').DataTable({
+	"language": {"url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"},
+	"searching": false,
+	"processing": true,
+	"serverSide": true,
+	"iDisplayLength": 25,
+	"aLengthMenu": [[25, 50, 100, -1], [25, 50, 100, 'Todos']],
+	"aaSorting": [[1, 'desc']],
+	"ajax": {
+		"url": path+'historia/movimiento/jsonCitasHistoria',
+		"type": "POST",
+		"data": function (d) {
+			d.paciente = $("#HistoriaContenido").data('paciente');
+		}
+	},
+	"columns": [
+		{"orderable":true},
+		{"orderable":true},
+		{"orderable":true},
+		{"orderable":true},
+		{"orderable":true},
+		{"orderable":false}
+	]
+});
+
+
+
+$('#TableHistoriaMovimientoCita').on('click', 'editar-citahistoria', function(event) {
+	event.preventDefault();
+	var id = $(this).data('id');
+	$.getJSON(path+'historia/movimiento/getCitaHistoria', {id}, function(json, textStatus) {
+		$('#FormEditarCitaHistoria input[name=id]').val(json.codi_cit);
+		$('#FormEditarCitaHistoria input[name=fecha]').val(json.fech_cit.split(' ')[0]);
+		$('#FormEditarCitaHistoria input[name=hora]').val(json.fech_cit.split(' ')[1].substr(0,5));
+		$('#FormEditarCitaHistoria #NombrePaciente').html(json.nomb_pac+' '+json.apel_pac);
+		$('#FormEditarCitaHistoria select[name=sede]').val(json.cod_sede);
+		$('#FormEditarCitaHistoria select[name=codigo]').val(json.cod_citado);
+		$('#FormEditarCitaHistoria input[name=motivo]').val(json.motivo_consult);
+		$('#FormEditarCitaHistoria textarea[name=observacion]').val(json.obsv_cit);
+		$('#FormEditarCitaHistoria select[name=especialidadEditar]').val(json.cod_especialidad);
+		$.ajax({
+			url: base_url+'historia/movimiento/getMedicosHistoria',
+			type: 'POST',
+			dataType: 'JSON',
+			data: {'especialidad': json.cod_especialidad},
+			success: function(resp){
+				let option = '<option value="">Seleccione</option>';
+				$.each(resp, function(index, val) {
+					 option += `<option value="${val['codi_med']}">${val['nomb_med']+' '+val['apel_med']}</option>`;
+				});
+				$('select[name=medicoEditar]').empty().html(option);
+				$('select[name=medicoEditar]').val(json.codi_med);
+			}
+		});
+		
+	});
+});
+
+$('#FormEditarCitaHistoria').validate({
+	ignore: [],
+	rules: {
+		id:{required:true},
+		fecha:{required:true},
+		hora:{required:true},
+		especialidadEditar:{required:true},
+		medicoEditar:{required:true},
+		sede:{required:true},
+		estado:{required:true},
+		motivo:{required:true}
+	},
+	submitHandler:function() {
+		
+		 enviarFormulario('#FormEditarCitaHistoria',function(json){
+		 	if(json.success){
+	         $('#TableHistoriaMovimientoCita').DataTable().ajax.reload();
+	     }
+	     	$('#ModalEditarCitaHistoria').modal('hide');
+	         $('#FormEditarCitaHistoria input[name=fecha]').val('');
+			$('#FormEditarCitaHistoria input[name=motivo]').val('');
+	       
+		})
+	}
+});
+
+$('#FormEditarCitaHistoria select[name=especialidadEditar]').change(function(event) {
+	let especialidad = $(this).val();
+	$.ajax({
+		url: base_url+'historia/movimiento/getMedicosHistoria',
+		type: 'POST',
+		dataType: 'JSON',
+		data: {'especialidad': especialidad},
+		success: function(resp){
+			let option = '<option value="">Seleccione</option>';
+			$.each(resp, function(index, val) {
+				 option += `<option value="${val['codi_med']}">${val['nomb_med']+' '+val['apel_med']}</option>`;
+			});
+			$('select[name=medicoEditar]').empty().html(option);
+		}
+	});
+});
+
+
+
+
+
+
+
+
+
 /*========================================
 =            ALERGIA - LISTADO       =
 ===========================================*/
@@ -3356,4 +3440,6 @@ $('#TableMantenimientoAlergia tbody').on('click', '.anular', function(event) {
 		})
 
 });
+
+
 });

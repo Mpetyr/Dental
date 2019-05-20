@@ -13,6 +13,7 @@ class Movimiento extends CI_Controller {
 			redirect(base_url());
 		}
 		$this->load->model('historia_model');
+		$this->load->model('citas_model');
 	}
 
 	public function index()
@@ -69,6 +70,8 @@ class Movimiento extends CI_Controller {
 		$data['diagnosticos'] = $this->modelgeneral->getTableWhere('enfermedad',['esta_enf'=>'A']);
 
 		$data['especialidad'] = $this->modelgeneral->getTable('especialidad');
+			$data['sedes'] = $this->modelgeneral->getTable('sede');
+		$data['tipo_citado'] = $this->modelgeneral->getTable('tipo_citado');
 		$data['medicos']=$this->modelgeneral->getTableWhere('medico',['cod_especialidad'=>$data['especialidad']->cod_especialidad]);
 														
 	    
@@ -667,6 +670,55 @@ class Movimiento extends CI_Controller {
 		$this->mpdf->Output('Historia','I');
 
 	}
+
+	public function getMedicosHistoria()
+	{
+		$especialidad = $this->input->post('especialidad');
+
+		$medicos = $this->db->from('medico')
+		->where('cod_especialidad',$especialidad)
+		->get()->result();
+
+		echo json_encode($medicos);
+	}
+
+	function getCitaHistoria()
+	{
+		$cita = $this->citas_model->getCita($this->input->get('id'));
+		echo json_encode($cita);
+	}
+
+	function editarCitaHistoria()
+	{
+		$this->form_validation->set_rules('id', '', 'required');
+		$this->form_validation->set_rules('hora', '', 'required');
+		$this->form_validation->set_rules('fecha', '', 'required');
+		$this->form_validation->set_rules('medicoEditar', '', 'required');
+		$this->form_validation->set_rules('especialidadEditar', '', 'required');
+		$this->form_validation->set_rules('motivo', '', 'required');
+		$this->form_validation->set_rules('observacion', '', '');
+		if ($this->form_validation->run() == TRUE){
+			$data['codi_med'] = $this->input->post('medicoEditar');
+			$data['cod_especialidad'] = $this->input->post('especialidadEditar');
+			$data['motivo_consult'] = $this->input->post('motivo');
+			$data['cod_sede'] = $this->input->post('sede');
+			$data['cod_citado'] = $this->input->post('codigo');
+			$data['fech_cit'] = $this->input->post('fecha').' '.$this->input->post('hora').':00';
+			$data['obsv_cit'] = $this->input->post('observacion');
+			$where['codi_cit'] = $this->input->post('id');
+			$edit = $this->modelgeneral->editRegist('cita_medica',$where,$data);
+			$resp = [];
+			if (!is_null($edit)) {
+				
+				$resp['success'] = true;
+			} else {
+				$resp['success'] = false;
+			}
+			echo json_encode($resp);
+		}
+	}
+
+
 
 }
 
