@@ -33,7 +33,6 @@
 <!-- AdminLTE App -->
 <script src="<?php echo base_url();?>assets/template/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="<?php echo base_url();?>assets/template/dist/js/demo.js"></script>
 
 <script src="<?php echo base_url();?>assets/template/dist/js/bootstrap-switch.js"></script>
 <script src="<?php echo base_url();?>assets/template/dist/js/jquery.formatCurrency-1.4.0.min.js"></script>
