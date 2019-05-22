@@ -45,7 +45,7 @@
             <div class="col-md-8">
               <div class="form-group">
                 <label class="control-label">Especilidad:</label>
-                <select name="especialidad" class="form-control select2 input-sm" style="width: 100%">
+                <select name="especialidad" class="form-control input-sm filtrarMedicos" style="width: 100%">
                   <option value="">--Selecciona--</option>
                   <?php foreach ($especialidad as $esp): ?>
                   <option value="<?= $esp->cod_especialidad ?>"><?= $esp->nombre_especialidad ?></option>
@@ -57,7 +57,7 @@
              <div class="col-md-8">
               <div class="form-group">
                 <label class="control-label">Medico:</label>
-                <select name="medico" class="form-control select2 input-sm" style="width: 100%">
+                <select name="medico" class="form-control input-sm" style="width: 100%">
                   <option value="">--Selecciona--</option>
                   <?php foreach ($medicos as $med): ?>
                   <option value="<?= $med->codi_med ?>" <?= ($especialidad->codi_med==$med->codi_med)?'selected':'' ?>><?= $med->apel_med ?></option>
@@ -104,9 +104,11 @@
             <div class="col-md-8">
               <div class="form-group">
                 <label class="control-label">Especilidad:</label>
-                <select name="especialidad" class="form-control select2 input-sm" style="width: 100%">
-                  
-                  
+                <select name="especialidad" class="form-control input-sm filtrarMedicos" style="width: 100%">
+                  <option value="">Seleccione</option>
+                  <?php foreach ($especialidad as $e): ?>
+                  <option value="<?= $e->cod_especialidad ?>"><?= $e->nombre_especialidad ?></option>
+                  <?php endforeach ?>
                 </select>
               </div>
             </div>
@@ -114,7 +116,7 @@
              <div class="col-md-8">
               <div class="form-group">
                 <label class="control-label">Medico:</label>
-                <select name="medico" class="form-control select2 input-sm" style="width: 100%">
+                <select name="medico" class="form-control input-sm" style="width: 100%">
                   
                 </select>
               </div>

@@ -48,7 +48,7 @@
                     <div class="col-md-12">
                       <div class="form-group">
                         <label class="control-label">Especialidad</label>
-                        <select name="especialidad" class="form-control input-sm" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                        <select name="especialidad" class="form-control input-sm filtrarMedicos" style="width: 100%;" tabindex="-1" aria-hidden="true">
                           <option value="">Seleccione</option>
                           <?php foreach ($especialidad as $e): ?>
                             <option value="<?= $e->cod_especialidad ?>"><?= $e->nombre_especialidad ?></option>
