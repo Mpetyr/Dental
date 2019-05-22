@@ -499,9 +499,25 @@ class Movimiento extends CI_Controller {
 		echo json_encode($resp);
 	}
 
-	function odontograma()
+	function getOdontograma()
 	{
-		
+		$paciente = $this->input->get('paciente');
+		$tipo = 'Inicial';
+		$odontograma = $this->db->from('paciente_odontograma')
+		->select('pacodo_id,id_hal,pacodo_estado as estado,pacodo_sigla as sigla,pacodo_id,inicio.orden_die as inicio, fin.orden_die as fin')
+		->join('dientes as inicio','paciente_odontograma.numero_die = inicio.numero_die')
+		->join('dientes as fin','paciente_odontograma.pacodo_dientefinal = fin.numero_die','left')
+		->where('pacodo_tipo',$tipo)
+		->where('codi_pac',$paciente)
+		->get()->result();
+		echo json_encode($odontograma);
+	}
+
+	function guardarHallazgo()
+	{
+		$hallazgo = $this->input->get('hallazgo');
+		$estado = $this->input->get('estado');
+		$sigla = $this->input->get('sigla');
 	}
 
 }

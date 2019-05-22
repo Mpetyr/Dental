@@ -5,17 +5,17 @@
     <h1>Historia clinica</h1>
     <ol class="breadcrumb">
        <div style="float:right;">
-                                <div class="dropdown open">
-                                    <div class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="padding:0px 8px;" aria-expanded="true">
-                                        <i class="fa fa-cog fa-2" aria-hidden="true" style="font-size: 22px;"></i>
-                                    </div>
-                                    <ul class="dropdown-menu dropdown-menu-right">
-                                        <li><a href="#" onclick="openModal_ImprimirPDF();" data-original-title="" title=""><i class="fa fa-print fa-1" aria-hidden="true"></i> Imprimir Historia</a></li>
-                                       <!--  <li><a href="#" onclick="openModal_ImprimirPDF_OdonInicial();" data-original-title="" title=""><i class="fa fa-print fa-1" aria-hidden="true"></i>  Imprimir Odontograma - Inicial</a></li>
-                                        <li><a href="#" onclick="openModal_ImprimirPDF_OdonEvolucion();" data-original-title="" title=""><i class="fa fa-print fa-1" aria-hidden="true"></i>  Imprimir Odontograma - Evolucion</a></li> -->
-                        
-                                    </ul>
-                                </div>
+        <div class="dropdown open">
+            <div class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="padding:0px 8px;" aria-expanded="true">
+                <i class="fa fa-cog fa-2" aria-hidden="true" style="font-size: 22px;"></i>
+            </div>
+            <ul class="dropdown-menu dropdown-menu-right">
+                <li><a href="#" onclick="openModal_ImprimirPDF();" data-original-title="" title=""><i class="fa fa-print fa-1" aria-hidden="true"></i> Imprimir Historia</a></li>
+               <!--  <li><a href="#" onclick="openModal_ImprimirPDF_OdonInicial();" data-original-title="" title=""><i class="fa fa-print fa-1" aria-hidden="true"></i>  Imprimir Odontograma - Inicial</a></li>
+                <li><a href="#" onclick="openModal_ImprimirPDF_OdonEvolucion();" data-original-title="" title=""><i class="fa fa-print fa-1" aria-hidden="true"></i>  Imprimir Odontograma - Evolucion</a></li> -->
+
+            </ul>
+        </div>
       </ol>
   </section>
   <!-- Main content -->
@@ -29,18 +29,18 @@
           <!-- /.box-header -->
           <div class="box-body">
             <div class="row">
-              <div class="col-md-10">
+              <div class="col-md-9">
                 <div id="HistoriaContenido" data-paciente="<?= $this->uri->segment(4) ?>">
                   <?php
                     $this->load->view('admin/historia/movimiento/datos_paciente');
                     $this->load->view('admin/historia/movimiento/exploracion_fisica');
                     $this->load->view('admin/historia/movimiento/receta');
                     $this->load->view('admin/historia/movimiento/placas');
-                    $this->load->view('admin/historia/movimiento/Odontograma');
+                    $this->load->view('admin/historia/movimiento/odontograma');
                   ?>
                 </div>
               </div>
-              <div class="col-md-2">
+              <div class="col-md-3">
                 <div class="text-center">
                   <img src="<?= base_url('assets/img/avatar04.png') ?>" class="img-circle">
                   <h4>H.C: <?= $paciente->codi_pac ?></h4>
@@ -57,6 +57,7 @@
                   <a href="#" data-id="HistoriaContenidoReceta" class="list-group-item"><i class="fa fa-medkit" aria-hidden="true"></i> Receta</a>
                   <a href="#" class="list-group-item"><i class="fa fa-calendar-plus-o"></i> Citas</a>
                 </div>
+                <?php $this->load->view('admin/historia/movimiento/odontograma_nav') ?>
               </div>
             </div>
 
