@@ -39,12 +39,13 @@
 
     <link rel="stylesheet" href="<?= base_url() ?>assets/plugins/datedropper3/datedropper.css">
     <link rel="stylesheet" href="<?= base_url() ?>assets/jquery-upload/css/jquery.fileupload.css">
-    <link rel="stylesheet" href="<?= base_url() ?>assets/styles.css?v=08042019">
+    <link rel="stylesheet" href="<?= base_url() ?>assets/styles.css?v=<?= time() ?>">
+    <link rel="stylesheet" href="<?= base_url() ?>assets/odontograma/css/odontograma.css?v=<?= time() ?>">
 
         <link rel="stylesheet" href="<?php echo base_url();?>assets/template/bootstrap/css/odontogeneral.css">
     <script src="<?php echo base_url();?>assets/template/jquery/jquery.min.js"></script>
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-blue sidebar-collapse sidebar-mini">
     <!-- Site wrapper -->
     <div class="wrapper">
         <header class="main-header">
