@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
 <div id="HistoriaContenidoCita" class="panel panel-primary" style="display: none">
- <div class="panel-heading"> <span class="fa fa-user-md"></span> Evolucion </div>          
+ <div class="panel-heading"> <span class="fa fa-user-md"></span> Cita </div>          
    <div class="panel-body" >
                         
 

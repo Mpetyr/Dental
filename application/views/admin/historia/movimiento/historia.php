@@ -36,7 +36,9 @@
                     $this->load->view('admin/historia/movimiento/exploracion_fisica');
                     $this->load->view('admin/historia/movimiento/receta');
                     $this->load->view('admin/historia/movimiento/placas');
-                    $this->load->view('admin/historia/movimiento/Odontograma');
+                    $this->load->view('admin/historia/movimiento/odontograma');
+                    $this->load->view('admin/historia/movimiento/evolucion');
+                    $this->load->view('admin/historia/movimiento/cita');
                   ?>
                 </div>
               </div>

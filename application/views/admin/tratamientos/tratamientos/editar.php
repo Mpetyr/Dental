@@ -40,7 +40,7 @@
                 <div class="col-md-4">
                   <div class="form-group">
                     <label class="control-label">Especialidad</label>
-                    <select name="especialidad" class="form-control input-sm">
+                    <select name="especialidad" class="form-control input-sm filtrarMedicos">
                       <option value="">Seleccione</option>
                       <?php foreach ($especialidades as $e): ?>
                       <option 
