@@ -1,6 +1,6 @@
 
 
-            <div id="HistoriaContenidoOdontograma" class="panel panel-primary" style="display: none">
+            <div id="HistoriaContenidOdontograma" class="panel panel-primary" style="display: none">
                 <div class="panel-heading">
                     <span class="glyphicon glyphicon-list"></span> Odontograma
                     <div class="pull-right action-buttons">
