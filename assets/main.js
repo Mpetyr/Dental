@@ -182,8 +182,7 @@ function warnBeforeRedirect(linkURL) {
 =            CITAS REGISTRAR            =
 =======================================*/
 
-$('#FormCitas select[name=especialidad], #FormAgendaFiltro select[name=especialidad]').change(function(event) {
-	
+$('.filtrarMedicos').change(function(event) {
 	let especialidad = $(this).val();
 	$.ajax({
 		url: base_url+'citas/registrar/getMedicos',
@@ -192,11 +191,11 @@ $('#FormCitas select[name=especialidad], #FormAgendaFiltro select[name=especiali
 		data: {'especialidad':especialidad}
 	})
 	.done(function(response) {
-		let option = '<option value="">Seleccione</option>';
+		let option = '';
 		$.each(response, function(index, val) {
 			 option += `<option value="${val['codi_med']}">${val['nomb_med']+' '+val['apel_med']}</option>`;
 		});
-		$('#FormCitas select[name=medico], #FormAgendaFiltro select[name=medico]').empty().html(option);
+		$('select[name=medico]').empty().html(option);
 	});
 });
 
@@ -1550,30 +1549,34 @@ function getMedicosPorEspecialidadSelect2($esp,$selectMedico)
 	});
 }
 
-/*$('#FormHistoriaMovimientoEditarEvolucion select[name=especialidad]').change(function(event) {
-	getMedicosPorEspecialidadSelect2($(this),'#FormHistoriaMovimientoEditarEvolucion select[name=medico]');
-});*/
-
 
 
 $('#TableHistoriaMovimientoEvolucion').on('click', '.editar-evolucion', function(event) {
 	event.preventDefault();
+	console.log('esto aqui');
 	var id = $(this).data('id');
 	$.getJSON(path+'historia/movimiento/getEvolucion', {id}, function(json, textStatus) {
-		$('#FormHistoriaMovimientoEditarEvolucion select[name=especialidad]').select2({
-		    data: json.especialidades,
+		
+		$('#FormHistoriaMovimientoEditarEvolucion select[name=especialidad]').val(json.cod_especialidad);
+		$.ajax({
+			url: base_url+'historia/movimiento/getMedicosHistoria',
+			type: 'POST',
+			dataType: 'JSON',
+			data: {'especialidad': json.cod_especialidad},
+			success: function(resp){
+				let option = '<option value="">Seleccione</option>';
+				$.each(resp, function(index, val) {
+					 option += `<option value="${val['codi_med']}">${val['nomb_med']+' '+val['apel_med']}</option>`;
+				});
+				$('#FormHistoriaMovimientoEditarEvolucion select[name=medico]').empty().html(option);
+				$('#FormHistoriaMovimientoEditarEvolucion select[name=medico]').val(1);
+			}
 		});
-		$('#FormHistoriaMovimientoEditarEvolucion select[name=medico]').select2('val',json.cod_especialidad);
-	
-		$('#FormHistoriaMovimientoEditarEvolucion select[name=medico]').select2({
-		    data: json.medicos
-		});
-		$('#FormHistoriaMovimientoEditarEvolucion select[name=medico]').select2('val',json.codi_med);
 		
 		$('#FormHistoriaMovimientoEditarEvolucion input[name=id]').val(json.pacevol_id);
 		$('#FormHistoriaMovimientoEditarEvolucion datepicker[name=fecha_evolucion]').val(json.fecha_evolucion);
 		$('#FormHistoriaMovimientoEditarEvolucion textarea[name=evolucion]').val(json.pacevol_descripcion);
-	//	$('#FormHistoriaMovimientoEditarAlergia textarea[name=observacion]').val(json.pacale_observacion);
+		$('#FormHistoriaMovimientoEditarAlergia textarea[name=observacion]').val(json.pacale_observacion);
 	});
 });
 
@@ -3273,7 +3276,7 @@ $('#TableHistoriaMovimientoCita').DataTable({
 
 
 
-$('#TableHistoriaMovimientoCita').on('click', 'editar-citahistoria', function(event) {
+$('#TableHistoriaMovimientoCita').on('click', '.editar-citahistoria', function(event) {
 	event.preventDefault();
 	var id = $(this).data('id');
 	$.getJSON(path+'historia/movimiento/getCitaHistoria', {id}, function(json, textStatus) {
