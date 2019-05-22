@@ -36,8 +36,8 @@
                 </form>
               </div>
             </div>
-                   <div class="row">
-                         <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-12">
                 <div class="form-group">
                   <a target="_blank" id="#" class="btn btn-primary btn-sm"><i class="fa fa-print"></i> Imprimir Lista</a>
                   <a href="<?= base_url('historia/movimiento') ?>" class="btn btn-success btn-sm right"><i class="fa fa-refresh" aria-hidden="true"></i> Actualizar</a>

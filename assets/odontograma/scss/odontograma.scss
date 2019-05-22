@@ -1,0 +1,274 @@
+#odontograma{
+  display: flex;
+  align-items: start;
+  justify-content: center;
+}
+$anchoTotal:  100%;
+$anchoDiente: ($anchoTotal / 16);
+$altoDiente: 9.6%;
+$altoDienteCentro: 9.7%;
+
+#odontograma-contenido{
+	position: relative;
+	img{
+		vertical-align: middle;
+	}
+	
+	.cursor{
+		position: absolute;
+		width: $anchoDiente;
+		z-index: 1000;
+		&:hover{
+			cursor: pointer;
+			border-radius: 3px;
+			box-shadow: 0px 2px 29px -6px rgba(0,0,0,0.75);
+		}
+	}
+
+	.recuadro{
+		position: absolute;
+		width: $anchoDiente;
+		height: 2.7%;
+		font-size: 7.6px;
+		word-wrap: break-word;
+		font-weight: 100;
+		span{
+			display: inline;
+			letter-spacing: -0.5px;
+			line-height: 0%;
+			&.bueno{
+				color:#0040FF;
+			}
+			&.malo{
+				color:#FF0000;
+			}
+		}
+	}
+	
+	.hallazgos{
+		width: $anchoDiente;
+		position: absolute;
+		background-position-x: center;
+		background-repeat: no-repeat;
+	}
+	
+	.corona{
+		background-size: 90% auto;
+		&.bueno{
+			background-image: url('../images/corona_buen.png');
+		}
+		&.malo{
+			background-image: url('../images/corona_mal.png');
+		}
+	}
+	
+
+	.erupcion{
+		background-size: 40% auto;
+		background-image: url('../images/erupcion.png');
+	}
+
+	.aparatoOrtoFijoInicio{
+		height: 3%;
+		background-size: cover;
+		&.bueno{
+			background-image: url('../images/AparatoOrtoFijoBueno.png');
+		}
+		&.malo{
+			background-image: url('../images/AparatoOrtoFijoMalo.png');
+		}
+	}
+
+	.aparatoOrtoFijoFin{
+		height: 3%;
+		background-size: cover;
+		transform: rotate(180deg);
+		&.bueno{
+			background-image: url('../images/AparatoOrtoFijoBueno.png');
+		}
+		&.malo{
+			background-image: url('../images/AparatoOrtoFijoMalo.png');
+		}
+	}
+
+	.linea{
+		height: 3%;
+		background-size: cover;
+		&.bueno{
+			background-image: url('../images/lineaBuena.png');
+		}
+		&.malo{
+			background-image: url('../images/lineaMala.png');
+		}
+	}
+
+	.aparatoOrtoRemovible{
+		height: 3.1%;
+		background-size: cover;
+		&.bueno{
+			background-image: url('../images/AparatoOrtoRemovibleBueno.png');
+		}
+		&.malo{
+			background-image: url('../images/AparatoOrtoRemovibleMalo.png');
+		}
+	}
+	//CUADRANTE UNO
+	@for $i from 1 through 16{
+		.cursor-#{$i} {
+			height: $altoDiente;
+			top: 10.5%;
+			left: (($i - 1) * $anchoDiente);
+		}
+
+		.recuadro-#{$i} {
+			top: 0%;
+			left: (($i - 1) * $anchoDiente);
+		}
+		.corona-#{$i}{
+			height: $altoDiente;
+			left: (($i - 1) * $anchoDiente);
+			top: 10.7%;
+			background-position-y: bottom;
+		}
+
+		.erupcion-#{$i}{
+			height: $altoDiente;
+			left: (($i - 1) * $anchoDiente);
+			top: 9.5%;
+			background-position-y: 35%;
+		}
+
+		.aparatoOrtoFijoInicio-#{$i},.aparatoOrtoFijoFin-#{$i}, .linea-#{$i}{
+			left: (($i - 1) * $anchoDiente);
+			top: 3.5%;
+		}
+
+		.aparatoOrtoRemovible-#{$i}{
+			left: (($i - 1) * $anchoDiente);
+			top: 4%;
+		}
+	}
+
+	//CUADRANTE DOS
+	@for $i from 17 through 26{
+		.cursor-#{$i} {
+			height: $altoDienteCentro;
+			top: 34%;
+			left: ($i - 14) * $anchoDiente;
+		}
+
+		.recuadro-#{$i} {
+			top: 25%;
+			left: (($i - 14) * $anchoDiente);
+		}
+
+		.corona-#{$i}{
+			height: $altoDienteCentro;
+			left: (($i - 14) * $anchoDiente);
+			top: 36.4%;
+			background-position-y: 62%;
+		}
+
+		.erupcion-#{$i}{
+			height: $altoDiente;
+			left: (($i - 14) * $anchoDiente);
+			top: 33%;
+			background-position-y: 35%;
+		}
+
+		.aparatoOrtoFijoInicio-#{$i}, .aparatoOrtoFijoFin-#{$i}, .linea-#{$i}{
+			left: (($i - 14) * $anchoDiente);
+			top: 30%;
+		}
+
+		.aparatoOrtoRemovible-#{$i}{
+			left: (($i - 14) * $anchoDiente);
+			top: 30%;
+		}
+
+
+	}
+	
+	//CUADRANTE TRES
+	@for $i from 27 through 36{
+		.cursor-#{$i} {
+			height: $altoDienteCentro;
+			top: 54.5%;
+			left: ($i - 24) * $anchoDiente;
+		}
+
+		.recuadro-#{$i} {
+			top: 70.3%;
+			left: (($i - 24) * $anchoDiente);
+		}
+
+		.corona-#{$i}{
+			height: $altoDienteCentro;
+			left: (($i - 24) * $anchoDiente)-0.1%; //CORRECCION
+			top: 52.2%;
+			background-position-y: 41%;
+		}
+
+		.erupcion-#{$i}{
+			height: $altoDiente;
+			left: (($i - 24) * $anchoDiente);
+			top: 56%;
+			background-position-y: 35%;
+			transform: rotate(180deg);
+		}
+
+		.aparatoOrtoFijoInicio-#{$i}, .aparatoOrtoFijoFin-#{$i}, .linea-#{$i}{
+			left: (($i - 24) * $anchoDiente);
+			top: 66.5%;
+		}
+
+		.aparatoOrtoRemovible-#{$i}{
+			left: (($i - 24) * $anchoDiente);
+			top: 65%;
+			transform: rotate(180deg);
+		}
+	}
+
+	//CUADRANTE CUATRO
+	@for $i from 37 through 52{
+		.cursor-#{$i} {
+			height: $altoDiente;
+			top: 78.8%;
+			left: ($i - 37) * $anchoDiente;
+		}
+
+		.recuadro-#{$i} {
+			bottom: 0;
+			left: (($i - 37) * $anchoDiente);
+		}
+
+		.corona-#{$i}{
+			height: $altoDienteCentro;
+			left: (($i - 37) * $anchoDiente);
+			top: 78.8%;
+			background-position-y: top;
+		}
+
+		.erupcion-#{$i}{
+			height: $altoDiente;
+			left: (($i - 37) * $anchoDiente);
+			top: 80.2%;
+			background-position-y: 35%;
+			transform: rotate(180deg);
+		}
+
+		.aparatoOrtoFijoInicio-#{$i}, .aparatoOrtoFijoFin-#{$i}, .linea-#{$i}{
+			left: (($i - 37) * $anchoDiente);
+			top: 93.5%;
+		}
+
+		.aparatoOrtoRemovible-#{$i}{
+			left: (($i - 37) * $anchoDiente);
+			top: 92.5%;
+			transform: rotate(180deg);
+		}
+	}
+
+
+
+}
