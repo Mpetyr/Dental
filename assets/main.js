@@ -1,5 +1,3 @@
-$(function(){
-
 /*==================================================
 =            SERIALIZAR DATOS EN OBJETO            =
 ==================================================*/
@@ -178,6 +176,8 @@ function warnBeforeRedirect(linkURL) {
 }
 /*=====  End of CONFIRMAR IR A METODO QUE ELIMINAR REGISTRO  ======*/
 
+
+$(function(){
 /*=======================================
 =            CITAS REGISTRAR            =
 =======================================*/

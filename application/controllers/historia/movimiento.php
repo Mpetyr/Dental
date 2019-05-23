@@ -296,7 +296,7 @@ class Movimiento extends CI_Controller {
 			}else{
 				$resp['success'] = false;
 			}
-            echo json_encode($resp);
+      echo json_encode($resp);
 		}
 
 	}
@@ -724,7 +724,7 @@ class Movimiento extends CI_Controller {
 		$paciente = $this->input->get('paciente');
 		$tipo = 'Inicial';
 		$odontograma = $this->db->from('paciente_odontograma')
-		->select('pacodo_id,id_hal,pacodo_estado as estado,pacodo_sigla as sigla,pacodo_id,inicio.orden_die as inicio, fin.orden_die as fin')
+		->select('pacodo_id as id,id_hal,pacodo_estado as estado,pacodo_sigla as sigla,pacodo_id,inicio.orden_die as inicio, fin.orden_die as fin')
 		->join('dientes as inicio','paciente_odontograma.numero_die = inicio.numero_die')
 		->join('dientes as fin','paciente_odontograma.pacodo_dientefinal = fin.numero_die','left')
 		->where('pacodo_tipo',$tipo)
@@ -733,11 +733,72 @@ class Movimiento extends CI_Controller {
 		echo json_encode($odontograma);
 	}
 
-	function guardarHallazgo()
+	function getHallazgo($id)
 	{
-		$hallazgo = $this->input->get('hallazgo');
-		$estado = $this->input->get('estado');
-		$sigla = $this->input->get('sigla');
+		return $this->db->from('paciente_odontograma')
+		->select('pacodo_id as id,id_hal,pacodo_estado as estado,pacodo_sigla as sigla,pacodo_id,inicio.orden_die as inicio, fin.orden_die as fin')
+		->join('dientes as inicio','paciente_odontograma.numero_die = inicio.numero_die')
+		->join('dientes as fin','paciente_odontograma.pacodo_dientefinal = fin.numero_die','left')
+		->where('pacodo_id',$id)
+		->get()->row();
+	}
+
+	function getHallazgosDientePaciente()
+	{
+		$paciente = $this->input->get('paciente');
+		$diente = $this->input->get('diente');
+		$query = $this->db->from('paciente_odontograma')
+		->select('pacodo_id as id,nombre_hal,paciente_odontograma.id_hal,pacodo_estado as estado,pacodo_sigla as sigla,pacodo_id,inicio.orden_die as inicio, fin.orden_die as fin, paciente_odontograma.numero_die as dienteInicio, paciente_odontograma.pacodo_dientefinal as dienteFinal')
+		->join('dientes as inicio','paciente_odontograma.numero_die = inicio.numero_die')
+		->join('dientes as fin','paciente_odontograma.pacodo_dientefinal = fin.numero_die','left')
+		->join('hallazgos','paciente_odontograma.id_hal = hallazgos.id_hal')
+		->where('codi_pac',$paciente)
+		->where('paciente_odontograma.numero_die',$diente)
+		->get()->result();
+		echo json_encode($query);
+	}
+
+	function agregarHallazgo()
+	{
+		$data['codi_pac'] = $this->input->post('paciente');
+		$data['pacodo_tipo'] = 'Inicial';
+		$data['id_hal'] = $this->input->post('hallazgo');
+		if ($this->input->post('estado')!='') {
+			$data['pacodo_estado'] = $this->input->post('estado');
+		}
+		$data['numero_die'] = $this->input->post('diente');
+		if ($this->input->post('dienteFinal')!='') {
+			$data['pacodo_dientefinal'] = $this->input->post('dienteFinal');
+		}
+		if ($this->input->post('sigla')!='') {
+			$data['pacodo_sigla'] = $this->input->post('sigla');
+		}
+		$data['pacodo_espec'] = $this->input->post('especificaciones');
+		$data['codi_usu'] = 1;
+		$data['pacodo_datetime'] = date('Y-m-d H:i:s');
+		$insert = $this->modelgeneral->insertRegist('paciente_odontograma',$data);
+		$resp =[];
+		if(!is_null($insert)){
+			$resp['success'] = true;
+			$resp['data'] = $this->getHallazgo($insert);
+		}else{
+			$resp['success'] = false;
+		}
+    echo json_encode($resp);
+	}
+
+	function eliminarHallazgo()
+	{
+		$id = $this->input->get('id');
+		$delete = $this->db->where('pacodo_id',$id)
+		->delete('paciente_odontograma');
+		$resp =[];
+		if ($delete) {
+			$resp['success'] = true;
+		}else{
+			$resp['success'] = false;
+		}
+		echo json_encode($resp);
 	}
 }
 
