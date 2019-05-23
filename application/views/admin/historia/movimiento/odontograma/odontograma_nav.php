@@ -11,8 +11,6 @@
   color: #333;
 }
 
-
-
 .odontograma-navegacion>li{
   padding: 2px;
   background: none;
@@ -106,24 +104,24 @@
       <ul class="odontograma-navegacion">
         <li class="dropdown">
           <img src="<?= base_url() ?>assets/odontograma/images/AparatoOrtoIcono.png">
-          <a class="dropdown-toggle" id="dropdownOortoFijo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          <a class="dropdown-toggle rango nombreHallazgo" id="dropdownOortoFijo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
             Aparato Orto. Fijo
             <span class="caret"></span>
           </a>
           <ul class="dropdown-menu" aria-labelledby="dropdownOortoFijo">
-            <li><a href="#" data-hallazgo="1" data-estado="1" class="odontograma-item"><i class="fa fa-thumbs-o-up buen"></i>Buen Estado</a></li>
-            <li><a href="#" data-hallazgo="1" data-estado="2" class="odontograma-item"><i class="fa fa-thumbs-o-down mal"></i>Mal Estado</a></li>
+            <li><a href="#" data-hallazgo="1" data-estado="bueno" class="odontograma-item"><i class="fa fa-thumbs-o-up buen"></i>Buen Estado</a></li>
+            <li><a href="#" data-hallazgo="1" data-estado="malo" class="odontograma-item"><i class="fa fa-thumbs-o-down mal"></i>Mal Estado</a></li>
           </ul>
         </li>
         <li class="dropdown">
           <img src="<?= base_url() ?>assets/odontograma/images/AparatoOrtodonticoRemovibleIcono.png">
-            <a class="dropdown-toggle" id="dropdownOrtoRemovible" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            <a class="dropdown-toggle rango nombreHallazgo" id="dropdownOrtoRemovible" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
               Aparato Orto. Removible
               <span class="caret"></span>
             </a>
             <ul class="dropdown-menu" aria-labelledby="dropdownOrtoRemovible">
-              <li><a href="#" data-hallazgo="2" data-estado="1" class="odontograma-item"><i class="fa fa-thumbs-o-up buen"></i>Buen Estado</a></li>
-              <li><a href="#" data-hallazgo="2" data-estado="2" class="odontograma-item"><i class="fa fa-thumbs-o-down mal"></i>Mal Estado</a></li>
+              <li><a href="#" data-hallazgo="malo" data-estado="bueno" class="odontograma-item"><i class="fa fa-thumbs-o-up buen"></i>Buen Estado</a></li>
+              <li><a href="#" data-hallazgo="malo" data-estado="malo" class="odontograma-item"><i class="fa fa-thumbs-o-down mal"></i>Mal Estado</a></li>
             </ul>
         </li>
         <li class="dropdown">
@@ -134,51 +132,50 @@
             </a>
             <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
               <li class="dropdown-submenu">
-                <a tabindex="-1" href="#"><b>CM:</b> Corona Metálica</a>
+                <a tabindex="-1" class="nombreHallazgo" href="#"><b>CM:</b> Corona Metálica</a>
                 <ul class="dropdown-menu">
-                  <li><a href="#" data-hallazgo="3" data-estado="1" data-sigla="CM" class="odontograma-item"><i class="fa fa-thumbs-o-up buen"></i>Buen Estado</a></li>
-                  <li><a href="#" data-hallazgo="3" data-estado="2" data-sigla="CM" class="odontograma-item"><i class="fa fa-thumbs-o-down mal"></i>Mal Estado</a></li>
+                  <li><a href="#" data-hallazgo="3" data-estado="bueno" data-sigla="CM" class="odontograma-item"><i class="fa fa-thumbs-o-up buen"></i>Buen Estado</a></li>
+                  <li><a href="#" data-hallazgo="3" data-estado="malo" data-sigla="CM" class="odontograma-item"><i class="fa fa-thumbs-o-down mal"></i>Mal Estado</a></li>
                 </ul>
               </li>
               <li class="dropdown-submenu">
-                <a tabindex="-1" href="#"><b>CF:</b> Corona Fenestrada</a>
+                <a tabindex="-1" class="nombreHallazgo" href="#"><b>CF:</b> Corona Fenestrada</a>
                 <ul class="dropdown-menu">
-                  <li><a href="#" data-hallazgo="3" data-estado="1" data-sigla="CF" class="odontograma-item"><i class="fa fa-thumbs-o-up buen"></i>Buen Estado</a></li>
-                  <li><a href="#" data-hallazgo="3" data-estado="2" data-sigla="CF" class="odontograma-item"><i class="fa fa-thumbs-o-down mal"></i>Mal Estado</a></li>
+                  <li><a href="#" data-hallazgo="3" data-estado="bueno" data-sigla="CF" class="odontograma-item"><i class="fa fa-thumbs-o-up buen"></i>Buen Estado</a></li>
+                  <li><a href="#" data-hallazgo="3" data-estado="malo" data-sigla="CF" class="odontograma-item"><i class="fa fa-thumbs-o-down mal"></i>Mal Estado</a></li>
                 </ul>
               </li>
               <li class="dropdown-submenu">
-                <a tabindex="-1" href="#"><b>CMC:</b> Corona Metal Cerámica</a>
+                <a tabindex="-1" class="nombreHallazgo" href="#"><b>CMC:</b> Corona Metal Cerámica</a>
                 <ul class="dropdown-menu">
-                  <li><a href="#" data-hallazgo="3" data-estado="1" data-sigla="CMC" class="odontograma-item"><i class="fa fa-thumbs-o-up buen"></i>Buen Estado</a></li>
-                  <li><a href="#" data-hallazgo="3" data-estado="2" data-sigla="CMC" class="odontograma-item"><i class="fa fa-thumbs-o-down mal"></i>Mal Estado</a></li>
+                  <li><a href="#" data-hallazgo="3" data-estado="bueno" data-sigla="CMC" class="odontograma-item"><i class="fa fa-thumbs-o-up buen"></i>Buen Estado</a></li>
+                  <li><a href="#" data-hallazgo="3" data-estado="malo" data-sigla="CMC" class="odontograma-item"><i class="fa fa-thumbs-o-down mal"></i>Mal Estado</a></li>
                 </ul>
               </li>
               <li class="dropdown-submenu">
-                <a tabindex="-1" href="#"><b>CV:</b> Corona Veneer</a>
+                <a tabindex="-1" class="nombreHallazgo" href="#"><b>CV:</b> Corona Veneer</a>
                 <ul class="dropdown-menu">
-                  <li><a href="#" data-hallazgo="3" data-estado="1" data-sigla="CV" class="odontograma-item"><i class="fa fa-thumbs-o-up buen"></i>Buen Estado</a></li>
-                  <li><a href="#" data-hallazgo="3" data-estado="2" data-sigla="CV" class="odontograma-item"><i class="fa fa-thumbs-o-down mal"></i>Mal Estado</a></li>
+                  <li><a href="#" data-hallazgo="3" data-estado="bueno" data-sigla="CV" class="odontograma-item"><i class="fa fa-thumbs-o-up buen"></i>Buen Estado</a></li>
+                  <li><a href="#" data-hallazgo="3" data-estado="malo" data-sigla="CV" class="odontograma-item"><i class="fa fa-thumbs-o-down mal"></i>Mal Estado</a></li>
                 </ul>
               </li>
               <li class="dropdown-submenu">
-                <a tabindex="-1" href="#"><b>CJ:</b> Corona Jacket</a>
+                <a tabindex="-1" class="nombreHallazgo" href="#"><b>CJ:</b> Corona Jacket</a>
                 <ul class="dropdown-menu">
-                  <li><a href="#" data-hallazgo="3" data-estado="1" data-sigla="CJ" class="odontograma-item"><i class="fa fa-thumbs-o-up buen"></i>Buen Estado</a></li>
-                  <li><a href="#" data-hallazgo="3" data-estado="2" data-sigla="CJ" class="odontograma-item"><i class="fa fa-thumbs-o-down mal"></i>Mal Estado</a></li>
+                  <li><a href="#" data-hallazgo="3" data-estado="bueno" data-sigla="CJ" class="odontograma-item"><i class="fa fa-thumbs-o-up buen"></i>Buen Estado</a></li>
+                  <li><a href="#" data-hallazgo="3" data-estado="malo" data-sigla="CJ" class="odontograma-item"><i class="fa fa-thumbs-o-down mal"></i>Mal Estado</a></li>
                 </ul>
               </li>
             </ul>
         </li>
       </ul>
       <br>
-      <button id="BotonNombreSeleccionado" class="btn btn-flat btn-default btn-block" style="display: none"></button>
-      <button id="BotonSeleccion" class="btn btn-flat btn-lg btn-default btn-block">Seleccione</button>
+      <button id="BotonNombreSeleccionado" class="btn btn-flat btn-block" style="display: none"></button>
+      <button id="BotonSeleccion" class="btn btn-flat btn-lg btn-info btn-block">Seleccione</button>
       <br>
     </div>
     <div role="tabpanel" class="tab-pane" id="GP">GP</div>
     <div role="tabpanel" class="tab-pane" id="RT">RT</div>
     <div role="tabpanel" class="tab-pane" id="Detalle">Dtalle</div>
   </div>
-
 </div>
