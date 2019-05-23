@@ -4,20 +4,81 @@ $('.odontograma-navegacion a').click(function(event) {
 	event.preventDefault();
 });
 
+/*=================================================
+=            SELECCIONANDO EL HALLAZGO            =
+=================================================*/
 $('.odontograma-item').click(function(event) {
 	var hallazgo = $(this).data('hallazgo');
 	var estado = $(this).data('estado');
 	var sigla = $(this).data('sigla');
-	var nombreSeleccion = $(this).parent().parent().parent().find('a')[0].innerText;
-	$('#BotonNombreSeleccionado').show().html(nombreSeleccion);
+	$('#FormHistoriaMovimientoAgregarHallazgo input[name=hallazgo], #FormHistoriaMovimientoAgregarHallazgo input[name=estado], #FormHistoriaMovimientoAgregarHallazgo input[name=sigla], #FormHistoriaMovimientoAgregarHallazgo input[name=diente]').val('');
+
+	var hallazgoSeleccionado = $(this).parent().parent().parent().find('a.nombreHallazgo')[0];
+	$('#BotonNombreSeleccionado').show().html(hallazgoSeleccionado.innerText);
+
+	$('#odontograma-contenido').removeClass('unico inicio fin');
+	if ($(hallazgoSeleccionado).hasClass('rango')) {
+		$('#odontograma-contenido').addClass('inicio');
+	}else{
+		$('#odontograma-contenido').addClass('unico');
+	}
+
+	$('#modalHallazgo').val(hallazgoSeleccionado.innerText);
+
+	$('#colEstado').show();
+	$('#colSigla').show();
+	$('#BotonNombreSeleccionado').removeClass('btn-default btn-success btn-danger');
+	if (estado=='bueno') {
+		$('#modalEstado').val('Buen Estado');
+		$('#FormHistoriaMovimientoAgregarHallazgo input[name="estado"]').val('bueno');
+    $('#BotonNombreSeleccionado').addClass('btn-success');
+	}
+	if (estado=='malo') {
+		$('#modalEstado').val('Mal Estado');
+		$('#FormHistoriaMovimientoAgregarHallazgo input[name="estado"]').val('malo');
+		$('#BotonNombreSeleccionado').addClass('btn-danger');	
+	}
+	if (typeof estado === "undefined") {
+		$('#colEstado').hide();
+		$('#FormHistoriaMovimientoAgregarHallazgo input[name="estado"]').val('');
+	  $('#BotonNombreSeleccionado').addClass('btn-default');	
+	}
+
+	if (typeof sigla === "undefined") {
+		$('#colSigla').hide();
+		$('#FormHistoriaMovimientoAgregarHallazgo input[name="sigla"]').val('');
+	}else{
+		$('#FormHistoriaMovimientoAgregarHallazgo input[name="sigla"]').val(sigla);
+	}
 	$('#BotonSeleccion').removeClass('btn-default').addClass('btn-info').html('Quitar Selección');
+	
+	$('#FormHistoriaMovimientoAgregarHallazgo input[name=hallazgo]').val(hallazgo);
 });
+
 
 $('#BotonSeleccion').click(function(event) {
 	$(this).html('Seleccione');
+	$('#odontograma-contenido').removeClass('unico inicio fin');
 	$('#BotonNombreSeleccionado').hide();
-	seleccionado = '';
 });
+/*=====  End of SELECCIONANDO EL HALLAZGO  ======*/
+
+/*===============================================
+=            SELECCIONANDO EL DIENTE            =
+===============================================*/
+$('#odontograma').on('click', '#odontograma-contenido.unico>.cursor', function(event) {
+	event.preventDefault();
+	var diente = $(this).data('diente');
+	$('#ModalAgregarHallazgo').modal();
+	$('#FormHistoriaMovimientoAgregarHallazgo input[name=diente]').val(diente);
+});
+
+$('#odontograma').on('click', '#odontograma-contenido.inicio>.cursor', function(event) {
+	event.preventDefault();
+	$('#odontograma-contenido.inicio').removeClass('inicio').addClass('fin');
+});
+/*=====  End of SELECCIONANDO EL DIENTE  ======*/
+
 
 /*var numeroToDientes = {
 	1:18, 2:17, 3:16, 4:15, 5:14, 6:13, 7:12, 8:11, 9:21, 10:22, 11:23, 12:24, 13:25, 14:26, 15:27, 16:28,
@@ -33,6 +94,9 @@ var dientesToNumero = {
 	 37:48, 38:47, 39:46, 40:45, 41:44, 42:43, 43:42, 44:41, 45:31, 46:32, 47:33, 48:34, 49:35, 50:36, 51:37, 52:38
 };
 */
+/*=============================================
+=            PINTAR EL ODONTOGRAMA GENERAL          =
+=============================================*/
 var paciente = $('#HistoriaContenido').data('paciente');
 
 $.getJSON(path+'historia/movimiento/getOdontograma', {paciente}, function(json, textStatus) {
@@ -46,7 +110,12 @@ $.getJSON(path+'historia/movimiento/getOdontograma', {paciente}, function(json, 
 			corona(val['inicio'],val['estado'],val['sigla'])
 	});	
 });
+/*=====  End of PINTAR EL ODONTOGRAMA GENERAL  ======*/
 
+
+/*============================================
+=            PINTAR CADA HALLAZGO            =
+============================================*/
 function aparatoOrtoFijo($inicio,$fin,$estado){
 	var inicio = `<div class="hallazgos aparatoOrtoFijoInicio ${$estado} aparatoOrtoFijoInicio-${$inicio}"></div>`;
 
@@ -76,8 +145,6 @@ function corona($inicio,$estado,$sigla){
 	var sigla = `<span class="${$estado}">${$sigla},<span>`;
 	$('.recuadro-'+$inicio).append(sigla);
 }
-
-
-
+/*=====  End of PINTAR CADA HALLAZGO  ======*/
 
 });

@@ -22,6 +22,18 @@
       border-radius: 3px;
       -webkit-box-shadow: 0px 2px 29px -6px rgba(0, 0, 0, 0.75);
       box-shadow: 0px 2px 29px -6px rgba(0, 0, 0, 0.75); }
+  #odontograma-contenido.inicio .cursor:hover, #odontograma-contenido.fin .cursor:hover {
+    background-color: #26bc8a;
+    -webkit-box-shadow: 0px 2px 29px -6px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 2px 29px -6px rgba(0, 0, 0, 0.75); }
+    #odontograma-contenido.inicio .cursor:hover:before, #odontograma-contenido.fin .cursor:hover:before {
+      content: 'Inicio';
+      position: absolute;
+      left: 20%;
+      color: white;
+      top: 35%; }
+  #odontograma-contenido.fin .cursor:hover:before {
+    content: 'Fin'; }
   #odontograma-contenido .recuadro {
     position: absolute;
     width: 6.25%;
@@ -84,7 +96,7 @@
       background-image: url("../images/AparatoOrtoRemovibleMalo.png"); }
   #odontograma-contenido .cursor-1 {
     height: 9.6%;
-    top: 10.5%;
+    top: 11%;
     left: 0%; }
   #odontograma-contenido .recuadro-1 {
     top: 0%;
@@ -107,7 +119,7 @@
     top: 4%; }
   #odontograma-contenido .cursor-2 {
     height: 9.6%;
-    top: 10.5%;
+    top: 11%;
     left: 6.25%; }
   #odontograma-contenido .recuadro-2 {
     top: 0%;
@@ -130,7 +142,7 @@
     top: 4%; }
   #odontograma-contenido .cursor-3 {
     height: 9.6%;
-    top: 10.5%;
+    top: 11%;
     left: 12.5%; }
   #odontograma-contenido .recuadro-3 {
     top: 0%;
@@ -153,7 +165,7 @@
     top: 4%; }
   #odontograma-contenido .cursor-4 {
     height: 9.6%;
-    top: 10.5%;
+    top: 11%;
     left: 18.75%; }
   #odontograma-contenido .recuadro-4 {
     top: 0%;
@@ -176,7 +188,7 @@
     top: 4%; }
   #odontograma-contenido .cursor-5 {
     height: 9.6%;
-    top: 10.5%;
+    top: 11%;
     left: 25%; }
   #odontograma-contenido .recuadro-5 {
     top: 0%;
@@ -199,7 +211,7 @@
     top: 4%; }
   #odontograma-contenido .cursor-6 {
     height: 9.6%;
-    top: 10.5%;
+    top: 11%;
     left: 31.25%; }
   #odontograma-contenido .recuadro-6 {
     top: 0%;
@@ -222,7 +234,7 @@
     top: 4%; }
   #odontograma-contenido .cursor-7 {
     height: 9.6%;
-    top: 10.5%;
+    top: 11%;
     left: 37.5%; }
   #odontograma-contenido .recuadro-7 {
     top: 0%;
@@ -245,7 +257,7 @@
     top: 4%; }
   #odontograma-contenido .cursor-8 {
     height: 9.6%;
-    top: 10.5%;
+    top: 11%;
     left: 43.75%; }
   #odontograma-contenido .recuadro-8 {
     top: 0%;
@@ -268,7 +280,7 @@
     top: 4%; }
   #odontograma-contenido .cursor-9 {
     height: 9.6%;
-    top: 10.5%;
+    top: 11%;
     left: 50%; }
   #odontograma-contenido .recuadro-9 {
     top: 0%;
@@ -291,7 +303,7 @@
     top: 4%; }
   #odontograma-contenido .cursor-10 {
     height: 9.6%;
-    top: 10.5%;
+    top: 11%;
     left: 56.25%; }
   #odontograma-contenido .recuadro-10 {
     top: 0%;
@@ -314,7 +326,7 @@
     top: 4%; }
   #odontograma-contenido .cursor-11 {
     height: 9.6%;
-    top: 10.5%;
+    top: 11%;
     left: 62.5%; }
   #odontograma-contenido .recuadro-11 {
     top: 0%;
@@ -337,7 +349,7 @@
     top: 4%; }
   #odontograma-contenido .cursor-12 {
     height: 9.6%;
-    top: 10.5%;
+    top: 11%;
     left: 68.75%; }
   #odontograma-contenido .recuadro-12 {
     top: 0%;
@@ -360,7 +372,7 @@
     top: 4%; }
   #odontograma-contenido .cursor-13 {
     height: 9.6%;
-    top: 10.5%;
+    top: 11%;
     left: 75%; }
   #odontograma-contenido .recuadro-13 {
     top: 0%;
@@ -383,7 +395,7 @@
     top: 4%; }
   #odontograma-contenido .cursor-14 {
     height: 9.6%;
-    top: 10.5%;
+    top: 11%;
     left: 81.25%; }
   #odontograma-contenido .recuadro-14 {
     top: 0%;
@@ -406,7 +418,7 @@
     top: 4%; }
   #odontograma-contenido .cursor-15 {
     height: 9.6%;
-    top: 10.5%;
+    top: 11%;
     left: 87.5%; }
   #odontograma-contenido .recuadro-15 {
     top: 0%;
@@ -429,7 +441,7 @@
     top: 4%; }
   #odontograma-contenido .cursor-16 {
     height: 9.6%;
-    top: 10.5%;
+    top: 11%;
     left: 93.75%; }
   #odontograma-contenido .recuadro-16 {
     top: 0%;
@@ -452,7 +464,7 @@
     top: 4%; }
   #odontograma-contenido .cursor-17 {
     height: 9.7%;
-    top: 34%;
+    top: 34.5%;
     left: 18.75%; }
   #odontograma-contenido .recuadro-17 {
     top: 25%;
@@ -475,7 +487,7 @@
     top: 30%; }
   #odontograma-contenido .cursor-18 {
     height: 9.7%;
-    top: 34%;
+    top: 34.5%;
     left: 25%; }
   #odontograma-contenido .recuadro-18 {
     top: 25%;
@@ -498,7 +510,7 @@
     top: 30%; }
   #odontograma-contenido .cursor-19 {
     height: 9.7%;
-    top: 34%;
+    top: 34.5%;
     left: 31.25%; }
   #odontograma-contenido .recuadro-19 {
     top: 25%;
@@ -521,7 +533,7 @@
     top: 30%; }
   #odontograma-contenido .cursor-20 {
     height: 9.7%;
-    top: 34%;
+    top: 34.5%;
     left: 37.5%; }
   #odontograma-contenido .recuadro-20 {
     top: 25%;
@@ -544,7 +556,7 @@
     top: 30%; }
   #odontograma-contenido .cursor-21 {
     height: 9.7%;
-    top: 34%;
+    top: 34.5%;
     left: 43.75%; }
   #odontograma-contenido .recuadro-21 {
     top: 25%;
@@ -567,7 +579,7 @@
     top: 30%; }
   #odontograma-contenido .cursor-22 {
     height: 9.7%;
-    top: 34%;
+    top: 34.5%;
     left: 50%; }
   #odontograma-contenido .recuadro-22 {
     top: 25%;
@@ -590,7 +602,7 @@
     top: 30%; }
   #odontograma-contenido .cursor-23 {
     height: 9.7%;
-    top: 34%;
+    top: 34.5%;
     left: 56.25%; }
   #odontograma-contenido .recuadro-23 {
     top: 25%;
@@ -613,7 +625,7 @@
     top: 30%; }
   #odontograma-contenido .cursor-24 {
     height: 9.7%;
-    top: 34%;
+    top: 34.5%;
     left: 62.5%; }
   #odontograma-contenido .recuadro-24 {
     top: 25%;
@@ -636,7 +648,7 @@
     top: 30%; }
   #odontograma-contenido .cursor-25 {
     height: 9.7%;
-    top: 34%;
+    top: 34.5%;
     left: 68.75%; }
   #odontograma-contenido .recuadro-25 {
     top: 25%;
@@ -659,7 +671,7 @@
     top: 30%; }
   #odontograma-contenido .cursor-26 {
     height: 9.7%;
-    top: 34%;
+    top: 34.5%;
     left: 75%; }
   #odontograma-contenido .recuadro-26 {
     top: 25%;

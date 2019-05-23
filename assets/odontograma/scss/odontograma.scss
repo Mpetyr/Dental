@@ -25,6 +25,28 @@ $altoDienteCentro: 9.7%;
 		}
 	}
 
+	&.inicio, &.fin{
+		.cursor:hover{
+			background-color: #26bc8a;
+			box-shadow: 0px 2px 29px -6px rgba(0,0,0,0.75);
+			&:before{
+				content:'Inicio';
+				position: absolute;
+				left: 20%;
+				color: white;
+				top: 35%;
+			}
+		}
+	}
+
+	&.fin{
+		.cursor:hover{
+			&:before{
+				content:'Fin';
+			}
+		}
+	}
+
 	.recuadro{
 		position: absolute;
 		width: $anchoDiente;
@@ -116,7 +138,7 @@ $altoDienteCentro: 9.7%;
 	@for $i from 1 through 16{
 		.cursor-#{$i} {
 			height: $altoDiente;
-			top: 10.5%;
+			top: 11%;
 			left: (($i - 1) * $anchoDiente);
 		}
 
@@ -153,7 +175,7 @@ $altoDienteCentro: 9.7%;
 	@for $i from 17 through 26{
 		.cursor-#{$i} {
 			height: $altoDienteCentro;
-			top: 34%;
+			top: 34.5%;
 			left: ($i - 14) * $anchoDiente;
 		}
 
