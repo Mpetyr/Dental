@@ -21,30 +21,48 @@ $altoDienteCentro: 9.7%;
 		&:hover{
 			cursor: pointer;
 			border-radius: 3px;
-			box-shadow: 0px 2px 29px -6px rgba(0,0,0,0.75);
+			box-shadow: inset 0 0 0 1px #111;
+			
 		}
 	}
 
-	&.inicio, &.fin{
-		.cursor:hover{
-			background-color: #26bc8a;
-			box-shadow: 0px 2px 29px -6px rgba(0,0,0,0.75);
-			&:before{
-				content:'Inicio';
-				position: absolute;
-				left: 20%;
-				color: white;
-				top: 35%;
-			}
+	&.unico .cursor:hover{
+		border-radius: 3px;
+		background-color: #26bc8a;
+		&:before{
+			content:'SEL';
+			position: absolute;
+			left: 25%;
+			color: white;
+			top: 35%;
 		}
 	}
 
-	&.fin{
-		.cursor:hover{
-			&:before{
-				content:'Fin';
-			}
+	&.detalle .cursor:hover{
+		border-radius: 3px;
+		background-color: #ee600d;
+		&:before{
+			content:'DET';
+			position: absolute;
+			left: 25%;
+			color: white;
+			top: 35%;
 		}
+	}
+
+	&.inicio .cursor:hover, &.fin .cursor:hover, .inicioSelec{
+		background-color: #26bc8a;
+		&:before{
+			content:'INI';
+			position: absolute;
+			left: 25%;
+			color: white;
+			top: 35%;
+		}
+	}
+
+	&.fin .cursor:hover:before{
+		content:'FIN';
 	}
 
 	.recuadro{

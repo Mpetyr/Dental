@@ -20,20 +20,36 @@
     #odontograma-contenido .cursor:hover {
       cursor: pointer;
       border-radius: 3px;
-      -webkit-box-shadow: 0px 2px 29px -6px rgba(0, 0, 0, 0.75);
-      box-shadow: 0px 2px 29px -6px rgba(0, 0, 0, 0.75); }
-  #odontograma-contenido.inicio .cursor:hover, #odontograma-contenido.fin .cursor:hover {
-    background-color: #26bc8a;
-    -webkit-box-shadow: 0px 2px 29px -6px rgba(0, 0, 0, 0.75);
-    box-shadow: 0px 2px 29px -6px rgba(0, 0, 0, 0.75); }
-    #odontograma-contenido.inicio .cursor:hover:before, #odontograma-contenido.fin .cursor:hover:before {
-      content: 'Inicio';
+      -webkit-box-shadow: inset 0 0 0 1px #111;
+      box-shadow: inset 0 0 0 1px #111; }
+  #odontograma-contenido.unico .cursor:hover {
+    border-radius: 3px;
+    background-color: #26bc8a; }
+    #odontograma-contenido.unico .cursor:hover:before {
+      content: 'SEL';
       position: absolute;
-      left: 20%;
+      left: 25%;
+      color: white;
+      top: 35%; }
+  #odontograma-contenido.detalle .cursor:hover {
+    border-radius: 3px;
+    background-color: #ee600d; }
+    #odontograma-contenido.detalle .cursor:hover:before {
+      content: 'DET';
+      position: absolute;
+      left: 25%;
+      color: white;
+      top: 35%; }
+  #odontograma-contenido.inicio .cursor:hover, #odontograma-contenido.fin .cursor:hover, #odontograma-contenido .inicioSelec {
+    background-color: #26bc8a; }
+    #odontograma-contenido.inicio .cursor:hover:before, #odontograma-contenido.fin .cursor:hover:before, #odontograma-contenido .inicioSelec:before {
+      content: 'INI';
+      position: absolute;
+      left: 25%;
       color: white;
       top: 35%; }
   #odontograma-contenido.fin .cursor:hover:before {
-    content: 'Fin'; }
+    content: 'FIN'; }
   #odontograma-contenido .recuadro {
     position: absolute;
     width: 6.25%;
