@@ -15,7 +15,7 @@
   </div>
   <div class="panel-body">
     <div id="odontograma">
-      <div id="odontograma-contenido">
+      <div id="odontograma-contenido" class="detalle">
         <img src="<?= base_url('assets/odontograma/images/plantilla_nuevo05.png') ?>" class="img-responsive">
         <?php $this->load->view('admin/historia/movimiento/odontograma/cursores.php') ?>
       </div>
@@ -23,12 +23,43 @@
   </div>
 </div>
 
+<div id="ModalOdontogramaDetalle" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-md" role="document">
+    <div class="modal-content ">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Lista de Hallazgos</h4>
+      </div>
+      <div class="modal-body">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Diente</th>
+              <th>Diente Final</th>
+              <th>Estado</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Cerrar</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
 <div id="ModalAgregarHallazgo" class="modal fade" role="dialog">
   <div class="modal-dialog modal-md" role="document">
     <div class="modal-content ">
       <form id="FormHistoriaMovimientoAgregarHallazgo" action="<?= base_url('historia/movimiento/agregarHallazgo') ?>" method="post" autocomplete="off">
         <input type="hidden" name="hallazgo">
         <input type="hidden" name="estado">
+        <input type="hidden" name="paciente" value="<?= $paciente->codi_pac ?>">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title">Agregar Hallazgo</h4>
@@ -45,6 +76,12 @@
               <div class="form-group">
                 <label class="control-label">N° de Diente</label>
                 <input type="text" name="diente" class="form-control" readonly>
+              </div>
+            </div>
+            <div class="col-md-3" id="colDienteFinal" style="display: none">
+              <div class="form-group">
+                <label class="control-label">N° Diente Final</label>
+                <input type="text" name="dienteFinal" class="form-control" readonly>
               </div>
             </div>
             <div class="col-md-3" id="colEstado">

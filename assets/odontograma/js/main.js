@@ -8,22 +8,25 @@ $('.odontograma-navegacion a').click(function(event) {
 =            SELECCIONANDO EL HALLAZGO            =
 =================================================*/
 $('.odontograma-item').click(function(event) {
-	var hallazgo = $(this).data('hallazgo');
+	var seleccionado = $(this).parent().parent().parent().find('a.nombreHallazgo')[0];
+	var hallazgo = $(seleccionado).data('hallazgo');
+	var sigla = $(seleccionado).data('sigla');
 	var estado = $(this).data('estado');
-	var sigla = $(this).data('sigla');
-	$('#FormHistoriaMovimientoAgregarHallazgo input[name=hallazgo], #FormHistoriaMovimientoAgregarHallazgo input[name=estado], #FormHistoriaMovimientoAgregarHallazgo input[name=sigla], #FormHistoriaMovimientoAgregarHallazgo input[name=diente]').val('');
+	$('#FormHistoriaMovimientoAgregarHallazgo input[name=hallazgo], #FormHistoriaMovimientoAgregarHallazgo input[name=estado], #FormHistoriaMovimientoAgregarHallazgo input[name=sigla], #FormHistoriaMovimientoAgregarHallazgo input[name=diente], #FormHistoriaMovimientoAgregarHallazgo input[name=dienteFinal]').val('');
 
-	var hallazgoSeleccionado = $(this).parent().parent().parent().find('a.nombreHallazgo')[0];
-	$('#BotonNombreSeleccionado').show().html(hallazgoSeleccionado.innerText);
+	$('#colDienteFinal').hide();
+	$('.cursor').removeClass('inicioSelec');
 
-	$('#odontograma-contenido').removeClass('unico inicio fin');
-	if ($(hallazgoSeleccionado).hasClass('rango')) {
+	$('#BotonNombreSeleccionado').show().html(seleccionado.innerText);
+
+	$('#odontograma-contenido').removeClass('detalle unico inicio fin');
+	if ($(seleccionado).hasClass('rango')) {
 		$('#odontograma-contenido').addClass('inicio');
 	}else{
 		$('#odontograma-contenido').addClass('unico');
 	}
 
-	$('#modalHallazgo').val(hallazgoSeleccionado.innerText);
+	$('#modalHallazgo').val(seleccionado.innerText);
 
 	$('#colEstado').show();
 	$('#colSigla').show();
@@ -58,7 +61,8 @@ $('.odontograma-item').click(function(event) {
 
 $('#BotonSeleccion').click(function(event) {
 	$(this).html('Seleccione');
-	$('#odontograma-contenido').removeClass('unico inicio fin');
+	$('#odontograma-contenido').removeClass('unico inicio fin').addClass('detalle');
+	$('.cursor').removeClass('inicioSelec');
 	$('#BotonNombreSeleccionado').hide();
 });
 /*=====  End of SELECCIONANDO EL HALLAZGO  ======*/
@@ -76,73 +80,182 @@ $('#odontograma').on('click', '#odontograma-contenido.unico>.cursor', function(e
 $('#odontograma').on('click', '#odontograma-contenido.inicio>.cursor', function(event) {
 	event.preventDefault();
 	$('#odontograma-contenido.inicio').removeClass('inicio').addClass('fin');
+	$(this).addClass('inicioSelec');
+	var diente = $(this).data('diente');
+
+	$('#FormHistoriaMovimientoAgregarHallazgo input[name="diente"]').val(diente);
+});
+
+$('#odontograma').on('click', '#odontograma-contenido.fin>.cursor', function(event) {
+	event.preventDefault();
+	var inicio = parseInt($('#odontograma-contenido .inicioSelec').data('orden'));
+	var fin = parseInt($(this).data('orden'));
+
+	if (fin<inicio) {
+		Swal.fire({
+			title: "Error",
+			html: "El diente final se debe seleccionar hacia la parte derecha <span class='fa fa-arrow-right'></span>",
+			type: "error",
+		});
+		return;
+	}
+	var diente = $(this).data('diente');
+
+	$('#FormHistoriaMovimientoAgregarHallazgo input[name="dienteFinal"]').val(diente);
+	$('#colDienteFinal').show();
+	$('#ModalAgregarHallazgo').modal();
 });
 /*=====  End of SELECCIONANDO EL DIENTE  ======*/
 
+/*=========================================
+=            DETALLE DE DIENTE            =
+=========================================*/
+$('#odontograma').on('click', '#odontograma-contenido.detalle>.cursor', function(event) {
+	event.preventDefault();
+	$('#ModalOdontogramaDetalle table>tbody').html('');
+	var diente = $(this).data('diente');
+	var paciente = $('#HistoriaContenido').data('paciente');
+	$('#ModalOdontogramaDetalle').modal();
+	$.getJSON(path+'historia/movimiento/getHallazgosDientePaciente', {paciente,diente}, function(json, textStatus) {
+			var hallazgos = '';
+			$.each(json, function(index, val) {
+				hallazgos = `
+					<tr>
+						<td>${(val['sigla']!=null)?'<b>'+val['sigla']+':</b>':''} ${val['nombre_hal']}</td>
+						<td>${ val['dienteInicio'] }</td>
+						<td>${ (val['dienteFinal']!=null)?val['dienteFinal']:'' }</td>
+						<td>${ (val['estado']=='bueno')?'Buen Estado':'Mal Estado' }</td>
+						<td><button data-id='${ val['pacodo_id'] }'' class="eliminar-hallazgo btn btn-xs btn-danger btn-fill"><i class="fa fa-trash"></i></button></td>
+					<tr>
+				`;
+			});
+			$('#ModalOdontogramaDetalle table>tbody').html(hallazgos);
+	});
+});
 
-/*var numeroToDientes = {
-	1:18, 2:17, 3:16, 4:15, 5:14, 6:13, 7:12, 8:11, 9:21, 10:22, 11:23, 12:24, 13:25, 14:26, 15:27, 16:28,
-	17:55, 18:54, 19:53, 20:52, 21:51, 22:61, 23:62, 24:63, 25:64, 26:65,
-	27:85, 28:84, 29:83, 30:82, 31:81, 32:71, 33:72, 34:73, 35:74, 36:75,
-	 37:48, 38:47, 39:46, 40:45, 41:44, 42:43, 43:42, 44:41, 45:31, 46:32, 47:33, 48:34, 49:35, 50:36, 51:37, 52:38
-};
+$('#ModalOdontogramaDetalle table>tbody').on('click', '.eliminar-hallazgo', function(event) {
+	event.preventDefault();
+	var fila = $(this).parent().parent();
+	console.log(fila);
+	var id = $(this).data('id');
+	var paciente = $('#HistoriaContenido').data('paciente');
 
-var dientesToNumero = {
-	18:1, 17:2, 16:3, 15:4, 14:5, 13:6, 12:7, 11:8, 21:9, 22:10, 23:11, 24:12, 25:13, 26:14, 27:15, 28:16,
-	55:17, 54:18, 53:19, 52:20, 51:21, 22:61, 23:62, 24:63, 25:64, 26:65,
-	27:85, 28:84, 29:83, 30:82, 31:81, 32:71, 33:72, 34:73, 35:74, 36:75,
-	 37:48, 38:47, 39:46, 40:45, 41:44, 42:43, 43:42, 44:41, 45:31, 46:32, 47:33, 48:34, 49:35, 50:36, 51:37, 52:38
-};
-*/
-/*=============================================
-=            PINTAR EL ODONTOGRAMA GENERAL          =
-=============================================*/
+	Swal.fire({
+		title: "Confirmar Eliminar",
+		type: "warning",
+		cancelButtonText:'No, Cancelar',
+		confirmButtonText:'Si, Eliminar',
+		showCancelButton: true,
+		confirmButtonColor: "#007AFF",
+		cancelButtonColor: "#d43f3a",
+		text: '¿Estas seguro de eliminar el hallazgo?'
+	}).then((result) => {
+		if (result.value) {
+			$.getJSON(path+'historia/movimiento/eliminarHallazgo', {id,paciente}, function(json, textStatus) {
+					if (json.success) {
+						fila.remove();
+						$('#odontograma-contenido .hallazgo-'+id).remove();
+						Swal.fire({
+							title: "Buen trabajo",
+							text: "La solicitud ha sido procesada.",
+							type: "success"
+						});
+					}else{
+						Swal.fire({
+							title: "Error",
+							text: "Ha ocurrido un error.",
+							type: "error"
+						});
+					}
+			});
+			
+		}
+	})
+
+
+
+});
+/*=====  End of DETALLE DE DIENTE  ======*/
+
+
+/*========================================
+=            AGREGAR HALLAZGO            =
+========================================*/
+$('#FormHistoriaMovimientoAgregarHallazgo').validate({
+	ignore: [],
+	rules: {
+		diente:{required:true},
+	},
+	submitHandler:function() {
+		enviarFormulario('#FormHistoriaMovimientoAgregarHallazgo',function(resp){
+			if (resp.success) {
+				pintarHallazgos(resp.data);
+				$('#ModalAgregarHallazgo').modal('hide');
+				$('#FormHistoriaMovimientoAgregarHallazgo textarea[name=especificaciones]').val('');
+				$('#BotonSeleccion').trigger('click');
+			}
+		});
+	}
+});
+/*=====  End of AGREGAR HALLAZGO  ======*/
+
+
+/*=================================================
+=            PINTAR ODONTOGRAMA ACTUAL            =
+=================================================*/
 var paciente = $('#HistoriaContenido').data('paciente');
-
 $.getJSON(path+'historia/movimiento/getOdontograma', {paciente}, function(json, textStatus) {
 	$.each(json, function(index, val) {
-		/*----------  Aparato Orto Fijo  ----------*/
-		if (val['id_hal'] == 1)
-			aparatoOrtoFijo(val['inicio'],val['fin'],val['estado'])
-		if (val['id_hal'] == 2)
-			aparatoOrtoRemovible(val['inicio'],val['fin'],val['estado'])
-		if (val['id_hal'] == 3)
-			corona(val['inicio'],val['estado'],val['sigla'])
+		pintarHallazgos(val);
 	});	
 });
-/*=====  End of PINTAR EL ODONTOGRAMA GENERAL  ======*/
+/*=====  End of PINTAR ODONTOGRAMA ACTUAL  ======*/
+
+/*========================================
+=            PINTAR HALLAZGOS            =
+========================================*/
+function pintarHallazgos(val){
+	if (val['id_hal'] == 1)
+		aparatoOrtoFijo(val['id'],val['inicio'],val['fin'],val['estado'])
+	if (val['id_hal'] == 2)
+		aparatoOrtoRemovible(val['id'],val['inicio'],val['fin'],val['estado'])
+	if (val['id_hal'] == 3)
+		corona(val['id'],val['inicio'],val['estado'],val['sigla'])
+}
+/*=====  End of PINTAR HALLAZGOS  ======*/
+
 
 
 /*============================================
 =            PINTAR CADA HALLAZGO            =
 ============================================*/
-function aparatoOrtoFijo($inicio,$fin,$estado){
-	var inicio = `<div class="hallazgos aparatoOrtoFijoInicio ${$estado} aparatoOrtoFijoInicio-${$inicio}"></div>`;
+function aparatoOrtoFijo($id,$inicio,$fin,$estado){
+	var inicio = `<div class="hallazgos hallazgo-${$id} aparatoOrtoFijoInicio ${$estado} aparatoOrtoFijoInicio-${$inicio}"></div>`;
 
 	var lineaInicio = parseInt($inicio)+1;
 	var lineaFin = parseInt($fin)-1;
 	var linea = '';
 	for (var i = lineaInicio; i <= lineaFin; i++) {
-		linea += `<div class="hallazgos linea ${$estado} linea-${i}"></div>`;
+		linea += `<div class="hallazgos hallazgo-${$id} linea ${$estado} linea-${i}"></div>`;
 	}
 
-	var fin = `<div class="hallazgos aparatoOrtoFijoFin ${$estado} aparatoOrtoFijoFin-${$fin}"></div>`;
+	var fin = `<div class="hallazgos hallazgo-${$id} aparatoOrtoFijoFin ${$estado} aparatoOrtoFijoFin-${$fin}"></div>`;
 
 	$('#odontograma-contenido').append(inicio+linea+fin);
 }
 
-function aparatoOrtoRemovible($inicio,$fin,$estado){
+function aparatoOrtoRemovible($id,$inicio,$fin,$estado){
 	var hallazgo = '';
 	for (var i = $inicio; i <= $fin; i++) {
-		hallazgo += `<div class="hallazgos ${$estado} aparatoOrtoRemovible aparatoOrtoRemovible-${i}"></div>`;
+		hallazgo += `<div class="hallazgos hallazgo-${$id} ${$estado} aparatoOrtoRemovible aparatoOrtoRemovible-${i}"></div>`;
 	}
 	$('#odontograma-contenido').append(hallazgo);
 }
 
-function corona($inicio,$estado,$sigla){
-	var hallazgo = `<div class="hallazgos corona ${$estado} corona-${$inicio}"></div>`;
+function corona($id,$inicio,$estado,$sigla){
+	var hallazgo = `<div class="hallazgos hallazgo-${$id} corona ${$estado} corona-${$inicio}"></div>`;
 	$('#odontograma-contenido').append(hallazgo);
-	var sigla = `<span class="${$estado}">${$sigla},<span>`;
+	var sigla = `<span class="${$estado} hallazgo-${$id}">${$sigla},<span>`;
 	$('.recuadro-'+$inicio).append(sigla);
 }
 /*=====  End of PINTAR CADA HALLAZGO  ======*/
