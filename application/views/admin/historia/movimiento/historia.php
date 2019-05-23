@@ -36,7 +36,7 @@
                     $this->load->view('admin/historia/movimiento/exploracion_fisica');
                     $this->load->view('admin/historia/movimiento/receta');
                     $this->load->view('admin/historia/movimiento/placas');
-                    $this->load->view('admin/historia/movimiento/odontograma');
+                    $this->load->view('admin/historia/movimiento/odontograma/odontograma');
                     $this->load->view('admin/historia/movimiento/evolucion');
                     $this->load->view('admin/historia/movimiento/cita');
                   ?>
@@ -59,7 +59,7 @@
                   <a href="#" data-id="HistoriaContenidoReceta" class="list-group-item"><i class="fa fa-medkit" aria-hidden="true"></i> Receta</a>
                   <a href="#" data-id="HistoriaContenidoCita" class="list-group-item"><i class="fa fa-calendar-plus-o"></i> Citas</a>
                 </div>
-                <?php $this->load->view('admin/historia/movimiento/odontograma_nav') ?>
+                <?php $this->load->view('admin/historia/movimiento/odontograma/odontograma_nav') ?>
               </div>
             </div>
 
