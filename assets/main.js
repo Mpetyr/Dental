@@ -1482,6 +1482,33 @@ $('#FormHistoriaMovimientoAgregarAlergia').validate({
 });
 
 
+$('#TableHistoriaMovimientoTratamiento').DataTable({
+	"language": {"url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"},
+	"searching": false,
+	"processing": true,
+	"serverSide": true,
+	"iDisplayLength": 25,
+	"aLengthMenu": [[25, 50, 100, -1], [25, 50, 100, 'Todos']],
+	"aaSorting": [[1, 'desc']],
+	"ajax": {
+		"url": path+'historia/movimiento/jsonHistratamiento',
+		"type": "POST",
+		"data": function (d) {
+			d.paciente = $("#HistoriaContenido").data('paciente');
+		}
+	},
+	"columns": [
+		{"orderable":true},
+		{"orderable":true},
+		{"orderable":true},
+		{"orderable":true},
+		{"orderable":true},
+		{"orderable":false}
+	]
+});
+
+
+
 $('#TableHistoriaMovimientoEvolucion').DataTable({
 	"language": {"url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"},
 	"searching": false,

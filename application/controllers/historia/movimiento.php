@@ -719,6 +719,27 @@ class Movimiento extends CI_Controller {
 		}
 	}
 
+
+	function jsonHistratamiento()
+    	{
+			$data['start'] = $this->input->get_post('start', true);
+			$data['length'] = $this->input->get_post('length', true);
+			$data['sEcho']  = $this->input->get_post('_', true);
+
+			$columns = array('codi_tra','codi_pac','asunto_tra','fecha_tra','total_tra');
+			$orderCampo = $this->input->get_post('order', true);
+			$orderCampo = $orderCampo[0]['column'];
+			$orderCampo = $columns[$orderCampo];
+			$orderDireccion = $this->input->get_post('order', true);
+			$orderDireccion = $orderDireccion[0]['dir'];
+			$data['orderCampo'] = $orderCampo;
+			$data['orderDireccion'] = $orderDireccion;
+			$data['paciente'] = $this->input->get_post('paciente');	
+			$datos = $this->historia_model->getTrataHistoria($data);
+			header('content-type: application/json; charset=utf-8');
+			echo json_encode($datos);
+		}
+
 	function getOdontograma()
 	{
 		$paciente = $this->input->get('paciente');

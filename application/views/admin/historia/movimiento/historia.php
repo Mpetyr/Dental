@@ -39,6 +39,7 @@
                     $this->load->view('admin/historia/movimiento/odontograma/odontograma');
                     $this->load->view('admin/historia/movimiento/evolucion');
                     $this->load->view('admin/historia/movimiento/cita');
+                    $this->load->view('admin/historia/movimiento/histratamiento');
                   ?>
                 </div>
               </div>
@@ -51,11 +52,11 @@
                 <div id="HistoriaMenu" class="list-group">
                   <a href="#" data-id="HistoriaContenidoDatosPaciente" class="list-group-item active"><i class="fa fa-user" aria-hidden="true"></i> Datos del Paciente</a>
                   <a href="#" data-id="HistoriaContenidoExploracionFisica" class="list-group-item"><i class="fa fa-file-text-o" aria-hidden="true"></i>   Exploración Física</a>
-                  <a href="#" data-id="HistoriaContenidOdontograma" class="list-group-item"><i class="fa fa-life-ring" aria-hidden="true"></i>  Odontograma</a>
+                  <a href="#" data-id="HistoriaContenidoOdontograma" class="list-group-item"><i class="fa fa-life-ring" aria-hidden="true"></i>  Odontograma</a>
                   <a href="#" class="list-group-item"><i class="fa fa-heart" aria-hidden="true"></i>  Diagnostico</a>
                   <a href="#" data-id="HistoriaContenidoEvolucion" class="list-group-item"><i class="fa fa-user-md" aria-hidden="true"></i> Evolución</a>
                   <a href="#" data-id="HistoriaContenidoPlacas" class="list-group-item"><i class="fa fa-files-o" data-id="HistoriaContenidoReceta" aria-hidden="true"></i> Exam. Auxiliares Placas</a>
-                  <a href="#" class="list-group-item"><i class="fa fa-credit-card" aria-hidden="true"></i> Tratamientos realizados</a>
+                  <a href="#" data-id="HistoriaContenidoTratamientos" class="list-group-item"><i class="fa fa-credit-card" aria-hidden="true"></i> Tratamientos realizados</a>
                   <a href="#" data-id="HistoriaContenidoReceta" class="list-group-item"><i class="fa fa-medkit" aria-hidden="true"></i> Receta</a>
                   <a href="#" data-id="HistoriaContenidoCita" class="list-group-item"><i class="fa fa-calendar-plus-o"></i> Citas</a>
                 </div>
