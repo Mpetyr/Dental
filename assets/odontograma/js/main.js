@@ -8,7 +8,12 @@ $('.odontograma-navegacion a').click(function(event) {
 =            SELECCIONANDO EL HALLAZGO            =
 =================================================*/
 $('.odontograma-item').click(function(event) {
-	var seleccionado = $(this).parent().parent().parent().find('a.nombreHallazgo')[0];
+	var t = $(this);
+	if (t.hasClass('nombreHallazgo')) {
+		var seleccionado = t[0];
+	}else{
+		var seleccionado = t.parent().parent().parent().find('a.nombreHallazgo')[0];
+	}
 	var hallazgo = $(seleccionado).data('hallazgo');
 	var sigla = $(seleccionado).data('sigla');
 	var estado = $(this).data('estado');
@@ -119,12 +124,13 @@ $('#odontograma').on('click', '#odontograma-contenido.detalle>.cursor', function
 	$.getJSON(path+'historia/movimiento/getHallazgosDientePaciente', {paciente,diente}, function(json, textStatus) {
 			var hallazgos = '';
 			$.each(json, function(index, val) {
-				hallazgos = `
+				hallazgos += `
 					<tr>
 						<td>${(val['sigla']!=null)?'<b>'+val['sigla']+':</b>':''} ${val['nombre_hal']}</td>
 						<td>${ val['dienteInicio'] }</td>
 						<td>${ (val['dienteFinal']!=null)?val['dienteFinal']:'' }</td>
 						<td>${ (val['estado']=='bueno')?'Buen Estado':'Mal Estado' }</td>
+						<td>${ val['especificaciones'] }</td>
 						<td><button data-id='${ val['pacodo_id'] }'' class="eliminar-hallazgo btn btn-xs btn-danger btn-fill"><i class="fa fa-trash"></i></button></td>
 					<tr>
 				`;
@@ -136,7 +142,6 @@ $('#odontograma').on('click', '#odontograma-contenido.detalle>.cursor', function
 $('#ModalOdontogramaDetalle table>tbody').on('click', '.eliminar-hallazgo', function(event) {
 	event.preventDefault();
 	var fila = $(this).parent().parent();
-	console.log(fila);
 	var id = $(this).data('id');
 	var paciente = $('#HistoriaContenido').data('paciente');
 
@@ -221,6 +226,29 @@ function pintarHallazgos(val){
 		aparatoOrtoRemovible(val['id'],val['inicio'],val['fin'],val['estado'])
 	if (val['id_hal'] == 3)
 		corona(val['id'],val['inicio'],val['estado'],val['sigla'])
+	if (val['id_hal'] == 37)
+		coronaTemporal(val['id'],val['inicio'],val['estado'],val['sigla'])
+	if (val['id_hal'] == 5)
+		defectosDesarrolloEsmalte(val['id'],val['inicio'],val['estado'],val['sigla'])
+	if (val['id_hal'] == 17)
+		diastema(val['id'],val['inicio'])
+	if (val['id_hal'] == 9)
+		piezaAusente(val['id'],val['inicio'])
+	if (val['id_hal'] == 21)
+		piezaEctopica(val['id'],val['inicio'],val['sigla'])
+	if (val['id_hal'] == 20)
+		piezaClavija(val['id'],val['inicio'])
+	if (val['id_hal'] == 10)
+		piezaErupcion(val['id'],val['inicio'])
+	if (val['id_hal'] == 15)
+		piezaExtruida(val['id'],val['inicio'])
+	if (val['id_hal'] == 16)
+		piezaIntruida(val['id'],val['inicio'])
+	if (val['id_hal'] == 13)
+		edentuloTotal(val['id'],val['inicio'],val['fin'])
+
+	console.log(val);
+	
 }
 /*=====  End of PINTAR HALLAZGOS  ======*/
 
@@ -229,6 +257,54 @@ function pintarHallazgos(val){
 /*============================================
 =            PINTAR CADA HALLAZGO            =
 ============================================*/
+function edentuloTotal($id,$inicio,$fin){
+	var hallazgo = '';
+	for (var i = parseInt($inicio); i <= parseInt($fin); i++) {
+		hallazgo += `<div class="hallazgos hallazgo-${$id}  edentulo edentulo-${i}"></div>`;
+	}
+	$('#odontograma-contenido').append(hallazgo);
+}
+
+function piezaIntruida($id,$inicio){
+	var hallazgo = `<div class="hallazgos hallazgo-${$id} piezaIntruida piezaIntruida-${$inicio}"></div>`;
+	$('#odontograma-contenido').append(hallazgo);
+}
+
+function piezaExtruida($id,$inicio){
+	var hallazgo = `<div class="hallazgos hallazgo-${$id} piezaExtruida piezaExtruida-${$inicio}"></div>`;
+	$('#odontograma-contenido').append(hallazgo);
+}
+
+function piezaErupcion($id,$inicio){
+	var hallazgo = `<div class="hallazgos hallazgo-${$id} erupcion erupcion-${$inicio}"></div>`;
+	$('#odontograma-contenido').append(hallazgo);
+}
+
+function piezaClavija($id,$inicio){
+	var hallazgo = `<div class="hallazgos hallazgo-${$id} piezaClavija piezaClavija-${$inicio}"></div>`;
+	$('#odontograma-contenido').append(hallazgo);
+}
+
+function piezaEctopica($id,$inicio,$sigla){
+	var sigla = `<span class="hallazgo-${$id}">${$sigla},<span>`;
+	$('.recuadro-'+$inicio).append(sigla);
+}
+
+function piezaAusente($id,$inicio){
+	var hallazgo = `<div class="hallazgos hallazgo-${$id} piezaAusente piezaAusente-${$inicio}"></div>`;
+	$('#odontograma-contenido').append(hallazgo);
+}
+
+function diastema($id,$inicio){
+	var hallazgo = `<div class="hallazgos hallazgo-${$id} diastema diastema-${$inicio}"></div>`;
+	$('#odontograma-contenido').append(hallazgo);
+}
+
+function defectosDesarrolloEsmalte($id,$inicio,$estado,$sigla){
+	var sigla = `<span class="${$estado} hallazgo-${$id}">${$sigla},<span>`;
+	$('.recuadro-'+$inicio).append(sigla);
+}
+
 function aparatoOrtoFijo($id,$inicio,$fin,$estado){
 	var inicio = `<div class="hallazgos hallazgo-${$id} aparatoOrtoFijoInicio ${$estado} aparatoOrtoFijoInicio-${$inicio}"></div>`;
 
@@ -246,7 +322,7 @@ function aparatoOrtoFijo($id,$inicio,$fin,$estado){
 
 function aparatoOrtoRemovible($id,$inicio,$fin,$estado){
 	var hallazgo = '';
-	for (var i = $inicio; i <= $fin; i++) {
+	for (var i = parseInt($inicio); i <= parseInt($fin); i++) {
 		hallazgo += `<div class="hallazgos hallazgo-${$id} ${$estado} aparatoOrtoRemovible aparatoOrtoRemovible-${i}"></div>`;
 	}
 	$('#odontograma-contenido').append(hallazgo);
@@ -258,6 +334,45 @@ function corona($id,$inicio,$estado,$sigla){
 	var sigla = `<span class="${$estado} hallazgo-${$id}">${$sigla},<span>`;
 	$('.recuadro-'+$inicio).append(sigla);
 }
+
+function coronaTemporal($id,$inicio,$estado,$sigla)
+{
+	var hallazgo = `<div class="hallazgos hallazgo-${$id} coronaTemporal ${$estado} coronaTemporal-${$inicio}"></div>`;
+	$('#odontograma-contenido').append(hallazgo);
+	var sigla = `<span class="${$estado} hallazgo-${$id}">${$sigla},<span>`;
+	$('.recuadro-'+$inicio).append(sigla);
+}
 /*=====  End of PINTAR CADA HALLAZGO  ======*/
+
+
+/*============================================
+=            IMPRIMIR ODONTOGRAMA            =
+============================================*/
+
+$('.imprimirOdontograma li').click(function(event) {
+	var tipo = $(this).data('tipo');
+	html2canvas($("#odontograma"), {
+	 	background :'#FFFFFF', 
+		onrendered: function(canvas) {
+			var imgData = canvas.toDataURL('image/jpeg');
+			imgData = imgData.replace("data:image/jpeg;base64,","");			
+			var imagen = `<img src="data:image/png;base64, ${imgData}" alt="Red dot" style="width:100%" />`;
+			
+			$('#imprimir').html(imagen);
+			/*$.ajax({
+				url: path+'historia/movimiento/imprimirOdontograma',
+				type: 'POST',
+				dataType: 'JSON',
+				data: {imgData,tipo},
+			})
+			.done(function(res) {
+				console.log("success");
+			})*/
+			
+		}
+	});
+});
+/*=====  End of IMPRIMIR ODONTOGRAMA  ======*/
+
 
 });
