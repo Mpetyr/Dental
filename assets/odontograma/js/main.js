@@ -124,12 +124,20 @@ $('#odontograma').on('click', '#odontograma-contenido.detalle>.cursor', function
 	$.getJSON(path+'historia/movimiento/getHallazgosDientePaciente', {paciente,diente}, function(json, textStatus) {
 			var hallazgos = '';
 			$.each(json, function(index, val) {
+				var estado = '';
+				if (val['estado']!= null) {
+					if (val['estado']=='bueno') {
+						estado = 'Buen Estado';
+					}else{
+						estado = 'Mal Estado';
+					}
+				}
 				hallazgos += `
 					<tr>
 						<td>${(val['sigla']!=null)?'<b>'+val['sigla']+':</b>':''} ${val['nombre_hal']}</td>
 						<td>${ val['dienteInicio'] }</td>
 						<td>${ (val['dienteFinal']!=null)?val['dienteFinal']:'' }</td>
-						<td>${ (val['estado']=='bueno')?'Buen Estado':'Mal Estado' }</td>
+						<td>${ estado }</td>
 						<td>${ val['especificaciones'] }</td>
 						<td><button data-id='${ val['pacodo_id'] }'' class="eliminar-hallazgo btn btn-xs btn-danger btn-fill"><i class="fa fa-trash"></i></button></td>
 					<tr>
