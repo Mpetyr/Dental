@@ -9,9 +9,9 @@
       TIPO DOCUMENTO
     </h1>
     <ol class="breadcrumb">
-      <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li><a href="#">Forms</a></li>
-      <li class="active">Editors</li>
+      <li><a href="#"><i class="fa fa-dashboard"></i> Modulo</a></li>
+      <li><a href="#">configuracion</a></li>
+      <li class="active">tipo documento</li>
     </ol>
   </section>
   <?php if ($this->session->flashdata('success')): ?>
@@ -72,14 +72,14 @@
                   <thead>
                     <tr class="info">
                    
-                      <th style="background-color: #3c8dbc; color: white;">Descripción</th>
-                      <th style="background-color: #3c8dbc; color: white;">Abreviatura</th>
-                      <th style="background-color: #3c8dbc; color: white;">Serie</th>
-                      <th style="background-color: #3c8dbc; color: white;">Inicio</th>
-                      <th style="background-color: #3c8dbc; color: white;">Fin</th>
-                      <th style="background-color: #3c8dbc; color: white;">Actual</th>
-                      <th style="background-color: #3c8dbc; color: white;">Estado</th>
-                      <th style="background-color: #3c8dbc; color: white;">Acciones</th>
+                      <th style="background-color: #3c8dbc; color: white; text-align: center;">Descripción</th>
+                      <th style="background-color: #3c8dbc; color: white; text-align: center;">Abreviatura</th>
+                      <th style="background-color: #3c8dbc; color: white; text-align: center;">Serie</th>
+                      <th style="background-color: #3c8dbc; color: white; text-align: center;">Inicio</th>
+                      <th style="background-color: #3c8dbc; color: white; text-align: center;">Fin</th>
+                      <th style="background-color: #3c8dbc; color: white; text-align: center;">Actual</th>
+                      <th style="background-color: #3c8dbc; color: white; text-align: center;">Estado</th>
+                      <th style="background-color: #3c8dbc; color: white; text-align: center;">Acciones</th>
                     
                     </tr>
                   </thead>

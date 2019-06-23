@@ -44,10 +44,14 @@
                 </div>
               </div>
               <div class="col-md-12">
+
                 <div class="table-responsive">
+
                   <table id="TableHistoriaMovimiento" class="table table-bordered table-condensed table-hover">
+
                     <thead>
                       <tr class="btn-primary btn-xs">
+          
                         <th style="text-align: center;" width="60">Historia</th>
                         <th style="text-align: center;" width="250">Paciente</th>
                         <th style="text-align: center;" width="50">Edad</th>

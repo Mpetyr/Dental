@@ -9,6 +9,9 @@ class Especialidad extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        if(!$this->session->userdata("login")){
+			redirect(base_url());
+		}
         $this->load->model('especialidad_model');
     }
 
@@ -122,7 +125,7 @@ class Especialidad extends CI_Controller
 		if($this->especialidad_model->update($codigo,$data)){
 				$this->session->set_flashdata('success', 'Te has registrado correctamente en nuestro sistema.<br>Hemos enviado un código de verificación a ');
 			redirect(base_url().'mantenimiento/especialidad');
-			var_dump($data);
+		
 			
 		}
 		else{

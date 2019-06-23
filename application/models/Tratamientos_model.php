@@ -324,9 +324,9 @@ class Tratamientos_model extends CI_Model {
 	                    <span class="sr-only">Toggle Dropdown</span>
 	                  </button>
 	                  <ul class="dropdown-menu" role="menu">
-	                  	<li><a href="'.base_url('tratamientos/panel/imprimirComprobante/'.$q->id_com).'" target="_blank">Imprimir</a></li>
+	                  	<li><a href="'.base_url('tratamientos/panel/imprimirComprobante/'.$q->id_com).'" target="_blank" ><i class="fa fa-print" aria-hidden="true"></i>Imprimir</a></li>
 	                  	<li role="separator" class="divider"></li>
-	                  	<li><a href="#"data-id="'.$q->id_com.'" class="anular-comprobante">Anular</a></li>
+	                  	<li><a href="#"data-id="'.$q->id_com.'" class="anular-comprobante"><i class="fa fa-trash-o" aria-hidden="true"></i> Anular</a></li>
 										</ul>
 	                </div>';
 	    if (!is_null($q->id_com)) {

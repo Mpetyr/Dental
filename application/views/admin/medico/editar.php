@@ -8,7 +8,7 @@
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
         <li><a href="#">Medico</a></li>
-        <li class="active">Registrar</li>
+        <li class="active">Editar</li>
       </ol>
 
   
@@ -72,7 +72,7 @@
                     <div class="form-group">
                    
                       <label class="col-form-label">Codigo *</label>
-                      <input type="text" name="codigo" class="form-control" value="<?php echo $medicos->codi_med;?>">
+                      <input type="text" name="codigo" class="form-control input-sm" value="<?php echo $medicos->codi_med;?>" readonly="readonly" >
                     </div>
                   </div>
            
@@ -81,14 +81,14 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label class="col-form-label">Nombres *</label>
-                      <input type="text" name="nombre" class="form-control" value="<?php echo !empty(form_error('nombre')) ? set_value('nombre'):$medicos->nomb_med?>">
+                      <input type="text" name="nombre" class="form-control input-sm" value="<?php echo !empty(form_error('nombre')) ? set_value('nombre'):$medicos->nomb_med?>" onkeypress="return soloLetras(event)">
                   
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
                       <label class="col-form-label">Apellidos *</label>
-                      <input type="text" name="apellidos" class="form-control" value="<?php echo !empty(form_error('apellidos')) ? set_value('apellidos'):$medicos->apel_med?>">
+                      <input type="text" name="apellidos" class="form-control input-sm" value="<?php echo !empty(form_error('apellidos')) ? set_value('apellidos'):$medicos->apel_med?>" onkeypress="return soloLetras(event)">
                     </div>
                   </div>
             </div>
@@ -97,7 +97,7 @@
                   <div class="col-md-4">
                     <div class="form-group">
                      <label class="control-label">Especialidad *</label>
-                    <select  name="especialidad" class="form-control">
+                    <select  name="especialidad" class="form-control input-sm">
                       <option value="">Seleccione</option>
                     <?php foreach ($especialidades as $e): ?>
                        <?php if($e->cod_especialidad == $medicos->cod_especialidad):?>
@@ -111,14 +111,14 @@
                   </div>
                   <div class="col-md-4">
                     <div class="form-group">
-                      <label class="col-form-label">Nro Doc *</label>
-                      <input type="text" name="dni"  class="form-control" value="<?php echo !empty(form_error('dni')) ? set_value('dni'):$medicos->dni_med?>">
+                      <label class="col-form-label">Nro Doc: *</label>
+                      <input type="text" name="dni"  class="form-control input-sm" value="<?php echo !empty(form_error('dni')) ? set_value('dni'):$medicos->dni_med?>" maxlength="8" minlength="8" onKeyPress="if (event.keyCode < 48 || event.keyCode > 57)event.returnValue = false;">
                     </div>
                   </div>
                   <div class="col-md-4">
                     <div class="form-group">
                       <label class="col-form-label">Ruc</label>
-                       <input type="text" name="ruc"  class="form-control" value="<?php echo !empty(form_error('ruc')) ? set_value('ruc'):$medicos->ruc_med?>">
+                       <input type="text" name="ruc"  class="form-control input-sm" value="<?php echo !empty(form_error('ruc')) ? set_value('ruc'):$medicos->ruc_med?>" maxlength="11" minlength="11" onKeyPress="if (event.keyCode < 48 || event.keyCode > 57)event.returnValue = false;">
                     </div>
                   </div>
             </div>
@@ -127,7 +127,7 @@
                   <div class="col-md-12">
                     <div class="form-group">
                       <label class="col-form-label">Dirección *</label>
-                      <input type="text" name="direccion" class="form-control" value="<?php echo !empty(form_error('direccion')) ? set_value('direccion'):$medicos->dire_med?>">
+                      <input type="text" name="direccion" class="form-control input-sm" value="<?php echo !empty(form_error('direccion')) ? set_value('direccion'):$medicos->dire_med?>">
                     </div>
                   </div>
               </div>
@@ -136,7 +136,7 @@
                   <div class="col-md-4">
                     <div class="form-group">
                      <label class="control-label">Colegiatura *</label>
-                       <input type="text" name="colegiatura"  class="form-control" value="<?php echo !empty(form_error('colegiatura')) ? set_value('colegiatura'):$medicos->coleg_med?>" >
+                       <input type="text" name="colegiatura"  class="form-control input-sm" value="<?php echo !empty(form_error('colegiatura')) ? set_value('colegiatura'):$medicos->coleg_med?>" maxlength="5" minlength="5" onKeyPress="if (event.keyCode < 48 || event.keyCode > 57)event.returnValue = false;" >
                     </div>
                   </div>
                   <div class="col-md-4">
@@ -144,7 +144,7 @@
                       <label class="control-label">Fecha nacimiento *</label>
                       <div class="input-group date">
                       
-                      <input type="text"  name="fechanacimiento" class="form-control datepicker" value="<?php echo !empty(form_error('fechanacimiento')) ? set_value('fechanacimiento'):$medicos->fena_med?>">
+                      <input type="text"  name="fechanacimiento" class="form-control input-sm datepicker" value="<?php echo !empty(form_error('fechanacimiento')) ? set_value('fechanacimiento'):$medicos->fena_med?>">
                         <span class="input-group-addon">
                           <span class="glyphicon glyphicon-calendar"></span>
                     </span>
@@ -154,7 +154,7 @@
                   <div class="col-md-4">
                     <div class="form-group">
                       <label class="col-form-label">Telefono</label>
-                       <input type="text" name="telefono"  class="form-control" value="<?php echo !empty(form_error('telefono')) ? set_value('telefono'):$medicos->telf_med?>">
+                       <input type="text" name="telefono"  class="form-control input-sm" value="<?php echo !empty(form_error('telefono')) ? set_value('telefono'):$medicos->telf_med?>">
                     </div>
                   </div>
             </div>
@@ -164,7 +164,7 @@
                       <div class="col-md-4">
                     <div class="form-group">
                       <label class="col-form-label">Celular</label>
-                       <input type="text" name="celular"  class="form-control" value="<?php echo !empty(form_error('celular')) ? set_value('celular'):$medicos->cel_med?>">
+                       <input type="text" name="celular"  class="form-control input-sm" value="<?php echo !empty(form_error('celular')) ? set_value('celular'):$medicos->cel_med?>">
                     </div>
                   </div>
                   <div class="col-md-4">
@@ -179,7 +179,7 @@
                   <div class="col-md-4">
                     <div class="form-group">
                      <label class="control-label">Estado *</label>
-                      <select class="form-control" name="estado" >
+                      <select class="form-control input-sm" name="estado" >
                                   <option value="S" <?php echo set_value('estado',$medicos->esta_med)==S ? "selected" : "" ?>>Activo</option>
                                   <option value="N" <?php echo set_value('estado',$medicos->esta_med)==N ? "selected" : "" ?>>Inactivo</option>
    
@@ -195,7 +195,7 @@
                       <label class="col-form-label">Correo *</label>
                       <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-  <input name="email"  class="form-control"  type="text" value="<?php echo !empty(form_error('email')) ? set_value('celular'):$medicos->emai_med?>">
+  <input name="email"  class="form-control input-sm"  type="text" value="<?php echo !empty(form_error('email')) ? set_value('celular'):$medicos->emai_med?>">
     </div>
                     </div>
                   </div>
@@ -221,7 +221,26 @@
 
         </form>
     </section>
-    <!-- /.content -->
-
-     
+    <!-- /.content -->    
   </div>
+
+<script>
+    function soloLetras(e){
+       key = e.keyCode || e.which;
+       tecla = String.fromCharCode(key).toLowerCase();
+       letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
+       especiales = "8-37-39-46";
+
+       tecla_especial = false
+       for(var i in especiales){
+            if(key == especiales[i]){
+                tecla_especial = true;
+                break;
+            }
+        }
+
+        if(letras.indexOf(tecla)==-1 && !tecla_especial){
+            return false;
+        }
+    }
+</script>

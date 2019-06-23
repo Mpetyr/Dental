@@ -30,7 +30,7 @@ class Diagnostico extends CI_Controller
 		$data['start'] = $this->input->get_post('start', true);
 		$data['length'] = $this->input->get_post('length', true);
 		$data['sEcho']  = $this->input->get_post('_', true);
-		$columns= array('codi_enf','siglas_enf','desc_enf','esta_enf');
+		$columns= array('codi_enf','desc_enf','esta_enf');
 		$orderCampo = $this->input->get_post('order', true);
 		$orderCampo = $orderCampo[0]['column'];
 		$orderCampo = $columns[$orderCampo];
@@ -67,7 +67,7 @@ class Diagnostico extends CI_Controller
 
 		$data = array(
 			
-			'siglas_enf' => $this->input->post('cie10'),
+			'codi_enf' => $this->input->post('cie10'),
 			'desc_enf' => $this->input->post('descripcion'),
 			  'esta_enf' => $this->input->post('estado')
 		);
@@ -96,51 +96,38 @@ class Diagnostico extends CI_Controller
 	public function update()
 	{
 		
-			
-		$codigo=$this->input->post('codigo');
-		$cie10=$this->input->post('cie10');
 		$descripcion=$this->input->post('descripcion');
 		$estado=$this->input->post('estado');
 
-		$NombreActual = $this->diagnostico_model->getdiagnosticoid($codigo);
-
-		if($nombre == $NombreActual->descripcion){
-			$is_unique ="";
-
-		}else{
-			$is_unique= '|is_unique[enfermedad.desc_enf]';
-
-		}
-
-		$this->form_validation->set_rules("codigo","codigo","required");
-		$this->form_validation->set_rules("cie10","cie10","required");
 		$this->form_validation->set_rules("descripcion","descripcion","required".$is_unique);
 		$this->form_validation->set_rules("estado","Estado","required");
 
 		if($this->form_validation->run()==true){
 			$data  = array(
-				'codi_enf' =>$codigo,
-				'siglas_enf' =>$cie10,
+				'codi_enf' =>$this->input->post('codigo'),
 				'desc_enf'=>$descripcion,
 				'esta_enf'=>$estado
 				);
 
 
-		if($this->diagnostico_model->update($codigo,$data)){
+		if($this->diagnostico_model->update($codi_enf,$data)){
 				$this->session->set_flashdata('success', 'Te has registrado correctamente en nuestro sistema.<br>Hemos enviado un código de verificación a ');
 			redirect(base_url().'mantenimiento/diagnostico');
 		}
 		else{
 		
-				redirect(base_url().'mantenimiento/diagnostico/editar'.$codigo);
+				redirect(base_url().'mantenimiento/diagnostico/editar'.$codi_enf);
 
 		}
 		}
 		else{
-			$this->editar($codigo);
+			$this->editar($codi_enf);
 		}
-
 	}
+
+		
+
+	
 
 		public function anular()
 	   	 {

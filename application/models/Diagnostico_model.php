@@ -13,10 +13,11 @@ class Diagnostico_model extends CI_Model{
 	function getdiagnostico($data)
 	{
 		$this->db->from('enfermedad');
+		$this->db->where('esta_enf',S);
 		$queryTotal = $this->db->get();
 
 		$this->db->from('enfermedad');
-
+		$this->db->where('esta_enf',S);
 		if (isset($data['enfermedad'])) {
 			$this->db->having("desc_enf LIKE '%".$data['enfermedad']."%'");
 		}
@@ -24,7 +25,7 @@ class Diagnostico_model extends CI_Model{
 		$queryLike = $this->db->get();
 
 		$this->db->from('enfermedad');
-
+		$this->db->where('esta_enf',S);
 		if ($data['length']!=-1) {
 			$this->db->limit($data['length'],$data['start']);
 		}
@@ -62,7 +63,7 @@ class Diagnostico_model extends CI_Model{
                                                      <button data-id="'.$q->codi_enf.'" class="anularcie10 btn btn-danger" style="padding:2px 5px;margin:0px 2px" >
                                                          <i class="glyphicon glyphicon-trash"></i> </button>';
             
-			$row[] = [$q->codi_enf,$q->siglas_enf,$q->desc_enf,$estado,$botones];
+			$row[] = [$q->codi_enf,$q->desc_enf,$estado,$botones];
 		}
 		$result['aaData'] = $row;
 		return $result;

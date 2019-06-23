@@ -68,7 +68,7 @@
                                     <i class="fa fa-angle-left pull-right"></i>Conf. general
                             </a>
                             <ul class="treeview-menu">
-                            <li><a href="<?php echo base_url();?>mantenimiento/paciente"><i class="fa fa-file-text-o fa-rotate-45"></i>Mi clinica</a></li>
+                            <li><a href="<?php echo base_url();?>clinica/regclinica"><i class="fa fa-file-text-o fa-rotate-45"></i>Mi clinica</a></li>
                             <li><a href="<?php echo base_url();?>mantenimiento/tipodocumento"><i class="fa fa-newspaper-o"></i>Tipo documento</a></li>
                             <li><a href="<?php echo base_url();?>mantenimiento/medico"><i class="fa fa-print"></i>Impresoras</a></li>
                             <li><a href="<?php echo base_url();?>mantenimiento/medico"><i class="fa fa-plus-square-o"></i>Correlativos</a></li>
@@ -115,8 +115,8 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="<?= base_url('tratamientos/panel') ?>"><i class="fa fa-sign-out"></i>Registrar</a>
-                            <li><a href="<?= base_url('tratamientos/comprobantes') ?>"><i class="fa fa-sign-out"></i>Comprobantes</a>
+                            <li><a href="<?= base_url('tratamientos/panel') ?>"><i class="fa fa-medkit"></i>Registrar</a>
+                            <li><a href="<?= base_url('tratamientos/comprobantes') ?>"><i class="fa fa-line-chart"></i>Comprobantes</a>
                         </ul>
                     </li>
 <!-- 
@@ -146,8 +146,8 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="<?= base_url('historia/movimiento')?>"><i class="fa fa-circle-o"></i>Movimiento</a></li>
-                            <li><a href="<?php echo base_url();?>historia/movimiento"><i class="fa fa-circle-o"></i>Kardex</a></li>
+                            <li><a href="<?= base_url('historia/movimiento')?>"><i class="fa fa-pencil"></i>Movimiento</a></li>
+                            <li><a href="<?php echo base_url();?>historia/movimiento"><i class="fa fa-table"></i>Kardex</a></li>
                         </ul>
                     </li>
 

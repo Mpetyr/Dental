@@ -10,9 +10,9 @@
       
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Forms</a></li>
-        <li class="active">Editors</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i>Modulo</a></li>
+        <li><a href="#">procedimiento</a></li>
+        <li class="active">listado</li>
       </ol>
     </section>
     <?php if ($this->session->flashdata('success')): ?>
@@ -98,7 +98,7 @@
                         <th style="background-color: #3c8dbc; color: white; text-align: center;">F.registro</th>
                         <th style="background-color: #3c8dbc; color: white; text-align: center;">Estado</th>
                         <th style="background-color: #3c8dbc; color: white; text-align: center;">Opciones</th>
-                         <th></th>
+                      
                       </tr>
                     </thead>
                     <tbody>
