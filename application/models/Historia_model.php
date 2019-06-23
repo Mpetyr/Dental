@@ -269,7 +269,6 @@ class Historia_model extends CI_Model {
 	function getListadoCitas($data)
 	{
 		$this->db->from('cita_medica');
-		//$this->db->join('paciente','cita_medica.codi_pac=paciente.codi_pac');
 		$this->db->join('especialidad','cita_medica.cod_especialidad=especialidad.cod_especialidad');
 		$this->db->join('medico','cita_medica.codi_med=medico.codi_med');
 		$this->db->join('tipo_citado','cita_medica.cod_citado=tipo_citado.cod_citado');
@@ -303,6 +302,60 @@ class Historia_model extends CI_Model {
 			<button data-id="'.$q->codi_cit.'" class="editar-citahistoria btn btn-warning btn-xs" data-toggle="modal" data-target="#ModalEditarCitaHistoria">Editar</button>';
 
 			$row[] = [$q->codi_cit,$q->fech_cit,$q->nombre_especialidad,$q->medico,$q->nomb_citado,$botones];
+		}
+		$result['aaData'] = $row;
+		return $result;
+	}
+
+
+	function getTrataHistoria($data)
+	{
+
+		$this->db->from('tratamiento');
+	//	$this->db->join('medico','tratamiento.codi_med=medico.codi_med');
+		$this->db->where('codi_pac',$data['paciente']);
+		$this->db->where('estado_tra',1);
+		$queryLike = $this->db->get();
+
+		$this->db->from('tratamiento');
+		$this->db->select('tratamiento.*,codi_tra,asunto_tra,fecha_tra,total_tra,estadopago_tra');
+		$this->db->where('codi_pac',$data['paciente']);
+		$this->db->where('estado_tra',1);
+		if ($data['length']!=-1) {
+			$this->db->limit($data['length'],$data['start']);
+		}
+		if (isset($data['orderCampo'])) {
+			$this->db->order_by($data['orderCampo'],$data['orderDireccion']);
+		}
+	
+		
+		if ($data['estado']=='Activo') {
+			$this->db->where('estado_tra',TRATAMIENTO_ACTIVO);
+		}elseif($data['estado']=='Anulado'){
+			$this->db->where('estado_tra',TRATAMIENTO_ANULADO);
+		}
+		$query = $this->db->get();
+
+		$result = array();
+		$result['sEcho'] = $data['sEcho'];
+		$result['iTotalRecords'] = $queryLike->num_rows();
+		$result['iTotalDisplayRecords'] = $queryLike->num_rows();
+		
+		$row = [];
+		foreach ($query->result() as $q) {
+			if ($q->estadopago_tra==POR_COBRAR) {
+				$estado = '<label class="label label-warning">Por Cobrar</label>';
+			}elseif($q->estadopago_tra==PROCESO){
+				$estado = '<label class="label label-info">Proceso</label>';
+			}elseif($q->estadopago_tra==COBRADO){
+				$estado = '<label class="label label-success">Cobrado</label>';
+			}elseif($q->estadopago_tra==ANULADO){
+				$estado = '<label class="label label-danger">Anulado</label>';
+			}
+	    
+	    $opciones= '<a href="'.base_url('tratamientos/panel/imprimirTratamiento/'.$q->codi_tra).'" target="_blank"><i class="fa fa-print" aria-hidden="true"></i></a>';
+	    
+			$row[] = [$q->codi_tra,$q->asunto_tra,$q->fecha_tra,$q->total_tra,$estado,$opciones];
 		}
 		$result['aaData'] = $row;
 		return $result;

@@ -7,7 +7,8 @@
   align-items: start;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
-  justify-content: center; }
+  justify-content: center;
+  padding: 2%; }
 
 #odontograma-contenido {
   position: relative; }
@@ -53,8 +54,8 @@
   #odontograma-contenido .recuadro {
     position: absolute;
     width: 6.25%;
-    height: 2.7%;
-    font-size: 7.6px;
+    height: 2.5%;
+    font-size: 8.5px;
     word-wrap: break-word;
     font-weight: 100; }
     #odontograma-contenido .recuadro span {
@@ -70,25 +71,25 @@
     position: absolute;
     background-position-x: center;
     background-repeat: no-repeat; }
-  #odontograma-contenido .corona {
+  #odontograma-contenido .corona, #odontograma-contenido .coronaTemporal {
     background-size: 90% auto; }
-    #odontograma-contenido .corona.bueno {
+    #odontograma-contenido .corona.bueno, #odontograma-contenido .coronaTemporal.bueno {
       background-image: url("../images/corona_buen.png"); }
-    #odontograma-contenido .corona.malo {
+    #odontograma-contenido .corona.malo, #odontograma-contenido .coronaTemporal.malo {
       background-image: url("../images/corona_mal.png"); }
   #odontograma-contenido .erupcion {
-    background-size: 40% auto;
+    height: 4.8%;
     background-image: url("../images/erupcion.png"); }
   #odontograma-contenido .aparatoOrtoFijoInicio {
-    height: 3%;
-    background-size: cover; }
+    height: 2.65%;
+    background-size: 100% 100%; }
     #odontograma-contenido .aparatoOrtoFijoInicio.bueno {
       background-image: url("../images/AparatoOrtoFijoBueno.png"); }
     #odontograma-contenido .aparatoOrtoFijoInicio.malo {
       background-image: url("../images/AparatoOrtoFijoMalo.png"); }
   #odontograma-contenido .aparatoOrtoFijoFin {
-    height: 3%;
-    background-size: cover;
+    height: 2.65%;
+    background-size: 100% 100%;
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg); }
@@ -97,923 +98,1777 @@
     #odontograma-contenido .aparatoOrtoFijoFin.malo {
       background-image: url("../images/AparatoOrtoFijoMalo.png"); }
   #odontograma-contenido .linea {
-    height: 3%;
-    background-size: cover; }
+    height: 2.65%;
+    background-size: 100% 100%; }
     #odontograma-contenido .linea.bueno {
       background-image: url("../images/lineaBuena.png"); }
     #odontograma-contenido .linea.malo {
       background-image: url("../images/lineaMala.png"); }
   #odontograma-contenido .aparatoOrtoRemovible {
     height: 3.1%;
-    background-size: cover; }
+    background-size: 100%; }
     #odontograma-contenido .aparatoOrtoRemovible.bueno {
       background-image: url("../images/AparatoOrtoRemovibleBueno.png"); }
     #odontograma-contenido .aparatoOrtoRemovible.malo {
       background-image: url("../images/AparatoOrtoRemovibleMalo.png"); }
+  #odontograma-contenido .diastema {
+    background-size: 100%;
+    background-image: url("../images/diastema.png");
+    width: 1%;
+    height: 4%; }
+  #odontograma-contenido .piezaAusente {
+    background-position-x: center;
+    background-size: 50% 100%;
+    background-image: url("../images/dienteAusente.png");
+    height: 9%; }
+  #odontograma-contenido .piezaClavija {
+    background-position-x: center;
+    background-size: 92% 100%;
+    background-image: url("../images/piezaClavija.png");
+    height: 4.5%; }
+  #odontograma-contenido .piezaExtruida, #odontograma-contenido .piezaIntruida {
+    background-position-x: center;
+    background-size: 30%;
+    background-image: url("../images/piezaFlecha.png");
+    height: 2.6%; }
+  #odontograma-contenido .piezaSupernumeraria {
+    background-image: url("../images/supernumeraria.png");
+    height: 3.2%; }
+  #odontograma-contenido .edentulo {
+    background-image: url("../images/edentulo.png");
+    height: 0.5%;
+    background-repeat: repeat-x; }
   #odontograma-contenido .cursor-1 {
     height: 9.6%;
-    top: 11%;
+    top: 9.2%;
     left: 0%; }
   #odontograma-contenido .recuadro-1 {
     top: 0%;
     left: 0%; }
-  #odontograma-contenido .corona-1 {
+  #odontograma-contenido .corona-1, #odontograma-contenido .coronaTemporal-1 {
     height: 9.6%;
     left: 0%;
-    top: 10.7%;
+    top: 9.1%;
     background-position-y: bottom; }
   #odontograma-contenido .erupcion-1 {
-    height: 9.6%;
     left: 0%;
-    top: 9.5%;
+    top: 9.8%;
     background-position-y: 35%; }
   #odontograma-contenido .aparatoOrtoFijoInicio-1, #odontograma-contenido .aparatoOrtoFijoFin-1, #odontograma-contenido .linea-1 {
     left: 0%;
     top: 3.5%; }
   #odontograma-contenido .aparatoOrtoRemovible-1 {
     left: 0%;
-    top: 4%; }
+    top: 3.6%; }
+  #odontograma-contenido .diastema-1 {
+    left: 5.8%;
+    top: 15%; }
+  #odontograma-contenido .piezaAusente-1 {
+    left: 0%;
+    top: 10%; }
+  #odontograma-contenido .piezaClavija-1 {
+    left: 0%;
+    top: 5.5%; }
+  #odontograma-contenido .piezaExtruida-1 {
+    left: 0%;
+    top: 18.5%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .piezaIntruida-1 {
+    left: 0%;
+    top: 18.5%; }
+  #odontograma-contenido .piezaSupernumeraria-1 {
+    left: 3%;
+    top: 7%; }
+  #odontograma-contenido .edentulo-1 {
+    left: 0%;
+    top: 16.5%; }
   #odontograma-contenido .cursor-2 {
     height: 9.6%;
-    top: 11%;
+    top: 9.2%;
     left: 6.25%; }
   #odontograma-contenido .recuadro-2 {
     top: 0%;
     left: 6.25%; }
-  #odontograma-contenido .corona-2 {
+  #odontograma-contenido .corona-2, #odontograma-contenido .coronaTemporal-2 {
     height: 9.6%;
     left: 6.25%;
-    top: 10.7%;
+    top: 9.1%;
     background-position-y: bottom; }
   #odontograma-contenido .erupcion-2 {
-    height: 9.6%;
     left: 6.25%;
-    top: 9.5%;
+    top: 9.8%;
     background-position-y: 35%; }
   #odontograma-contenido .aparatoOrtoFijoInicio-2, #odontograma-contenido .aparatoOrtoFijoFin-2, #odontograma-contenido .linea-2 {
     left: 6.25%;
     top: 3.5%; }
   #odontograma-contenido .aparatoOrtoRemovible-2 {
     left: 6.25%;
-    top: 4%; }
+    top: 3.6%; }
+  #odontograma-contenido .diastema-2 {
+    left: 12.05%;
+    top: 15%; }
+  #odontograma-contenido .piezaAusente-2 {
+    left: 6.25%;
+    top: 10%; }
+  #odontograma-contenido .piezaClavija-2 {
+    left: 6.25%;
+    top: 5.5%; }
+  #odontograma-contenido .piezaExtruida-2 {
+    left: 6.25%;
+    top: 18.5%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .piezaIntruida-2 {
+    left: 6.25%;
+    top: 18.5%; }
+  #odontograma-contenido .piezaSupernumeraria-2 {
+    left: 9.25%;
+    top: 7%; }
+  #odontograma-contenido .edentulo-2 {
+    left: 6.25%;
+    top: 16.5%; }
   #odontograma-contenido .cursor-3 {
     height: 9.6%;
-    top: 11%;
+    top: 9.2%;
     left: 12.5%; }
   #odontograma-contenido .recuadro-3 {
     top: 0%;
     left: 12.5%; }
-  #odontograma-contenido .corona-3 {
+  #odontograma-contenido .corona-3, #odontograma-contenido .coronaTemporal-3 {
     height: 9.6%;
     left: 12.5%;
-    top: 10.7%;
+    top: 9.1%;
     background-position-y: bottom; }
   #odontograma-contenido .erupcion-3 {
-    height: 9.6%;
     left: 12.5%;
-    top: 9.5%;
+    top: 9.8%;
     background-position-y: 35%; }
   #odontograma-contenido .aparatoOrtoFijoInicio-3, #odontograma-contenido .aparatoOrtoFijoFin-3, #odontograma-contenido .linea-3 {
     left: 12.5%;
     top: 3.5%; }
   #odontograma-contenido .aparatoOrtoRemovible-3 {
     left: 12.5%;
-    top: 4%; }
+    top: 3.6%; }
+  #odontograma-contenido .diastema-3 {
+    left: 18.3%;
+    top: 15%; }
+  #odontograma-contenido .piezaAusente-3 {
+    left: 12.5%;
+    top: 10%; }
+  #odontograma-contenido .piezaClavija-3 {
+    left: 12.5%;
+    top: 5.5%; }
+  #odontograma-contenido .piezaExtruida-3 {
+    left: 12.5%;
+    top: 18.5%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .piezaIntruida-3 {
+    left: 12.5%;
+    top: 18.5%; }
+  #odontograma-contenido .piezaSupernumeraria-3 {
+    left: 15.5%;
+    top: 7%; }
+  #odontograma-contenido .edentulo-3 {
+    left: 12.5%;
+    top: 16.5%; }
   #odontograma-contenido .cursor-4 {
     height: 9.6%;
-    top: 11%;
+    top: 9.2%;
     left: 18.75%; }
   #odontograma-contenido .recuadro-4 {
     top: 0%;
     left: 18.75%; }
-  #odontograma-contenido .corona-4 {
+  #odontograma-contenido .corona-4, #odontograma-contenido .coronaTemporal-4 {
     height: 9.6%;
     left: 18.75%;
-    top: 10.7%;
+    top: 9.1%;
     background-position-y: bottom; }
   #odontograma-contenido .erupcion-4 {
-    height: 9.6%;
     left: 18.75%;
-    top: 9.5%;
+    top: 9.8%;
     background-position-y: 35%; }
   #odontograma-contenido .aparatoOrtoFijoInicio-4, #odontograma-contenido .aparatoOrtoFijoFin-4, #odontograma-contenido .linea-4 {
     left: 18.75%;
     top: 3.5%; }
   #odontograma-contenido .aparatoOrtoRemovible-4 {
     left: 18.75%;
-    top: 4%; }
+    top: 3.6%; }
+  #odontograma-contenido .diastema-4 {
+    left: 24.55%;
+    top: 15%; }
+  #odontograma-contenido .piezaAusente-4 {
+    left: 18.75%;
+    top: 10%; }
+  #odontograma-contenido .piezaClavija-4 {
+    left: 18.75%;
+    top: 5.5%; }
+  #odontograma-contenido .piezaExtruida-4 {
+    left: 18.75%;
+    top: 18.5%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .piezaIntruida-4 {
+    left: 18.75%;
+    top: 18.5%; }
+  #odontograma-contenido .piezaSupernumeraria-4 {
+    left: 21.75%;
+    top: 7%; }
+  #odontograma-contenido .edentulo-4 {
+    left: 18.75%;
+    top: 16.5%; }
   #odontograma-contenido .cursor-5 {
     height: 9.6%;
-    top: 11%;
+    top: 9.2%;
     left: 25%; }
   #odontograma-contenido .recuadro-5 {
     top: 0%;
     left: 25%; }
-  #odontograma-contenido .corona-5 {
+  #odontograma-contenido .corona-5, #odontograma-contenido .coronaTemporal-5 {
     height: 9.6%;
     left: 25%;
-    top: 10.7%;
+    top: 9.1%;
     background-position-y: bottom; }
   #odontograma-contenido .erupcion-5 {
-    height: 9.6%;
     left: 25%;
-    top: 9.5%;
+    top: 9.8%;
     background-position-y: 35%; }
   #odontograma-contenido .aparatoOrtoFijoInicio-5, #odontograma-contenido .aparatoOrtoFijoFin-5, #odontograma-contenido .linea-5 {
     left: 25%;
     top: 3.5%; }
   #odontograma-contenido .aparatoOrtoRemovible-5 {
     left: 25%;
-    top: 4%; }
+    top: 3.6%; }
+  #odontograma-contenido .diastema-5 {
+    left: 30.8%;
+    top: 15%; }
+  #odontograma-contenido .piezaAusente-5 {
+    left: 25%;
+    top: 10%; }
+  #odontograma-contenido .piezaClavija-5 {
+    left: 25%;
+    top: 5.5%; }
+  #odontograma-contenido .piezaExtruida-5 {
+    left: 25%;
+    top: 18.5%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .piezaIntruida-5 {
+    left: 25%;
+    top: 18.5%; }
+  #odontograma-contenido .piezaSupernumeraria-5 {
+    left: 28%;
+    top: 7%; }
+  #odontograma-contenido .edentulo-5 {
+    left: 25%;
+    top: 16.5%; }
   #odontograma-contenido .cursor-6 {
     height: 9.6%;
-    top: 11%;
+    top: 9.2%;
     left: 31.25%; }
   #odontograma-contenido .recuadro-6 {
     top: 0%;
     left: 31.25%; }
-  #odontograma-contenido .corona-6 {
+  #odontograma-contenido .corona-6, #odontograma-contenido .coronaTemporal-6 {
     height: 9.6%;
     left: 31.25%;
-    top: 10.7%;
+    top: 9.1%;
     background-position-y: bottom; }
   #odontograma-contenido .erupcion-6 {
-    height: 9.6%;
     left: 31.25%;
-    top: 9.5%;
+    top: 9.8%;
     background-position-y: 35%; }
   #odontograma-contenido .aparatoOrtoFijoInicio-6, #odontograma-contenido .aparatoOrtoFijoFin-6, #odontograma-contenido .linea-6 {
     left: 31.25%;
     top: 3.5%; }
   #odontograma-contenido .aparatoOrtoRemovible-6 {
     left: 31.25%;
-    top: 4%; }
+    top: 3.6%; }
+  #odontograma-contenido .diastema-6 {
+    left: 37.05%;
+    top: 15%; }
+  #odontograma-contenido .piezaAusente-6 {
+    left: 31.25%;
+    top: 10%; }
+  #odontograma-contenido .piezaClavija-6 {
+    left: 31.25%;
+    top: 5.5%; }
+  #odontograma-contenido .piezaExtruida-6 {
+    left: 31.25%;
+    top: 18.5%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .piezaIntruida-6 {
+    left: 31.25%;
+    top: 18.5%; }
+  #odontograma-contenido .piezaSupernumeraria-6 {
+    left: 34.25%;
+    top: 7%; }
+  #odontograma-contenido .edentulo-6 {
+    left: 31.25%;
+    top: 16.5%; }
   #odontograma-contenido .cursor-7 {
     height: 9.6%;
-    top: 11%;
+    top: 9.2%;
     left: 37.5%; }
   #odontograma-contenido .recuadro-7 {
     top: 0%;
     left: 37.5%; }
-  #odontograma-contenido .corona-7 {
+  #odontograma-contenido .corona-7, #odontograma-contenido .coronaTemporal-7 {
     height: 9.6%;
     left: 37.5%;
-    top: 10.7%;
+    top: 9.1%;
     background-position-y: bottom; }
   #odontograma-contenido .erupcion-7 {
-    height: 9.6%;
     left: 37.5%;
-    top: 9.5%;
+    top: 9.8%;
     background-position-y: 35%; }
   #odontograma-contenido .aparatoOrtoFijoInicio-7, #odontograma-contenido .aparatoOrtoFijoFin-7, #odontograma-contenido .linea-7 {
     left: 37.5%;
     top: 3.5%; }
   #odontograma-contenido .aparatoOrtoRemovible-7 {
     left: 37.5%;
-    top: 4%; }
+    top: 3.6%; }
+  #odontograma-contenido .diastema-7 {
+    left: 43.3%;
+    top: 15%; }
+  #odontograma-contenido .piezaAusente-7 {
+    left: 37.5%;
+    top: 10%; }
+  #odontograma-contenido .piezaClavija-7 {
+    left: 37.5%;
+    top: 5.5%; }
+  #odontograma-contenido .piezaExtruida-7 {
+    left: 37.5%;
+    top: 18.5%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .piezaIntruida-7 {
+    left: 37.5%;
+    top: 18.5%; }
+  #odontograma-contenido .piezaSupernumeraria-7 {
+    left: 40.5%;
+    top: 7%; }
+  #odontograma-contenido .edentulo-7 {
+    left: 37.5%;
+    top: 16.5%; }
   #odontograma-contenido .cursor-8 {
     height: 9.6%;
-    top: 11%;
+    top: 9.2%;
     left: 43.75%; }
   #odontograma-contenido .recuadro-8 {
     top: 0%;
     left: 43.75%; }
-  #odontograma-contenido .corona-8 {
+  #odontograma-contenido .corona-8, #odontograma-contenido .coronaTemporal-8 {
     height: 9.6%;
     left: 43.75%;
-    top: 10.7%;
+    top: 9.1%;
     background-position-y: bottom; }
   #odontograma-contenido .erupcion-8 {
-    height: 9.6%;
     left: 43.75%;
-    top: 9.5%;
+    top: 9.8%;
     background-position-y: 35%; }
   #odontograma-contenido .aparatoOrtoFijoInicio-8, #odontograma-contenido .aparatoOrtoFijoFin-8, #odontograma-contenido .linea-8 {
     left: 43.75%;
     top: 3.5%; }
   #odontograma-contenido .aparatoOrtoRemovible-8 {
     left: 43.75%;
-    top: 4%; }
+    top: 3.6%; }
+  #odontograma-contenido .diastema-8 {
+    left: 49.55%;
+    top: 15%; }
+  #odontograma-contenido .piezaAusente-8 {
+    left: 43.75%;
+    top: 10%; }
+  #odontograma-contenido .piezaClavija-8 {
+    left: 43.75%;
+    top: 5.5%; }
+  #odontograma-contenido .piezaExtruida-8 {
+    left: 43.75%;
+    top: 18.5%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .piezaIntruida-8 {
+    left: 43.75%;
+    top: 18.5%; }
+  #odontograma-contenido .piezaSupernumeraria-8 {
+    left: 46.75%;
+    top: 7%; }
+  #odontograma-contenido .edentulo-8 {
+    left: 43.75%;
+    top: 16.5%; }
   #odontograma-contenido .cursor-9 {
     height: 9.6%;
-    top: 11%;
+    top: 9.2%;
     left: 50%; }
   #odontograma-contenido .recuadro-9 {
     top: 0%;
     left: 50%; }
-  #odontograma-contenido .corona-9 {
+  #odontograma-contenido .corona-9, #odontograma-contenido .coronaTemporal-9 {
     height: 9.6%;
     left: 50%;
-    top: 10.7%;
+    top: 9.1%;
     background-position-y: bottom; }
   #odontograma-contenido .erupcion-9 {
-    height: 9.6%;
     left: 50%;
-    top: 9.5%;
+    top: 9.8%;
     background-position-y: 35%; }
   #odontograma-contenido .aparatoOrtoFijoInicio-9, #odontograma-contenido .aparatoOrtoFijoFin-9, #odontograma-contenido .linea-9 {
     left: 50%;
     top: 3.5%; }
   #odontograma-contenido .aparatoOrtoRemovible-9 {
     left: 50%;
-    top: 4%; }
+    top: 3.6%; }
+  #odontograma-contenido .diastema-9 {
+    left: 55.8%;
+    top: 15%; }
+  #odontograma-contenido .piezaAusente-9 {
+    left: 50%;
+    top: 10%; }
+  #odontograma-contenido .piezaClavija-9 {
+    left: 50%;
+    top: 5.5%; }
+  #odontograma-contenido .piezaExtruida-9 {
+    left: 50%;
+    top: 18.5%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .piezaIntruida-9 {
+    left: 50%;
+    top: 18.5%; }
+  #odontograma-contenido .piezaSupernumeraria-9 {
+    left: 53%;
+    top: 7%; }
+  #odontograma-contenido .edentulo-9 {
+    left: 50%;
+    top: 16.5%; }
   #odontograma-contenido .cursor-10 {
     height: 9.6%;
-    top: 11%;
+    top: 9.2%;
     left: 56.25%; }
   #odontograma-contenido .recuadro-10 {
     top: 0%;
     left: 56.25%; }
-  #odontograma-contenido .corona-10 {
+  #odontograma-contenido .corona-10, #odontograma-contenido .coronaTemporal-10 {
     height: 9.6%;
     left: 56.25%;
-    top: 10.7%;
+    top: 9.1%;
     background-position-y: bottom; }
   #odontograma-contenido .erupcion-10 {
-    height: 9.6%;
     left: 56.25%;
-    top: 9.5%;
+    top: 9.8%;
     background-position-y: 35%; }
   #odontograma-contenido .aparatoOrtoFijoInicio-10, #odontograma-contenido .aparatoOrtoFijoFin-10, #odontograma-contenido .linea-10 {
     left: 56.25%;
     top: 3.5%; }
   #odontograma-contenido .aparatoOrtoRemovible-10 {
     left: 56.25%;
-    top: 4%; }
+    top: 3.6%; }
+  #odontograma-contenido .diastema-10 {
+    left: 62.05%;
+    top: 15%; }
+  #odontograma-contenido .piezaAusente-10 {
+    left: 56.25%;
+    top: 10%; }
+  #odontograma-contenido .piezaClavija-10 {
+    left: 56.25%;
+    top: 5.5%; }
+  #odontograma-contenido .piezaExtruida-10 {
+    left: 56.25%;
+    top: 18.5%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .piezaIntruida-10 {
+    left: 56.25%;
+    top: 18.5%; }
+  #odontograma-contenido .piezaSupernumeraria-10 {
+    left: 59.25%;
+    top: 7%; }
+  #odontograma-contenido .edentulo-10 {
+    left: 56.25%;
+    top: 16.5%; }
   #odontograma-contenido .cursor-11 {
     height: 9.6%;
-    top: 11%;
+    top: 9.2%;
     left: 62.5%; }
   #odontograma-contenido .recuadro-11 {
     top: 0%;
     left: 62.5%; }
-  #odontograma-contenido .corona-11 {
+  #odontograma-contenido .corona-11, #odontograma-contenido .coronaTemporal-11 {
     height: 9.6%;
     left: 62.5%;
-    top: 10.7%;
+    top: 9.1%;
     background-position-y: bottom; }
   #odontograma-contenido .erupcion-11 {
-    height: 9.6%;
     left: 62.5%;
-    top: 9.5%;
+    top: 9.8%;
     background-position-y: 35%; }
   #odontograma-contenido .aparatoOrtoFijoInicio-11, #odontograma-contenido .aparatoOrtoFijoFin-11, #odontograma-contenido .linea-11 {
     left: 62.5%;
     top: 3.5%; }
   #odontograma-contenido .aparatoOrtoRemovible-11 {
     left: 62.5%;
-    top: 4%; }
+    top: 3.6%; }
+  #odontograma-contenido .diastema-11 {
+    left: 68.3%;
+    top: 15%; }
+  #odontograma-contenido .piezaAusente-11 {
+    left: 62.5%;
+    top: 10%; }
+  #odontograma-contenido .piezaClavija-11 {
+    left: 62.5%;
+    top: 5.5%; }
+  #odontograma-contenido .piezaExtruida-11 {
+    left: 62.5%;
+    top: 18.5%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .piezaIntruida-11 {
+    left: 62.5%;
+    top: 18.5%; }
+  #odontograma-contenido .piezaSupernumeraria-11 {
+    left: 65.5%;
+    top: 7%; }
+  #odontograma-contenido .edentulo-11 {
+    left: 62.5%;
+    top: 16.5%; }
   #odontograma-contenido .cursor-12 {
     height: 9.6%;
-    top: 11%;
+    top: 9.2%;
     left: 68.75%; }
   #odontograma-contenido .recuadro-12 {
     top: 0%;
     left: 68.75%; }
-  #odontograma-contenido .corona-12 {
+  #odontograma-contenido .corona-12, #odontograma-contenido .coronaTemporal-12 {
     height: 9.6%;
     left: 68.75%;
-    top: 10.7%;
+    top: 9.1%;
     background-position-y: bottom; }
   #odontograma-contenido .erupcion-12 {
-    height: 9.6%;
     left: 68.75%;
-    top: 9.5%;
+    top: 9.8%;
     background-position-y: 35%; }
   #odontograma-contenido .aparatoOrtoFijoInicio-12, #odontograma-contenido .aparatoOrtoFijoFin-12, #odontograma-contenido .linea-12 {
     left: 68.75%;
     top: 3.5%; }
   #odontograma-contenido .aparatoOrtoRemovible-12 {
     left: 68.75%;
-    top: 4%; }
+    top: 3.6%; }
+  #odontograma-contenido .diastema-12 {
+    left: 74.55%;
+    top: 15%; }
+  #odontograma-contenido .piezaAusente-12 {
+    left: 68.75%;
+    top: 10%; }
+  #odontograma-contenido .piezaClavija-12 {
+    left: 68.75%;
+    top: 5.5%; }
+  #odontograma-contenido .piezaExtruida-12 {
+    left: 68.75%;
+    top: 18.5%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .piezaIntruida-12 {
+    left: 68.75%;
+    top: 18.5%; }
+  #odontograma-contenido .piezaSupernumeraria-12 {
+    left: 71.75%;
+    top: 7%; }
+  #odontograma-contenido .edentulo-12 {
+    left: 68.75%;
+    top: 16.5%; }
   #odontograma-contenido .cursor-13 {
     height: 9.6%;
-    top: 11%;
+    top: 9.2%;
     left: 75%; }
   #odontograma-contenido .recuadro-13 {
     top: 0%;
     left: 75%; }
-  #odontograma-contenido .corona-13 {
+  #odontograma-contenido .corona-13, #odontograma-contenido .coronaTemporal-13 {
     height: 9.6%;
     left: 75%;
-    top: 10.7%;
+    top: 9.1%;
     background-position-y: bottom; }
   #odontograma-contenido .erupcion-13 {
-    height: 9.6%;
     left: 75%;
-    top: 9.5%;
+    top: 9.8%;
     background-position-y: 35%; }
   #odontograma-contenido .aparatoOrtoFijoInicio-13, #odontograma-contenido .aparatoOrtoFijoFin-13, #odontograma-contenido .linea-13 {
     left: 75%;
     top: 3.5%; }
   #odontograma-contenido .aparatoOrtoRemovible-13 {
     left: 75%;
-    top: 4%; }
+    top: 3.6%; }
+  #odontograma-contenido .diastema-13 {
+    left: 80.8%;
+    top: 15%; }
+  #odontograma-contenido .piezaAusente-13 {
+    left: 75%;
+    top: 10%; }
+  #odontograma-contenido .piezaClavija-13 {
+    left: 75%;
+    top: 5.5%; }
+  #odontograma-contenido .piezaExtruida-13 {
+    left: 75%;
+    top: 18.5%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .piezaIntruida-13 {
+    left: 75%;
+    top: 18.5%; }
+  #odontograma-contenido .piezaSupernumeraria-13 {
+    left: 78%;
+    top: 7%; }
+  #odontograma-contenido .edentulo-13 {
+    left: 75%;
+    top: 16.5%; }
   #odontograma-contenido .cursor-14 {
     height: 9.6%;
-    top: 11%;
+    top: 9.2%;
     left: 81.25%; }
   #odontograma-contenido .recuadro-14 {
     top: 0%;
     left: 81.25%; }
-  #odontograma-contenido .corona-14 {
+  #odontograma-contenido .corona-14, #odontograma-contenido .coronaTemporal-14 {
     height: 9.6%;
     left: 81.25%;
-    top: 10.7%;
+    top: 9.1%;
     background-position-y: bottom; }
   #odontograma-contenido .erupcion-14 {
-    height: 9.6%;
     left: 81.25%;
-    top: 9.5%;
+    top: 9.8%;
     background-position-y: 35%; }
   #odontograma-contenido .aparatoOrtoFijoInicio-14, #odontograma-contenido .aparatoOrtoFijoFin-14, #odontograma-contenido .linea-14 {
     left: 81.25%;
     top: 3.5%; }
   #odontograma-contenido .aparatoOrtoRemovible-14 {
     left: 81.25%;
-    top: 4%; }
+    top: 3.6%; }
+  #odontograma-contenido .diastema-14 {
+    left: 87.05%;
+    top: 15%; }
+  #odontograma-contenido .piezaAusente-14 {
+    left: 81.25%;
+    top: 10%; }
+  #odontograma-contenido .piezaClavija-14 {
+    left: 81.25%;
+    top: 5.5%; }
+  #odontograma-contenido .piezaExtruida-14 {
+    left: 81.25%;
+    top: 18.5%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .piezaIntruida-14 {
+    left: 81.25%;
+    top: 18.5%; }
+  #odontograma-contenido .piezaSupernumeraria-14 {
+    left: 84.25%;
+    top: 7%; }
+  #odontograma-contenido .edentulo-14 {
+    left: 81.25%;
+    top: 16.5%; }
   #odontograma-contenido .cursor-15 {
     height: 9.6%;
-    top: 11%;
+    top: 9.2%;
     left: 87.5%; }
   #odontograma-contenido .recuadro-15 {
     top: 0%;
     left: 87.5%; }
-  #odontograma-contenido .corona-15 {
+  #odontograma-contenido .corona-15, #odontograma-contenido .coronaTemporal-15 {
     height: 9.6%;
     left: 87.5%;
-    top: 10.7%;
+    top: 9.1%;
     background-position-y: bottom; }
   #odontograma-contenido .erupcion-15 {
-    height: 9.6%;
     left: 87.5%;
-    top: 9.5%;
+    top: 9.8%;
     background-position-y: 35%; }
   #odontograma-contenido .aparatoOrtoFijoInicio-15, #odontograma-contenido .aparatoOrtoFijoFin-15, #odontograma-contenido .linea-15 {
     left: 87.5%;
     top: 3.5%; }
   #odontograma-contenido .aparatoOrtoRemovible-15 {
     left: 87.5%;
-    top: 4%; }
+    top: 3.6%; }
+  #odontograma-contenido .diastema-15 {
+    left: 93.3%;
+    top: 15%; }
+  #odontograma-contenido .piezaAusente-15 {
+    left: 87.5%;
+    top: 10%; }
+  #odontograma-contenido .piezaClavija-15 {
+    left: 87.5%;
+    top: 5.5%; }
+  #odontograma-contenido .piezaExtruida-15 {
+    left: 87.5%;
+    top: 18.5%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .piezaIntruida-15 {
+    left: 87.5%;
+    top: 18.5%; }
+  #odontograma-contenido .piezaSupernumeraria-15 {
+    left: 90.5%;
+    top: 7%; }
+  #odontograma-contenido .edentulo-15 {
+    left: 87.5%;
+    top: 16.5%; }
   #odontograma-contenido .cursor-16 {
     height: 9.6%;
-    top: 11%;
+    top: 9.2%;
     left: 93.75%; }
   #odontograma-contenido .recuadro-16 {
     top: 0%;
     left: 93.75%; }
-  #odontograma-contenido .corona-16 {
+  #odontograma-contenido .corona-16, #odontograma-contenido .coronaTemporal-16 {
     height: 9.6%;
     left: 93.75%;
-    top: 10.7%;
+    top: 9.1%;
     background-position-y: bottom; }
   #odontograma-contenido .erupcion-16 {
-    height: 9.6%;
     left: 93.75%;
-    top: 9.5%;
+    top: 9.8%;
     background-position-y: 35%; }
   #odontograma-contenido .aparatoOrtoFijoInicio-16, #odontograma-contenido .aparatoOrtoFijoFin-16, #odontograma-contenido .linea-16 {
     left: 93.75%;
     top: 3.5%; }
   #odontograma-contenido .aparatoOrtoRemovible-16 {
     left: 93.75%;
-    top: 4%; }
+    top: 3.6%; }
+  #odontograma-contenido .diastema-16 {
+    left: 99.55%;
+    top: 15%; }
+  #odontograma-contenido .piezaAusente-16 {
+    left: 93.75%;
+    top: 10%; }
+  #odontograma-contenido .piezaClavija-16 {
+    left: 93.75%;
+    top: 5.5%; }
+  #odontograma-contenido .piezaExtruida-16 {
+    left: 93.75%;
+    top: 18.5%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .piezaIntruida-16 {
+    left: 93.75%;
+    top: 18.5%; }
+  #odontograma-contenido .piezaSupernumeraria-16 {
+    left: 96.75%;
+    top: 7%; }
+  #odontograma-contenido .edentulo-16 {
+    left: 93.75%;
+    top: 16.5%; }
   #odontograma-contenido .cursor-17 {
     height: 9.7%;
-    top: 34.5%;
+    top: 31.5%;
     left: 18.75%; }
   #odontograma-contenido .recuadro-17 {
-    top: 25%;
+    top: 23%;
     left: 18.75%; }
-  #odontograma-contenido .corona-17 {
+  #odontograma-contenido .corona-17, #odontograma-contenido .coronaTemporal-17 {
     height: 9.7%;
     left: 18.75%;
-    top: 36.4%;
+    top: 33%;
     background-position-y: 62%; }
   #odontograma-contenido .erupcion-17 {
-    height: 9.6%;
     left: 18.75%;
-    top: 33%;
+    top: 32%;
     background-position-y: 35%; }
   #odontograma-contenido .aparatoOrtoFijoInicio-17, #odontograma-contenido .aparatoOrtoFijoFin-17, #odontograma-contenido .linea-17 {
     left: 18.75%;
-    top: 30%; }
+    top: 27%; }
   #odontograma-contenido .aparatoOrtoRemovible-17 {
     left: 18.75%;
-    top: 30%; }
+    top: 27%; }
+  #odontograma-contenido .diastema-17 {
+    left: 24.55%;
+    top: 36.5%; }
+  #odontograma-contenido .piezaAusente-17 {
+    left: 18.75%;
+    top: 32%; }
+  #odontograma-contenido .piezaClavija-17 {
+    left: 18.75%;
+    top: 43.7%; }
+  #odontograma-contenido .piezaExtruida-17 {
+    left: 18.75%;
+    top: 40.4%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .piezaIntruida-17 {
+    left: 18.75%;
+    top: 40.4%; }
+  #odontograma-contenido .piezaSupernumeraria-17 {
+    left: 21.95%;
+    top: 44%; }
+  #odontograma-contenido .edentulo-17 {
+    left: 18.75%;
+    top: 38.2%; }
   #odontograma-contenido .cursor-18 {
     height: 9.7%;
-    top: 34.5%;
+    top: 31.5%;
     left: 25%; }
   #odontograma-contenido .recuadro-18 {
-    top: 25%;
+    top: 23%;
     left: 25%; }
-  #odontograma-contenido .corona-18 {
+  #odontograma-contenido .corona-18, #odontograma-contenido .coronaTemporal-18 {
     height: 9.7%;
     left: 25%;
-    top: 36.4%;
+    top: 33%;
     background-position-y: 62%; }
   #odontograma-contenido .erupcion-18 {
-    height: 9.6%;
     left: 25%;
-    top: 33%;
+    top: 32%;
     background-position-y: 35%; }
   #odontograma-contenido .aparatoOrtoFijoInicio-18, #odontograma-contenido .aparatoOrtoFijoFin-18, #odontograma-contenido .linea-18 {
     left: 25%;
-    top: 30%; }
+    top: 27%; }
   #odontograma-contenido .aparatoOrtoRemovible-18 {
     left: 25%;
-    top: 30%; }
+    top: 27%; }
+  #odontograma-contenido .diastema-18 {
+    left: 30.8%;
+    top: 36.5%; }
+  #odontograma-contenido .piezaAusente-18 {
+    left: 25%;
+    top: 32%; }
+  #odontograma-contenido .piezaClavija-18 {
+    left: 25%;
+    top: 43.7%; }
+  #odontograma-contenido .piezaExtruida-18 {
+    left: 25%;
+    top: 40.4%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .piezaIntruida-18 {
+    left: 25%;
+    top: 40.4%; }
+  #odontograma-contenido .piezaSupernumeraria-18 {
+    left: 28.2%;
+    top: 44%; }
+  #odontograma-contenido .edentulo-18 {
+    left: 25%;
+    top: 38.2%; }
   #odontograma-contenido .cursor-19 {
     height: 9.7%;
-    top: 34.5%;
+    top: 31.5%;
     left: 31.25%; }
   #odontograma-contenido .recuadro-19 {
-    top: 25%;
+    top: 23%;
     left: 31.25%; }
-  #odontograma-contenido .corona-19 {
+  #odontograma-contenido .corona-19, #odontograma-contenido .coronaTemporal-19 {
     height: 9.7%;
     left: 31.25%;
-    top: 36.4%;
+    top: 33%;
     background-position-y: 62%; }
   #odontograma-contenido .erupcion-19 {
-    height: 9.6%;
     left: 31.25%;
-    top: 33%;
+    top: 32%;
     background-position-y: 35%; }
   #odontograma-contenido .aparatoOrtoFijoInicio-19, #odontograma-contenido .aparatoOrtoFijoFin-19, #odontograma-contenido .linea-19 {
     left: 31.25%;
-    top: 30%; }
+    top: 27%; }
   #odontograma-contenido .aparatoOrtoRemovible-19 {
     left: 31.25%;
-    top: 30%; }
+    top: 27%; }
+  #odontograma-contenido .diastema-19 {
+    left: 37.05%;
+    top: 36.5%; }
+  #odontograma-contenido .piezaAusente-19 {
+    left: 31.25%;
+    top: 32%; }
+  #odontograma-contenido .piezaClavija-19 {
+    left: 31.25%;
+    top: 43.7%; }
+  #odontograma-contenido .piezaExtruida-19 {
+    left: 31.25%;
+    top: 40.4%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .piezaIntruida-19 {
+    left: 31.25%;
+    top: 40.4%; }
+  #odontograma-contenido .piezaSupernumeraria-19 {
+    left: 34.45%;
+    top: 44%; }
+  #odontograma-contenido .edentulo-19 {
+    left: 31.25%;
+    top: 38.2%; }
   #odontograma-contenido .cursor-20 {
     height: 9.7%;
-    top: 34.5%;
+    top: 31.5%;
     left: 37.5%; }
   #odontograma-contenido .recuadro-20 {
-    top: 25%;
+    top: 23%;
     left: 37.5%; }
-  #odontograma-contenido .corona-20 {
+  #odontograma-contenido .corona-20, #odontograma-contenido .coronaTemporal-20 {
     height: 9.7%;
     left: 37.5%;
-    top: 36.4%;
+    top: 33%;
     background-position-y: 62%; }
   #odontograma-contenido .erupcion-20 {
-    height: 9.6%;
     left: 37.5%;
-    top: 33%;
+    top: 32%;
     background-position-y: 35%; }
   #odontograma-contenido .aparatoOrtoFijoInicio-20, #odontograma-contenido .aparatoOrtoFijoFin-20, #odontograma-contenido .linea-20 {
     left: 37.5%;
-    top: 30%; }
+    top: 27%; }
   #odontograma-contenido .aparatoOrtoRemovible-20 {
     left: 37.5%;
-    top: 30%; }
+    top: 27%; }
+  #odontograma-contenido .diastema-20 {
+    left: 43.3%;
+    top: 36.5%; }
+  #odontograma-contenido .piezaAusente-20 {
+    left: 37.5%;
+    top: 32%; }
+  #odontograma-contenido .piezaClavija-20 {
+    left: 37.5%;
+    top: 43.7%; }
+  #odontograma-contenido .piezaExtruida-20 {
+    left: 37.5%;
+    top: 40.4%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .piezaIntruida-20 {
+    left: 37.5%;
+    top: 40.4%; }
+  #odontograma-contenido .piezaSupernumeraria-20 {
+    left: 40.7%;
+    top: 44%; }
+  #odontograma-contenido .edentulo-20 {
+    left: 37.5%;
+    top: 38.2%; }
   #odontograma-contenido .cursor-21 {
     height: 9.7%;
-    top: 34.5%;
+    top: 31.5%;
     left: 43.75%; }
   #odontograma-contenido .recuadro-21 {
-    top: 25%;
+    top: 23%;
     left: 43.75%; }
-  #odontograma-contenido .corona-21 {
+  #odontograma-contenido .corona-21, #odontograma-contenido .coronaTemporal-21 {
     height: 9.7%;
     left: 43.75%;
-    top: 36.4%;
+    top: 33%;
     background-position-y: 62%; }
   #odontograma-contenido .erupcion-21 {
-    height: 9.6%;
     left: 43.75%;
-    top: 33%;
+    top: 32%;
     background-position-y: 35%; }
   #odontograma-contenido .aparatoOrtoFijoInicio-21, #odontograma-contenido .aparatoOrtoFijoFin-21, #odontograma-contenido .linea-21 {
     left: 43.75%;
-    top: 30%; }
+    top: 27%; }
   #odontograma-contenido .aparatoOrtoRemovible-21 {
     left: 43.75%;
-    top: 30%; }
+    top: 27%; }
+  #odontograma-contenido .diastema-21 {
+    left: 49.55%;
+    top: 36.5%; }
+  #odontograma-contenido .piezaAusente-21 {
+    left: 43.75%;
+    top: 32%; }
+  #odontograma-contenido .piezaClavija-21 {
+    left: 43.75%;
+    top: 43.7%; }
+  #odontograma-contenido .piezaExtruida-21 {
+    left: 43.75%;
+    top: 40.4%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .piezaIntruida-21 {
+    left: 43.75%;
+    top: 40.4%; }
+  #odontograma-contenido .piezaSupernumeraria-21 {
+    left: 46.95%;
+    top: 44%; }
+  #odontograma-contenido .edentulo-21 {
+    left: 43.75%;
+    top: 38.2%; }
   #odontograma-contenido .cursor-22 {
     height: 9.7%;
-    top: 34.5%;
+    top: 31.5%;
     left: 50%; }
   #odontograma-contenido .recuadro-22 {
-    top: 25%;
+    top: 23%;
     left: 50%; }
-  #odontograma-contenido .corona-22 {
+  #odontograma-contenido .corona-22, #odontograma-contenido .coronaTemporal-22 {
     height: 9.7%;
     left: 50%;
-    top: 36.4%;
+    top: 33%;
     background-position-y: 62%; }
   #odontograma-contenido .erupcion-22 {
-    height: 9.6%;
     left: 50%;
-    top: 33%;
+    top: 32%;
     background-position-y: 35%; }
   #odontograma-contenido .aparatoOrtoFijoInicio-22, #odontograma-contenido .aparatoOrtoFijoFin-22, #odontograma-contenido .linea-22 {
     left: 50%;
-    top: 30%; }
+    top: 27%; }
   #odontograma-contenido .aparatoOrtoRemovible-22 {
     left: 50%;
-    top: 30%; }
+    top: 27%; }
+  #odontograma-contenido .diastema-22 {
+    left: 55.8%;
+    top: 36.5%; }
+  #odontograma-contenido .piezaAusente-22 {
+    left: 50%;
+    top: 32%; }
+  #odontograma-contenido .piezaClavija-22 {
+    left: 50%;
+    top: 43.7%; }
+  #odontograma-contenido .piezaExtruida-22 {
+    left: 50%;
+    top: 40.4%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .piezaIntruida-22 {
+    left: 50%;
+    top: 40.4%; }
+  #odontograma-contenido .piezaSupernumeraria-22 {
+    left: 53.2%;
+    top: 44%; }
+  #odontograma-contenido .edentulo-22 {
+    left: 50%;
+    top: 38.2%; }
   #odontograma-contenido .cursor-23 {
     height: 9.7%;
-    top: 34.5%;
+    top: 31.5%;
     left: 56.25%; }
   #odontograma-contenido .recuadro-23 {
-    top: 25%;
+    top: 23%;
     left: 56.25%; }
-  #odontograma-contenido .corona-23 {
+  #odontograma-contenido .corona-23, #odontograma-contenido .coronaTemporal-23 {
     height: 9.7%;
     left: 56.25%;
-    top: 36.4%;
+    top: 33%;
     background-position-y: 62%; }
   #odontograma-contenido .erupcion-23 {
-    height: 9.6%;
     left: 56.25%;
-    top: 33%;
+    top: 32%;
     background-position-y: 35%; }
   #odontograma-contenido .aparatoOrtoFijoInicio-23, #odontograma-contenido .aparatoOrtoFijoFin-23, #odontograma-contenido .linea-23 {
     left: 56.25%;
-    top: 30%; }
+    top: 27%; }
   #odontograma-contenido .aparatoOrtoRemovible-23 {
     left: 56.25%;
-    top: 30%; }
+    top: 27%; }
+  #odontograma-contenido .diastema-23 {
+    left: 62.05%;
+    top: 36.5%; }
+  #odontograma-contenido .piezaAusente-23 {
+    left: 56.25%;
+    top: 32%; }
+  #odontograma-contenido .piezaClavija-23 {
+    left: 56.25%;
+    top: 43.7%; }
+  #odontograma-contenido .piezaExtruida-23 {
+    left: 56.25%;
+    top: 40.4%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .piezaIntruida-23 {
+    left: 56.25%;
+    top: 40.4%; }
+  #odontograma-contenido .piezaSupernumeraria-23 {
+    left: 59.45%;
+    top: 44%; }
+  #odontograma-contenido .edentulo-23 {
+    left: 56.25%;
+    top: 38.2%; }
   #odontograma-contenido .cursor-24 {
     height: 9.7%;
-    top: 34.5%;
+    top: 31.5%;
     left: 62.5%; }
   #odontograma-contenido .recuadro-24 {
-    top: 25%;
+    top: 23%;
     left: 62.5%; }
-  #odontograma-contenido .corona-24 {
+  #odontograma-contenido .corona-24, #odontograma-contenido .coronaTemporal-24 {
     height: 9.7%;
     left: 62.5%;
-    top: 36.4%;
+    top: 33%;
     background-position-y: 62%; }
   #odontograma-contenido .erupcion-24 {
-    height: 9.6%;
     left: 62.5%;
-    top: 33%;
+    top: 32%;
     background-position-y: 35%; }
   #odontograma-contenido .aparatoOrtoFijoInicio-24, #odontograma-contenido .aparatoOrtoFijoFin-24, #odontograma-contenido .linea-24 {
     left: 62.5%;
-    top: 30%; }
+    top: 27%; }
   #odontograma-contenido .aparatoOrtoRemovible-24 {
     left: 62.5%;
-    top: 30%; }
+    top: 27%; }
+  #odontograma-contenido .diastema-24 {
+    left: 68.3%;
+    top: 36.5%; }
+  #odontograma-contenido .piezaAusente-24 {
+    left: 62.5%;
+    top: 32%; }
+  #odontograma-contenido .piezaClavija-24 {
+    left: 62.5%;
+    top: 43.7%; }
+  #odontograma-contenido .piezaExtruida-24 {
+    left: 62.5%;
+    top: 40.4%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .piezaIntruida-24 {
+    left: 62.5%;
+    top: 40.4%; }
+  #odontograma-contenido .piezaSupernumeraria-24 {
+    left: 65.7%;
+    top: 44%; }
+  #odontograma-contenido .edentulo-24 {
+    left: 62.5%;
+    top: 38.2%; }
   #odontograma-contenido .cursor-25 {
     height: 9.7%;
-    top: 34.5%;
+    top: 31.5%;
     left: 68.75%; }
   #odontograma-contenido .recuadro-25 {
-    top: 25%;
+    top: 23%;
     left: 68.75%; }
-  #odontograma-contenido .corona-25 {
+  #odontograma-contenido .corona-25, #odontograma-contenido .coronaTemporal-25 {
     height: 9.7%;
     left: 68.75%;
-    top: 36.4%;
+    top: 33%;
     background-position-y: 62%; }
   #odontograma-contenido .erupcion-25 {
-    height: 9.6%;
     left: 68.75%;
-    top: 33%;
+    top: 32%;
     background-position-y: 35%; }
   #odontograma-contenido .aparatoOrtoFijoInicio-25, #odontograma-contenido .aparatoOrtoFijoFin-25, #odontograma-contenido .linea-25 {
     left: 68.75%;
-    top: 30%; }
+    top: 27%; }
   #odontograma-contenido .aparatoOrtoRemovible-25 {
     left: 68.75%;
-    top: 30%; }
+    top: 27%; }
+  #odontograma-contenido .diastema-25 {
+    left: 74.55%;
+    top: 36.5%; }
+  #odontograma-contenido .piezaAusente-25 {
+    left: 68.75%;
+    top: 32%; }
+  #odontograma-contenido .piezaClavija-25 {
+    left: 68.75%;
+    top: 43.7%; }
+  #odontograma-contenido .piezaExtruida-25 {
+    left: 68.75%;
+    top: 40.4%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .piezaIntruida-25 {
+    left: 68.75%;
+    top: 40.4%; }
+  #odontograma-contenido .piezaSupernumeraria-25 {
+    left: 71.95%;
+    top: 44%; }
+  #odontograma-contenido .edentulo-25 {
+    left: 68.75%;
+    top: 38.2%; }
   #odontograma-contenido .cursor-26 {
     height: 9.7%;
-    top: 34.5%;
+    top: 31.5%;
     left: 75%; }
   #odontograma-contenido .recuadro-26 {
-    top: 25%;
+    top: 23%;
     left: 75%; }
-  #odontograma-contenido .corona-26 {
+  #odontograma-contenido .corona-26, #odontograma-contenido .coronaTemporal-26 {
     height: 9.7%;
     left: 75%;
-    top: 36.4%;
+    top: 33%;
     background-position-y: 62%; }
   #odontograma-contenido .erupcion-26 {
-    height: 9.6%;
     left: 75%;
-    top: 33%;
+    top: 32%;
     background-position-y: 35%; }
   #odontograma-contenido .aparatoOrtoFijoInicio-26, #odontograma-contenido .aparatoOrtoFijoFin-26, #odontograma-contenido .linea-26 {
     left: 75%;
-    top: 30%; }
+    top: 27%; }
   #odontograma-contenido .aparatoOrtoRemovible-26 {
     left: 75%;
-    top: 30%; }
+    top: 27%; }
+  #odontograma-contenido .diastema-26 {
+    left: 80.8%;
+    top: 36.5%; }
+  #odontograma-contenido .piezaAusente-26 {
+    left: 75%;
+    top: 32%; }
+  #odontograma-contenido .piezaClavija-26 {
+    left: 75%;
+    top: 43.7%; }
+  #odontograma-contenido .piezaExtruida-26 {
+    left: 75%;
+    top: 40.4%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .piezaIntruida-26 {
+    left: 75%;
+    top: 40.4%; }
+  #odontograma-contenido .piezaSupernumeraria-26 {
+    left: 78.2%;
+    top: 44%; }
+  #odontograma-contenido .edentulo-26 {
+    left: 75%;
+    top: 38.2%; }
   #odontograma-contenido .cursor-27 {
     height: 9.7%;
-    top: 54.5%;
+    top: 57.5%;
     left: 18.75%; }
   #odontograma-contenido .recuadro-27 {
-    top: 70.3%;
+    top: 72.5%;
     left: 18.75%; }
-  #odontograma-contenido .corona-27 {
+  #odontograma-contenido .corona-27, #odontograma-contenido .coronaTemporal-27 {
     height: 9.7%;
     left: 18.65%;
-    top: 52.2%;
+    top: 55.9%;
     background-position-y: 41%; }
   #odontograma-contenido .erupcion-27 {
-    height: 9.6%;
     left: 18.75%;
-    top: 56%;
+    top: 62%;
     background-position-y: 35%;
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg); }
   #odontograma-contenido .aparatoOrtoFijoInicio-27, #odontograma-contenido .aparatoOrtoFijoFin-27, #odontograma-contenido .linea-27 {
     left: 18.75%;
-    top: 66.5%; }
+    top: 68.5%; }
   #odontograma-contenido .aparatoOrtoRemovible-27 {
     left: 18.75%;
-    top: 65%;
+    top: 68%;
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg); }
+  #odontograma-contenido .diastema-27 {
+    left: 24.55%;
+    top: 58%; }
+  #odontograma-contenido .piezaAusente-27 {
+    left: 18.75%;
+    top: 58%; }
+  #odontograma-contenido .piezaClavija-27 {
+    left: 18.75%;
+    top: 49.3%; }
+  #odontograma-contenido .piezaExtruida-27 {
+    left: 18.75%;
+    top: 55.7%; }
+  #odontograma-contenido .piezaIntruida-27 {
+    left: 18.75%;
+    top: 55.7%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .piezaSupernumeraria-27 {
+    left: 21.95%;
+    top: 51%; }
+  #odontograma-contenido .edentulo-27 {
+    left: 18.75%;
+    top: 60%; }
   #odontograma-contenido .cursor-28 {
     height: 9.7%;
-    top: 54.5%;
+    top: 57.5%;
     left: 25%; }
   #odontograma-contenido .recuadro-28 {
-    top: 70.3%;
+    top: 72.5%;
     left: 25%; }
-  #odontograma-contenido .corona-28 {
+  #odontograma-contenido .corona-28, #odontograma-contenido .coronaTemporal-28 {
     height: 9.7%;
     left: 24.9%;
-    top: 52.2%;
+    top: 55.9%;
     background-position-y: 41%; }
   #odontograma-contenido .erupcion-28 {
-    height: 9.6%;
     left: 25%;
-    top: 56%;
+    top: 62%;
     background-position-y: 35%;
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg); }
   #odontograma-contenido .aparatoOrtoFijoInicio-28, #odontograma-contenido .aparatoOrtoFijoFin-28, #odontograma-contenido .linea-28 {
     left: 25%;
-    top: 66.5%; }
+    top: 68.5%; }
   #odontograma-contenido .aparatoOrtoRemovible-28 {
     left: 25%;
-    top: 65%;
+    top: 68%;
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg); }
+  #odontograma-contenido .diastema-28 {
+    left: 30.8%;
+    top: 58%; }
+  #odontograma-contenido .piezaAusente-28 {
+    left: 25%;
+    top: 58%; }
+  #odontograma-contenido .piezaClavija-28 {
+    left: 25%;
+    top: 49.3%; }
+  #odontograma-contenido .piezaExtruida-28 {
+    left: 25%;
+    top: 55.7%; }
+  #odontograma-contenido .piezaIntruida-28 {
+    left: 25%;
+    top: 55.7%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .piezaSupernumeraria-28 {
+    left: 28.2%;
+    top: 51%; }
+  #odontograma-contenido .edentulo-28 {
+    left: 25%;
+    top: 60%; }
   #odontograma-contenido .cursor-29 {
     height: 9.7%;
-    top: 54.5%;
+    top: 57.5%;
     left: 31.25%; }
   #odontograma-contenido .recuadro-29 {
-    top: 70.3%;
+    top: 72.5%;
     left: 31.25%; }
-  #odontograma-contenido .corona-29 {
+  #odontograma-contenido .corona-29, #odontograma-contenido .coronaTemporal-29 {
     height: 9.7%;
     left: 31.15%;
-    top: 52.2%;
+    top: 55.9%;
     background-position-y: 41%; }
   #odontograma-contenido .erupcion-29 {
-    height: 9.6%;
     left: 31.25%;
-    top: 56%;
+    top: 62%;
     background-position-y: 35%;
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg); }
   #odontograma-contenido .aparatoOrtoFijoInicio-29, #odontograma-contenido .aparatoOrtoFijoFin-29, #odontograma-contenido .linea-29 {
     left: 31.25%;
-    top: 66.5%; }
+    top: 68.5%; }
   #odontograma-contenido .aparatoOrtoRemovible-29 {
     left: 31.25%;
-    top: 65%;
+    top: 68%;
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg); }
+  #odontograma-contenido .diastema-29 {
+    left: 37.05%;
+    top: 58%; }
+  #odontograma-contenido .piezaAusente-29 {
+    left: 31.25%;
+    top: 58%; }
+  #odontograma-contenido .piezaClavija-29 {
+    left: 31.25%;
+    top: 49.3%; }
+  #odontograma-contenido .piezaExtruida-29 {
+    left: 31.25%;
+    top: 55.7%; }
+  #odontograma-contenido .piezaIntruida-29 {
+    left: 31.25%;
+    top: 55.7%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .piezaSupernumeraria-29 {
+    left: 34.45%;
+    top: 51%; }
+  #odontograma-contenido .edentulo-29 {
+    left: 31.25%;
+    top: 60%; }
   #odontograma-contenido .cursor-30 {
     height: 9.7%;
-    top: 54.5%;
+    top: 57.5%;
     left: 37.5%; }
   #odontograma-contenido .recuadro-30 {
-    top: 70.3%;
+    top: 72.5%;
     left: 37.5%; }
-  #odontograma-contenido .corona-30 {
+  #odontograma-contenido .corona-30, #odontograma-contenido .coronaTemporal-30 {
     height: 9.7%;
     left: 37.4%;
-    top: 52.2%;
+    top: 55.9%;
     background-position-y: 41%; }
   #odontograma-contenido .erupcion-30 {
-    height: 9.6%;
     left: 37.5%;
-    top: 56%;
+    top: 62%;
     background-position-y: 35%;
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg); }
   #odontograma-contenido .aparatoOrtoFijoInicio-30, #odontograma-contenido .aparatoOrtoFijoFin-30, #odontograma-contenido .linea-30 {
     left: 37.5%;
-    top: 66.5%; }
+    top: 68.5%; }
   #odontograma-contenido .aparatoOrtoRemovible-30 {
     left: 37.5%;
-    top: 65%;
+    top: 68%;
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg); }
+  #odontograma-contenido .diastema-30 {
+    left: 43.3%;
+    top: 58%; }
+  #odontograma-contenido .piezaAusente-30 {
+    left: 37.5%;
+    top: 58%; }
+  #odontograma-contenido .piezaClavija-30 {
+    left: 37.5%;
+    top: 49.3%; }
+  #odontograma-contenido .piezaExtruida-30 {
+    left: 37.5%;
+    top: 55.7%; }
+  #odontograma-contenido .piezaIntruida-30 {
+    left: 37.5%;
+    top: 55.7%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .piezaSupernumeraria-30 {
+    left: 40.7%;
+    top: 51%; }
+  #odontograma-contenido .edentulo-30 {
+    left: 37.5%;
+    top: 60%; }
   #odontograma-contenido .cursor-31 {
     height: 9.7%;
-    top: 54.5%;
+    top: 57.5%;
     left: 43.75%; }
   #odontograma-contenido .recuadro-31 {
-    top: 70.3%;
+    top: 72.5%;
     left: 43.75%; }
-  #odontograma-contenido .corona-31 {
+  #odontograma-contenido .corona-31, #odontograma-contenido .coronaTemporal-31 {
     height: 9.7%;
     left: 43.65%;
-    top: 52.2%;
+    top: 55.9%;
     background-position-y: 41%; }
   #odontograma-contenido .erupcion-31 {
-    height: 9.6%;
     left: 43.75%;
-    top: 56%;
+    top: 62%;
     background-position-y: 35%;
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg); }
   #odontograma-contenido .aparatoOrtoFijoInicio-31, #odontograma-contenido .aparatoOrtoFijoFin-31, #odontograma-contenido .linea-31 {
     left: 43.75%;
-    top: 66.5%; }
+    top: 68.5%; }
   #odontograma-contenido .aparatoOrtoRemovible-31 {
     left: 43.75%;
-    top: 65%;
+    top: 68%;
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg); }
+  #odontograma-contenido .diastema-31 {
+    left: 49.55%;
+    top: 58%; }
+  #odontograma-contenido .piezaAusente-31 {
+    left: 43.75%;
+    top: 58%; }
+  #odontograma-contenido .piezaClavija-31 {
+    left: 43.75%;
+    top: 49.3%; }
+  #odontograma-contenido .piezaExtruida-31 {
+    left: 43.75%;
+    top: 55.7%; }
+  #odontograma-contenido .piezaIntruida-31 {
+    left: 43.75%;
+    top: 55.7%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .piezaSupernumeraria-31 {
+    left: 46.95%;
+    top: 51%; }
+  #odontograma-contenido .edentulo-31 {
+    left: 43.75%;
+    top: 60%; }
   #odontograma-contenido .cursor-32 {
     height: 9.7%;
-    top: 54.5%;
+    top: 57.5%;
     left: 50%; }
   #odontograma-contenido .recuadro-32 {
-    top: 70.3%;
+    top: 72.5%;
     left: 50%; }
-  #odontograma-contenido .corona-32 {
+  #odontograma-contenido .corona-32, #odontograma-contenido .coronaTemporal-32 {
     height: 9.7%;
     left: 49.9%;
-    top: 52.2%;
+    top: 55.9%;
     background-position-y: 41%; }
   #odontograma-contenido .erupcion-32 {
-    height: 9.6%;
     left: 50%;
-    top: 56%;
+    top: 62%;
     background-position-y: 35%;
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg); }
   #odontograma-contenido .aparatoOrtoFijoInicio-32, #odontograma-contenido .aparatoOrtoFijoFin-32, #odontograma-contenido .linea-32 {
     left: 50%;
-    top: 66.5%; }
+    top: 68.5%; }
   #odontograma-contenido .aparatoOrtoRemovible-32 {
     left: 50%;
-    top: 65%;
+    top: 68%;
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg); }
+  #odontograma-contenido .diastema-32 {
+    left: 55.8%;
+    top: 58%; }
+  #odontograma-contenido .piezaAusente-32 {
+    left: 50%;
+    top: 58%; }
+  #odontograma-contenido .piezaClavija-32 {
+    left: 50%;
+    top: 49.3%; }
+  #odontograma-contenido .piezaExtruida-32 {
+    left: 50%;
+    top: 55.7%; }
+  #odontograma-contenido .piezaIntruida-32 {
+    left: 50%;
+    top: 55.7%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .piezaSupernumeraria-32 {
+    left: 53.2%;
+    top: 51%; }
+  #odontograma-contenido .edentulo-32 {
+    left: 50%;
+    top: 60%; }
   #odontograma-contenido .cursor-33 {
     height: 9.7%;
-    top: 54.5%;
+    top: 57.5%;
     left: 56.25%; }
   #odontograma-contenido .recuadro-33 {
-    top: 70.3%;
+    top: 72.5%;
     left: 56.25%; }
-  #odontograma-contenido .corona-33 {
+  #odontograma-contenido .corona-33, #odontograma-contenido .coronaTemporal-33 {
     height: 9.7%;
     left: 56.15%;
-    top: 52.2%;
+    top: 55.9%;
     background-position-y: 41%; }
   #odontograma-contenido .erupcion-33 {
-    height: 9.6%;
     left: 56.25%;
-    top: 56%;
+    top: 62%;
     background-position-y: 35%;
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg); }
   #odontograma-contenido .aparatoOrtoFijoInicio-33, #odontograma-contenido .aparatoOrtoFijoFin-33, #odontograma-contenido .linea-33 {
     left: 56.25%;
-    top: 66.5%; }
+    top: 68.5%; }
   #odontograma-contenido .aparatoOrtoRemovible-33 {
     left: 56.25%;
-    top: 65%;
+    top: 68%;
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg); }
+  #odontograma-contenido .diastema-33 {
+    left: 62.05%;
+    top: 58%; }
+  #odontograma-contenido .piezaAusente-33 {
+    left: 56.25%;
+    top: 58%; }
+  #odontograma-contenido .piezaClavija-33 {
+    left: 56.25%;
+    top: 49.3%; }
+  #odontograma-contenido .piezaExtruida-33 {
+    left: 56.25%;
+    top: 55.7%; }
+  #odontograma-contenido .piezaIntruida-33 {
+    left: 56.25%;
+    top: 55.7%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .piezaSupernumeraria-33 {
+    left: 59.45%;
+    top: 51%; }
+  #odontograma-contenido .edentulo-33 {
+    left: 56.25%;
+    top: 60%; }
   #odontograma-contenido .cursor-34 {
     height: 9.7%;
-    top: 54.5%;
+    top: 57.5%;
     left: 62.5%; }
   #odontograma-contenido .recuadro-34 {
-    top: 70.3%;
+    top: 72.5%;
     left: 62.5%; }
-  #odontograma-contenido .corona-34 {
+  #odontograma-contenido .corona-34, #odontograma-contenido .coronaTemporal-34 {
     height: 9.7%;
     left: 62.4%;
-    top: 52.2%;
+    top: 55.9%;
     background-position-y: 41%; }
   #odontograma-contenido .erupcion-34 {
-    height: 9.6%;
     left: 62.5%;
-    top: 56%;
+    top: 62%;
     background-position-y: 35%;
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg); }
   #odontograma-contenido .aparatoOrtoFijoInicio-34, #odontograma-contenido .aparatoOrtoFijoFin-34, #odontograma-contenido .linea-34 {
     left: 62.5%;
-    top: 66.5%; }
+    top: 68.5%; }
   #odontograma-contenido .aparatoOrtoRemovible-34 {
     left: 62.5%;
-    top: 65%;
+    top: 68%;
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg); }
+  #odontograma-contenido .diastema-34 {
+    left: 68.3%;
+    top: 58%; }
+  #odontograma-contenido .piezaAusente-34 {
+    left: 62.5%;
+    top: 58%; }
+  #odontograma-contenido .piezaClavija-34 {
+    left: 62.5%;
+    top: 49.3%; }
+  #odontograma-contenido .piezaExtruida-34 {
+    left: 62.5%;
+    top: 55.7%; }
+  #odontograma-contenido .piezaIntruida-34 {
+    left: 62.5%;
+    top: 55.7%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .piezaSupernumeraria-34 {
+    left: 65.7%;
+    top: 51%; }
+  #odontograma-contenido .edentulo-34 {
+    left: 62.5%;
+    top: 60%; }
   #odontograma-contenido .cursor-35 {
     height: 9.7%;
-    top: 54.5%;
+    top: 57.5%;
     left: 68.75%; }
   #odontograma-contenido .recuadro-35 {
-    top: 70.3%;
+    top: 72.5%;
     left: 68.75%; }
-  #odontograma-contenido .corona-35 {
+  #odontograma-contenido .corona-35, #odontograma-contenido .coronaTemporal-35 {
     height: 9.7%;
     left: 68.65%;
-    top: 52.2%;
+    top: 55.9%;
     background-position-y: 41%; }
   #odontograma-contenido .erupcion-35 {
-    height: 9.6%;
     left: 68.75%;
-    top: 56%;
+    top: 62%;
     background-position-y: 35%;
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg); }
   #odontograma-contenido .aparatoOrtoFijoInicio-35, #odontograma-contenido .aparatoOrtoFijoFin-35, #odontograma-contenido .linea-35 {
     left: 68.75%;
-    top: 66.5%; }
+    top: 68.5%; }
   #odontograma-contenido .aparatoOrtoRemovible-35 {
     left: 68.75%;
-    top: 65%;
+    top: 68%;
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg); }
+  #odontograma-contenido .diastema-35 {
+    left: 74.55%;
+    top: 58%; }
+  #odontograma-contenido .piezaAusente-35 {
+    left: 68.75%;
+    top: 58%; }
+  #odontograma-contenido .piezaClavija-35 {
+    left: 68.75%;
+    top: 49.3%; }
+  #odontograma-contenido .piezaExtruida-35 {
+    left: 68.75%;
+    top: 55.7%; }
+  #odontograma-contenido .piezaIntruida-35 {
+    left: 68.75%;
+    top: 55.7%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .piezaSupernumeraria-35 {
+    left: 71.95%;
+    top: 51%; }
+  #odontograma-contenido .edentulo-35 {
+    left: 68.75%;
+    top: 60%; }
   #odontograma-contenido .cursor-36 {
     height: 9.7%;
-    top: 54.5%;
+    top: 57.5%;
     left: 75%; }
   #odontograma-contenido .recuadro-36 {
-    top: 70.3%;
+    top: 72.5%;
     left: 75%; }
-  #odontograma-contenido .corona-36 {
+  #odontograma-contenido .corona-36, #odontograma-contenido .coronaTemporal-36 {
     height: 9.7%;
     left: 74.9%;
-    top: 52.2%;
+    top: 55.9%;
     background-position-y: 41%; }
   #odontograma-contenido .erupcion-36 {
-    height: 9.6%;
     left: 75%;
-    top: 56%;
+    top: 62%;
     background-position-y: 35%;
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg); }
   #odontograma-contenido .aparatoOrtoFijoInicio-36, #odontograma-contenido .aparatoOrtoFijoFin-36, #odontograma-contenido .linea-36 {
     left: 75%;
-    top: 66.5%; }
+    top: 68.5%; }
   #odontograma-contenido .aparatoOrtoRemovible-36 {
     left: 75%;
-    top: 65%;
+    top: 68%;
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg); }
+  #odontograma-contenido .diastema-36 {
+    left: 80.8%;
+    top: 58%; }
+  #odontograma-contenido .piezaAusente-36 {
+    left: 75%;
+    top: 58%; }
+  #odontograma-contenido .piezaClavija-36 {
+    left: 75%;
+    top: 49.3%; }
+  #odontograma-contenido .piezaExtruida-36 {
+    left: 75%;
+    top: 55.7%; }
+  #odontograma-contenido .piezaIntruida-36 {
+    left: 75%;
+    top: 55.7%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .piezaSupernumeraria-36 {
+    left: 78.2%;
+    top: 51%; }
+  #odontograma-contenido .edentulo-36 {
+    left: 75%;
+    top: 60%; }
   #odontograma-contenido .cursor-37 {
     height: 9.6%;
-    top: 78.8%;
+    top: 79.8%;
     left: 0%; }
   #odontograma-contenido .recuadro-37 {
     bottom: 0;
     left: 0%; }
-  #odontograma-contenido .corona-37 {
+  #odontograma-contenido .corona-37, #odontograma-contenido .coronaTemporal-37 {
     height: 9.7%;
     left: 0%;
-    top: 78.8%;
+    top: 80.6%;
     background-position-y: top; }
   #odontograma-contenido .erupcion-37 {
-    height: 9.6%;
     left: 0%;
-    top: 80.2%;
+    top: 84.5%;
     background-position-y: 35%;
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
@@ -1023,26 +1878,49 @@
     top: 93.5%; }
   #odontograma-contenido .aparatoOrtoRemovible-37 {
     left: 0%;
-    top: 92.5%;
+    top: 93%;
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg); }
+  #odontograma-contenido .diastema-37 {
+    left: 5.8%;
+    top: 80.5%; }
+  #odontograma-contenido .piezaAusente-37 {
+    left: 0%;
+    top: 80.5%; }
+  #odontograma-contenido .piezaClavija-37 {
+    left: 0%;
+    top: 88.3%; }
+  #odontograma-contenido .piezaExtruida-37 {
+    left: 0%;
+    top: 78%; }
+  #odontograma-contenido .piezaIntruida-37 {
+    left: 0%;
+    top: 78%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .piezaSupernumeraria-37 {
+    left: 3.2%;
+    top: 89.5%; }
+  #odontograma-contenido .edentulo-37 {
+    left: 0%;
+    top: 82.5%; }
   #odontograma-contenido .cursor-38 {
     height: 9.6%;
-    top: 78.8%;
+    top: 79.8%;
     left: 6.25%; }
   #odontograma-contenido .recuadro-38 {
     bottom: 0;
     left: 6.25%; }
-  #odontograma-contenido .corona-38 {
+  #odontograma-contenido .corona-38, #odontograma-contenido .coronaTemporal-38 {
     height: 9.7%;
     left: 6.25%;
-    top: 78.8%;
+    top: 80.6%;
     background-position-y: top; }
   #odontograma-contenido .erupcion-38 {
-    height: 9.6%;
     left: 6.25%;
-    top: 80.2%;
+    top: 84.5%;
     background-position-y: 35%;
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
@@ -1052,26 +1930,49 @@
     top: 93.5%; }
   #odontograma-contenido .aparatoOrtoRemovible-38 {
     left: 6.25%;
-    top: 92.5%;
+    top: 93%;
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg); }
+  #odontograma-contenido .diastema-38 {
+    left: 12.05%;
+    top: 80.5%; }
+  #odontograma-contenido .piezaAusente-38 {
+    left: 6.25%;
+    top: 80.5%; }
+  #odontograma-contenido .piezaClavija-38 {
+    left: 6.25%;
+    top: 88.3%; }
+  #odontograma-contenido .piezaExtruida-38 {
+    left: 6.25%;
+    top: 78%; }
+  #odontograma-contenido .piezaIntruida-38 {
+    left: 6.25%;
+    top: 78%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .piezaSupernumeraria-38 {
+    left: 9.45%;
+    top: 89.5%; }
+  #odontograma-contenido .edentulo-38 {
+    left: 6.25%;
+    top: 82.5%; }
   #odontograma-contenido .cursor-39 {
     height: 9.6%;
-    top: 78.8%;
+    top: 79.8%;
     left: 12.5%; }
   #odontograma-contenido .recuadro-39 {
     bottom: 0;
     left: 12.5%; }
-  #odontograma-contenido .corona-39 {
+  #odontograma-contenido .corona-39, #odontograma-contenido .coronaTemporal-39 {
     height: 9.7%;
     left: 12.5%;
-    top: 78.8%;
+    top: 80.6%;
     background-position-y: top; }
   #odontograma-contenido .erupcion-39 {
-    height: 9.6%;
     left: 12.5%;
-    top: 80.2%;
+    top: 84.5%;
     background-position-y: 35%;
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
@@ -1081,26 +1982,49 @@
     top: 93.5%; }
   #odontograma-contenido .aparatoOrtoRemovible-39 {
     left: 12.5%;
-    top: 92.5%;
+    top: 93%;
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg); }
+  #odontograma-contenido .diastema-39 {
+    left: 18.3%;
+    top: 80.5%; }
+  #odontograma-contenido .piezaAusente-39 {
+    left: 12.5%;
+    top: 80.5%; }
+  #odontograma-contenido .piezaClavija-39 {
+    left: 12.5%;
+    top: 88.3%; }
+  #odontograma-contenido .piezaExtruida-39 {
+    left: 12.5%;
+    top: 78%; }
+  #odontograma-contenido .piezaIntruida-39 {
+    left: 12.5%;
+    top: 78%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .piezaSupernumeraria-39 {
+    left: 15.7%;
+    top: 89.5%; }
+  #odontograma-contenido .edentulo-39 {
+    left: 12.5%;
+    top: 82.5%; }
   #odontograma-contenido .cursor-40 {
     height: 9.6%;
-    top: 78.8%;
+    top: 79.8%;
     left: 18.75%; }
   #odontograma-contenido .recuadro-40 {
     bottom: 0;
     left: 18.75%; }
-  #odontograma-contenido .corona-40 {
+  #odontograma-contenido .corona-40, #odontograma-contenido .coronaTemporal-40 {
     height: 9.7%;
     left: 18.75%;
-    top: 78.8%;
+    top: 80.6%;
     background-position-y: top; }
   #odontograma-contenido .erupcion-40 {
-    height: 9.6%;
     left: 18.75%;
-    top: 80.2%;
+    top: 84.5%;
     background-position-y: 35%;
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
@@ -1110,26 +2034,49 @@
     top: 93.5%; }
   #odontograma-contenido .aparatoOrtoRemovible-40 {
     left: 18.75%;
-    top: 92.5%;
+    top: 93%;
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg); }
+  #odontograma-contenido .diastema-40 {
+    left: 24.55%;
+    top: 80.5%; }
+  #odontograma-contenido .piezaAusente-40 {
+    left: 18.75%;
+    top: 80.5%; }
+  #odontograma-contenido .piezaClavija-40 {
+    left: 18.75%;
+    top: 88.3%; }
+  #odontograma-contenido .piezaExtruida-40 {
+    left: 18.75%;
+    top: 78%; }
+  #odontograma-contenido .piezaIntruida-40 {
+    left: 18.75%;
+    top: 78%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .piezaSupernumeraria-40 {
+    left: 21.95%;
+    top: 89.5%; }
+  #odontograma-contenido .edentulo-40 {
+    left: 18.75%;
+    top: 82.5%; }
   #odontograma-contenido .cursor-41 {
     height: 9.6%;
-    top: 78.8%;
+    top: 79.8%;
     left: 25%; }
   #odontograma-contenido .recuadro-41 {
     bottom: 0;
     left: 25%; }
-  #odontograma-contenido .corona-41 {
+  #odontograma-contenido .corona-41, #odontograma-contenido .coronaTemporal-41 {
     height: 9.7%;
     left: 25%;
-    top: 78.8%;
+    top: 80.6%;
     background-position-y: top; }
   #odontograma-contenido .erupcion-41 {
-    height: 9.6%;
     left: 25%;
-    top: 80.2%;
+    top: 84.5%;
     background-position-y: 35%;
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
@@ -1139,26 +2086,49 @@
     top: 93.5%; }
   #odontograma-contenido .aparatoOrtoRemovible-41 {
     left: 25%;
-    top: 92.5%;
+    top: 93%;
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg); }
+  #odontograma-contenido .diastema-41 {
+    left: 30.8%;
+    top: 80.5%; }
+  #odontograma-contenido .piezaAusente-41 {
+    left: 25%;
+    top: 80.5%; }
+  #odontograma-contenido .piezaClavija-41 {
+    left: 25%;
+    top: 88.3%; }
+  #odontograma-contenido .piezaExtruida-41 {
+    left: 25%;
+    top: 78%; }
+  #odontograma-contenido .piezaIntruida-41 {
+    left: 25%;
+    top: 78%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .piezaSupernumeraria-41 {
+    left: 28.2%;
+    top: 89.5%; }
+  #odontograma-contenido .edentulo-41 {
+    left: 25%;
+    top: 82.5%; }
   #odontograma-contenido .cursor-42 {
     height: 9.6%;
-    top: 78.8%;
+    top: 79.8%;
     left: 31.25%; }
   #odontograma-contenido .recuadro-42 {
     bottom: 0;
     left: 31.25%; }
-  #odontograma-contenido .corona-42 {
+  #odontograma-contenido .corona-42, #odontograma-contenido .coronaTemporal-42 {
     height: 9.7%;
     left: 31.25%;
-    top: 78.8%;
+    top: 80.6%;
     background-position-y: top; }
   #odontograma-contenido .erupcion-42 {
-    height: 9.6%;
     left: 31.25%;
-    top: 80.2%;
+    top: 84.5%;
     background-position-y: 35%;
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
@@ -1168,26 +2138,49 @@
     top: 93.5%; }
   #odontograma-contenido .aparatoOrtoRemovible-42 {
     left: 31.25%;
-    top: 92.5%;
+    top: 93%;
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg); }
+  #odontograma-contenido .diastema-42 {
+    left: 37.05%;
+    top: 80.5%; }
+  #odontograma-contenido .piezaAusente-42 {
+    left: 31.25%;
+    top: 80.5%; }
+  #odontograma-contenido .piezaClavija-42 {
+    left: 31.25%;
+    top: 88.3%; }
+  #odontograma-contenido .piezaExtruida-42 {
+    left: 31.25%;
+    top: 78%; }
+  #odontograma-contenido .piezaIntruida-42 {
+    left: 31.25%;
+    top: 78%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .piezaSupernumeraria-42 {
+    left: 34.45%;
+    top: 89.5%; }
+  #odontograma-contenido .edentulo-42 {
+    left: 31.25%;
+    top: 82.5%; }
   #odontograma-contenido .cursor-43 {
     height: 9.6%;
-    top: 78.8%;
+    top: 79.8%;
     left: 37.5%; }
   #odontograma-contenido .recuadro-43 {
     bottom: 0;
     left: 37.5%; }
-  #odontograma-contenido .corona-43 {
+  #odontograma-contenido .corona-43, #odontograma-contenido .coronaTemporal-43 {
     height: 9.7%;
     left: 37.5%;
-    top: 78.8%;
+    top: 80.6%;
     background-position-y: top; }
   #odontograma-contenido .erupcion-43 {
-    height: 9.6%;
     left: 37.5%;
-    top: 80.2%;
+    top: 84.5%;
     background-position-y: 35%;
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
@@ -1197,26 +2190,49 @@
     top: 93.5%; }
   #odontograma-contenido .aparatoOrtoRemovible-43 {
     left: 37.5%;
-    top: 92.5%;
+    top: 93%;
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg); }
+  #odontograma-contenido .diastema-43 {
+    left: 43.3%;
+    top: 80.5%; }
+  #odontograma-contenido .piezaAusente-43 {
+    left: 37.5%;
+    top: 80.5%; }
+  #odontograma-contenido .piezaClavija-43 {
+    left: 37.5%;
+    top: 88.3%; }
+  #odontograma-contenido .piezaExtruida-43 {
+    left: 37.5%;
+    top: 78%; }
+  #odontograma-contenido .piezaIntruida-43 {
+    left: 37.5%;
+    top: 78%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .piezaSupernumeraria-43 {
+    left: 40.7%;
+    top: 89.5%; }
+  #odontograma-contenido .edentulo-43 {
+    left: 37.5%;
+    top: 82.5%; }
   #odontograma-contenido .cursor-44 {
     height: 9.6%;
-    top: 78.8%;
+    top: 79.8%;
     left: 43.75%; }
   #odontograma-contenido .recuadro-44 {
     bottom: 0;
     left: 43.75%; }
-  #odontograma-contenido .corona-44 {
+  #odontograma-contenido .corona-44, #odontograma-contenido .coronaTemporal-44 {
     height: 9.7%;
     left: 43.75%;
-    top: 78.8%;
+    top: 80.6%;
     background-position-y: top; }
   #odontograma-contenido .erupcion-44 {
-    height: 9.6%;
     left: 43.75%;
-    top: 80.2%;
+    top: 84.5%;
     background-position-y: 35%;
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
@@ -1226,26 +2242,49 @@
     top: 93.5%; }
   #odontograma-contenido .aparatoOrtoRemovible-44 {
     left: 43.75%;
-    top: 92.5%;
+    top: 93%;
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg); }
+  #odontograma-contenido .diastema-44 {
+    left: 49.55%;
+    top: 80.5%; }
+  #odontograma-contenido .piezaAusente-44 {
+    left: 43.75%;
+    top: 80.5%; }
+  #odontograma-contenido .piezaClavija-44 {
+    left: 43.75%;
+    top: 88.3%; }
+  #odontograma-contenido .piezaExtruida-44 {
+    left: 43.75%;
+    top: 78%; }
+  #odontograma-contenido .piezaIntruida-44 {
+    left: 43.75%;
+    top: 78%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .piezaSupernumeraria-44 {
+    left: 46.95%;
+    top: 89.5%; }
+  #odontograma-contenido .edentulo-44 {
+    left: 43.75%;
+    top: 82.5%; }
   #odontograma-contenido .cursor-45 {
     height: 9.6%;
-    top: 78.8%;
+    top: 79.8%;
     left: 50%; }
   #odontograma-contenido .recuadro-45 {
     bottom: 0;
     left: 50%; }
-  #odontograma-contenido .corona-45 {
+  #odontograma-contenido .corona-45, #odontograma-contenido .coronaTemporal-45 {
     height: 9.7%;
     left: 50%;
-    top: 78.8%;
+    top: 80.6%;
     background-position-y: top; }
   #odontograma-contenido .erupcion-45 {
-    height: 9.6%;
     left: 50%;
-    top: 80.2%;
+    top: 84.5%;
     background-position-y: 35%;
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
@@ -1255,26 +2294,49 @@
     top: 93.5%; }
   #odontograma-contenido .aparatoOrtoRemovible-45 {
     left: 50%;
-    top: 92.5%;
+    top: 93%;
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg); }
+  #odontograma-contenido .diastema-45 {
+    left: 55.8%;
+    top: 80.5%; }
+  #odontograma-contenido .piezaAusente-45 {
+    left: 50%;
+    top: 80.5%; }
+  #odontograma-contenido .piezaClavija-45 {
+    left: 50%;
+    top: 88.3%; }
+  #odontograma-contenido .piezaExtruida-45 {
+    left: 50%;
+    top: 78%; }
+  #odontograma-contenido .piezaIntruida-45 {
+    left: 50%;
+    top: 78%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .piezaSupernumeraria-45 {
+    left: 53.2%;
+    top: 89.5%; }
+  #odontograma-contenido .edentulo-45 {
+    left: 50%;
+    top: 82.5%; }
   #odontograma-contenido .cursor-46 {
     height: 9.6%;
-    top: 78.8%;
+    top: 79.8%;
     left: 56.25%; }
   #odontograma-contenido .recuadro-46 {
     bottom: 0;
     left: 56.25%; }
-  #odontograma-contenido .corona-46 {
+  #odontograma-contenido .corona-46, #odontograma-contenido .coronaTemporal-46 {
     height: 9.7%;
     left: 56.25%;
-    top: 78.8%;
+    top: 80.6%;
     background-position-y: top; }
   #odontograma-contenido .erupcion-46 {
-    height: 9.6%;
     left: 56.25%;
-    top: 80.2%;
+    top: 84.5%;
     background-position-y: 35%;
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
@@ -1284,26 +2346,49 @@
     top: 93.5%; }
   #odontograma-contenido .aparatoOrtoRemovible-46 {
     left: 56.25%;
-    top: 92.5%;
+    top: 93%;
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg); }
+  #odontograma-contenido .diastema-46 {
+    left: 62.05%;
+    top: 80.5%; }
+  #odontograma-contenido .piezaAusente-46 {
+    left: 56.25%;
+    top: 80.5%; }
+  #odontograma-contenido .piezaClavija-46 {
+    left: 56.25%;
+    top: 88.3%; }
+  #odontograma-contenido .piezaExtruida-46 {
+    left: 56.25%;
+    top: 78%; }
+  #odontograma-contenido .piezaIntruida-46 {
+    left: 56.25%;
+    top: 78%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .piezaSupernumeraria-46 {
+    left: 59.45%;
+    top: 89.5%; }
+  #odontograma-contenido .edentulo-46 {
+    left: 56.25%;
+    top: 82.5%; }
   #odontograma-contenido .cursor-47 {
     height: 9.6%;
-    top: 78.8%;
+    top: 79.8%;
     left: 62.5%; }
   #odontograma-contenido .recuadro-47 {
     bottom: 0;
     left: 62.5%; }
-  #odontograma-contenido .corona-47 {
+  #odontograma-contenido .corona-47, #odontograma-contenido .coronaTemporal-47 {
     height: 9.7%;
     left: 62.5%;
-    top: 78.8%;
+    top: 80.6%;
     background-position-y: top; }
   #odontograma-contenido .erupcion-47 {
-    height: 9.6%;
     left: 62.5%;
-    top: 80.2%;
+    top: 84.5%;
     background-position-y: 35%;
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
@@ -1313,26 +2398,49 @@
     top: 93.5%; }
   #odontograma-contenido .aparatoOrtoRemovible-47 {
     left: 62.5%;
-    top: 92.5%;
+    top: 93%;
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg); }
+  #odontograma-contenido .diastema-47 {
+    left: 68.3%;
+    top: 80.5%; }
+  #odontograma-contenido .piezaAusente-47 {
+    left: 62.5%;
+    top: 80.5%; }
+  #odontograma-contenido .piezaClavija-47 {
+    left: 62.5%;
+    top: 88.3%; }
+  #odontograma-contenido .piezaExtruida-47 {
+    left: 62.5%;
+    top: 78%; }
+  #odontograma-contenido .piezaIntruida-47 {
+    left: 62.5%;
+    top: 78%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .piezaSupernumeraria-47 {
+    left: 65.7%;
+    top: 89.5%; }
+  #odontograma-contenido .edentulo-47 {
+    left: 62.5%;
+    top: 82.5%; }
   #odontograma-contenido .cursor-48 {
     height: 9.6%;
-    top: 78.8%;
+    top: 79.8%;
     left: 68.75%; }
   #odontograma-contenido .recuadro-48 {
     bottom: 0;
     left: 68.75%; }
-  #odontograma-contenido .corona-48 {
+  #odontograma-contenido .corona-48, #odontograma-contenido .coronaTemporal-48 {
     height: 9.7%;
     left: 68.75%;
-    top: 78.8%;
+    top: 80.6%;
     background-position-y: top; }
   #odontograma-contenido .erupcion-48 {
-    height: 9.6%;
     left: 68.75%;
-    top: 80.2%;
+    top: 84.5%;
     background-position-y: 35%;
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
@@ -1342,26 +2450,49 @@
     top: 93.5%; }
   #odontograma-contenido .aparatoOrtoRemovible-48 {
     left: 68.75%;
-    top: 92.5%;
+    top: 93%;
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg); }
+  #odontograma-contenido .diastema-48 {
+    left: 74.55%;
+    top: 80.5%; }
+  #odontograma-contenido .piezaAusente-48 {
+    left: 68.75%;
+    top: 80.5%; }
+  #odontograma-contenido .piezaClavija-48 {
+    left: 68.75%;
+    top: 88.3%; }
+  #odontograma-contenido .piezaExtruida-48 {
+    left: 68.75%;
+    top: 78%; }
+  #odontograma-contenido .piezaIntruida-48 {
+    left: 68.75%;
+    top: 78%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .piezaSupernumeraria-48 {
+    left: 71.95%;
+    top: 89.5%; }
+  #odontograma-contenido .edentulo-48 {
+    left: 68.75%;
+    top: 82.5%; }
   #odontograma-contenido .cursor-49 {
     height: 9.6%;
-    top: 78.8%;
+    top: 79.8%;
     left: 75%; }
   #odontograma-contenido .recuadro-49 {
     bottom: 0;
     left: 75%; }
-  #odontograma-contenido .corona-49 {
+  #odontograma-contenido .corona-49, #odontograma-contenido .coronaTemporal-49 {
     height: 9.7%;
     left: 75%;
-    top: 78.8%;
+    top: 80.6%;
     background-position-y: top; }
   #odontograma-contenido .erupcion-49 {
-    height: 9.6%;
     left: 75%;
-    top: 80.2%;
+    top: 84.5%;
     background-position-y: 35%;
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
@@ -1371,26 +2502,49 @@
     top: 93.5%; }
   #odontograma-contenido .aparatoOrtoRemovible-49 {
     left: 75%;
-    top: 92.5%;
+    top: 93%;
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg); }
+  #odontograma-contenido .diastema-49 {
+    left: 80.8%;
+    top: 80.5%; }
+  #odontograma-contenido .piezaAusente-49 {
+    left: 75%;
+    top: 80.5%; }
+  #odontograma-contenido .piezaClavija-49 {
+    left: 75%;
+    top: 88.3%; }
+  #odontograma-contenido .piezaExtruida-49 {
+    left: 75%;
+    top: 78%; }
+  #odontograma-contenido .piezaIntruida-49 {
+    left: 75%;
+    top: 78%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .piezaSupernumeraria-49 {
+    left: 78.2%;
+    top: 89.5%; }
+  #odontograma-contenido .edentulo-49 {
+    left: 75%;
+    top: 82.5%; }
   #odontograma-contenido .cursor-50 {
     height: 9.6%;
-    top: 78.8%;
+    top: 79.8%;
     left: 81.25%; }
   #odontograma-contenido .recuadro-50 {
     bottom: 0;
     left: 81.25%; }
-  #odontograma-contenido .corona-50 {
+  #odontograma-contenido .corona-50, #odontograma-contenido .coronaTemporal-50 {
     height: 9.7%;
     left: 81.25%;
-    top: 78.8%;
+    top: 80.6%;
     background-position-y: top; }
   #odontograma-contenido .erupcion-50 {
-    height: 9.6%;
     left: 81.25%;
-    top: 80.2%;
+    top: 84.5%;
     background-position-y: 35%;
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
@@ -1400,26 +2554,49 @@
     top: 93.5%; }
   #odontograma-contenido .aparatoOrtoRemovible-50 {
     left: 81.25%;
-    top: 92.5%;
+    top: 93%;
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg); }
+  #odontograma-contenido .diastema-50 {
+    left: 87.05%;
+    top: 80.5%; }
+  #odontograma-contenido .piezaAusente-50 {
+    left: 81.25%;
+    top: 80.5%; }
+  #odontograma-contenido .piezaClavija-50 {
+    left: 81.25%;
+    top: 88.3%; }
+  #odontograma-contenido .piezaExtruida-50 {
+    left: 81.25%;
+    top: 78%; }
+  #odontograma-contenido .piezaIntruida-50 {
+    left: 81.25%;
+    top: 78%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .piezaSupernumeraria-50 {
+    left: 84.45%;
+    top: 89.5%; }
+  #odontograma-contenido .edentulo-50 {
+    left: 81.25%;
+    top: 82.5%; }
   #odontograma-contenido .cursor-51 {
     height: 9.6%;
-    top: 78.8%;
+    top: 79.8%;
     left: 87.5%; }
   #odontograma-contenido .recuadro-51 {
     bottom: 0;
     left: 87.5%; }
-  #odontograma-contenido .corona-51 {
+  #odontograma-contenido .corona-51, #odontograma-contenido .coronaTemporal-51 {
     height: 9.7%;
     left: 87.5%;
-    top: 78.8%;
+    top: 80.6%;
     background-position-y: top; }
   #odontograma-contenido .erupcion-51 {
-    height: 9.6%;
     left: 87.5%;
-    top: 80.2%;
+    top: 84.5%;
     background-position-y: 35%;
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
@@ -1429,26 +2606,49 @@
     top: 93.5%; }
   #odontograma-contenido .aparatoOrtoRemovible-51 {
     left: 87.5%;
-    top: 92.5%;
+    top: 93%;
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg); }
+  #odontograma-contenido .diastema-51 {
+    left: 93.3%;
+    top: 80.5%; }
+  #odontograma-contenido .piezaAusente-51 {
+    left: 87.5%;
+    top: 80.5%; }
+  #odontograma-contenido .piezaClavija-51 {
+    left: 87.5%;
+    top: 88.3%; }
+  #odontograma-contenido .piezaExtruida-51 {
+    left: 87.5%;
+    top: 78%; }
+  #odontograma-contenido .piezaIntruida-51 {
+    left: 87.5%;
+    top: 78%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .piezaSupernumeraria-51 {
+    left: 90.7%;
+    top: 89.5%; }
+  #odontograma-contenido .edentulo-51 {
+    left: 87.5%;
+    top: 82.5%; }
   #odontograma-contenido .cursor-52 {
     height: 9.6%;
-    top: 78.8%;
+    top: 79.8%;
     left: 93.75%; }
   #odontograma-contenido .recuadro-52 {
     bottom: 0;
     left: 93.75%; }
-  #odontograma-contenido .corona-52 {
+  #odontograma-contenido .corona-52, #odontograma-contenido .coronaTemporal-52 {
     height: 9.7%;
     left: 93.75%;
-    top: 78.8%;
+    top: 80.6%;
     background-position-y: top; }
   #odontograma-contenido .erupcion-52 {
-    height: 9.6%;
     left: 93.75%;
-    top: 80.2%;
+    top: 84.5%;
     background-position-y: 35%;
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
@@ -1458,7 +2658,31 @@
     top: 93.5%; }
   #odontograma-contenido .aparatoOrtoRemovible-52 {
     left: 93.75%;
-    top: 92.5%;
+    top: 93%;
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg); }
+  #odontograma-contenido .diastema-52 {
+    left: 99.55%;
+    top: 80.5%; }
+  #odontograma-contenido .piezaAusente-52 {
+    left: 93.75%;
+    top: 80.5%; }
+  #odontograma-contenido .piezaClavija-52 {
+    left: 93.75%;
+    top: 88.3%; }
+  #odontograma-contenido .piezaExtruida-52 {
+    left: 93.75%;
+    top: 78%; }
+  #odontograma-contenido .piezaIntruida-52 {
+    left: 93.75%;
+    top: 78%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  #odontograma-contenido .piezaSupernumeraria-52 {
+    left: 96.95%;
+    top: 89.5%; }
+  #odontograma-contenido .edentulo-52 {
+    left: 93.75%;
+    top: 82.5%; }

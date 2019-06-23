@@ -1,7 +1,8 @@
 #odontograma{
   display: flex;
   align-items: start;
-  justify-content: center;
+	justify-content: center;
+	padding: 2%;
 }
 $anchoTotal:  100%;
 $anchoDiente: ($anchoTotal / 16);
@@ -68,8 +69,8 @@ $altoDienteCentro: 9.7%;
 	.recuadro{
 		position: absolute;
 		width: $anchoDiente;
-		height: 2.7%;
-		font-size: 7.6px;
+		height: 2.5%;
+		font-size: 8.5px;
 		word-wrap: break-word;
 		font-weight: 100;
 		span{
@@ -92,7 +93,7 @@ $altoDienteCentro: 9.7%;
 		background-repeat: no-repeat;
 	}
 	
-	.corona{
+	.corona, .coronaTemporal{
 		background-size: 90% auto;
 		&.bueno{
 			background-image: url('../images/corona_buen.png');
@@ -101,16 +102,15 @@ $altoDienteCentro: 9.7%;
 			background-image: url('../images/corona_mal.png');
 		}
 	}
-	
 
 	.erupcion{
-		background-size: 40% auto;
+		height: 4.8%;
 		background-image: url('../images/erupcion.png');
 	}
 
 	.aparatoOrtoFijoInicio{
-		height: 3%;
-		background-size: cover;
+		height: 2.65%;
+		background-size: 100% 100%;
 		&.bueno{
 			background-image: url('../images/AparatoOrtoFijoBueno.png');
 		}
@@ -120,8 +120,8 @@ $altoDienteCentro: 9.7%;
 	}
 
 	.aparatoOrtoFijoFin{
-		height: 3%;
-		background-size: cover;
+		height: 2.65%;
+		background-size: 100% 100%;
 		transform: rotate(180deg);
 		&.bueno{
 			background-image: url('../images/AparatoOrtoFijoBueno.png');
@@ -132,8 +132,8 @@ $altoDienteCentro: 9.7%;
 	}
 
 	.linea{
-		height: 3%;
-		background-size: cover;
+		height: 2.65%;
+		background-size: 100% 100%;
 		&.bueno{
 			background-image: url('../images/lineaBuena.png');
 		}
@@ -144,7 +144,7 @@ $altoDienteCentro: 9.7%;
 
 	.aparatoOrtoRemovible{
 		height: 3.1%;
-		background-size: cover;
+		background-size: 100%;
 		&.bueno{
 			background-image: url('../images/AparatoOrtoRemovibleBueno.png');
 		}
@@ -152,11 +152,51 @@ $altoDienteCentro: 9.7%;
 			background-image: url('../images/AparatoOrtoRemovibleMalo.png');
 		}
 	}
+
+	.diastema{
+		background-size: 100%;
+		background-image: url('../images/diastema.png');
+		width: 1%;
+		height: 4%;
+	}
+
+	.piezaAusente{
+		background-position-x: center;
+		background-size: 50% 100%;
+		background-image: url('../images/dienteAusente.png');
+		height: 9%;
+	}
+
+	.piezaClavija{
+		background-position-x: center;
+		background-size: 92% 100%;
+		background-image: url('../images/piezaClavija.png');
+		height: 4.5%;
+	}
+
+	.piezaExtruida, .piezaIntruida{
+		background-position-x: center;
+		background-size: 30%;
+		background-image: url('../images/piezaFlecha.png');
+		height: 2.6%;
+	}
+
+	.piezaSupernumeraria{
+		background-image: url('../images/supernumeraria.png');
+		height: 3.2%;
+	}
+
+	.edentulo{
+		background-image: url('../images/edentulo.png');
+		height: 0.5%;
+		background-repeat: repeat-x;
+	}
+
 	//CUADRANTE UNO
 	@for $i from 1 through 16{
 		.cursor-#{$i} {
 			height: $altoDiente;
-			top: 11%;
+			top: 9.2%;
 			left: (($i - 1) * $anchoDiente);
 		}
 
@@ -164,17 +204,16 @@ $altoDienteCentro: 9.7%;
 			top: 0%;
 			left: (($i - 1) * $anchoDiente);
 		}
-		.corona-#{$i}{
+		.corona-#{$i}, .coronaTemporal-#{$i}{
 			height: $altoDiente;
 			left: (($i - 1) * $anchoDiente);
-			top: 10.7%;
+			top: 9.1%;
 			background-position-y: bottom;
 		}
 
 		.erupcion-#{$i}{
-			height: $altoDiente;
 			left: (($i - 1) * $anchoDiente);
-			top: 9.5%;
+			top: 9.8%;
 			background-position-y: 35%;
 		}
 
@@ -185,7 +224,43 @@ $altoDienteCentro: 9.7%;
 
 		.aparatoOrtoRemovible-#{$i}{
 			left: (($i - 1) * $anchoDiente);
-			top: 4%;
+			top: 3.6%;
+		}
+
+		.diastema-#{$i}{
+			left: (($i - 1) * $anchoDiente)+5.8%;
+			top: 15%;
+		}
+
+		.piezaAusente-#{$i}{
+			left: (($i - 1) * $anchoDiente);
+			top: 10%;
+		}
+
+		.piezaClavija-#{$i}{
+			left: (($i - 1) * $anchoDiente);
+			top: 5.5%;
+		}
+
+		.piezaExtruida-#{$i}{
+			left: (($i - 1) * $anchoDiente);
+			top: 18.5%;
+			transform: rotate(180deg);
+		}
+		
+		.piezaIntruida-#{$i}{
+			left: (($i - 1) * $anchoDiente);
+			top: 18.5%;
+		}
+
+		.piezaSupernumeraria-#{$i}{
+			left: (($i - 1) * $anchoDiente)+3%;
+			top: 7%;
+		}
+
+		.edentulo-#{$i}{
+			left: (($i - 1) * $anchoDiente);
+			top: 16.5%;
 		}
 	}
 
@@ -193,79 +268,147 @@ $altoDienteCentro: 9.7%;
 	@for $i from 17 through 26{
 		.cursor-#{$i} {
 			height: $altoDienteCentro;
-			top: 34.5%;
+			top: 31.5%;
 			left: ($i - 14) * $anchoDiente;
 		}
 
 		.recuadro-#{$i} {
-			top: 25%;
+			top: 23%;
 			left: (($i - 14) * $anchoDiente);
 		}
 
-		.corona-#{$i}{
+		.corona-#{$i}, .coronaTemporal-#{$i}{
 			height: $altoDienteCentro;
 			left: (($i - 14) * $anchoDiente);
-			top: 36.4%;
+			top: 33%;
 			background-position-y: 62%;
 		}
 
 		.erupcion-#{$i}{
-			height: $altoDiente;
 			left: (($i - 14) * $anchoDiente);
-			top: 33%;
+			top: 32%;
 			background-position-y: 35%;
 		}
 
 		.aparatoOrtoFijoInicio-#{$i}, .aparatoOrtoFijoFin-#{$i}, .linea-#{$i}{
 			left: (($i - 14) * $anchoDiente);
-			top: 30%;
+			top: 27%;
 		}
 
 		.aparatoOrtoRemovible-#{$i}{
 			left: (($i - 14) * $anchoDiente);
-			top: 30%;
+			top: 27%;
 		}
 
+		.diastema-#{$i}{
+			left: (($i - 14) * $anchoDiente)+5.8%;
+			top: 36.5%;
+		}
 
+		.piezaAusente-#{$i}{
+			left: (($i - 14) * $anchoDiente);
+			top: 32%;
+		}
+
+		.piezaClavija-#{$i}{
+			left: (($i - 14) * $anchoDiente);
+			top: 43.7%;
+		}
+
+		.piezaExtruida-#{$i}{
+			left: (($i - 14) * $anchoDiente);
+			top: 40.4%;
+			transform: rotate(180deg);
+		}
+
+		.piezaIntruida-#{$i}{
+			left: (($i - 14) * $anchoDiente);
+			top: 40.4%;
+		}
+
+		.piezaSupernumeraria-#{$i}{
+			left: (($i - 14) * $anchoDiente)+3.2%;
+			top: 44%;
+		}
+
+		.edentulo-#{$i}{
+			left: (($i - 14) * $anchoDiente);
+			top: 38.2%;
+		}
 	}
 	
 	//CUADRANTE TRES
 	@for $i from 27 through 36{
 		.cursor-#{$i} {
 			height: $altoDienteCentro;
-			top: 54.5%;
+			top: 57.5%;
 			left: ($i - 24) * $anchoDiente;
 		}
 
 		.recuadro-#{$i} {
-			top: 70.3%;
+			top: 72.5%;
 			left: (($i - 24) * $anchoDiente);
 		}
 
-		.corona-#{$i}{
+		.corona-#{$i}, .coronaTemporal-#{$i}{
 			height: $altoDienteCentro;
 			left: (($i - 24) * $anchoDiente)-0.1%; //CORRECCION
-			top: 52.2%;
+			top: 55.9%;
 			background-position-y: 41%;
 		}
 
 		.erupcion-#{$i}{
-			height: $altoDiente;
 			left: (($i - 24) * $anchoDiente);
-			top: 56%;
+			top: 62%;
 			background-position-y: 35%;
 			transform: rotate(180deg);
 		}
 
 		.aparatoOrtoFijoInicio-#{$i}, .aparatoOrtoFijoFin-#{$i}, .linea-#{$i}{
 			left: (($i - 24) * $anchoDiente);
-			top: 66.5%;
+			top: 68.5%;
 		}
 
 		.aparatoOrtoRemovible-#{$i}{
 			left: (($i - 24) * $anchoDiente);
-			top: 65%;
+			top: 68%;
 			transform: rotate(180deg);
+		}
+
+		.diastema-#{$i}{
+			left: (($i - 24) * $anchoDiente)+5.8%;
+			top: 58%;
+		}
+
+		.piezaAusente-#{$i}{
+			left: (($i - 24) * $anchoDiente);
+			top: 58%;
+		}
+
+		.piezaClavija-#{$i}{
+			left: (($i - 24) * $anchoDiente);
+			top: 49.3%;
+		}
+
+		.piezaExtruida-#{$i}{
+			left: (($i - 24) * $anchoDiente);
+			top: 55.7%;
+		}
+
+		.piezaIntruida-#{$i}{
+			left: (($i - 24) * $anchoDiente);
+			top: 55.7%;
+			transform: rotate(180deg);
+		}
+
+		.piezaSupernumeraria-#{$i}{
+			left: (($i - 24) * $anchoDiente)+3.2%;
+			top: 51%;
+		}
+
+		.edentulo-#{$i}{
+			left: (($i - 24) * $anchoDiente);
+			top: 60%;
 		}
 	}
 
@@ -273,7 +416,7 @@ $altoDienteCentro: 9.7%;
 	@for $i from 37 through 52{
 		.cursor-#{$i} {
 			height: $altoDiente;
-			top: 78.8%;
+			top: 79.8%;
 			left: ($i - 37) * $anchoDiente;
 		}
 
@@ -282,17 +425,16 @@ $altoDienteCentro: 9.7%;
 			left: (($i - 37) * $anchoDiente);
 		}
 
-		.corona-#{$i}{
+		.corona-#{$i}, .coronaTemporal-#{$i}{
 			height: $altoDienteCentro;
 			left: (($i - 37) * $anchoDiente);
-			top: 78.8%;
+			top: 80.6%;
 			background-position-y: top;
 		}
 
 		.erupcion-#{$i}{
-			height: $altoDiente;
 			left: (($i - 37) * $anchoDiente);
-			top: 80.2%;
+			top: 84.5%;
 			background-position-y: 35%;
 			transform: rotate(180deg);
 		}
@@ -304,9 +446,46 @@ $altoDienteCentro: 9.7%;
 
 		.aparatoOrtoRemovible-#{$i}{
 			left: (($i - 37) * $anchoDiente);
-			top: 92.5%;
+			top: 93%;
 			transform: rotate(180deg);
 		}
+
+		.diastema-#{$i}{
+			left: (($i - 37) * $anchoDiente)+5.8%;
+			top: 80.5%;
+		}
+
+		.piezaAusente-#{$i}{
+			left: (($i - 37) * $anchoDiente);
+			top: 80.5%;
+		}
+
+		.piezaClavija-#{$i}{
+			left: (($i - 37) * $anchoDiente);
+			top: 88.3%;
+		}
+
+		.piezaExtruida-#{$i}{
+			left: (($i - 37) * $anchoDiente);
+			top: 78%;
+		}
+
+		.piezaIntruida-#{$i}{
+			left: (($i - 37) * $anchoDiente);
+			top: 78%;
+			transform: rotate(180deg);
+		}
+
+		.piezaSupernumeraria-#{$i}{
+			left: (($i - 37) * $anchoDiente)+3.2%;
+			top: 89.5%;
+		}
+
+		.edentulo-#{$i}{
+			left: (($i - 37) * $anchoDiente);
+			top: 82.5%;
+		}
+
 	}
 
 

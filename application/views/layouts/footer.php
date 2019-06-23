@@ -78,6 +78,7 @@
 <script src="<?= base_url();?>assets/jquery-upload/js/jquery.fileupload.js"></script>
 
 <script src="<?= base_url() ?>assets/main.js?v=<?= time() ?>"></script>
+<script src="<?= base_url() ?>assets/html2canvas.js"></script>
 <script src="<?= base_url() ?>assets/odontograma/js/main.js?v=<?= time() ?>"></script>
 
 
