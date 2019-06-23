@@ -748,7 +748,7 @@ class Movimiento extends CI_Controller {
 		$paciente = $this->input->get('paciente');
 		$diente = $this->input->get('diente');
 		$query = $this->db->from('paciente_odontograma')
-		->select('pacodo_id as id,nombre_hal,paciente_odontograma.id_hal,pacodo_estado as estado,pacodo_sigla as sigla,pacodo_id,inicio.orden_die as inicio, fin.orden_die as fin, paciente_odontograma.numero_die as dienteInicio, paciente_odontograma.pacodo_dientefinal as dienteFinal')
+		->select('pacodo_id as id,nombre_hal,paciente_odontograma.id_hal,pacodo_estado as estado,pacodo_sigla as sigla,pacodo_id,inicio.orden_die as inicio, fin.orden_die as fin, paciente_odontograma.numero_die as dienteInicio, paciente_odontograma.pacodo_dientefinal as dienteFinal, pacodo_espec as especificaciones')
 		->join('dientes as inicio','paciente_odontograma.numero_die = inicio.numero_die')
 		->join('dientes as fin','paciente_odontograma.pacodo_dientefinal = fin.numero_die','left')
 		->join('hallazgos','paciente_odontograma.id_hal = hallazgos.id_hal')
@@ -799,6 +799,26 @@ class Movimiento extends CI_Controller {
 			$resp['success'] = false;
 		}
 		echo json_encode($resp);
+	}
+
+	function imprimirOdontograma()
+	{
+		$this->mpdf = new mPDF('utf-8','A4','','',
+			10, //LEFT
+			10, //RIGHT
+			40, //TOP
+			50, //BOTTOM
+			10, //HEADER
+			10);
+		$photo = "<img src=\"data:image/jpeg;base64, ".$this->input->post('imgData')."\"/>";
+		//echo $photo;
+		$css = $css = file_get_contents('assets/styles_pdf.css');
+		$this->mpdf->SetTitle('Odontograma');
+		//$this->mpdf->setHTMLHeader($htmlHeader);
+		//$this->mpdf->setHTMLFooter($htmlFooter);
+		$this->mpdf->writeHTML($css,1);
+		$this->mpdf->writeHTML($photo,2);
+		$this->mpdf->Output('assets/pdfs/odontogramas/prueba-'.time().'.pdf','F');
 	}
 }
 

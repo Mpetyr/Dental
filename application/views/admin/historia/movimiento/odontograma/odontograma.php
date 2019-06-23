@@ -1,3 +1,4 @@
+<script src="http://cburgmer.github.io/rasterizeHTML.js/rasterizeHTML.allinone.js"></script>
 <div id="HistoriaContenidoOdontograma" class="panel panel-primary">
   <div class="panel-heading">
     <span class="glyphicon glyphicon-list"></span> Odontograma
@@ -6,9 +7,9 @@
         <button type="button" class="btn btn-default btn-xs" data-toggle="dropdown">
           <span class="fa fa-bars" style="margin-right: 0px;"></span>
         </button>
-        <ul class="dropdown-menu slidedown">
-          <li><a href="#">Odontograma inicial</a></li>
-          <li><a href="#">Odontograma evolucionado</a></li>
+        <ul class="dropdown-menu slidedown imprimirOdontograma">
+          <li data-tipo="inicial"><a href="#">Odontograma inicial</a></li>
+          <li data-tipo="evolucion"><a href="#">Odontograma evolucionado</a></li>
         </ul>
       </div>
     </div>
@@ -16,15 +17,21 @@
   <div class="panel-body">
     <div id="odontograma">
       <div id="odontograma-contenido" class="detalle">
-        <img src="<?= base_url('assets/odontograma/images/plantilla_nuevo05.png') ?>" class="img-responsive">
+        <img src="<?= base_url('assets/odontograma/images/plantilla_nuevo10.png') ?>" class="img-responsive">
         <?php $this->load->view('admin/historia/movimiento/odontograma/cursores.php') ?>
       </div>
     </div>
+    <div id="imprimir" style="width: 800px">
+     
+    </div>
+    
+
+
   </div>
 </div>
 
 <div id="ModalOdontogramaDetalle" class="modal fade" role="dialog">
-  <div class="modal-dialog modal-md" role="document">
+  <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content ">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -38,6 +45,7 @@
               <th>Diente</th>
               <th>Diente Final</th>
               <th>Estado</th>
+              <th>Especificaciones</th>
               <th></th>
             </tr>
           </thead>
