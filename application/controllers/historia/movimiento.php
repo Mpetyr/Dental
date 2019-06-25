@@ -67,7 +67,7 @@ class Movimiento extends CI_Controller {
 		$data['consulta'] = $this->modelgeneral->getTableWhereRow('paciente_consulta',['codi_pac'=>$id]);
 		$data['exploracion'] = $this->modelgeneral->getTableWhereRow('paciente_exploracion',['codi_pac'=>$id]);
 		$data['paises'] = $this->modelgeneral->getTable('paises');
-		$data['diagnosticos'] = $this->modelgeneral->getTableWhere('enfermedad',['esta_enf'=>'A']);
+		$data['diagnosticos'] = $this->modelgeneral->getTableWhere('enfermedad',['esta_enf'=>'S']);
 
 		$data['especialidad'] = $this->modelgeneral->getTable('especialidad');
 			$data['sedes'] = $this->modelgeneral->getTable('sede');

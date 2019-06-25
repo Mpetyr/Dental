@@ -9,7 +9,7 @@
     <ol class="breadcrumb">
       <li><a href="#"><i class="fa fa-dashboard"></i> Modulo</a></li>
       <li><a href="#">Pacientes</a></li>
-      <li class="active">tabla</li>
+      <li class="active">listado</li>
     </ol>
   </section>
     <?php if ($this->session->flashdata('success')): ?>
@@ -29,7 +29,7 @@
       <div class="col-md-12">
         <div class="box box-info">
               <ol class="breadcrumb">
-                      <li><a href="#"><i class="fa fa-refresh"></i> Lista</a></li>
+                      <li><a href="<?= base_url('mantenimiento/paciente') ?>"><i class="fa fa-refresh"></i> Lista</a></li>
                       <li><a href="<?= base_url('mantenimiento/paciente/add') ?>"><i class="fa fa-user-plus"></i> Nuevo</a></li>
                      
                   </ol>
@@ -77,15 +77,15 @@
                   <table id="TableMantenimientoPaciente" class="table table-bordered table-striped table-sm">
                     <thead>
                       <tr>
-                        <th style="background-color: #3c8dbc; color: white;">N°</th>
-                        <th style="background-color: #3c8dbc; color: white;">Paciente</th>
-                        <th style="background-color: #3c8dbc; color: white;">Edad</th>
-                        <th style="background-color: #3c8dbc; color: white;">DNI</th>
-                        <th style="background-color: #3c8dbc; color: white;">Direccion</th>
-                        <th style="background-color: #3c8dbc; color: white;">F.registro</th>
-                        <th style="background-color: #3c8dbc; color: white;">Estado</th>
-                        <th style="background-color: #3c8dbc; color: white;">Opciones</th>
-                        <th></th>
+                        <th style="background-color: #3c8dbc; color: white; text-align: center;">N°</th>
+                        <th style="background-color: #3c8dbc; color: white; text-align: center;">Paciente</th>
+                        <th style="background-color: #3c8dbc; color: white; text-align: center;">Edad</th>
+                        <th style="background-color: #3c8dbc; color: white; text-align: center;">DNI</th>
+                        <th style="background-color: #3c8dbc; color: white; text-align: center;">Direccion</th>
+                        <th style="background-color: #3c8dbc; color: white; text-align: center;">F.registro</th>
+                        <th style="background-color: #3c8dbc; color: white; text-align: center;">Estado</th>
+                        <th style="background-color: #3c8dbc; color: white; text-align: center;">Opciones</th>
+                      
                       </tr>
                     </thead>
                

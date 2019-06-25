@@ -6,11 +6,11 @@ class Paciente extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		// if($this->session->userdata('login')){
-		// 	redirect(base_url());
-		// }
-
+		if(!$this->session->userdata("login")){
+			redirect(base_url());
+		}
 		$this->load->model('pacientes_model');
+		$this->load->model('modelgeneral');
 		# code...
 	}
 
@@ -61,6 +61,7 @@ class Paciente extends CI_Controller
 	{
 
 		$data['departamentos'] = $this->modelgeneral->getTable('departamento');
+
 		$this->load->view('layouts/header');
 		$this->load->view('layouts/aside');
 		$this->load->view('admin/paciente/agregarpaciente',$data);
@@ -102,6 +103,7 @@ class Paciente extends CI_Controller
 		$this->form_validation->set_rules('sexo','','requerid');
 		$this->form_validation->set_rules('estadocivil','','requerid');
 		$this->form_validation->set_rules('email','','requerid');
+		$this->form_validation->set_rules('departamento','','requerid');
 
 		$data = array(
 			
@@ -136,16 +138,31 @@ class Paciente extends CI_Controller
 		echo json_encode(array("status" => TRUE));
 		redirect(base_url().'mantenimiento/paciente');
 
+		}
+
 	// else{
 	// 	ECHO '<PRE>';
 	// 	var_dump($_POST);
 	// 	echo 'error validacion';
 	// }
 
-		
+   public function editarPaciente($id)
+	{
+		$data['pacientes'] = $this->pacientes_model->getpacientes_id($id);
+		$data['departamentos'] = $this->modelgeneral->getTable('departamento');
+		$data['provincias'] = $this->modelgeneral->getTableWhere('provincia',['departamento_id'=>$data['pacientes']->departamento_id]);
+		$data['distritos'] = $this->modelgeneral->getTableWhere('distrito',['provincia_id'=>$data['pacientes']->provincia_id]);	
+		$this->load->view('layouts/header');
+		$this->load->view('layouts/aside');
+		$this->load->view('admin/paciente/editpaciente',$data);
+		$this->load->view('layouts/footer');
+	}
 
 
-}
+
+
+
+
 
 
 private function _do_upload()
@@ -170,46 +187,105 @@ private function _do_upload()
 		return $this->upload->data('file_name');
 	}
 
-	public function paciente_edit($id)
-	{
-		$data = $this->pacientes_model->getpacientes_id($id);
+	// public function paciente_edit($id)
+	// {
+	// 	$data = $this->pacientes_model->getpacientes_id($id);
 
-		echo json_encode($data);
-	}
+	// 	echo json_encode($data);
+	// }
 
 	public function paciente_update()
 	{
-		$fecha_registro = date("Y-m-d H:i:s");
-		$data = array(
-			'apellido' => $this->input->post('apellido'),
-			'nombre' => $this->input->post('nombre'),
-			'telefono' => $this->input->post('telefono'),
-			'direccion' => $this->input->post('direccion'),
-			'email' => $this->input->post('email'),
-			'tipo_documento' => $this->input->post('tipo_documento'),
-			'documento' => $this->input->post('documento'),
-			'foto' => $this->input->post('foto'),
-			'codi_rol' =>  $this->input->post('codi_rol'),
-			'logi_usu' =>  $this->input->post('logi_usu'),
-			'pass_usu' =>  sha1($this->input->post('pass_usu')),
-			'fecha_registro' =>  $fecha_registro,
-			'esta_usu'=>$this->input->post('esta_usu'),
+		$codi_pac=$this->input->post('codigo');
+		$nombre = $this->input->post('nombre');
+		$apellidos = $this->input->post('apellidos');
+		$edad = $this->input->post('edad');
+		$estudios = $this->input->post('estudios');
+		$lugarnacimiento = $this->input->post('lugarnacimiento');
+		$departamento = $this->input->post('departamento');
+		$provincia = $this->input->post('provincia');
+		$distrito = $this->input->post('distrito');
+		$direccion = $this->input->post('direccion');
+		$entero = $this->input->post('entero');
+		$telefono = $this->input->post('telefono');
+		$dni = $this->input->post('dni');
+		$fechanacimiento = $this->input->post('fechanacimiento');
+		$sexo = $this->input->post('sexo');
+		$estadocivil = $this->input->post('estadocivil');
+		$afiliado = $this->input->post('afiliado');
+		$estado = $this->input->post('estado');
+		$alergia = $this->input->post('alergia');
+		$email = $this->input->post('email');
+		$observacion = $this->input->post('observacion');
 
+
+
+		$this->form_validation->set_rules('codigo','codigo','requerid');
+		$this->form_validation->set_rules('nombre','','requerid');
+		$this->form_validation->set_rules('apellidos','','requerid');
+		$this->form_validation->set_rules('edad','','requerid');
+		$this->form_validation->set_rules('estudios','','requerid');
+		$this->form_validation->set_rules('lugarnacimiento','','requerid');
+		$this->form_validation->set_rules('direccion','','requerid');
+		$this->form_validation->set_rules('telefono','','requerid');
+		$this->form_validation->set_rules('dni','','requerid');
+		$this->form_validation->set_rules('fechanacimiento','','requerid');
+		$this->form_validation->set_rules('sexo','','requerid');
+		$this->form_validation->set_rules('estadocivil','','requerid');
+		$this->form_validation->set_rules('email','','requerid');
+		$this->form_validation->set_rules('departamento','','requerid');
+
+		$data = array(
+			'codi_pac' => $codi_pac,
+			'nomb_pac' => $nombre,
+			'apel_pac' => $apellidos,
+			  'edad_pac' => $edad,
+			  'estudios_pac' =>$estudios,
+			 'lugar_nacimiento' => $lugarnacimiento,
+			 'informacion_clinica' => $entero,
+			  'dire_pac'  => $direccion,
+			 'telf_pac' =>$telefono,
+			 'dni_pac' =>$dni,
+			 'fena_pac' =>$fechanacimiento,
+			 'sexo_pac' => $sexo,
+			 'civi_pac' =>$estadocivil,
+			'afil_pac' => $afiliado,
+			 'aler_pac' =>$alergia,
+			  'emai_pac' =>$email,
+			 'departamento_id' => $departamento,
+			 'provincia_id' => $provincia,
+			 'distrito_id' => $distrito,
+			  'observacion'=> $observacion,
+			  'esta_pac' => $estado
 		);
-		$this->user_model->user_update(array('codi_usu' => $this->input->post('codi_usu')),$data);
-		echo json_encode(array("status" => TRUE));
 
+		if($this->pacientes_model->update($codi_pac,$data)){
+				$this->session->set_flashdata('success', 'Actualizo correctamente los datos');
+			redirect(base_url().'mantenimiento/paciente');
+		}
+		else
+		{
+		$this->editarPaciente($codi_pac);
+
+		}
 	}
 
-	public function delete($id)
-	{
-		$data = array(
-			'esta_usu'=> "0",);
-		$this->user_model->update_user($id,$data);
-		// echo json_encode(array("status" => TRUE));
-			 redirect ('mantenimiento/usuario');
+	function anularPaciente()
+	 {
+		$where['codi_pac'] = $this->input->get('id');
+		$data['esta_pac'] = N;//anulado
+		$edit = $this->modelgeneral->editRegist('paciente',$where,$data);
+		$resp = [];
+		if ($edit) {
+			$resp['success'] = true;
+		}else{
+			$resp['success'] = false;
+		}
 
-	}
+		echo json_encode($resp);
+	 }
+
+
 
 
 

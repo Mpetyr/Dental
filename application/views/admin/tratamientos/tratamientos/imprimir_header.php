@@ -1,9 +1,9 @@
 <div class="w100">
 	<div class="w30">
-		<img src="<?= base_url('assets/img/logo_dental.png') ?>">
+		<img src="<?= base_url('assets/uploads/logo/logogeneral.png') ?>">
 	</div>
 	<div class="w40 text-center">
-		<h5>VIDAL DENT <br>CLÍNICA DENTAL</h5>
+		<h5>CLINICA DENTAL <br><?= $clinicas->nomb_clin ?></h5>
 		<p>
 			Dirección: San Alegría N° 1 <br>
 			Email: vidaldent@gmail.com

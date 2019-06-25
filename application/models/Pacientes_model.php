@@ -63,10 +63,10 @@ class Pacientes_model extends CI_Model
 
 			$botones = '<div class="btn-footer text-center">
                                           
-                                                   <a href="'.base_url('mantenimiento/tarifario/editar/'.$q->codi_pac).'"class="btn btn-primary" style="padding:2px 5px;margin:0px 2px"> <i class="fa fa-edit"></i> </a>
+                                                   <a href="'.base_url('mantenimiento/paciente/editarPaciente/'.$q->codi_pac).'"class="btn btn-primary" style="padding:2px 5px;margin:0px 2px"> <i class="fa fa-edit"></i> </a>
                                                    
                                                            
-                                                     <button data-id="'.$q->codi_pac.'" class="anularTarifario btn btn-danger" style="padding:2px 5px;margin:0px 2px" >
+                                                     <button data-id="'.$q->codi_pac.'" class="anular-paciente btn btn-danger" style="padding:2px 5px;margin:0px 2px" >
                                                          <i class="glyphicon glyphicon-trash"></i> </button>';
             
 			$row[] = [$q->codi_pac,$q->NombrePaciente,$q->edad_pac,$q->dni_pac,$q->dire_pac,$q->fecha_registro,$estado,$botones];
@@ -93,26 +93,11 @@ class Pacientes_model extends CI_Model
 		return $this->db->insert_id();
 	}
 
-	function anularpaciente(){
-		$id = $this->input->get('codi_pac');
+ 
+
+	public function update($id,$data){
 		$this->db->where('codi_pac',$id);
-		$this->db->update('paciente');
-		if($this->db->affected_rows()>0){
-			return true;
-		}else
-		{
-			return false;
-		}
-	}
-	public function paciente_update($where,$data)
-	{
-		$this->db->update("paciente",$data,$where);
-		return $this->db->affected_rows();
+		return $this->db->update('paciente',$data);
 	}
 
-	public function update_paciente($id,$data)
-	{
-		$this->db->where("codi_pac",$id);
-		 $this->db->update("paciente",$data);
-	}
 }
