@@ -10,6 +10,7 @@ class Panel extends CI_Controller {
 			redirect(base_url());
 		}
 		$this->load->model('tratamientos_model');
+		$this->load->model('clinica_model');
 		$this->load->library('email');
 	}
 
@@ -65,9 +66,10 @@ class Panel extends CI_Controller {
 			20, //BOTTOM
 			10, //HEADER
 			10);
+		$data['clinicas'] = $this->clinica_model->getClinica($data);
 		$data['tratamientos'] = $this->tratamientos_model->getTratamientosImprimir($data);
 		$html = $this->load->view('admin/tratamientos/tratamientos/imprimir_listado',$data,TRUE);
-		$htmlHeader = $this->load->view('admin/tratamientos/tratamientos/imprimir_header',NULL,true);
+		$htmlHeader = $this->load->view('admin/tratamientos/tratamientos/imprimir_header',$data,true);
 		$htmlFooter = $this->load->view('admin/tratamientos/tratamientos/imprimir_footer',NULL,true);
 		$css = $css = file_get_contents('assets/styles_pdf.css');
 		$this->mpdf->SetTitle('Tratamientos');

@@ -87,7 +87,7 @@
                     </div>
                   </div>
                   <div class="col-md-3">
-                       <div class="form-group <?php echo !empty(form_error('concepto'))? 'has-error':'';?>"">
+                       <div class="form-group <?php echo !empty(form_error('concepto'))? 'has-error':'';?>">
                      <label class="control-label">Tipo concepto *</label>
                     <select  name="concepto" class="form-control input-sm">
                       <option value="">Seleccione</option>

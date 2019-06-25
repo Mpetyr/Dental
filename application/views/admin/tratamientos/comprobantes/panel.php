@@ -9,40 +9,34 @@
     <div class="row">
       <div class="col-md-12">
         <div class="box">
-          <div class="box-header">
-            <h3 class="box-title">Listado</h3>
-          </div>
+          
           <!-- /.box-header -->
           <div class="box-body">
-            <div class="row">
-              <div class="col-md-6">
-                <label class="control-label">Busqueda por fecha</label>
-              </div>
-            </div>
+         
             <form id="TratamientosFormComprobantesBusqueda" target="_blank" action="<?= base_url('tratamientos/panel/imprimirListadoTratamientos') ?>" autocomplete="off" method="off">
               <div class="row">
                 <div class="col-md-2">
                   <div class="form-group">
-                    <label class="control-label">Desde</label>
-                    <input type="text" name="desde" class="form-control datepicker" value="<?= date('Y-m-d') ?>">
+                    <label class="control-label">Desde:</label>
+                    <input type="text" name="desde" class="form-control input-sm datepicker" value="<?= date('Y-m-d') ?>">
                   </div>
                 </div>
                 <div class="col-md-2">
                   <div class="form-group">
-                    <label class="control-label">Hasta</label>
-                    <input type="text" name="hasta" class="form-control datepicker" value="<?= date('Y-m-d') ?>">
+                    <label class="control-label">Hasta:</label>
+                    <input type="text" name="hasta" class="form-control input-sm datepicker" value="<?= date('Y-m-d') ?>">
                   </div>
                 </div>
                 <div class="col-md-3">
                   <div class="form-group">
-                    <label class="control-label">Busqueda por Paciente</label>
-                    <input type="text" name="paciente" class="form-control">
+                    <label class="control-label">Busqueda por Paciente:</label>
+                    <input type="text" name="paciente" class="form-control input-sm">
                   </div>
                 </div>
                 <div class="col-md-2">
                   <div class="form-group">
-                    <label class="control-label">Estado</label>
-                    <select name="estado" class="form-control">
+                    <label class="control-label">Estado:</label>
+                    <select name="estado" class="form-control input-sm">
                       <option value="Emitido">Emitido</option>
                       <option value="Por Cobrar">Por Cobrar</option>
                       <option value="Anulado">Anulado</option>
@@ -50,38 +44,36 @@
                   </div>
                 </div>
                 <div class="col-md-2">
-                  <button type="submit" style="margin-top:24px" class="btn btn-success btn-md"><i class="fa fa-search"></i> Buscar</button>
+                  <button type="submit" style="margin-top:24px" class="btn btn-success btn-sm"><i class="fa fa-search"></i> Buscar</button>
                 </div>
               </div>
             </form>
             <div class="row">
               <div class="col-md-12">
                 <div class="form-group">
-                  <a id="TratamientoImprimirListaComprobantes"  href="<?= base_url('tratamientos/comprobantes/imprimir') ?>" target="_blank" class="btn btn-info btn-ms"><i class="fa fa-print"></i> Imprimir Lista</a>
+                  <a id="TratamientoImprimirListaComprobantes"  href="<?= base_url('tratamientos/comprobantes/imprimir') ?>" target="_blank" class="btn btn-info btn-sm"><i class="fa fa-print"></i> Imprimir Lista</a>
                 </div>
               </div>
             </div>
             <div class="row">
               <div class="col-md-12">
-                <div class="">
-                  <table id="TableTratamientosComprobantes" data-igv="<?= $parametro->igv ?>" class="table table-bordered table-condensed table-hover">
+                <div class="table-responsive">
+                  <table id="TableTratamientosComprobantes" data-igv="<?= $parametro->igv ?>" class="table table-bordered table-sm">
                     <thead>
                       <tr>
-                        <th></th>
-                        <th>Comprobante</th>
-                        <th>Fecha de Registro</th>
-                        <th>Fecha de Vencimiento</th>
-                        <th>Tipo</th>
-                        <th>Paciente</th>
-                        <th>Total</th>
-                        <th>Estado</th>
-                        <th>Tratamiento</th>
-                        <th></th>
+                        <th style="background-color: #3c8dbc; color: white; text-align: center;"></th>
+                        <th style="background-color: #3c8dbc; color: white; text-align: center;">Comprobante</th>
+                        <th style="background-color: #3c8dbc; color: white; text-align: center;">Fecha de Registro</th>
+                        <th style="background-color: #3c8dbc; color: white; text-align: center;">Fecha de Vencimiento</th>
+                        <th style="background-color: #3c8dbc; color: white; text-align: center;">Tipo</th>
+                        <th style="background-color: #3c8dbc; color: white; text-align: center;">Paciente</th>
+                        <th style="background-color: #3c8dbc; color: white; text-align: center;">Total</th>
+                        <th style="background-color: #3c8dbc; color: white; text-align: center;">Estado</th>
+                        <th style="background-color: #3c8dbc; color: white; text-align: center;">Tratamiento</th>
+                        <th style="background-color: #3c8dbc; color: white; text-align: center;"></th>
                       </tr>
                     </thead>
-                    <tbody>
-                      
-                    </tbody>
+      
                   </table>
                 </div>
                 <div id="TotalComprobante" class="alert alert-success weight" role="alert">

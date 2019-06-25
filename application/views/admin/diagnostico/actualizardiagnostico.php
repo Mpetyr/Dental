@@ -6,13 +6,13 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        CIE10 / Actualizar
+        Actualizar
       
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Forms</a></li>
-        <li class="active">Editors</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> Modulo</a></li>
+        <li><a href="#">Procedimiento</a></li>
+        <li class="active">Cie10</li>
       </ol>
     </section>
 
@@ -42,26 +42,18 @@
 
                     <form  id="FormRegistrarDiagnostico" action="<?php echo base_url();?>mantenimiento/diagnostico/update" method="POST" autocomplete="off">
 
-                <div class="row">
-                   <div class="col-md-2">
-                    <div class="form-group">
-                      <label class="control-label">Secuencia</label>
-                          <input type="text" class="form-control input-sm" name="codigo" value="<?php echo $diagnostico->codi_enf;?>" readonly="readonly">
-                    </div>
-                  </div>
-                  
-                </div>
+                
             <div class="row">
 
-                  
-
-                  <div class="col-md-2">
+                   <div class="col-md-2">
                     <div class="form-group">
                       <label class="control-label">CIE10</label>
-                      <input type="text" name="cie10" class="form-control input-sm" value="<?php echo !empty(form_error('diagnostico')) ? set_value('diagnostico'):$diagnostico->siglas_enf?>">
-                      
+                          <input type="text" name="codigo" class="form-control input-sm"  value="<?php echo !empty(form_error('codigo'))?
+                      set_value('codigo'):$diagnostico->codi_enf?>">
                     </div>
                   </div>
+
+                
 
               
                   <div class="col-md-8">
@@ -89,7 +81,7 @@
 
 
 
-                    <div class="col-md-13">
+                    <div class="col-md-12">
                                         <button type="submit" class="pull-right btn btn-md btn-info"><i class="fa fa-floppy-o"></i> Guardar</button>
                                     
                                      </div>  

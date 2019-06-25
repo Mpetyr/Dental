@@ -6,13 +6,13 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        UNIDAD MEDIDA
+        Agregar
       
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Forms</a></li>
-        <li class="active">Editors</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> Modulo</a></li>
+        <li><a href="#">catalogo</a></li>
+        <li class="active">U. Medida</li>
       </ol>
     </section>
 
@@ -50,14 +50,14 @@
                     
                   <div class="col-md-6">
                     <div class="form-group  <?php echo !empty(form_error('descripcion'))? 'has-error':'';?>">
-                      <label class="control-label">Descripcion*</label>
+                      <label class="control-label">Descripcion: *</label>
                       <input type="text" name="descripcion" class="form-control input-sm" placeholder="Nombre">
                     </div>
                   </div>
 
                           <div class="col-md-2">
                             <div class="form-group">
-                               <label class="control-label">Estado *</label>
+                               <label class="control-label">Estado:</label>
                                    <select class="form-control input-sm" name="estado" >
                                       <option value="S">Activado</option>
                                      <option value="N">Inactivo</option>

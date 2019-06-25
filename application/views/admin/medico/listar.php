@@ -5,13 +5,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Medicos
-      
+        <i class="fa fa-user-md" aria-hidden="true"></i>
+        Medico
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Forms</a></li>
-        <li class="active">Editors</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> Modulo</a></li>
+        <li><a href="#">Medicos</a></li>
       </ol>
     </section>
         <?php if ($this->session->flashdata('success')): ?>
@@ -32,7 +31,7 @@
           <div class="box box-info">
                  
                    <ol class="breadcrumb">
-                      <li><a href="#"><i class="fa fa-refresh"></i> Lista</a></li>
+                      <li><a href="<?= base_url('mantenimiento/medico') ?>"><i class="fa fa-refresh"></i> Lista</a></li>
                       <li><a href="<?= base_url('mantenimiento/medico/nuevo') ?>"><i class="fa fa-user-plus"></i> Nuevo</a></li>
                      
                   </ol>
@@ -66,7 +65,7 @@
                   <div class="form-group">
                     <label class="control-label">Especialidad</label>
                     <select  name="especialidad" class="form-control input-sm">
-                      <option value="">Seleccione</option>
+                      <option value="">--Todos--</option>
                     <?php foreach ($especialidades as $e): ?>
                       <option value="<?= $e->cod_especialidad ?>"><?= $e->nombre_especialidad ?></option>
                     <?php endforeach ?>
@@ -93,14 +92,14 @@
                   <table id="TableMantenimientoMedico" class="table table-bordered table-striped table-sm">
                     <thead>
                       <tr>
-                        <th style="background-color: #3c8dbc; color: white;">N°</th>
-                        <th style="background-color: #3c8dbc; color: white;">Medico</th>
-                        <th style="background-color: #3c8dbc; color: white;">Especialidad</th>
-                        <th style="background-color: #3c8dbc; color: white;">DNI</th>
-                        <th style="background-color: #3c8dbc; color: white;">Colegiatura</th>
-                        <th style="background-color: #3c8dbc; color: white;">F. registro</th>
-                        <th style="background-color: #3c8dbc; color: white;">Estado</th>
-                        <th style="background-color: #3c8dbc; color: white;">Opciones</th>
+                        <th style="background-color: #3c8dbc; color: white; text-align: center;">N°</th>
+                        <th style="background-color: #3c8dbc; color: white; text-align: center;">Medico</th>
+                        <th style="background-color: #3c8dbc; color: white; text-align: center;">Especialidad</th>
+                        <th style="background-color: #3c8dbc; color: white; text-align: center;">DNI</th>
+                        <th style="background-color: #3c8dbc; color: white; text-align: center;">Colegiatura</th>
+                        <th style="background-color: #3c8dbc; color: white; text-align: center;">F. registro</th>
+                        <th style="background-color: #3c8dbc; color: white;text-align: center;">Estado</th>
+                        <th style="background-color: #3c8dbc; color: white;text-align: center;">Opciones</th>
                         <th></th>
                       </tr>
                     </thead>

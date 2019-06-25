@@ -70,7 +70,7 @@ class Medico_model extends CI_Model {
                                                    <a href="'.base_url('mantenimiento/medico/editar/'.$q->codi_med).'" class="btn btn-primary" style="padding:2px 5px;margin:0px 2px"> <i class="fa fa-edit"></i> </a>
                                                    
                                                            
-                                                     <button data-id="'.$q->codi_med.'" class="anularTarifario btn btn-danger" style="padding:2px 5px;margin:0px 2px" >
+                                                     <button data-id="'.$q->codi_med.'" class="anular-medico btn btn-danger" style="padding:2px 5px;margin:0px 2px" >
                                                          <i class="glyphicon glyphicon-trash"></i> </button>';
 
 			$row[] = [$q->codi_med,$q->NombresApellidos,$q->NombreEspecialidad,$q->dni_med,$q->coleg_med,$q->fecha_registro,$estado,$botones];

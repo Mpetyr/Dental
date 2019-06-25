@@ -10,7 +10,11 @@ class Medico extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
+		if(!$this->session->userdata("login")){
+			redirect(base_url());
+		}
 		$this->load->model('medico_model');
+		$this->load->library('form_validation');
 	}
 
 	public function index()
@@ -93,13 +97,12 @@ class Medico extends CI_Controller
 		$this->form_validation->set_rules("especialidad","especialidad","required");
 		$this->form_validation->set_rules("nombre","nombre","required");
 		$this->form_validation->set_rules("apellidos","apellidos","required");
-		$this->form_validation->set_rules("dni","Dni","required");
+		$this->form_validation->set_rules("dni","Dni","trim | required | min_length [5] | max_length [12]");
 		$this->form_validation->set_rules("colegiatura","Colegiatura","required");
 		$this->form_validation->set_rules("telefono","Telefono","required");
 		$this->form_validation->set_rules("direccion","Direccion","required");
 		$this->form_validation->set_rules("fechanacimiento","Fecha Nacimiento","required");
 		$this->form_validation->set_rules("sexo","Sexo","required");
-
 
 		$fecharegistro = date("Y-m-d H:i:s");
 		$especialidad = $this->input->post('especialidad');
@@ -238,5 +241,20 @@ class Medico extends CI_Controller
 		}
 
 	}
+
+	function anularMedico()
+	 {
+		$where['codi_med'] = $this->input->get('id');
+		$data['esta_med'] = N;//anulado
+		$edit = $this->modelgeneral->editRegist('medico',$where,$data);
+		$resp = [];
+		if ($edit) {
+			$resp['success'] = true;
+		}else{
+			$resp['success'] = false;
+		}
+
+		echo json_encode($resp);
+	 }
 
 }

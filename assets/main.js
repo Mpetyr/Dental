@@ -552,8 +552,8 @@ var TableTratamientosPanel =  $('#TableTratamientosPanel').DataTable({
 	"searching": false,
 	"processing": true,
 	"serverSide": true,
-	"iDisplayLength": 25,
-	"aLengthMenu": [[25, 50, 100, -1], [25, 50, 100, 'Todos']],
+	"iDisplayLength": 10,
+	"aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, 'Todos']],
 	"aaSorting": [[1, 'desc']],
 	"ajax": {
 		"url": path+'tratamientos/panel/jsonTratamientos',
@@ -1176,8 +1176,8 @@ var TableTratamientosComprobantes =  $('#TableTratamientosComprobantes').DataTab
 	"searching": false,
 	"processing": true,
 	"serverSide": true,
-	"iDisplayLength": 25,
-	"aLengthMenu": [[25, 50, 100, -1], [25, 50, 100, 'Todos']],
+	"iDisplayLength": 10,
+	"aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, 'Todos']],
 	"aaSorting": [[1, 'desc']],
 	"ajax": {
 		"url": path+'tratamientos/comprobantes/jsonComprobantes',
@@ -1227,16 +1227,16 @@ function formatTratamamientoComprobante(d){
 	var comprobante = jQuery.parseJSON(d[10]);
 	var impuesto = parseFloat(comprobante.igvparam_com);
 	var table = `
-	<h4>Procedimientos</h4>
+	<h4> <i class="fa fa-list" aria-hidden="true"></i> Procedimientos</h4>
 	<table class="table table-bordered tabla-condensed table-hover">
 		<thead>
-			<tr>
-				<th class="success">Código</th>
-				<th class="success">Procedimiento</th>
-				<th class="success">Prec. Unit.</th>
-				<th class="success">Cant.</th>
-				<th class="success">Dsct.</th>
-				<th class="success">Subtotal</th>
+			<tr class="btn-success">
+				<th style="text-align: center">Código</th>
+				<th style="text-align: center">Procedimiento</th>
+				<th style="text-align: center">Prec. Unit.</th>
+				<th style="text-align: center">Cant.</th>
+				<th style="text-align: center">Dsct.</th>
+				<th style="text-align: center">Subtotal</th>
 			</tr>
 		</thead>
 		<tbody>`;
@@ -1261,19 +1261,19 @@ function formatTratamamientoComprobante(d){
 	tr += `
 		<tr>
 			<td colspan="4"></td>
-			<td><b>SubTotal</b></td>
+			<td><b>SubTotal :</b></td>
 			<td>
 				<b>${ round(subtotalacumulado,2) }</b>
 			</td>
 		</tr>
 		<tr>
 			<td colspan="4"></td>
-			<td><b>IGV</b></td>
+			<td><b>IGV :</b></td>
 			<td><b>${ (comprobante.igv_com > 0)?round((subtotalacumulado*(impuesto/100)),2):'0.00'  }</b></td>
 		</tr>
 		<tr>
 			<td colspan="4"></td>
-			<td><b>Total</b></td>
+			<td><b>Total :</b></td>
 			<td><b>${ comprobante['total_comp'] }</b></td>
 		</tr>
 	`; 
@@ -1446,8 +1446,8 @@ $('#TableHistoriaMovimientoAlergias').DataTable({
 	"searching": false,
 	"processing": true,
 	"serverSide": true,
-	"iDisplayLength": 25,
-	"aLengthMenu": [[25, 50, 100, -1], [25, 50, 100, 'Todos']],
+	"iDisplayLength": 10,
+	"aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, 'Todos']],
 	"aaSorting": [[1, 'desc']],
 	"ajax": {
 		"url": path+'historia/movimiento/jsonAlergias',
@@ -1487,8 +1487,8 @@ $('#TableHistoriaMovimientoTratamiento').DataTable({
 	"searching": false,
 	"processing": true,
 	"serverSide": true,
-	"iDisplayLength": 25,
-	"aLengthMenu": [[25, 50, 100, -1], [25, 50, 100, 'Todos']],
+	"iDisplayLength": 10,
+	"aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, 'Todos']],
 	"aaSorting": [[1, 'desc']],
 	"ajax": {
 		"url": path+'historia/movimiento/jsonHistratamiento',
@@ -1514,8 +1514,8 @@ $('#TableHistoriaMovimientoEvolucion').DataTable({
 	"searching": false,
 	"processing": true,
 	"serverSide": true,
-	"iDisplayLength": 25,
-	"aLengthMenu": [[25, 50, 100, -1], [25, 50, 100, 'Todos']],
+	"iDisplayLength": 10,
+	"aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, 'Todos']],
 	"aaSorting": [[1, 'desc']],
 	"ajax": {
 		"url": path+'historia/movimiento/jsonEvolucion',
@@ -1775,8 +1775,8 @@ $('#TableHistoriaMovimientoRecetas').DataTable({
 	"searching": false,
 	"processing": true,
 	"serverSide": true,
-	"iDisplayLength": 25,
-	"aLengthMenu": [[25, 50, 100, -1], [25, 50, 100, 'Todos']],
+	"iDisplayLength": 10,
+	"aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, 'Todos']],
 	"aaSorting": [[1, 'desc']],
 	"ajax": {
 		"url": path+'historia/movimiento/jsonRecetas',
@@ -1900,8 +1900,8 @@ $('#TableHistoriaMovimientoPlacas').DataTable({
 	"searching": false,
 	"processing": true,
 	"serverSide": true,
-	"iDisplayLength": 25,
-	"aLengthMenu": [[25, 50, 100, -1], [25, 50, 100, 'Todos']],
+	"iDisplayLength": 10,
+	"aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, 'Todos']],
 	"aaSorting": [[0, 'desc']],
 	"ajax": {
 		"url": path+'historia/movimiento/jsonPlacas',
@@ -2008,8 +2008,8 @@ var TableMantenimientoMedico =  $('#TableMantenimientoMedico').DataTable({
 	"searching": false,
 	"processing": true,
 	"serverSide": true,
-	"iDisplayLength": 25,
-	"aLengthMenu": [[25, 50, 100, -1], [25, 50, 100, 'Todos']],
+	"iDisplayLength": 10,
+	"aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, 'Todos']],
 	"aaSorting": [[0, 'desc']],
 	"ajax": {
 		"url": path+'mantenimiento/medico/jsonmedicos',
@@ -2065,6 +2065,45 @@ $('#FormRegistrar').validate({
 
 });
 
+/*========================================
+=            MEDICO - ANULAR            =
+===========================================*/
+
+$('#TableMantenimientoMedico').on('click', '.anular-medico', function(event) {
+	event.preventDefault();
+	var id = $(this).data('id');
+	Swal.fire({
+		title: "Confirmar",
+		type: "warning",
+		cancelButtonText:'No',
+		confirmButtonText:'Si',
+		showCancelButton: true,
+		confirmButtonColor: "#007AFF",
+		cancelButtonColor: "#d43f3a",
+		text: "¿Anular medico?"
+	}).then((result) => {
+		if (result.value) {
+			$.getJSON(path+'mantenimiento/medico/anularMedico', {id}, function(json, textStatus) {
+				if (json.success) {
+					Swal.fire({
+						title: "Buen trabajo",
+						text: "La solicitud ha sido procesada.",
+						type: "success"
+					});
+					$('#TableMantenimientoMedico').DataTable().ajax.reload();
+				}else{
+					Swal.fire({
+						title: "Error",
+						text: "Ocurrio un error, vuelva a intentarlo.",
+						type: "error"
+					});
+				}
+			});
+		}
+	});
+});
+
+
 
 /*========================================
 =            TRATAMIENTO - LISTADO       =
@@ -2077,8 +2116,8 @@ var TableMantenimientoProcedimiento =  $('#TableMantenimientoProcedimiento').Dat
 	"searching": false,
 	"processing": true,
 	"serverSide": true,
-	"iDisplayLength": 25,
-	"aLengthMenu": [[25, 50, 100, -1], [25, 50, 100, 'Todos']],
+	"iDisplayLength": 10,
+	"aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, 'Todos']],
 	"aaSorting": [[0, 'desc']],
 	"ajax": {
 		"url": path+'mantenimiento/tarifario/jsontarifario',
@@ -2183,8 +2222,8 @@ var TableMantenimientoPaciente =  $('#TableMantenimientoPaciente').DataTable({
 	"searching": false,
 	"processing": true,
 	"serverSide": true,
-	"iDisplayLength": 25,
-	"aLengthMenu": [[25, 50, 100, -1], [25, 50, 100, 'Todos']],
+	"iDisplayLength": 10,
+	"aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, 'Todos']],
 	"aaSorting": [[0, 'desc']],
 	"ajax": {
 		"url": path+'mantenimiento/paciente/jsonpaciente',
@@ -2212,6 +2251,45 @@ $('#PacienteFormBusqueda').validate({
 	submitHandler:function() {
 		$('#TableMantenimientoPaciente').DataTable().ajax.reload();
 	}
+});
+
+
+/*========================================
+=            PACIENTE - ANULAR            =
+===========================================*/
+
+$('#TableMantenimientoPaciente').on('click', '.anular-paciente', function(event) {
+	event.preventDefault();
+	var id = $(this).data('id');
+	Swal.fire({
+		title: "Confirmar",
+		type: "warning",
+		cancelButtonText:'No',
+		confirmButtonText:'Si',
+		showCancelButton: true,
+		confirmButtonColor: "#007AFF",
+		cancelButtonColor: "#d43f3a",
+		text: "¿Anular paciente?"
+	}).then((result) => {
+		if (result.value) {
+			$.getJSON(path+'mantenimiento/paciente/anularPaciente', {id}, function(json, textStatus) {
+				if (json.success) {
+					Swal.fire({
+						title: "Buen trabajo",
+						text: "La solicitud ha sido procesada.",
+						type: "success"
+					});
+					$('#TableMantenimientoPaciente').DataTable().ajax.reload();
+				}else{
+					Swal.fire({
+						title: "Error",
+						text: "Ocurrio un error, vuelva a intentarlo.",
+						type: "error"
+					});
+				}
+			});
+		}
+	});
 });
 
 
@@ -2264,7 +2342,7 @@ $('#FormRegistrarPaciente').validate({
 	rules: {
 		nombre:{required:true},
 		apellidos:{required:true},
-		/*edad:{required:true},
+		edad:{required:true},
 		ocupacion:{required:true},
 		lugarnacimiento:{required:true},
 		direccion:{required:true},
@@ -2272,7 +2350,8 @@ $('#FormRegistrarPaciente').validate({
 		dni:{required:true},
 		fechanacimiento:{required:true},
 		sexo:{required:true},
-		email:{required:true},*/
+		email:{required:true},
+		departamento:{required:true},
 	
 	},
 	submit:function(form){
@@ -2281,6 +2360,9 @@ $('#FormRegistrarPaciente').validate({
 	
 
 });
+
+
+
 
 
 /*========================================
@@ -2294,8 +2376,8 @@ var TableMantenimientoDiagnostico =  $('#TableMantenimientoDiagnostico').DataTab
 	"searching": false,
 	"processing": true,
 	"serverSide": true,
-	"iDisplayLength": 25,
-	"aLengthMenu": [[25, 50, 100, -1], [25, 50, 100, 'Todos']],
+	"iDisplayLength": 10,
+	"aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, 'Todos']],
 	"aaSorting": [[0, 'desc']],
 	"ajax": {
 		"url": path+'mantenimiento/diagnostico/jsondiagnostico',
@@ -2306,7 +2388,6 @@ var TableMantenimientoDiagnostico =  $('#TableMantenimientoDiagnostico').DataTab
 		}
 	},
 	"columns": [
-		{"orderable":true},
 		{"orderable":true},
 		{"orderable":true},
 		{"orderable":true},
@@ -2332,7 +2413,6 @@ $('#FormRegistrarDiagnostico').validate({
 	ignore: [],
 	rules: {
 		codigo:{required:true},
-		cie10:{required:true},
 		descripcion:{required:true},
 		estado:{required:true},
 		
@@ -2388,8 +2468,8 @@ var TableMantenimientoMedida =  $('#TableMantenimientoMedida').DataTable({
 	"searching": false,
 	"processing": true,
 	"serverSide": true,
-	"iDisplayLength": 25,
-	"aLengthMenu": [[25, 50, 100, -1], [25, 50, 100, 'Todos']],
+	"iDisplayLength": 10,
+	"aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, 'Todos']],
 	"aaSorting": [[0, 'desc']],
 	"ajax": {
 		"url": path+'mantenimiento/medida/jsonmedida',
@@ -2480,8 +2560,8 @@ var TableMantenimientoConcepto =  $('#TableMantenimientoConcepto').DataTable({
 	"searching": false,
 	"processing": true,
 	"serverSide": true,
-	"iDisplayLength": 25,
-	"aLengthMenu": [[25, 50, 100, -1], [25, 50, 100, 'Todos']],
+	"iDisplayLength": 10,
+	"aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, 'Todos']],
 	"aaSorting": [[0, 'desc']],
 	"ajax": {
 		"url": path+'mantenimiento/concepto/jsonconcepto',
@@ -2545,7 +2625,7 @@ $('#TableMantenimientoConcepto tbody').on('click', '.anular', function(event) {
 			showCancelButton: true,
 			confirmButtonColor: "#007AFF",
 			cancelButtonColor: "#d43f3a",
-			text: "¿Anular TIPO CONCEPTO?"
+			text: "¿Anular Tipo Concepto?"
 		}).then((result) => {
 			if (result.value) {
 				$.getJSON(path+'mantenimiento/concepto/anular', {id}, function(json, textStatus) {
@@ -2571,8 +2651,8 @@ var TableMantenimientoCategoria =  $('#TableMantenimientoCategoria').DataTable({
 	"searching": false,
 	"processing": true,
 	"serverSide": true,
-	"iDisplayLength": 25,
-	"aLengthMenu": [[25, 50, 100, -1], [25, 50, 100, 'Todos']],
+	"iDisplayLength": 10,
+	"aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, 'Todos']],
 	"aaSorting": [[0, 'desc']],
 	"ajax": {
 		"url": path+'mantenimiento/categoria/jsoncategoria',
@@ -2662,8 +2742,8 @@ var TableMantenimientoEspecialidad =  $('#TableMantenimientoEspecialidad').DataT
 	"searching": false,
 	"processing": true,
 	"serverSide": true,
-	"iDisplayLength": 25,
-	"aLengthMenu": [[25, 50, 100, -1], [25, 50, 100, 'Todos']],
+	"iDisplayLength": 10,
+	"aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, 'Todos']],
 	"aaSorting": [[0, 'desc']],
 	"ajax": {
 		"url": path+'mantenimiento/especialidad/jsonespecialidad',
@@ -2753,8 +2833,8 @@ var TableMantenimientoCitado =  $('#TableMantenimientoCitado').DataTable({
 	"searching": false,
 	"processing": true,
 	"serverSide": true,
-	"iDisplayLength": 25,
-	"aLengthMenu": [[25, 50, 100, -1], [25, 50, 100, 'Todos']],
+	"iDisplayLength": 10,
+	"aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, 'Todos']],
 	"aaSorting": [[0, 'desc']],
 	"ajax": {
 		"url": path+'mantenimiento/citado/jsoncitado',
@@ -2842,8 +2922,8 @@ var TableMantenimientoDocumento =  $('#TableMantenimientoDocumento').DataTable({
 	"searching": false,
 	"processing": true,
 	"serverSide": true,
-	"iDisplayLength": 25,
-	"aLengthMenu": [[25, 50, 100, -1], [25, 50, 100, 'Todos']],
+	"iDisplayLength": 10,
+	"aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, 'Todos']],
 	"aaSorting": [[0, 'desc']],
 	"ajax": {
 		"url": path+'mantenimiento/tipodocumento/jsondocumento',
@@ -2940,8 +3020,8 @@ var TableMantenimientoPago =  $('#TableMantenimientoPago').DataTable({
 	"searching": false,
 	"processing": true,
 	"serverSide": true,
-	"iDisplayLength": 25,
-	"aLengthMenu": [[25, 50, 100, -1], [25, 50, 100, 'Todos']],
+	"iDisplayLength": 10,
+	"aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, 'Todos']],
 	"aaSorting": [[0, 'desc']],
 	"ajax": {
 		"url": path+'mantenimiento/pago/jsonpago',
@@ -3026,8 +3106,8 @@ var TableMantenimientoMoneda =  $('#TableMantenimientoMoneda').DataTable({
 	"searching": false,
 	"processing": true,
 	"serverSide": true,
-	"iDisplayLength": 25,
-	"aLengthMenu": [[25, 50, 100, -1], [25, 50, 100, 'Todos']],
+	"iDisplayLength": 10,
+	"aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, 'Todos']],
 	"aaSorting": [[0, 'desc']],
 	"ajax": {
 		"url": path+'mantenimiento/moneda/jsonmoneda',
@@ -3112,8 +3192,8 @@ var TableMantenimientoBanco =  $('#TableMantenimientoBanco').DataTable({
 	"searching": false,
 	"processing": true,
 	"serverSide": true,
-	"iDisplayLength": 25,
-	"aLengthMenu": [[25, 50, 100, -1], [25, 50, 100, 'Todos']],
+	"iDisplayLength": 10,
+	"aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, 'Todos']],
 	"aaSorting": [[0, 'desc']],
 	"ajax": {
 		"url": path+'mantenimiento/banco/jsonBanco',
@@ -3198,8 +3278,8 @@ var TableMantenimientoTarjeta =  $('#TableMantenimientoTarjeta').DataTable({
 	"searching": false,
 	"processing": true,
 	"serverSide": true,
-	"iDisplayLength": 25,
-	"aLengthMenu": [[25, 50, 100, -1], [25, 50, 100, 'Todos']],
+	"iDisplayLength": 10,
+	"aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, 'Todos']],
 	"aaSorting": [[0, 'desc']],
 	"ajax": {
 		"url": path+'mantenimiento/tarjeta/jsonTarjeta',
@@ -3281,8 +3361,8 @@ $('#TableHistoriaMovimientoCita').DataTable({
 	"searching": false,
 	"processing": true,
 	"serverSide": true,
-	"iDisplayLength": 25,
-	"aLengthMenu": [[25, 50, 100, -1], [25, 50, 100, 'Todos']],
+	"iDisplayLength": 10,
+	"aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, 'Todos']],
 	"aaSorting": [[1, 'desc']],
 	"ajax": {
 		"url": path+'historia/movimiento/jsonCitasHistoria',
@@ -3396,8 +3476,8 @@ var TableMantenimientoAlergia =  $('#TableMantenimientoAlergia').DataTable({
 	"searching": false,
 	"processing": true,
 	"serverSide": true,
-	"iDisplayLength": 25,
-	"aLengthMenu": [[25, 50, 100, -1], [25, 50, 100, 'Todos']],
+	"iDisplayLength": 10,
+	"aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, 'Todos']],
 	"aaSorting": [[0, 'desc']],
 	"ajax": {
 		"url": path+'mantenimiento/alergia/jsonAlergia',

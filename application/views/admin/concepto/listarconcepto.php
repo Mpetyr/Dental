@@ -6,12 +6,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        TIPO DE CONCEPTO
+        TIPO CONCEPTO
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Forms</a></li>
-        <li class="active">Editors</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i>Modulo</a></li>
+        <li><a href="#">catalogo</a></li>
+        <li class="active">concepto</li>
       </ol>
     </section>
     <?php if ($this->session->flashdata('success')): ?>
@@ -71,10 +71,10 @@
                   <table id="TableMantenimientoConcepto" class="table table-bordered table-striped table-sm">
                     <thead>
                       <tr class="info">
-                        <th style="background-color: #3c8dbc; color: white;">Codigo</th>
-                        <th style="background-color: #3c8dbc; color: white;">Descripción</th>
-                        <th style="background-color: #3c8dbc; color: white;">Estado</th>
-                        <th style="background-color: #3c8dbc; color: white;">Acciones</th>
+                        <th style="background-color: #3c8dbc; color: white; text-align: center;">Codigo</th>
+                        <th style="background-color: #3c8dbc; color: white; text-align: center;">Descripción</th>
+                        <th style="background-color: #3c8dbc; color: white; text-align: center;">Estado</th>
+                        <th style="background-color: #3c8dbc; color: white; text-align: center;">Acciones</th>
                       
                       </tr>
                     </thead>

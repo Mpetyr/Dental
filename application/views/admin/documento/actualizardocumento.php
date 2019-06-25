@@ -6,13 +6,13 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      TIPO DOCUMENTO / Actualizar
+      ACTUALIZAR
     
     </h1>
     <ol class="breadcrumb">
-      <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li><a href="#">Forms</a></li>
-      <li class="active">Editors</li>
+  <li><a href="#"><i class="fa fa-dashboard"></i> Modulo</a></li>
+      <li><a href="#">configuracion</a></li>
+      <li class="active">tipo documento</li>
     </ol>
   </section>
 
@@ -60,7 +60,7 @@
             <div class="col-md-2">
                   <div class="form-group  <?php echo !empty(form_error('abreviatura'))? 'has-error':'';?>">
                     <label class="control-label">Siglas *</label>
-                    <input type="text" name="abreviatura" class="form-control input-sm" value="<?php echo !empty(form_error('abreviatura')) ? set_value('abreviatura'):$documento->abreviatura?>" >
+                    <input type="text" name="abreviatura" class="form-control input-sm" value="<?php echo !empty(form_error('abreviatura')) ? set_value('abreviatura'):$documento->abreviatura?>" maxlength="2" minlength="2"  onkeypress="return soloLetras(event)" >
                   </div>
                 </div>
 
@@ -68,7 +68,7 @@
                 <div class="col-md-2">
                   <div class="form-group  <?php echo !empty(form_error('serie'))? 'has-error':'';?>">
                     <label class="control-label">Serie *</label>
-                    <input type="text" name="serie" class="form-control input-sm" value="<?php echo !empty(form_error('serie')) ? set_value('serie'):$documento->serie?>">
+                    <input type="text" name="serie" class="form-control input-sm" value="<?php echo !empty(form_error('serie')) ? set_value('serie'):$documento->serie?>" maxlength="3" minlength="3" onKeyPress="if (event.keyCode < 48 || event.keyCode > 57)event.returnValue = false;">
                   </div>
                 </div>
                 
@@ -124,11 +124,6 @@
                                   
                                    </div>    
                
-
-            
-        
-          
-
  </form>
       
         </div>
@@ -149,3 +144,23 @@
 
 </div>
 
+<script>
+    function soloLetras(e){
+       key = e.keyCode || e.which;
+       tecla = String.fromCharCode(key).toLowerCase();
+       letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
+       especiales = "8-37-39-46";
+
+       tecla_especial = false
+       for(var i in especiales){
+            if(key == especiales[i]){
+                tecla_especial = true;
+                break;
+            }
+        }
+
+        if(letras.indexOf(tecla)==-1 && !tecla_especial){
+            return false;
+        }
+    }
+</script>

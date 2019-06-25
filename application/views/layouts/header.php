@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="<?php echo base_url();?>assets/template/bootstrap/css/bootstrap.min.css">
       <link rel="stylesheet" href="<?php echo base_url();?>assets/template/bootstrap/css/bootstrap-datepicker3.min.css">
     <link rel="stylesheet" href="<?php echo base_url();?>assets/template/bootstrap/css/bootstrap-datetimepicker.css">
-    <link rel="stylesheet" href="<?php echo base_url();?>assets/template/bootstrap/css/bootstrap-datetimepicker.min.css">
     <link rel="stylesheet" href="<?= base_url() ?>assets/plugins/timepicker/bootstrap-timepicker.min.css">
     <!-- Bootstrap 3.3.7 -->
           <!-- Datatbles -->

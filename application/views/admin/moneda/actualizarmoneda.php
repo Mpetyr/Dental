@@ -6,13 +6,13 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      TIPO MONEDA / Actualizar
+      Actualizar
     
     </h1>
     <ol class="breadcrumb">
-      <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li><a href="#">Forms</a></li>
-      <li class="active">Editors</li>
+      <li><a href="#"><i class="fa fa-dashboard"></i> Modulo</a></li>
+      <li><a href="#">caja</a></li>
+      <li class="active">tipo moneda</li>
     </ol>
   </section>
 
