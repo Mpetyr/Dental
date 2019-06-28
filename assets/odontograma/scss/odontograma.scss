@@ -75,7 +75,7 @@ $altoDienteCentro: 9.7%;
 		font-weight: 100;
 		span{
 			display: inline;
-			letter-spacing: -0.5px;
+			letter-spacing: 0.2px;
 			line-height: 0%;
 			&.bueno{
 				color:#0040FF;
@@ -192,6 +192,130 @@ $altoDienteCentro: 9.7%;
 		background-repeat: repeat-x;
 	}
 
+	.munon{
+		height: 7%;
+		background-size: 36%;
+		&.bueno{
+			background-image: url('../images/munonBueno.png');
+		}
+		&.malo{
+			background-image: url('../images/munonMalo.png');
+		}
+	}
+
+	.fusion{
+		background-image: url('../images/fusion.png');
+		height: 4%;
+		background-size: 100% 80%;
+		width: $anchoDiente + 3.5%;
+	}
+
+	.fracturaCoronal{
+		height: 0.4%;
+		background-image: url('../images/fracturaCoronal.png');
+		background-size: 80%;
+	}
+
+	.fracturaIncisal{
+		height: 2.5%;
+		background-image: url('../images/fracturaIncisal.png');
+		width: $anchoDiente - 4.1%;
+		background-size: 100%;
+	}
+
+	.fracturaRaizCorona{
+		height: 5.5%;
+		background-image: url('../images/fracturaRaizCorona.png');
+		width: $anchoDiente - 1%;
+		background-size: 100%;
+	}
+
+	.geminasion{
+		height: 3.7%;
+		background-image: url('../images/geminasion.png');
+		background-size: 50%;
+	}
+
+	.giroversion{
+		height: 3.7%;
+		&Distal{
+			background-image: url('../images/distal.png');
+		}
+		&Mesial{
+			background-image: url('../images/mesial.png');
+		}
+	}
+
+	.protesisFijaInicio{
+		height: 2.65%;
+		background-size: 100% 100%;
+		&.bueno{
+			background-image: url('../images/protesisFijaBuenoInicio.png');
+		}
+		&.malo{
+			background-image: url('../images/protesisFijaMaloInicio.png');
+		}
+	}
+
+	.protesisFijaFin{
+		height: 2.65%;
+		background-size: 100% 100%;
+		&.bueno{
+			background-image: url('../images/protesisFijaBuenoFin.png');
+		}
+		&.malo{
+			background-image: url('../images/protesisFijaMaloFin.png');
+		}
+	}
+
+	.protesisRemovible{
+		height: 1.8%;
+		&.bueno{
+			background-image: url('../images/protesisRemovibleBueno.png');
+		}
+		&.malo{
+			background-image: url('../images/protesisRemovibleMalo.png');
+		}
+	}
+
+	.protesisTotal{
+		height: 1.8%;
+		&.bueno{
+			background-image: url('../images/protesisRemovibleBueno.png');
+		}
+		&.malo{
+			background-image: url('../images/protesisRemovibleMalo.png');
+		}
+	}
+
+	.transposicion{
+		height: 2.8%;
+		background-image: url('../images/transposicion.png');
+		background-size: 100%;
+	}
+
+	.tratamientoPulparTC-PC{
+		height: 6.5%;
+		background-size: 100%;
+		&.bueno{
+			background-image: url('../images/tratamientoPulparTCBueno.png');
+		}
+		&.malo{
+			background-image: url('../images/tratamientoPulparTCMalo.png');
+		}
+	}
+
+	.tratamientoPulparPP{
+		height: 3.2%;
+		background-size: 40%;
+		&.bueno{
+			background-image: url('../images/tratamientoPulparPPBueno.png');
+		}
+		&.malo{
+			background-image: url('../images/tratamientoPulparPPMalo.png');
+		}
+	}
+
 	//CUADRANTE UNO
 	@for $i from 1 through 16{
 		.cursor-#{$i} {
@@ -262,6 +386,72 @@ $altoDienteCentro: 9.7%;
 			left: (($i - 1) * $anchoDiente);
 			top: 16.5%;
 		}
+
+		.munon-#{$i}{
+			left: (($i - 1) * $anchoDiente);
+			top: 11%;
+		}
+
+		.fusion-#{$i}{
+			left: (($i - 1) * $anchoDiente) + 1.5%;
+			top: 7%;
+		}
+
+		.fracturaCoronal-#{$i}{
+			left: (($i - 1) * $anchoDiente);
+			top: 14.5%;
+		}
+
+		.fracturaIncisal-#{$i}{
+			left: (($i - 1) * $anchoDiente) + 3.8%;
+			top: 16.5%;
+		}
+
+		.fracturaRaizCorona-#{$i}{
+			left: (($i - 1) * $anchoDiente) + 0.8%;
+			top: 12%;
+		}
+
+		.geminasion-#{$i}{
+			left: (($i - 1) * $anchoDiente);
+			top: 6.4%;
+		}
+
+		.giroversionDistal-#{$i}, .giroversionMesial-#{$i}{
+			left: (($i - 1) * $anchoDiente);
+			top: 20%;
+		}
+
+		.protesisFijaInicio-#{$i}, .protesisFijaFin-#{$i}{
+			left: (($i - 1) * $anchoDiente);
+			top: 4.6%;
+		}
+
+		.protesisRemovible-#{$i}{
+			left: (($i - 1) * $anchoDiente);
+			top: 4.5%;
+		}
+
+		.protesisTotal-#{$i}{
+			left: (($i - 1) * $anchoDiente);
+			top: 16%;
+		}
+
+		.transposicion-#{$i}{
+			left: (($i - 1) * $anchoDiente) + 3%;
+			top: 5%;
+		}
+
+		.tratamientoPulparTC-PC-#{$i}{
+			left: (($i - 1) * $anchoDiente);
+			top: 10%;
+		}
+
+		.tratamientoPulparPP-#{$i}{
+			left: (($i - 1) * $anchoDiente);
+			top: 16%;
+		}
+
 	}
 
 	//CUADRANTE DOS
@@ -335,6 +525,72 @@ $altoDienteCentro: 9.7%;
 			left: (($i - 14) * $anchoDiente);
 			top: 38.2%;
 		}
+
+		.munon-#{$i}{
+			left: (($i - 14) * $anchoDiente);
+			top: 32.7%;
+		}
+
+		.fusion-#{$i}{
+			left: (($i - 14) * $anchoDiente) + 1.5%;
+			top: 45%;
+		}
+
+		.fracturaCoronal-#{$i}{
+			left: (($i - 14) * $anchoDiente);
+			top: 36.4%;
+		}
+
+		.fracturaIncisal-#{$i}{
+			left: (($i - 14) * $anchoDiente) + 3.8%;
+			top: 38.2%;
+		}
+
+		.fracturaRaizCorona-#{$i}{
+			left: (($i - 14) * $anchoDiente) + 0.7%;
+			top: 33.5%;
+		}
+
+		.geminasion-#{$i}{
+			left: (($i - 14) * $anchoDiente);
+			top: 44.8%;
+		}
+
+		.giroversionDistal-#{$i}, .giroversionMesial-#{$i}{
+			left: (($i - 14) * $anchoDiente);
+			top: 41.5%;
+		}
+
+		.protesisFijaInicio-#{$i}, .protesisFijaFin-#{$i}{
+			left: (($i - 14) * $anchoDiente);
+			top: 28.2%;
+		}
+
+		.protesisRemovible-#{$i}{
+			left: (($i - 14) * $anchoDiente);
+			top: 28%;
+		}
+
+		.protesisTotal-#{$i}{
+			left: (($i - 14) * $anchoDiente);
+			top: 37.6%;
+		}
+
+		.transposicion-#{$i}{
+			left: (($i - 14) * $anchoDiente) + 3%;
+			top: 43%;
+		}
+
+		.tratamientoPulparTC-PC-#{$i}{
+			left: (($i - 14) * $anchoDiente);
+			top: 32%;
+		}
+
+		.tratamientoPulparPP-#{$i}{
+			left: (($i - 14) * $anchoDiente);
+			top: 37.6%;
+		}
+		
 	}
 	
 	//CUADRANTE TRES
@@ -346,7 +602,7 @@ $altoDienteCentro: 9.7%;
 		}
 
 		.recuadro-#{$i} {
-			top: 72.5%;
+			top: 72.7%;
 			left: (($i - 24) * $anchoDiente);
 		}
 
@@ -409,6 +665,93 @@ $altoDienteCentro: 9.7%;
 		.edentulo-#{$i}{
 			left: (($i - 24) * $anchoDiente);
 			top: 60%;
+		}
+
+		.munon-#{$i}{
+			left: (($i - 24) * $anchoDiente);
+			top: 59%;
+			transform: rotate(180deg);
+		}
+
+		.fusion-#{$i}{
+			left: (($i - 24) * $anchoDiente) + 1.5%;
+			top: 50.5%;
+		}
+
+		.fracturaCoronal-#{$i}{
+			left: (($i - 24) * $anchoDiente);
+			top: 62%;
+		}
+
+		.fracturaIncisal-#{$i}{
+			left: (($i - 24) * $anchoDiente) + 0.5%;
+			top: 58%;
+		}
+
+		.fracturaRaizCorona-#{$i}{
+			left: (($i - 24) * $anchoDiente) + 0.5%;
+			top: 60%;
+		}
+
+		.geminasion-#{$i}{
+			left: (($i - 24) * $anchoDiente);
+			top: 50%;
+		}
+
+		.giroversionDistal-#{$i}, .giroversionMesial-#{$i}{
+			left: (($i - 24) * $anchoDiente);
+			top: 53.5%;
+			transform: rotate(180deg);
+		}
+
+		.protesisFijaInicio-#{$i}{
+			left: (($i - 24) * $anchoDiente);
+			top: 67.3%;
+			transform: rotate(180deg);
+			&.bueno{
+				background-image: url('../images/protesisFijaBuenoFin.png') !important;
+			}
+			&.malo{
+				background-image: url('../images/protesisFijaMaloFin.png') !important;
+			}
+		}
+
+		.protesisFijaFin-#{$i}{
+			left: (($i - 24) * $anchoDiente);
+			top: 67.3%;
+			transform: rotate(180deg);
+			&.bueno{
+				background-image: url('../images/protesisFijaBuenoInicio.png') !important;
+			}
+			&.malo{
+				background-image: url('../images/protesisFijaMaloInicio.png') !important;
+			}
+		}
+
+		.protesisRemovible-#{$i}{
+			left: (($i - 24) * $anchoDiente);
+			top: 68.5%;
+		}
+
+		.protesisTotal-#{$i}{
+			left: (($i - 24) * $anchoDiente);
+			top: 59.2%;
+		}
+
+		.transposicion-#{$i}{
+			left: (($i - 24) * $anchoDiente) + 3%;
+			transform: rotate(180deg);
+			top: 53%;
+		}
+
+		.tratamientoPulparTC-PC-#{$i}{
+			left: (($i - 24) * $anchoDiente);
+			top: 60%;
+		}
+
+		.tratamientoPulparPP-#{$i}{
+			left: (($i - 24) * $anchoDiente);
+			top: 59.4%;
 		}
 	}
 
@@ -484,6 +827,93 @@ $altoDienteCentro: 9.7%;
 		.edentulo-#{$i}{
 			left: (($i - 37) * $anchoDiente);
 			top: 82.5%;
+		}
+
+		.munon-#{$i}{
+			left: (($i - 37) * $anchoDiente);
+			top: 81%;
+			transform: rotate(180deg);
+		}
+
+		.fusion-#{$i}{
+			left: (($i - 37) * $anchoDiente) + 1.5%;
+			top: 89.4%;
+		}
+
+		.fracturaCoronal-#{$i}{
+			left: (($i - 37) * $anchoDiente);
+			top: 84.4%;
+		}
+
+		.fracturaIncisal-#{$i}{
+			left: (($i - 37) * $anchoDiente) + 0.5%;
+			top: 80.5%;
+		}
+
+		.fracturaRaizCorona-#{$i}{
+			left: (($i - 37) * $anchoDiente) + 0.5%;
+			top: 82.5%;
+		}
+
+		.geminasion-#{$i}{
+			left: (($i - 37) * $anchoDiente);
+			top: 89%;
+		}
+
+		.giroversionDistal-#{$i}, .giroversionMesial-#{$i}{
+			left: (($i - 37) * $anchoDiente);
+			top: 76%;
+			transform: rotate(180deg);
+		}
+
+		.protesisFijaInicio-#{$i}{
+			left: (($i - 37) * $anchoDiente);
+			top: 92.4%;
+			transform: rotate(180deg);
+			&.bueno{
+				background-image: url('../images/protesisFijaBuenoFin.png') !important;
+			}
+			&.malo{
+				background-image: url('../images/protesisFijaMaloFin.png') !important;
+			}
+		}
+
+		.protesisFijaFin-#{$i}{
+			left: (($i - 37) * $anchoDiente);
+			top: 92.4%;
+			transform: rotate(180deg);
+			&.bueno{
+				background-image: url('../images/protesisFijaBuenoInicio.png') !important;
+			}
+			&.malo{
+				background-image: url('../images/protesisFijaMaloInicio.png') !important;
+			}
+		}
+
+		.protesisRemovible-#{$i}{
+			left: (($i - 37) * $anchoDiente);
+			top: 93.5%;
+		}
+
+		.protesisTotal-#{$i}{
+			left: (($i - 37) * $anchoDiente);
+			top: 81.5%;
+		}
+
+		.transposicion-#{$i}{
+			left: (($i - 37) * $anchoDiente) + 3%;
+			transform: rotate(180deg);
+			top: 92%;
+		}
+
+		.tratamientoPulparTC-PC-#{$i}{
+			left: (($i - 37) * $anchoDiente);
+			top: 82%;
+		}
+
+		.tratamientoPulparPP-#{$i}{
+			left: (($i - 37) * $anchoDiente);
+			top: 81.83%;
 		}
 
 	}

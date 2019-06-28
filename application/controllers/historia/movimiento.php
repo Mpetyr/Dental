@@ -745,7 +745,7 @@ class Movimiento extends CI_Controller {
 		$paciente = $this->input->get('paciente');
 		$tipo = 'Inicial';
 		$odontograma = $this->db->from('paciente_odontograma')
-		->select('pacodo_id as id,id_hal,pacodo_estado as estado,pacodo_sigla as sigla,pacodo_id,inicio.orden_die as inicio, fin.orden_die as fin')
+		->select('pacodo_id as id,id_hal,pacodo_categoria as categoria,pacodo_estado as estado,pacodo_sigla as sigla,pacodo_id,inicio.orden_die as inicio, fin.orden_die as fin')
 		->join('dientes as inicio','paciente_odontograma.numero_die = inicio.numero_die')
 		->join('dientes as fin','paciente_odontograma.pacodo_dientefinal = fin.numero_die','left')
 		->where('pacodo_tipo',$tipo)
@@ -757,7 +757,7 @@ class Movimiento extends CI_Controller {
 	function getHallazgo($id)
 	{
 		return $this->db->from('paciente_odontograma')
-		->select('pacodo_id as id,id_hal,pacodo_estado as estado,pacodo_sigla as sigla,pacodo_id,inicio.orden_die as inicio, fin.orden_die as fin')
+		->select('pacodo_id as id,id_hal,pacodo_categoria as categoria,pacodo_estado as estado,pacodo_sigla as sigla,pacodo_id,inicio.orden_die as inicio, fin.orden_die as fin')
 		->join('dientes as inicio','paciente_odontograma.numero_die = inicio.numero_die')
 		->join('dientes as fin','paciente_odontograma.pacodo_dientefinal = fin.numero_die','left')
 		->where('pacodo_id',$id)
@@ -769,7 +769,7 @@ class Movimiento extends CI_Controller {
 		$paciente = $this->input->get('paciente');
 		$diente = $this->input->get('diente');
 		$query = $this->db->from('paciente_odontograma')
-		->select('pacodo_id as id,nombre_hal,paciente_odontograma.id_hal,pacodo_estado as estado,pacodo_sigla as sigla,pacodo_id,inicio.orden_die as inicio, fin.orden_die as fin, paciente_odontograma.numero_die as dienteInicio, paciente_odontograma.pacodo_dientefinal as dienteFinal, pacodo_espec as especificaciones')
+		->select('pacodo_id as id,nombre_hal,pacodo_categoria as categoria,paciente_odontograma.id_hal,pacodo_estado as estado,pacodo_sigla as sigla,pacodo_id,inicio.orden_die as inicio, fin.orden_die as fin, paciente_odontograma.numero_die as dienteInicio, paciente_odontograma.pacodo_dientefinal as dienteFinal, pacodo_espec as especificaciones')
 		->join('dientes as inicio','paciente_odontograma.numero_die = inicio.numero_die')
 		->join('dientes as fin','paciente_odontograma.pacodo_dientefinal = fin.numero_die','left')
 		->join('hallazgos','paciente_odontograma.id_hal = hallazgos.id_hal')
@@ -793,6 +793,9 @@ class Movimiento extends CI_Controller {
 		}
 		if ($this->input->post('sigla')!='') {
 			$data['pacodo_sigla'] = $this->input->post('sigla');
+		}
+		if ($this->input->post('categoria')!='') {
+			$data['pacodo_categoria'] = $this->input->post('categoria');
 		}
 		$data['pacodo_espec'] = $this->input->post('especificaciones');
 		$data['codi_usu'] = 1;

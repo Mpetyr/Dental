@@ -228,6 +228,125 @@
             Diastema
           </a>
         </li>
+        
+        <li>
+          <img src="<?= base_url() ?>assets/odontograma/images/interrogacion.png">
+          <a class="dropdown-toggle rango nombreHallazgo odontograma-item" data-hallazgo="13">
+            Edentulo Total
+          </a>
+        </li>
+        <li class="dropdown">
+          <img src="<?= base_url() ?>assets/odontograma/images/interrogacion.png">
+          <a class="dropdown-toggle nombreHallazgo" id="dropdownMunon" data-hallazgo="30"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Espigo Muñon
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMunon">
+            <li><a href="#" data-estado="bueno" class="odontograma-item"><i class="fa fa-thumbs-o-up buen"></i>Buen Estado</a></li>
+            <li><a href="#" data-estado="malo" class="odontograma-item"><i class="fa fa-thumbs-o-down mal"></i>Mal Estado</a></li>
+          </ul>
+        </li>
+        <li>
+          <img src="<?= base_url() ?>assets/odontograma/images/interrogacion.png">
+          <a class="dropdown-toggle nombreHallazgo odontograma-item" data-hallazgo="8">
+            Fosas y Fisuras Profundas
+          </a>
+        </li>
+        <li class="dropdown">
+          <img src="<?= base_url() ?>assets/odontograma/images/interrogacion.png">
+          <a class="dropdown-toggle nombreHallazgo" id="dropdownFractura" data-hallazgo="7" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Fractura
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="dropdownFractura">
+            <li><a href="#" class="odontograma-item" data-categoria="Coronal">Fractura Coronal</a></li>
+            <li><a href="#" class="odontograma-item" data-categoria="Incisal">Fractura Incisal</a></li>
+            <li><a href="#" class="odontograma-item" data-categoria="Raiz y Coronal">Fractura Raiz y Coronal</a></li>
+          </ul>
+        </li>
+        <li>
+          <img src="<?= base_url() ?>assets/odontograma/images/interrogacion.png">
+          <a class="dropdown-toggle nombreHallazgo odontograma-item" data-hallazgo="24">
+            Fusión
+          </a>
+        </li>
+        <li>
+          <img src="<?= base_url() ?>assets/odontograma/images/interrogacion.png">
+          <a class="dropdown-toggle nombreHallazgo odontograma-item" data-hallazgo="25">
+            Geminasión
+          </a>
+        </li>
+        <li class="dropdown">
+          <img src="<?= base_url() ?>assets/odontograma/images/interrogacion.png">
+          <a class="dropdown-toggle nombreHallazgo" id="dropdownGiroversion" data-hallazgo="18" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Giroversión
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="dropdownGiroversion">
+            <li><a href="#" class="odontograma-item" data-categoria="Distal">Giroversion Distal</a></li>
+            <li><a href="#" class="odontograma-item" data-categoria="Mesial">Giroversion Mesial</a></li>
+          </ul>
+        </li>
+        <li>
+          <img src="<?= base_url() ?>assets/odontograma/images/interrogacion.png">
+          <a class="dropdown-toggle nombreHallazgo odontograma-item" data-hallazgo="26">
+            Impactación
+          </a>
+        </li>
+        <li class="dropdown">
+          <img src="<?= base_url() ?>assets/odontograma/images/interrogacion.png">
+          <a class="dropdown-toggle nombreHallazgo" id="dropdownImplanteDental" data-hallazgo="31"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Implante Dental
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="dropdownImplanteDental">
+            <li><a href="#" data-estado="bueno" class="odontograma-item"><i class="fa fa-thumbs-o-up buen"></i>Buen Estado</a></li>
+            <li><a href="#" data-estado="malo" class="odontograma-item"><i class="fa fa-thumbs-o-down mal"></i>Mal Estado</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="GP">
+      <ul class="odontograma-navegacion">
+        <li class="dropdown">
+          <img src="<?= base_url() ?>assets/odontograma/images/interrogacion.png">
+          <a class="dropdown-toggle nombreHallazgo" id="dropdownLesiónCaries" data-hallazgo="4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Lesión de Caries Dental (Pendiente)
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="dropdownLesiónCaries">
+            <li><a href="#" class="siglas odontograma-item" data-sigla="MB">MB</a></li>
+            <li><a href="#" class="siglas odontograma-item" data-sigla="CE">CE</a></li>
+            <li><a href="#" class="siglas odontograma-item" data-sigla="CD">CD</a></li>
+            <li><a href="#" class="siglas odontograma-item" data-sigla="CDP">CDP</a></li>
+          </ul>
+        </li>
+        <li>
+          <img src="<?= base_url() ?>assets/odontograma/images/interrogacion.png">
+          <a class="dropdown-toggle nombreHallazgo odontograma-item" data-hallazgo="22">
+            Macrofoncia
+          </a>
+        </li>
+        <li>
+          <img src="<?= base_url() ?>assets/odontograma/images/interrogacion.png">
+          <a class="dropdown-toggle nombreHallazgo odontograma-item" data-hallazgo="23">
+            Microdoncia
+          </a>
+        </li>
+        <li class="dropdown">
+          <img src="<?= base_url() ?>assets/odontograma/images/interrogacion.png">
+          <a class="dropdown-toggle nombreHallazgo" id="dropdownMovilidadPatologica" data-hallazgo="29" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Movilidad Patológica
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMovilidadPatologica">
+            <li><a href="#" class="siglas odontograma-item" data-sigla="M1">M1</a></li>
+            <li><a href="#" class="siglas odontograma-item" data-sigla="M2">M2</a></li>
+            <li><a href="#" class="siglas odontograma-item" data-sigla="M3">M3</a></li>
+            <li><a href="#" class="siglas odontograma-item" data-sigla="M4">M4</a></li>
+            <li><a href="#" class="siglas odontograma-item" data-sigla="M5">M5</a></li>
+          </ul>
+        </li>
         <li>
           <img src="<?= base_url() ?>assets/odontograma/images/interrogacion.png">
           <a class="dropdown-toggle nombreHallazgo odontograma-item" data-hallazgo="9">
@@ -266,18 +385,143 @@
         </li>
         <li>
           <img src="<?= base_url() ?>assets/odontograma/images/interrogacion.png">
-          <a class="dropdown-toggle rango nombreHallazgo odontograma-item" data-hallazgo="13">
-            Edentulo Total
+          <a class="dropdown-toggle nombreHallazgo odontograma-item" data-hallazgo="14">
+            Pieza Dentaria Supernumeraria
           </a>
         </li>
+        <li class="dropdown">
+          <img src="<?= base_url() ?>assets/odontograma/images/interrogacion.png">
+          <a class="dropdown-toggle nombreHallazgo" id="dropdownPosicionDentaria" data-hallazgo="19" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Posicion Dentaria
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="dropdownPosicionDentaria">
+            <li><a href="#" class="siglas odontograma-item" data-sigla="M"><b>M:</b> Mesializado</a></li>
+            <li><a href="#" class="siglas odontograma-item" data-sigla="D"><b>D:</b> Distalizado</a></li>
+            <li><a href="#" class="siglas odontograma-item" data-sigla="V"><b>V:</b> Vetibularizado</a></li>
+            <li><a href="#" class="siglas odontograma-item" data-sigla="P"><b>P:</b> Palatinizado</a></li>
+            <li><a href="#" class="siglas odontograma-item" data-sigla="L"><b>L:</b> Lingualizado</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <img src="<?= base_url() ?>assets/odontograma/images/interrogacion.png">
+          <a class="dropdown-toggle rango nombreHallazgo" data-hallazgo="32" id="dropdownProtesisFija" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Prótesis Fija
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="dropdownProtesisFija">
+            <li><a href="#" data-estado="bueno" class="odontograma-item"><i class="fa fa-thumbs-o-up buen"></i>Buen Estado</a></li>
+            <li><a href="#" data-estado="malo" class="odontograma-item"><i class="fa fa-thumbs-o-down mal"></i>Mal Estado</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <img src="<?= base_url() ?>assets/odontograma/images/interrogacion.png">
+          <a class="dropdown-toggle rango nombreHallazgo" data-hallazgo="33" id="dropdownProtesisRemovible" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Prótesis Removible
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="dropdownProtesisRemovible">
+            <li><a href="#" data-estado="bueno" class="odontograma-item"><i class="fa fa-thumbs-o-up buen"></i>Buen Estado</a></li>
+            <li><a href="#" data-estado="malo" class="odontograma-item"><i class="fa fa-thumbs-o-down mal"></i>Mal Estado</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <img src="<?= base_url() ?>assets/odontograma/images/interrogacion.png">
+          <a class="dropdown-toggle rango nombreHallazgo" data-hallazgo="34" id="dropdownProtesisTotal" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Prótesis Total
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="dropdownProtesisTotal">
+            <li><a href="#" data-estado="bueno" class="odontograma-item"><i class="fa fa-thumbs-o-up buen"></i>Buen Estado</a></li>
+            <li><a href="#" data-estado="malo" class="odontograma-item"><i class="fa fa-thumbs-o-down mal"></i>Mal Estado</a></li>
+          </ul>
+        </li>
       </ul>
-      <br>
-      <button id="BotonNombreSeleccionado" class="btn btn-flat btn-block" style="display: none"></button>
-      <button id="BotonSeleccion" class="btn btn-flat btn-lg btn-info btn-block">Seleccione</button>
-      <br>
     </div>
-    <div role="tabpanel" class="tab-pane" id="GP">GP</div>
-    <div role="tabpanel" class="tab-pane" id="RT">RT</div>
-    <div role="tabpanel" class="tab-pane" id="Detalle">Dtalle</div>
+    <div role="tabpanel" class="tab-pane" id="RT">
+      <ul class="odontograma-navegacion">
+        <li>
+          <img src="<?= base_url() ?>assets/odontograma/images/interrogacion.png">
+          <a class="dropdown-toggle nombreHallazgo odontograma-item" data-hallazgo="28">
+            Remanente Radicular
+          </a>
+        </li>
+        <li class="dropdown">
+          <img src="<?= base_url() ?>assets/odontograma/images/interrogacion.png">
+          <a class="dropdown-toggle nombreHallazgo" id="dropdownPosicionDentaria" data-hallazgo="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Restauración Definitiva (Pendiente)
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="dropdownPosicionDentaria">
+            <li><a href="#" class="siglas odontograma-item" data-sigla="AM"><b>AM:</b> Amalgama Dental</a></li>
+            <li><a href="#" class="siglas odontograma-item" data-sigla="R"><b>R:</b> Resina</a></li>
+            <li><a href="#" class="siglas odontograma-item" data-sigla="IV"><b>IV:</b> Ionómero de Vidrio</a></li>
+            <li><a href="#" class="siglas odontograma-item" data-sigla="IM"><b>IM:</b> Incrutacion Metálica</a></li>
+            <li><a href="#" class="siglas odontograma-item" data-sigla="IE"><b>IE:</b> Incrustación Estética</a></li>
+            <li><a href="#" class="siglas odontograma-item" data-sigla="C"><b>C:</b> Carilla Estética</a></li>
+          </ul>
+        </li>
+        <li>
+          <img src="<?= base_url() ?>assets/odontograma/images/interrogacion.png">
+          <a class="dropdown-toggle nombreHallazgo odontograma-item" data-hallazgo="#">
+            Restauración Temporal (Pendiente)
+          </a>
+        </li>
+        <li>
+          <img src="<?= base_url() ?>assets/odontograma/images/interrogacion.png">
+          <a class="dropdown-toggle nombreHallazgo odontograma-item" data-hallazgo="#">
+            Sellantes (Pendiente)
+          </a>
+        </li>
+        <li>
+          <img src="<?= base_url() ?>assets/odontograma/images/interrogacion.png">
+          <a class="dropdown-toggle nombreHallazgo odontograma-item" data-hallazgo="27">
+            Superficie Desgastada
+          </a>
+        </li>
+        <li>
+          <img src="<?= base_url() ?>assets/odontograma/images/interrogacion.png">
+          <a class="dropdown-toggle nombreHallazgo odontograma-item" data-hallazgo="36">
+            Transposición
+          </a>
+        </li>
+        <li class="dropdown">
+          <img src="<?= base_url() ?>assets/odontograma/images/interrogacion.png">
+          <a class="dropdown-toggle" id="dropdownTratamientoPulpar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Tratamiento Pulpar
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+            <li class="dropdown-submenu">
+              <a tabindex="-1" class="nombreHallazgo" data-hallazgo="35" data-sigla="TC" href="#"><b>TC:</b> Tratamiento de conductos</a>
+              <ul class="dropdown-menu">
+                <li><a href="#" data-estado="bueno" class="odontograma-item"><i class="fa fa-thumbs-o-up buen"></i>Buen Estado</a></li>
+                <li><a href="#" data-estado="malo" class="odontograma-item"><i class="fa fa-thumbs-o-down mal"></i>Mal Estado</a></li>
+              </ul>
+            </li>
+            <li class="dropdown-submenu">
+              <a tabindex="-1" class="nombreHallazgo" data-hallazgo="35" data-sigla="PC"  href="#"><b>PC:</b> Pulpectomía</a>
+              <ul class="dropdown-menu">
+                <li><a href="#" data-estado="bueno" class="odontograma-item"><i class="fa fa-thumbs-o-up buen"></i>Buen Estado</a></li>
+                <li><a href="#" data-estado="malo" class="odontograma-item"><i class="fa fa-thumbs-o-down mal"></i>Mal Estado</a></li>
+              </ul>
+            </li>
+            <li class="dropdown-submenu">
+              <a tabindex="-1" class="nombreHallazgo" data-hallazgo="35" data-sigla="PP" href="#"><b>PP:</b> Pulpotomía</a>
+              <ul class="dropdown-menu">
+                <li><a href="#" data-estado="bueno" class="odontograma-item"><i class="fa fa-thumbs-o-up buen"></i>Buen Estado</a></li>
+                <li><a href="#" data-estado="malo" class="odontograma-item"><i class="fa fa-thumbs-o-down mal"></i>Mal Estado</a></li>
+              </ul>
+            </li>
+
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="Detalle">Detalle</div>
   </div>
+  <br>
+  <button id="BotonNombreSeleccionado" class="btn btn-flat btn-block" style="display: none"></button>
+  <button id="BotonSeleccion" class="btn btn-flat btn-lg btn-info btn-block">Seleccione</button>
+  <br>
 </div>

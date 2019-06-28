@@ -1,4 +1,3 @@
-<script src="http://cburgmer.github.io/rasterizeHTML.js/rasterizeHTML.allinone.js"></script>
 <div id="HistoriaContenidoOdontograma" class="panel panel-primary">
   <div class="panel-heading">
     <span class="glyphicon glyphicon-list"></span> Odontograma
@@ -17,7 +16,7 @@
   <div class="panel-body">
     <div id="odontograma">
       <div id="odontograma-contenido" class="detalle">
-        <img src="<?= base_url('assets/odontograma/images/plantilla_nuevo10.png') ?>" class="img-responsive">
+        <img src="<?= base_url('assets/odontograma/images/plantilla_nuevo11.png') ?>" class="img-responsive">
         <?php $this->load->view('admin/historia/movimiento/odontograma/cursores.php') ?>
       </div>
     </div>
@@ -42,6 +41,7 @@
           <thead>
             <tr>
               <th>Nombre</th>
+              <th>Categoria</th>
               <th>Diente</th>
               <th>Diente Final</th>
               <th>Estado</th>
@@ -78,6 +78,12 @@
               <div class="form-group">
                 <label class="control-label">Hallazgo</label>
                 <input type="text" id="modalHallazgo" class="form-control" readonly>
+              </div>
+            </div>
+            <div class="col-md-3" id="colCategoria">
+              <div class="form-group">
+                <label class="control-label">Categoria</label>
+                <input type="text" name="categoria" class="form-control" readonly>
               </div>
             </div>
             <div class="col-md-3">
