@@ -13,11 +13,18 @@ $('.odontograma-item').click(function(event) {
 		var seleccionado = t[0];
 	}else{
 		var seleccionado = t.parent().parent().parent().find('a.nombreHallazgo')[0];
+		if (t.hasClass('siglas')) {
+			var sigla = $(t).data('sigla');
+		}else{
+			var sigla = $(seleccionado).data('sigla');
+		}
 	}
 	var hallazgo = $(seleccionado).data('hallazgo');
-	var sigla = $(seleccionado).data('sigla');
+	
 	var estado = $(this).data('estado');
-	$('#FormHistoriaMovimientoAgregarHallazgo input[name=hallazgo], #FormHistoriaMovimientoAgregarHallazgo input[name=estado], #FormHistoriaMovimientoAgregarHallazgo input[name=sigla], #FormHistoriaMovimientoAgregarHallazgo input[name=diente], #FormHistoriaMovimientoAgregarHallazgo input[name=dienteFinal]').val('');
+	var categoria = $(this).data('categoria');
+
+	$('#FormHistoriaMovimientoAgregarHallazgo input[name=hallazgo], #FormHistoriaMovimientoAgregarHallazgo input[name=estado], #FormHistoriaMovimientoAgregarHallazgo input[name=sigla], #FormHistoriaMovimientoAgregarHallazgo input[name=diente], #FormHistoriaMovimientoAgregarHallazgo input[name=dienteFinal], #FormHistoriaMovimientoAgregarHallazgo input[name=categoria]').val('');
 
 	$('#colDienteFinal').hide();
 	$('.cursor').removeClass('inicioSelec');
@@ -35,6 +42,7 @@ $('.odontograma-item').click(function(event) {
 
 	$('#colEstado').show();
 	$('#colSigla').show();
+	$('#colCategoria').show();
 	$('#BotonNombreSeleccionado').removeClass('btn-default btn-success btn-danger');
 	if (estado=='bueno') {
 		$('#modalEstado').val('Buen Estado');
@@ -59,6 +67,14 @@ $('.odontograma-item').click(function(event) {
 		$('#FormHistoriaMovimientoAgregarHallazgo input[name="sigla"]').val(sigla);
 	}
 	$('#BotonSeleccion').removeClass('btn-default').addClass('btn-info').html('Quitar Selección');
+
+	if (typeof categoria === "undefined") {
+		$('#colCategoria').hide();
+		$('#FormHistoriaMovimientoAgregarHallazgo input[name="categoria"]').val('');
+	  $('#BotonNombreSeleccionado').addClass('btn-default');	
+	}else{
+		$('#FormHistoriaMovimientoAgregarHallazgo input[name="categoria"]').val(categoria);
+	}
 	
 	$('#FormHistoriaMovimientoAgregarHallazgo input[name=hallazgo]').val(hallazgo);
 });
@@ -132,9 +148,11 @@ $('#odontograma').on('click', '#odontograma-contenido.detalle>.cursor', function
 						estado = 'Mal Estado';
 					}
 				}
+
 				hallazgos += `
 					<tr>
 						<td>${(val['sigla']!=null)?'<b>'+val['sigla']+':</b>':''} ${val['nombre_hal']}</td>
+						<td>${ (val['categoria']!=null)?val['categoria']:'' }</td>
 						<td>${ val['dienteInicio'] }</td>
 						<td>${ (val['dienteFinal']!=null)?val['dienteFinal']:'' }</td>
 						<td>${ estado }</td>
@@ -252,10 +270,48 @@ function pintarHallazgos(val){
 		piezaExtruida(val['id'],val['inicio'])
 	if (val['id_hal'] == 16)
 		piezaIntruida(val['id'],val['inicio'])
+	if (val['id_hal'] == 14)
+		piezaSupernumeraria(val['id'],val['inicio'])
 	if (val['id_hal'] == 13)
 		edentuloTotal(val['id'],val['inicio'],val['fin'])
+	if (val['id_hal'] == 8)
+		fosasFisurasProfundas(val['id'],val['inicio'])
+	if (val['id_hal'] == 7)
+		fractura(val['id'],val['inicio'],val['categoria'])
+	if (val['id_hal'] == 24)
+		fusion(val['id'],val['inicio'])
+	if (val['id_hal'] == 25)
+		geminasion(val['id'],val['inicio'])
+	if (val['id_hal'] == 18)
+		giroversion(val['id'],val['inicio'],val['categoria'])
+	if (val['id_hal'] == 26)
+		impactacion(val['id'],val['inicio'])
+	if (val['id_hal'] == 31)
+		implanteDental(val['id'],val['inicio'],val['estado'])
+	if (val['id_hal'] == 22)
+		macrodoncia(val['id'],val['inicio'])
+	if (val['id_hal'] == 23)
+		microdoncia(val['id'],val['inicio'])
+	if (val['id_hal'] == 29)
+		movilidadPatologica(val['id'],val['inicio'],val['sigla'])
+	if (val['id_hal'] == 19)
+		posicionDentaria(val['id'],val['inicio'],val['sigla'])
+	if (val['id_hal'] == 32)
+		protesisFija(val['id'],val['inicio'],val['fin'],val['estado'])
+	if (val['id_hal'] == 33)
+		protesisRemovible(val['id'],val['inicio'],val['fin'],val['estado'])
+	if (val['id_hal'] == 34)
+		protesisTotal(val['id'],val['inicio'],val['fin'],val['estado'])
+	if (val['id_hal'] == 28)
+		remanenteRadicular(val['id'],val['inicio'])
+	if (val['id_hal'] == 27)
+		superficieDesgastada(val['id'],val['inicio'])
+	if (val['id_hal'] == 36)
+		transposicion(val['id'],val['inicio'])
+	if (val['id_hal'] == 35)
+		tratamientoPulpar(val['id'],val['inicio'],val['estado'],val['sigla'])
 
-	console.log(val);
+	//console.log(val);
 	
 }
 /*=====  End of PINTAR HALLAZGOS  ======*/
@@ -265,11 +321,143 @@ function pintarHallazgos(val){
 /*============================================
 =            PINTAR CADA HALLAZGO            =
 ============================================*/
+function tratamientoPulpar($id,$inicio,$estado,$sigla){
+	if ($sigla=='TC' || $sigla=='PC') {
+		var hallazgo = `<div class="hallazgos hallazgo-${$id} tratamientoPulparTC-PC ${$estado} tratamientoPulparTC-PC-${$inicio}"></div>`;
+	}else if($sigla=='PP'){
+		var hallazgo = `<div class="hallazgos hallazgo-${$id} tratamientoPulparPP ${$estado} tratamientoPulparPP-${$inicio}"></div>`;
+	}
+	$('#odontograma-contenido').append(hallazgo);
+	var sigla = `<span class="${$estado} hallazgo-${$id}">${$sigla},<span>`;
+	$('.recuadro-'+$inicio).append(sigla);
+}
+
+function transposicion($id,$inicio,){
+	var hallazgo = `<div class="hallazgos hallazgo-${$id} transposicion transposicion-${$inicio}"></div>`;
+	$('#odontograma-contenido').append(hallazgo);
+}
+
+function superficieDesgastada($id,$inicio){
+	var sigla = `<span class="malo hallazgo-${$id}">DES,<span>`;
+	$('.recuadro-'+$inicio).append(sigla);
+}
+
+function remanenteRadicular($id,$inicio){
+	var sigla = `<span class="malo hallazgo-${$id}">RR,<span>`;
+	$('.recuadro-'+$inicio).append(sigla);
+}
+
+function protesisTotal($id,$inicio,$fin,$estado){
+	var hallazgo = '';
+	for (var i = parseInt($inicio); i <= parseInt($fin); i++) {
+		hallazgo += `<div class="hallazgos hallazgo-${$id}  protesisTotal  ${$estado} protesisTotal-${i}"></div>`;
+	}
+	$('#odontograma-contenido').append(hallazgo);
+}
+
+function protesisRemovible($id,$inicio,$fin,$estado){
+	console.log('holaa');
+	var hallazgo = '';
+	for (var i = parseInt($inicio); i <= parseInt($fin); i++) {
+		hallazgo += `<div class="hallazgos hallazgo-${$id}  protesisRemovible  ${$estado} protesisRemovible-${i}"></div>`;
+	}
+	$('#odontograma-contenido').append(hallazgo);
+}
+
+function protesisFija($id,$inicio,$fin,$estado){
+	var inicio = `<div class="hallazgos hallazgo-${$id} protesisFijaInicio ${$estado} protesisFijaInicio-${$inicio}"></div>`;
+
+	var lineaInicio = parseInt($inicio)+1;
+	var lineaFin = parseInt($fin)-1;
+	var linea = '';
+	for (var i = lineaInicio; i <= lineaFin; i++) {
+		linea += `<div class="hallazgos hallazgo-${$id} linea ${$estado} linea-${i}"></div>`;
+	}
+
+	var fin = `<div class="hallazgos hallazgo-${$id} protesisFijaFin ${$estado} protesisFijaFin-${$fin}"></div>`;
+
+	$('#odontograma-contenido').append(inicio+linea+fin);
+}
+
+function posicionDentaria($id,$inicio,$sigla){
+	var sigla = `<span class="bueno hallazgo-${$id}">${$sigla},<span>`;
+	$('.recuadro-'+$inicio).append(sigla);
+}
+
+function movilidadPatologica($id,$inicio,$sigla){
+	var sigla = `<span class="malo hallazgo-${$id}">${$sigla},<span>`;
+	$('.recuadro-'+$inicio).append(sigla);
+}
+
+function microdoncia($id,$inicio){
+	var sigla = `<span class="bueno hallazgo-${$id}">MIC,<span>`;
+	$('.recuadro-'+$inicio).append(sigla);
+}
+
+function macrodoncia($id,$inicio){
+	var sigla = `<span class="bueno hallazgo-${$id}">MAC,<span>`;
+	$('.recuadro-'+$inicio).append(sigla);
+}
+
+function implanteDental($id,$inicio,$estado){
+	var sigla = `<span class="${ $estado } hallazgo-${$id}">IMP,<span>`;
+	$('.recuadro-'+$inicio).append(sigla);
+}
+
+function impactacion($id,$inicio){
+	var sigla = `<span class="bueno hallazgo-${$id}">I,<span>`;
+	$('.recuadro-'+$inicio).append(sigla);
+}
+
+function giroversion($id,$inicio,$categoria){
+	var hallazgo = `<div class="hallazgos hallazgo-${$id} giroversion giroversion${$categoria} giroversion${$categoria+'-'+$inicio}"></div>`;
+	$('#odontograma-contenido').append(hallazgo);
+}
+
+function geminasion($id,$inicio,){
+	var hallazgo = `<div class="hallazgos hallazgo-${$id} geminasion geminasion-${$inicio}"></div>`;
+	$('#odontograma-contenido').append(hallazgo);
+}
+
+function fusion($id,$inicio,){
+	var hallazgo = `<div class="hallazgos hallazgo-${$id} fusion fusion-${$inicio}"></div>`;
+	$('#odontograma-contenido').append(hallazgo);
+}
+
+function fractura($id,$inicio,$categoria){
+	var cate = '';
+	if ($categoria=='Coronal') {
+		cate = 'fracturaCoronal';
+	}else if($categoria=='Incisal'){
+		cate = 'fracturaIncisal';
+	}else if($categoria=='Raiz y Coronal'){
+		cate = 'fracturaRaizCorona';
+	}
+	var hallazgo = `<div class="hallazgos hallazgo-${$id} ${cate} ${cate+'-'+$inicio}"></div>`;
+	$('#odontograma-contenido').append(hallazgo);
+}
+
+function fosasFisurasProfundas($id,$inicio){
+	var sigla = `<span class="bueno hallazgo-${$id}">FFP,<span>`;
+	$('.recuadro-'+$inicio).append(sigla);
+}
+
+function espigoMunon($id,$inicio,$estado)
+{
+	var hallazgo = `<div class="hallazgos hallazgo-${$id} munon ${$estado} munon-${$inicio}"></div>`;
+	$('#odontograma-contenido').append(hallazgo);
+}
+
 function edentuloTotal($id,$inicio,$fin){
 	var hallazgo = '';
 	for (var i = parseInt($inicio); i <= parseInt($fin); i++) {
 		hallazgo += `<div class="hallazgos hallazgo-${$id}  edentulo edentulo-${i}"></div>`;
 	}
+	$('#odontograma-contenido').append(hallazgo);
+}
+
+function piezaSupernumeraria($id,$inicio){
+	var hallazgo = `<div class="hallazgos hallazgo-${$id} piezaSupernumeraria piezaSupernumeraria-${$inicio}"></div>`;
 	$('#odontograma-contenido').append(hallazgo);
 }
 

@@ -1,4 +1,4 @@
-<div id="HistoriaContenidoDatosPaciente" class="panel panel-primary">
+<div id="HistoriaContenidoDatosPaciente" class="panel panel-primary" style="display: none">
   <div class="panel-heading">Datos del paciente</div>
   <div class="panel-body">
     <form id="FormHistoriaMovimientoDatosPaciente" action="<?= base_url('historia/movimiento/guardarDatosPaciente') ?>" method="POST">
