@@ -1,4 +1,578 @@
 $(function(){
+
+var piezas = {
+	18:{
+		'img':'pieza_tres.png',
+		'giro':false,
+		'Vestibular':'arriba',
+		'Palatino':'abajo',
+		'Distal':'izquierda',
+		'Mesial':'derecha',
+		'OclusalStatus':true,
+		'Oclusal':'centro',
+		'LingualStatus':false
+	},
+	17:{
+		'img':'pieza_tres.png',
+		'giro':false,
+		'Vestibular':'arriba',
+		'Palatino':'abajo',
+		'Distal':'izquierda',
+		'Mesial':'derecha',
+		'OclusalStatus':true,
+		'Oclusal':'centro',
+		'LingualStatus':false
+	},
+	16:{
+		'img':'pieza_tres.png',
+		'giro':false,
+		'Vestibular':'arriba',
+		'Palatino':'abajo',
+		'Distal':'izquierda',
+		'Mesial':'derecha',
+		'OclusalStatus':true,
+		'Oclusal':'centro',
+		'LingualStatus':false
+	},
+	15:{
+		'img':'pieza_uno.png',
+		'giro':false,
+		'Vestibular':'arriba',
+		'Palatino':'abajo',
+		'Distal':'izquierda',
+		'Mesial':'derecha',
+		'OclusalStatus':true,
+		'Oclusal':'centro',
+		'LingualStatus':false
+	},
+	14:{
+		'img':'pieza_dos.png',
+		'giro':false,
+		'Vestibular':'arriba',
+		'Palatino':'abajo',
+		'Distal':'izquierda',
+		'Mesial':'derecha',
+		'OclusalStatus':true,
+		'Oclusal':'centro',
+		'LingualStatus':false
+	},
+	13:{
+		'img':'pieza_cero.png',
+		'giro':false,
+		'Vestibular':'arriba',
+		'Palatino':'abajo',
+		'Distal':'izquierda',
+		'Mesial':'derecha',
+		'OclusalStatus':false,
+		'Oclusal':'centro',
+	},
+	12:{
+		'img':'pieza_cero.png',
+		'giro':false,
+		'Vestibular':'arriba',
+		'Palatino':'abajo',
+		'Distal':'izquierda',
+		'Mesial':'derecha',
+		'OclusalStatus':false,
+		'Oclusal':'centro',
+	},
+	11:{
+		'img':'pieza_cero.png',
+		'giro':false,
+		'Vestibular':'arriba',
+		'Palatino':'abajo',
+		'Distal':'izquierda',
+		'Mesial':'derecha',
+		'OclusalStatus':false,
+		'Oclusal':'centro',
+	},
+
+	21:{
+		'img':'pieza_cero.png',
+		'giro':false,
+		'Vestibular':'arriba',
+		'Palatino':'abajo',
+		'Distal':'derecha',
+		'Mesial':'izquierda',
+		'OclusalStatus':false,
+		'Oclusal':'centro',
+	},
+	22:{
+		'img':'pieza_cero.png',
+		'giro':false,
+		'Vestibular':'arriba',
+		'Palatino':'abajo',
+		'Distal':'derecha',
+		'Mesial':'izquierda',
+		'OclusalStatus':false,
+		'Oclusal':'centro',
+	},
+	23:{
+		'img':'pieza_cero.png',
+		'giro':false,
+		'Vestibular':'arriba',
+		'Palatino':'abajo',
+		'Distal':'derecha',
+		'Mesial':'izquierda',
+		'OclusalStatus':false,
+		'Oclusal':'centro',
+	},
+	24:{
+		'img':'pieza_dos.png',
+		'giro':false,
+		'Vestibular':'arriba',
+		'Palatino':'abajo',
+		'Distal':'derecha',
+		'Mesial':'izquierda',
+		'OclusalStatus':true,
+		'Oclusal':'centro',
+		'LingualStatus':false,
+	},
+	25:{
+		'img':'pieza_uno.png',
+		'giro':false,
+		'Vestibular':'arriba',
+		'Palatino':'abajo',
+		'Distal':'derecha',
+		'Mesial':'izquierda',
+		'OclusalStatus':true,
+		'Oclusal':'centro',
+		'LingualStatus':false
+	},
+	26:{
+		'img':'pieza_tres.png',
+		'giro':false,
+		'Vestibular':'arriba',
+		'Palatino':'abajo',
+		'Distal':'derecha',
+		'Mesial':'izquierda',
+		'OclusalStatus':true,
+		'Oclusal':'centro',
+		'LingualStatus':false
+	},
+	27:{
+		'img':'pieza_tres.png',
+		'giro':false,
+		'Vestibular':'arriba',
+		'Palatino':'abajo',
+		'Distal':'derecha',
+		'Mesial':'izquierda',
+		'OclusalStatus':true,
+		'Oclusal':'centro',
+		'LingualStatus':false
+	},
+	28:{
+		'img':'pieza_tres.png',
+		'giro':false,
+		'Vestibular':'arriba',
+		'Palatino':'abajo',
+		'Distal':'derecha',
+		'Mesial':'izquierda',
+		'OclusalStatus':true,
+		'Oclusal':'centro',
+		'LingualStatus':false
+	},
+
+	55:{
+		'img':'pieza_tres.png',
+		'giro':false,
+		'Vestibular':'arriba',
+		'Palatino':'abajo',
+		'Distal':'izquierda',
+		'Mesial':'derecha',
+		'OclusalStatus':true,
+		'Oclusal':'centro',
+		'LingualStatus':false
+	},
+	54:{
+		'img':'pieza_tres.png',
+		'giro':false,
+		'Vestibular':'arriba',
+		'Palatino':'abajo',
+		'Distal':'izquierda',
+		'Mesial':'derecha',
+		'OclusalStatus':true,
+		'Oclusal':'centro',
+		'LingualStatus':false
+	},
+	53:{
+		'img':'pieza_cero.png',
+		'giro':false,
+		'Vestibular':'arriba',
+		'Palatino':'abajo',
+		'Distal':'izquierda',
+		'Mesial':'derecha',
+		'OclusalStatus':false,
+		'Oclusal':'centro',
+	},
+	52:{
+		'img':'pieza_cero.png',
+		'giro':false,
+		'Vestibular':'arriba',
+		'Palatino':'abajo',
+		'Distal':'izquierda',
+		'Mesial':'derecha',
+		'OclusalStatus':false,
+		'Oclusal':'centro',
+	},
+	51:{
+		'img':'pieza_cero.png',
+		'giro':false,
+		'Vestibular':'arriba',
+		'Palatino':'abajo',
+		'Distal':'izquierda',
+		'Mesial':'derecha',
+		'OclusalStatus':false,
+		'Oclusal':'centro',
+	},
+
+	61:{
+		'img':'pieza_cero.png',
+		'giro':false,
+		'Vestibular':'arriba',
+		'Palatino':'abajo',
+		'Distal':'derecha',
+		'Mesial':'izquierda',
+		'OclusalStatus':false,
+		'Oclusal':'centro',
+	},
+	62:{
+		'img':'pieza_cero.png',
+		'giro':false,
+		'Vestibular':'arriba',
+		'Palatino':'abajo',
+		'Distal':'derecha',
+		'Mesial':'izquierda',
+		'OclusalStatus':false,
+		'Oclusal':'centro',
+	},
+	63:{
+		'img':'pieza_cero.png',
+		'giro':false,
+		'Vestibular':'arriba',
+		'Palatino':'abajo',
+		'Distal':'derecha',
+		'Mesial':'izquierda',
+		'OclusalStatus':false,
+		'Oclusal':'centro',
+	},
+	64:{
+		'img':'pieza_tres.png',
+		'giro':false,
+		'Vestibular':'arriba',
+		'Palatino':'abajo',
+		'Distal':'derecha',
+		'Mesial':'izquierda',
+		'OclusalStatus':true,
+		'Oclusal':'centro',
+		'LingualStatus':false
+	},
+	65:{
+		'img':'pieza_tres.png',
+		'giro':false,
+		'Vestibular':'arriba',
+		'Palatino':'abajo',
+		'Distal':'derecha',
+		'Mesial':'izquierda',
+		'OclusalStatus':true,
+		'Oclusal':'centro',
+		'LingualStatus':false
+	},
+
+
+	85:{
+		'img':'pieza_dos.png',
+		'giro':true,
+		'Vestibular':'abajo',
+		'Lingual':'arriba',
+		'Distal':'izquierda',
+		'Mesial':'derecha',
+		'OclusalStatus':true,
+		'Oclusal':'centro',
+		'LingualStatus':true
+	},
+	84:{
+		'img':'pieza_dos.png',
+		'giro':true,
+		'Vestibular':'abajo',
+		'Lingual':'arriba',
+		'Distal':'izquierda',
+		'Mesial':'derecha',
+		'OclusalStatus':true,
+		'Oclusal':'centro',
+		'LingualStatus':true
+	},
+	83:{
+		'img':'pieza_cero.png',
+		'giro':true,
+		'Vestibular':'abajo',
+		'Lingual':'arriba',
+		'Distal':'izquierda',
+		'Mesial':'derecha',
+		'OclusalStatus':false,
+		'Oclusal':'centro',
+		'LingualStatus':true
+	},
+	82:{
+		'img':'pieza_cero.png',
+		'giro':true,
+		'Vestibular':'abajo',
+		'Lingual':'arriba',
+		'Distal':'izquierda',
+		'Mesial':'derecha',
+		'OclusalStatus':false,
+		'Oclusal':'centro',
+		'LingualStatus':true
+	},
+	81:{
+		'img':'pieza_cero.png',
+		'giro':true,
+		'Vestibular':'abajo',
+		'Lingual':'arriba',
+		'Distal':'izquierda',
+		'Mesial':'derecha',
+		'OclusalStatus':false,
+		'Oclusal':'centro',
+		'LingualStatus':true
+	},
+
+	71:{
+		'img':'pieza_cero.png',
+		'giro':true,
+		'Vestibular':'abajo',
+		'Lingual':'arriba',
+		'Distal':'derecha',
+		'Mesial':'izquierda',
+		'OclusalStatus':false,
+		'Oclusal':'centro',
+		'LingualStatus':true
+	},
+	72:{
+		'img':'pieza_cero.png',
+		'giro':true,
+		'Vestibular':'abajo',
+		'Lingual':'arriba',
+		'Distal':'derecha',
+		'Mesial':'izquierda',
+		'OclusalStatus':false,
+		'Oclusal':'centro',
+		'LingualStatus':true
+	},
+	73:{
+		'img':'pieza_cero.png',
+		'giro':true,
+		'Vestibular':'abajo',
+		'Lingual':'arriba',
+		'Distal':'derecha',
+		'Mesial':'izquierda',
+		'OclusalStatus':false,
+		'Oclusal':'centro',
+		'LingualStatus':true
+	},
+	74:{
+		'img':'pieza_dos.png',
+		'giro':true,
+		'Vestibular':'abajo',
+		'Lingual':'arriba',
+		'Distal':'derecha',
+		'Mesial':'izquierda',
+		'OclusalStatus':true,
+		'Oclusal':'centro',
+		'LingualStatus':true
+	},
+	75:{
+		'img':'pieza_dos.png',
+		'giro':true,
+		'Vestibular':'abajo',
+		'Lingual':'arriba',
+		'Distal':'derecha',
+		'Mesial':'izquierda',
+		'OclusalStatus':true,
+		'Oclusal':'centro',
+		'LingualStatus':true
+	},
+
+	48:{
+		'img':'pieza_dos.png',
+		'giro':true,
+		'Vestibular':'abajo',
+		'Lingual':'arriba',
+		'Distal':'izquierda',
+		'Mesial':'derecha',
+		'OclusalStatus':true,
+		'Oclusal':'centro',
+		'LingualStatus':true
+	},
+	47:{
+		'img':'pieza_dos.png',
+		'giro':true,
+		'Vestibular':'abajo',
+		'Lingual':'arriba',
+		'Distal':'izquierda',
+		'Mesial':'derecha',
+		'OclusalStatus':true,
+		'Oclusal':'centro',
+		'LingualStatus':true
+	},
+	46:{
+		'img':'pieza_dos.png',
+		'giro':true,
+		'Vestibular':'abajo',
+		'Lingual':'arriba',
+		'Distal':'izquierda',
+		'Mesial':'derecha',
+		'OclusalStatus':true,
+		'Oclusal':'centro',
+		'LingualStatus':true
+	},
+	45:{
+		'img':'pieza_uno.png',
+		'giro':true,
+		'Vestibular':'abajo',
+		'Lingual':'arriba',
+		'Distal':'izquierda',
+		'Mesial':'derecha',
+		'OclusalStatus':true,
+		'Oclusal':'centro',
+		'LingualStatus':true
+	},
+	44:{
+		'img':'pieza_uno.png',
+		'giro':true,
+		'Vestibular':'abajo',
+		'Lingual':'arriba',
+		'Distal':'izquierda',
+		'Mesial':'derecha',
+		'OclusalStatus':true,
+		'Oclusal':'centro',
+		'LingualStatus':true
+	},
+	43:{
+		'img':'pieza_cero.png',
+		'giro':true,
+		'Vestibular':'abajo',
+		'Lingual':'arriba',
+		'Distal':'izquierda',
+		'Mesial':'derecha',
+		'OclusalStatus':false,
+		'Oclusal':'centro',
+		'LingualStatus':true
+	},
+	42:{
+		'img':'pieza_cero.png',
+		'giro':true,
+		'Vestibular':'abajo',
+		'Lingual':'arriba',
+		'Distal':'izquierda',
+		'Mesial':'derecha',
+		'OclusalStatus':false,
+		'Oclusal':'centro',
+		'LingualStatus':true
+	},
+	41:{
+		'img':'pieza_cero.png',
+		'giro':true,
+		'Vestibular':'abajo',
+		'Lingual':'arriba',
+		'Distal':'izquierda',
+		'Mesial':'derecha',
+		'OclusalStatus':false,
+		'Oclusal':'centro',
+		'LingualStatus':true
+	},
+
+	31:{
+		'img':'pieza_cero.png',
+		'giro':true,
+		'Vestibular':'abajo',
+		'Lingual':'arriba',
+		'Distal':'derecha',
+		'Mesial':'izquierda',
+		'OclusalStatus':false,
+		'Oclusal':'centro',
+		'LingualStatus':true
+	},
+	32:{
+		'img':'pieza_cero.png',
+		'giro':true,
+		'Vestibular':'abajo',
+		'Lingual':'arriba',
+		'Distal':'derecha',
+		'Mesial':'izquierda',
+		'OclusalStatus':false,
+		'Oclusal':'centro',
+		'LingualStatus':true
+	},
+	33:{
+		'img':'pieza_cero.png',
+		'giro':true,
+		'Vestibular':'abajo',
+		'Lingual':'arriba',
+		'Distal':'derecha',
+		'Mesial':'izquierda',
+		'OclusalStatus':false,
+		'Oclusal':'centro',
+		'LingualStatus':true
+	},
+	34:{
+		'img':'pieza_uno.png',
+		'giro':true,
+		'Vestibular':'abajo',
+		'Lingual':'arriba',
+		'Distal':'derecha',
+		'Mesial':'izquierda',
+		'OclusalStatus':true,
+		'Oclusal':'centro',
+		'LingualStatus':true
+	},
+	35:{
+		'img':'pieza_uno.png',
+		'giro':true,
+		'Vestibular':'abajo',
+		'Lingual':'arriba',
+		'Distal':'derecha',
+		'Mesial':'izquierda',
+		'OclusalStatus':true,
+		'Oclusal':'centro',
+		'LingualStatus':true
+	},
+	36:{
+		'img':'pieza_dos.png',
+		'giro':true,
+		'Vestibular':'abajo',
+		'Lingual':'arriba',
+		'Distal':'derecha',
+		'Mesial':'izquierda',
+		'OclusalStatus':true,
+		'Oclusal':'centro',
+		'LingualStatus':true
+	},
+	37:{
+		'img':'pieza_dos.png',
+		'giro':true,
+		'Vestibular':'abajo',
+		'Lingual':'arriba',
+		'Distal':'derecha',
+		'Mesial':'izquierda',
+		'OclusalStatus':true,
+		'Oclusal':'centro',
+		'LingualStatus':true
+	},
+	38:{
+		'img':'pieza_dos.png',
+		'giro':true,
+		'Vestibular':'abajo',
+		'Lingual':'arriba',
+		'Distal':'derecha',
+		'Mesial':'izquierda',
+		'OclusalStatus':true,
+		'Oclusal':'centro',
+		'LingualStatus':true
+	},
+
+
+};
+
 var seleccionado = '';
 $('.odontograma-navegacion a').click(function(event) {
 	event.preventDefault();
@@ -24,10 +598,12 @@ $('.odontograma-item').click(function(event) {
 	var estado = $(this).data('estado');
 	var categoria = $(this).data('categoria');
 
+
 	$('#FormHistoriaMovimientoAgregarHallazgo input[name=hallazgo], #FormHistoriaMovimientoAgregarHallazgo input[name=estado], #FormHistoriaMovimientoAgregarHallazgo input[name=sigla], #FormHistoriaMovimientoAgregarHallazgo input[name=diente], #FormHistoriaMovimientoAgregarHallazgo input[name=dienteFinal], #FormHistoriaMovimientoAgregarHallazgo input[name=categoria]').val('');
 
 	$('#colDienteFinal').hide();
 	$('.cursor').removeClass('inicioSelec');
+	$('#FormHistoriaMovimientoAgregarHallazgo input[name="marcas"]').val(0);
 
 	$('#BotonNombreSeleccionado').show().html(seleccionado.innerText);
 
@@ -36,6 +612,11 @@ $('.odontograma-item').click(function(event) {
 		$('#odontograma-contenido').addClass('inicio');
 	}else{
 		$('#odontograma-contenido').addClass('unico');
+		if ($(seleccionado).hasClass('hallazgoMarcar')) {
+			$('#odontograma-contenido').addClass('MarcarPieza');
+			$('#odontograma-contenido').data('marcaclass',$(seleccionado).data('marcaclass'));
+			$('#FormHistoriaMovimientoAgregarHallazgo input[name="marcas"]').val(1);
+		}
 	}
 
 	$('#modalHallazgo').val(seleccionado.innerText);
@@ -77,6 +658,8 @@ $('.odontograma-item').click(function(event) {
 	}
 	
 	$('#FormHistoriaMovimientoAgregarHallazgo input[name=hallazgo]').val(hallazgo);
+
+
 });
 
 
@@ -93,9 +676,73 @@ $('#BotonSeleccion').click(function(event) {
 ===============================================*/
 $('#odontograma').on('click', '#odontograma-contenido.unico>.cursor', function(event) {
 	event.preventDefault();
+	$('#FormMarcarPieza').hide();
+	$('#dibujar img').removeClass('rotar');
+	$('#pieza').removeClass('categoria-centro categoria-nocentro');
+	$('.direccionPieza').hide().removeClass('giro');
+	$('#FormMarcarPieza input[type=checkbox]').each(function() { 
+		this.checked = false;
+	});
+
+
 	var diente = $(this).data('diente');
+	if ($('#odontograma-contenido').hasClass('MarcarPieza')) {
+		$('.direccionPieza ').attr('class','direccionPieza ');
+		$('#FormMarcarPieza').show();
+		var propiedades = piezas[diente];
+		if (propiedades.LingualStatus) {
+			$('#ContentCheckBoxPalatino').hide();
+			$('#CheckBoxPalatino').prop('disabled',true);
+			$('#ContentCheckBoxLingual').show();
+			$('#CheckBoxLingual').prop('disabled',false);
+		}else{
+			$('#ContentCheckBoxLingual').hide();
+			$('#CheckBoxLingual').prop('disabled',true);
+			$('#ContentCheckBoxPalatino').show();
+			$('#CheckBoxPalatino').prop('disabled',false);
+		}
+
+		if (propiedades.OclusalStatus) {
+			$('#ContentCheckBoxOclusal').show();
+			$('#CheckBoxOclusal').prop('disabled',false);
+			$('#pieza').addClass('categoria-centro');
+		}else{
+			$('#ContentCheckBoxOclusal').hide();
+			$('#CheckBoxOclusal').prop('disabled',true);
+			$('#pieza').addClass('categoria-nocentro');
+		}
+
+		if (propiedades.girar) {
+			$('#pieza img').addClass('rotar');
+		}else{
+			$('#pieza img').removeClass('rotar');		
+		}
+
+		$('#dibujar img').attr('src',path+'assets/odontograma/images/'+propiedades.img);
+		if (propiedades.giro) {
+			$('#dibujar img').addClass('rotar');
+		}
+
+
+	}
 	$('#ModalAgregarHallazgo').modal();
 	$('#FormHistoriaMovimientoAgregarHallazgo input[name=diente]').val(diente);
+});
+
+$('#FormMarcarPieza input[type=checkbox]').click(function(event) {
+	var num_diente = $('#FormHistoriaMovimientoAgregarHallazgo input[name=diente]').val();
+	var propiedades = piezas[num_diente];
+	var check = $(this);
+	var direcccion = propiedades[check.val()];
+	if (check.prop("checked")) {
+		$('#direccionPieza-'+direcccion).show().addClass($('#odontograma-contenido').data('marcaclass'));
+		if (propiedades.giro) {
+			$('#direccionPieza-'+direcccion).addClass('giro')
+		}
+	}else{
+		$('#direccionPieza-'+direcccion).hide().removeClass($('#odontograma-contenido').data('marcaclass'));
+	}
+
 });
 
 $('#odontograma').on('click', '#odontograma-contenido.inicio>.cursor', function(event) {
@@ -310,8 +957,10 @@ function pintarHallazgos(val){
 		transposicion(val['id'],val['inicio'])
 	if (val['id_hal'] == 35)
 		tratamientoPulpar(val['id'],val['inicio'],val['estado'],val['sigla'])
+	if (val['id_hal'] == 4)
+		lesionCaries(val['id'],val['inicio'],val['estado'],val['sigla'],val['diente'],val['marcas'])
 
-	//console.log(val);
+	console.log(val);
 	
 }
 /*=====  End of PINTAR HALLAZGOS  ======*/
@@ -321,6 +970,21 @@ function pintarHallazgos(val){
 /*============================================
 =            PINTAR CADA HALLAZGO            =
 ============================================*/
+function lesionCaries($id,$inicio,$estado,$sigla,$diente,$marcas){
+	var sigla = `<span class="${$estado} malo hallazgo-${$id}">${$sigla},<span>`;
+	$('.recuadro-'+$inicio).append(sigla);
+	$.each(jQuery.parseJSON($marcas), function(index, val) {
+		if (piezas[$diente]['OclusalStatus']) {
+			var tipoPieza = 'centro';
+		}else{
+			var tipoPieza = 'nocentro';
+		}
+		var direccion = piezas[$diente][val];
+		var hallazgo = ` <div class="hallazgos hallazgo-${$id} lesionCaries direccion-${ direccion } ${ tipoPieza } direccion-${ direccion+'-'+$inicio }"></div>`;
+		$('#odontograma-contenido').append(hallazgo);
+	});
+
+}
 function tratamientoPulpar($id,$inicio,$estado,$sigla){
 	if ($sigla=='TC' || $sigla=='PC') {
 		var hallazgo = `<div class="hallazgos hallazgo-${$id} tratamientoPulparTC-PC ${$estado} tratamientoPulparTC-PC-${$inicio}"></div>`;

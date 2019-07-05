@@ -91,15 +91,15 @@
 <div id="odontograma-navegacion">
   <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="active"><a href="#AF" aria-controls="AF" role="tab" data-toggle="tab">A-F</a></li>
-    <li role="presentation"><a href="#GP" aria-controls="GP" role="tab" data-toggle="tab">G-P</a></li>
+    <li role="presentation" class="active"><a href="#AI" aria-controls="AI" role="tab" data-toggle="tab">A-I</a></li>
+    <li role="presentation"><a href="#LP" aria-controls="LP" role="tab" data-toggle="tab">L-P</a></li>
     <li role="presentation"><a href="#RT" aria-controls="RT" role="tab" data-toggle="tab">R-T</a></li>
     <li role="presentation"><a href="#Detalle" aria-controls="Detalle" role="tab" data-toggle="tab">Detalle</a></li>
   </ul>
 
   <!-- Tab panes -->
   <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="AF">
+    <div role="tabpanel" class="tab-pane active" id="AI">
       <ul class="odontograma-navegacion">
         <li class="dropdown">
           <img src="<?= base_url() ?>assets/odontograma/images/AparatoOrtoIcono.png">
@@ -306,12 +306,12 @@
         </li>
       </ul>
     </div>
-    <div role="tabpanel" class="tab-pane" id="GP">
+    <div role="tabpanel" class="tab-pane" id="LP">
       <ul class="odontograma-navegacion">
         <li class="dropdown">
           <img src="<?= base_url() ?>assets/odontograma/images/interrogacion.png">
-          <a class="dropdown-toggle nombreHallazgo" id="dropdownLesiónCaries" data-hallazgo="4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-            Lesión de Caries Dental (Pendiente)
+          <a class="dropdown-toggle nombreHallazgo hallazgoMarcar" data-marcaclass="lesionCaries" id="dropdownLesiónCaries" data-hallazgo="4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Lesión de Caries Dental
             <span class="caret"></span>
           </a>
           <ul class="dropdown-menu" aria-labelledby="dropdownLesiónCaries">

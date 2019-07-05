@@ -15,7 +15,7 @@
   </div>
   <div class="panel-body">
     <div id="odontograma">
-      <div id="odontograma-contenido" class="detalle">
+      <div id="odontograma-contenido" class="detalle" data-marcaClass="">
         <img src="<?= base_url('assets/odontograma/images/plantilla_nuevo11.png') ?>" class="img-responsive">
         <?php $this->load->view('admin/historia/movimiento/odontograma/cursores.php') ?>
       </div>
@@ -68,6 +68,7 @@
         <input type="hidden" name="hallazgo">
         <input type="hidden" name="estado">
         <input type="hidden" name="paciente" value="<?= $paciente->codi_pac ?>">
+        <input type="hidden" name="marcas" value="0">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title">Agregar Hallazgo</h4>
@@ -110,6 +111,67 @@
                 <input type="text" name="sigla" class="form-control" readonly>
               </div>
             </div>
+          </div>
+          <div id="FormMarcarPieza">
+            <div class="row">
+              <div class="col-md-12">
+                <p><b>Seleccione las partes</b></p>
+              </div>
+            </div> 
+            <div class="row">
+              <div class="col-md-4">
+                <div id="dibujar">
+                  <div id="pieza">
+                    <img src="<?= base_url('assets/odontograma/images/pieza_tres.png') ?>">
+                    <div class="direccionPieza" id="direccionPieza-arriba"></div>
+                    <div class="direccionPieza" id="direccionPieza-abajo"></div>
+                    <div class="direccionPieza" id="direccionPieza-izquierda"></div>
+                    <div class="direccionPieza" id="direccionPieza-derecha"></div>
+                    <div class="direccionPieza" id="direccionPieza-centro"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="checkbox">
+                  <label for="CheckBoxVestibular">
+                    <input id="CheckBoxVestibular" type="checkbox" name="Vestibular" value="Vestibular">
+                    Vestibular
+                  </label>
+                </div>
+                <div class="checkbox" id="ContentCheckBoxPalatino">
+                  <label for="CheckBoxPalatino">
+                    <input id="CheckBoxPalatino" type="checkbox" name="Palatino" value="Palatino">
+                    Palatino
+                  </label>
+                </div>
+                <div class="checkbox" id="ContentCheckBoxLingual">
+                  <label for="CheckBoxLingual">
+                    <input id="CheckBoxLingual" type="checkbox" name="Lingual" value="Lingual">
+                    Lingual
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label for="CheckBoxDistal">
+                    <input id="CheckBoxDistal" type="checkbox" name="Distal" value="Distal">
+                    Distal
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label for="CheckBoxMesial">
+                    <input id="CheckBoxMesial" type="checkbox" name="Mesial" value="Mesial">
+                    Mesial
+                  </label>
+                </div>
+                <div class="checkbox" id="ContentCheckBoxOclusal">
+                  <label for="CheckBoxOclusal">
+                    <input id="CheckBoxOclusal" type="checkbox" name="Oclusal" value="Oclusal">
+                    Oclusal
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
             <div class="col-md-12">
               <div class="form-group">
                 <label class="control-label">Especificaciones</label>

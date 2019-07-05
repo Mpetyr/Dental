@@ -593,15 +593,15 @@ class Movimiento extends CI_Controller {
 	function subir()
 	{
 		$config['upload_path'] = 'assets/uploads/placas/';
-		$config['allowed_types'] = 'pdf|png|jpg|jpeg';
+		$config['allowed_types'] = 'png|jpg|jpeg';
 		$config['max_size'] = '40000';
 		$config['max_width'] = '40000';
 		$config['max_height'] = '40000';
 		$this->upload->initialize($config);
+		$resp = [];
 		if ($this->upload->do_upload('placaArchivo')){
 			$upload = $this->upload->data();
 			
-			$resp = [];
 			$resp['success'] = 1;
 			$resp['name'] = $upload['file_name'];
 
@@ -610,8 +610,11 @@ class Movimiento extends CI_Controller {
 				->load('assets/uploads/placas/'.$resp['name'])
 				->resize_crop(100,100)
 				->save('assets/uploads/placas/thumbs/'.$resp['name']);
-			echo json_encode($resp);
+		}else{
+			$resp['success'] = false;
+			$resp['error'] = $this->upload->display_errors();
 		}
+		echo json_encode($resp);
 	}
 
 
@@ -745,7 +748,7 @@ class Movimiento extends CI_Controller {
 		$paciente = $this->input->get('paciente');
 		$tipo = 'Inicial';
 		$odontograma = $this->db->from('paciente_odontograma')
-		->select('pacodo_id as id,id_hal,pacodo_categoria as categoria,pacodo_estado as estado,pacodo_sigla as sigla,pacodo_id,inicio.orden_die as inicio, fin.orden_die as fin')
+		->select('pacodo_id as id,id_hal,pacodo_categoria as categoria,pacodo_estado as estado,pacodo_sigla as sigla,pacodo_id,inicio.orden_die as inicio, fin.orden_die as fin,pacodo_marcas as marcas, paciente_odontograma.numero_die as diente')
 		->join('dientes as inicio','paciente_odontograma.numero_die = inicio.numero_die')
 		->join('dientes as fin','paciente_odontograma.pacodo_dientefinal = fin.numero_die','left')
 		->where('pacodo_tipo',$tipo)
@@ -757,7 +760,7 @@ class Movimiento extends CI_Controller {
 	function getHallazgo($id)
 	{
 		return $this->db->from('paciente_odontograma')
-		->select('pacodo_id as id,id_hal,pacodo_categoria as categoria,pacodo_estado as estado,pacodo_sigla as sigla,pacodo_id,inicio.orden_die as inicio, fin.orden_die as fin')
+		->select('pacodo_id as id,id_hal,pacodo_categoria as categoria,pacodo_estado as estado,pacodo_sigla as sigla,pacodo_id,inicio.orden_die as inicio, fin.orden_die as fin,pacodo_marcas as marcas, paciente_odontograma.numero_die as diente')
 		->join('dientes as inicio','paciente_odontograma.numero_die = inicio.numero_die')
 		->join('dientes as fin','paciente_odontograma.pacodo_dientefinal = fin.numero_die','left')
 		->where('pacodo_id',$id)
@@ -769,7 +772,7 @@ class Movimiento extends CI_Controller {
 		$paciente = $this->input->get('paciente');
 		$diente = $this->input->get('diente');
 		$query = $this->db->from('paciente_odontograma')
-		->select('pacodo_id as id,nombre_hal,pacodo_categoria as categoria,paciente_odontograma.id_hal,pacodo_estado as estado,pacodo_sigla as sigla,pacodo_id,inicio.orden_die as inicio, fin.orden_die as fin, paciente_odontograma.numero_die as dienteInicio, paciente_odontograma.pacodo_dientefinal as dienteFinal, pacodo_espec as especificaciones')
+		->select('pacodo_id as id,nombre_hal,pacodo_categoria as categoria,paciente_odontograma.id_hal,pacodo_estado as estado,pacodo_sigla as sigla,pacodo_id,inicio.orden_die as inicio, fin.orden_die as fin, paciente_odontograma.numero_die as dienteInicio, paciente_odontograma.pacodo_dientefinal as dienteFinal, pacodo_espec as especificaciones,,pacodo_marcas as marcas, paciente_odontograma.numero_die as diente')
 		->join('dientes as inicio','paciente_odontograma.numero_die = inicio.numero_die')
 		->join('dientes as fin','paciente_odontograma.pacodo_dientefinal = fin.numero_die','left')
 		->join('hallazgos','paciente_odontograma.id_hal = hallazgos.id_hal')
@@ -796,6 +799,30 @@ class Movimiento extends CI_Controller {
 		}
 		if ($this->input->post('categoria')!='') {
 			$data['pacodo_categoria'] = $this->input->post('categoria');
+		}
+		if ($this->input->post('marcas')=='1') {
+			$marcas = [];
+			if (isset($_POST['Vestibular'])) {
+				$marcas[] = 'Vestibular';
+			}
+			if (isset($_POST['Palatino'])) {
+				$marcas[] = 'Palatino';
+			}
+			if (isset($_POST['Lingual'])) {
+				$marcas[] = 'Lingual';
+			}
+			if (isset($_POST['Distal'])) {
+				$marcas[] = 'Distal';
+			}
+			if (isset($_POST['Mesial'])) {
+				$marcas[] = 'Mesial';
+			}
+			if (isset($_POST['Oclusal'])) {
+				$marcas[] = 'Oclusal';
+			}
+
+			$data['pacodo_marcas'] = json_encode($marcas);
+
 		}
 		$data['pacodo_espec'] = $this->input->post('especificaciones');
 		$data['codi_usu'] = 1;
