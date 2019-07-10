@@ -96,7 +96,8 @@ class Clinica_model extends CI_Model
 
 	 function getClinica($data){
 		$this->db->from('clinica');
-		$clinicas = $this->db->get()->result();
+		$this->db->where('id_clin',1);
+		$clinicas = $this->db->get()->row();
 		return $clinicas;
 	}
 
