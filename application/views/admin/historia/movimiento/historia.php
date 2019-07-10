@@ -60,7 +60,7 @@
                   <a href="#" data-id="HistoriaContenidoReceta" class="list-group-item"><i class="fa fa-medkit" aria-hidden="true"></i> Receta</a>
                   <a href="#" data-id="HistoriaContenidoCita" class="list-group-item"><i class="fa fa-calendar-plus-o"></i> Citas</a>
                 </div>
-                <?php $this->load->view('admin/historia/movimiento/odontograma/odontograma_nav') ?>
+                
               </div>
             </div>
 

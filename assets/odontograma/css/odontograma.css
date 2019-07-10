@@ -19,7 +19,17 @@
     height: 20px;
     background-size: 50%; }
     #dibujar #pieza.categoria-centro #direccionPieza-centro.lesionCaries {
-      background-image: url("../images/marcador_lesioncaries_center.png"); }
+      background-image: url("../images/marcador_malorelleno_center.png"); }
+    #dibujar #pieza.categoria-centro #direccionPieza-centro.sellantes.bueno {
+      background-image: url("../images/marcador_bueno_center.png"); }
+    #dibujar #pieza.categoria-centro #direccionPieza-centro.sellantes.malo {
+      background-image: url("../images/marcador_malo_center.png"); }
+    #dibujar #pieza.categoria-centro #direccionPieza-centro.restauracionTemporal {
+      background-image: url("../images/marcador_malo_center.png"); }
+    #dibujar #pieza.categoria-centro #direccionPieza-centro.restauracionDefinitiva.bueno {
+      background-image: url("../images/marcador_buenorelleno_center.png"); }
+    #dibujar #pieza.categoria-centro #direccionPieza-centro.restauracionDefinitiva.malo {
+      background-image: url("../images/marcador_malorelleno_center.png"); }
     #dibujar #pieza.categoria-centro #direccionPieza-centro.giro {
       top: 10.5%; }
   #dibujar #pieza.categoria-centro #direccionPieza-arriba, #dibujar #pieza.categoria-centro #direccionPieza-abajo {
@@ -27,7 +37,17 @@
     height: 10px;
     background-size: 90% 90%; }
     #dibujar #pieza.categoria-centro #direccionPieza-arriba.lesionCaries, #dibujar #pieza.categoria-centro #direccionPieza-abajo.lesionCaries {
-      background-image: url("../images/marcador01_lesioncaries_top_bottom.png"); }
+      background-image: url("../images/marcador01_malorelleno_top_bottom.png"); }
+    #dibujar #pieza.categoria-centro #direccionPieza-arriba.sellantes.bueno, #dibujar #pieza.categoria-centro #direccionPieza-abajo.sellantes.bueno {
+      background-image: url("../images/marcador01_bueno_top_bottom.png"); }
+    #dibujar #pieza.categoria-centro #direccionPieza-arriba.sellantes.malo, #dibujar #pieza.categoria-centro #direccionPieza-abajo.sellantes.malo {
+      background-image: url("../images/marcador01_malo_top_bottom.png"); }
+    #dibujar #pieza.categoria-centro #direccionPieza-arriba.restauracionTemporal, #dibujar #pieza.categoria-centro #direccionPieza-abajo.restauracionTemporal {
+      background-image: url("../images/marcador01_malo_top_bottom.png"); }
+    #dibujar #pieza.categoria-centro #direccionPieza-arriba.restauracionDefinitiva.bueno, #dibujar #pieza.categoria-centro #direccionPieza-abajo.restauracionDefinitiva.bueno {
+      background-image: url("../images/marcador01_buenorelleno_top_bottom.png"); }
+    #dibujar #pieza.categoria-centro #direccionPieza-arriba.restauracionDefinitiva.malo, #dibujar #pieza.categoria-centro #direccionPieza-abajo.restauracionDefinitiva.malo {
+      background-image: url("../images/marcador01_malorelleno_top_bottom.png"); }
   #dibujar #pieza.categoria-centro #direccionPieza-arriba {
     top: 55%; }
     #dibujar #pieza.categoria-centro #direccionPieza-arriba.giro {
@@ -45,7 +65,17 @@
     background-size: 90% 90%;
     bottom: 0%; }
     #dibujar #pieza.categoria-centro #direccionPieza-derecha.lesionCaries, #dibujar #pieza.categoria-centro #direccionPieza-izquierda.lesionCaries {
-      background-image: url("../images/marcador01_lesioncaries_left_right.png"); }
+      background-image: url("../images/marcador01_malorelleno_left_right.png"); }
+    #dibujar #pieza.categoria-centro #direccionPieza-derecha.sellantes.bueno, #dibujar #pieza.categoria-centro #direccionPieza-izquierda.sellantes.bueno {
+      background-image: url("../images/marcador01_bueno_left_right.png"); }
+    #dibujar #pieza.categoria-centro #direccionPieza-derecha.sellantes.malo, #dibujar #pieza.categoria-centro #direccionPieza-izquierda.sellantes.malo {
+      background-image: url("../images/marcador01_malo_left_right.png"); }
+    #dibujar #pieza.categoria-centro #direccionPieza-derecha.restauracionTemporal, #dibujar #pieza.categoria-centro #direccionPieza-izquierda.restauracionTemporal {
+      background-image: url("../images/marcador01_malo_left_right.png"); }
+    #dibujar #pieza.categoria-centro #direccionPieza-derecha.restauracionDefinitiva.bueno, #dibujar #pieza.categoria-centro #direccionPieza-izquierda.restauracionDefinitiva.bueno {
+      background-image: url("../images/marcador01_buenorelleno_left_right.png"); }
+    #dibujar #pieza.categoria-centro #direccionPieza-derecha.restauracionDefinitiva.malo, #dibujar #pieza.categoria-centro #direccionPieza-izquierda.restauracionDefinitiva.malo {
+      background-image: url("../images/marcador01_malorelleno_left_right.png"); }
     #dibujar #pieza.categoria-centro #direccionPieza-derecha.giro, #dibujar #pieza.categoria-centro #direccionPieza-izquierda.giro {
       top: 0%; }
   #dibujar #pieza.categoria-centro #direccionPieza-derecha {
@@ -57,7 +87,17 @@
     width: 98%;
     height: 18px; }
     #dibujar #pieza.categoria-nocentro #direccionPieza-arriba.lesionCaries, #dibujar #pieza.categoria-nocentro #direccionPieza-abajo.lesionCaries {
-      background-image: url("../images/marcador02_lesioncaries_top_bottom.png"); }
+      background-image: url("../images/marcador02_malorelleno_top_bottom.png"); }
+    #dibujar #pieza.categoria-nocentro #direccionPieza-arriba.sellantes.bueno, #dibujar #pieza.categoria-nocentro #direccionPieza-abajo.sellantes.bueno {
+      background-image: url("../images/marcador02_bueno_top_bottom.png"); }
+    #dibujar #pieza.categoria-nocentro #direccionPieza-arriba.sellantes.malo, #dibujar #pieza.categoria-nocentro #direccionPieza-abajo.sellantes.malo {
+      background-image: url("../images/marcador02_malo_top_bottom.png"); }
+    #dibujar #pieza.categoria-nocentro #direccionPieza-arriba.restauracionTemporal, #dibujar #pieza.categoria-nocentro #direccionPieza-abajo.restauracionTemporal {
+      background-image: url("../images/marcador02_malo_top_bottom.png"); }
+    #dibujar #pieza.categoria-nocentro #direccionPieza-arriba.restauracionDefinitiva.bueno, #dibujar #pieza.categoria-nocentro #direccionPieza-abajo.restauracionDefinitiva.bueno {
+      background-image: url("../images/marcador02_buenorelleno_top_bottom.png"); }
+    #dibujar #pieza.categoria-nocentro #direccionPieza-arriba.restauracionDefinitiva.malo, #dibujar #pieza.categoria-nocentro #direccionPieza-abajo.restauracionDefinitiva.malo {
+      background-image: url("../images/marcador02_malorelleno_top_bottom.png"); }
   #dibujar #pieza.categoria-nocentro #direccionPieza-arriba {
     top: 55%; }
     #dibujar #pieza.categoria-nocentro #direccionPieza-arriba.giro {
@@ -75,7 +115,17 @@
     background-size: 90% 90%;
     bottom: 0%; }
     #dibujar #pieza.categoria-nocentro #direccionPieza-izquierda.lesionCaries, #dibujar #pieza.categoria-nocentro #direccionPieza-derecha.lesionCaries {
-      background-image: url("../images/marcador02_lesioncaries_left_right.png"); }
+      background-image: url("../images/marcador02_malorelleno_left_right.png"); }
+    #dibujar #pieza.categoria-nocentro #direccionPieza-izquierda.sellantes.bueno, #dibujar #pieza.categoria-nocentro #direccionPieza-derecha.sellantes.bueno {
+      background-image: url("../images/marcador02_bueno_left_right.png"); }
+    #dibujar #pieza.categoria-nocentro #direccionPieza-izquierda.sellantes.malo, #dibujar #pieza.categoria-nocentro #direccionPieza-derecha.sellantes.malo {
+      background-image: url("../images/marcador02_malo_left_right.png"); }
+    #dibujar #pieza.categoria-nocentro #direccionPieza-izquierda.restauracionTemporal, #dibujar #pieza.categoria-nocentro #direccionPieza-derecha.restauracionTemporal {
+      background-image: url("../images/marcador02_malo_left_right.png"); }
+    #dibujar #pieza.categoria-nocentro #direccionPieza-izquierda.restauracionDefinitiva.bueno, #dibujar #pieza.categoria-nocentro #direccionPieza-derecha.restauracionDefinitiva.bueno {
+      background-image: url("../images/marcador02_buenorelleno_left_right.png"); }
+    #dibujar #pieza.categoria-nocentro #direccionPieza-izquierda.restauracionDefinitiva.malo, #dibujar #pieza.categoria-nocentro #direccionPieza-derecha.restauracionDefinitiva.malo {
+      background-image: url("../images/marcador02_malorelleno_left_right.png"); }
     #dibujar #pieza.categoria-nocentro #direccionPieza-izquierda.giro, #dibujar #pieza.categoria-nocentro #direccionPieza-derecha.giro {
       top: 0; }
   #dibujar #pieza.categoria-nocentro #direccionPieza-derecha {
@@ -309,28 +359,80 @@
     width: 1.2%;
     background-size: 100% 100%; }
     #odontograma-contenido .direccion-derecha.centro.lesionCaries, #odontograma-contenido .direccion-izquierda.centro.lesionCaries {
-      background-image: url("../images/marcador01_lesioncaries_left_right.png"); }
+      background-image: url("../images/marcador01_malorelleno_left_right.png"); }
+    #odontograma-contenido .direccion-derecha.centro.sellantes.bueno, #odontograma-contenido .direccion-izquierda.centro.sellantes.bueno {
+      background-image: url("../images/marcador01_bueno_left_right.png"); }
+    #odontograma-contenido .direccion-derecha.centro.sellantes.malo, #odontograma-contenido .direccion-izquierda.centro.sellantes.malo {
+      background-image: url("../images/marcador01_malo_left_right.png"); }
+    #odontograma-contenido .direccion-derecha.centro.restauracionTemporal, #odontograma-contenido .direccion-izquierda.centro.restauracionTemporal {
+      background-image: url("../images/marcador01_malo_left_right.png"); }
+    #odontograma-contenido .direccion-derecha.centro.restauracionDefinitiva.bueno, #odontograma-contenido .direccion-izquierda.centro.restauracionDefinitiva.bueno {
+      background-image: url("../images/marcador01_buenorelleno_left_right.png"); }
+    #odontograma-contenido .direccion-derecha.centro.restauracionDefinitiva.malo, #odontograma-contenido .direccion-izquierda.centro.restauracionDefinitiva.malo {
+      background-image: url("../images/marcador01_malorelleno_left_right.png"); }
     #odontograma-contenido .direccion-derecha.nocentro.lesionCaries, #odontograma-contenido .direccion-izquierda.nocentro.lesionCaries {
-      background-image: url("../images/marcador02_lesioncaries_left_right.png"); }
+      background-image: url("../images/marcador02_malorelleno_left_right.png"); }
+    #odontograma-contenido .direccion-derecha.nocentro.sellantes.bueno, #odontograma-contenido .direccion-izquierda.nocentro.sellantes.bueno {
+      background-image: url("../images/marcador02_bueno_left_right.png"); }
+    #odontograma-contenido .direccion-derecha.nocentro.sellantes.malo, #odontograma-contenido .direccion-izquierda.nocentro.sellantes.malo {
+      background-image: url("../images/marcador02_malo_left_right.png"); }
+    #odontograma-contenido .direccion-derecha.nocentro.restauracionTemporal, #odontograma-contenido .direccion-izquierda.nocentro.restauracionTemporal {
+      background-image: url("../images/marcador02_malo_left_right.png"); }
+    #odontograma-contenido .direccion-derecha.nocentro.restauracionDefinitiva.bueno, #odontograma-contenido .direccion-izquierda.nocentro.restauracionDefinitiva.bueno {
+      background-image: url("../images/marcador02_buenorelleno_left_right.png"); }
+    #odontograma-contenido .direccion-derecha.nocentro.restauracionDefinitiva.malo, #odontograma-contenido .direccion-izquierda.nocentro.restauracionDefinitiva.malo {
+      background-image: url("../images/marcador02_malorelleno_left_right.png"); }
   #odontograma-contenido .direccion-arriba, #odontograma-contenido .direccion-abajo {
     height: 1.2%;
     width: 5.2%;
     background-size: 100% 100%; }
     #odontograma-contenido .direccion-arriba.centro.lesionCaries, #odontograma-contenido .direccion-abajo.centro.lesionCaries {
-      background-image: url("../images/marcador01_lesioncaries_top_bottom.png"); }
+      background-image: url("../images/marcador01_malorelleno_top_bottom.png"); }
+    #odontograma-contenido .direccion-arriba.centro.sellantes.bueno, #odontograma-contenido .direccion-abajo.centro.sellantes.bueno {
+      background-image: url("../images/marcador01_bueno_top_bottom.png"); }
+    #odontograma-contenido .direccion-arriba.centro.sellantes.malo, #odontograma-contenido .direccion-abajo.centro.sellantes.malo {
+      background-image: url("../images/marcador01_malo_top_bottom.png"); }
+    #odontograma-contenido .direccion-arriba.centro.restauracionTemporal, #odontograma-contenido .direccion-abajo.centro.restauracionTemporal {
+      background-image: url("../images/marcador01_malo_top_bottom.png"); }
+    #odontograma-contenido .direccion-arriba.centro.restauracionDefinitiva.bueno, #odontograma-contenido .direccion-abajo.centro.restauracionDefinitiva.bueno {
+      background-image: url("../images/marcador01_buenorelleno_top_bottom.png"); }
+    #odontograma-contenido .direccion-arriba.centro.restauracionDefinitiva.malo, #odontograma-contenido .direccion-abajo.centro.restauracionDefinitiva.malo {
+      background-image: url("../images/marcador01_malorelleno_top_bottom.png"); }
     #odontograma-contenido .direccion-arriba.nocentro, #odontograma-contenido .direccion-abajo.nocentro {
       height: 2%; }
       #odontograma-contenido .direccion-arriba.nocentro.lesionCaries, #odontograma-contenido .direccion-abajo.nocentro.lesionCaries {
-        background-image: url("../images/marcador02_lesioncaries_top_bottom.png"); }
+        background-image: url("../images/marcador02_malorelleno_top_bottom.png"); }
+      #odontograma-contenido .direccion-arriba.nocentro.sellantes.bueno, #odontograma-contenido .direccion-abajo.nocentro.sellantes.bueno {
+        background-image: url("../images/marcador02_bueno_top_bottom.png"); }
+      #odontograma-contenido .direccion-arriba.nocentro.sellantes.malo, #odontograma-contenido .direccion-abajo.nocentro.sellantes.malo {
+        background-image: url("../images/marcador02_malo_top_bottom.png"); }
+      #odontograma-contenido .direccion-arriba.nocentro.restauracionTemporal, #odontograma-contenido .direccion-abajo.nocentro.restauracionTemporal {
+        background-image: url("../images/marcador02_malo_top_bottom.png"); }
+      #odontograma-contenido .direccion-arriba.nocentro.restauracionDefinitiva.bueno, #odontograma-contenido .direccion-abajo.nocentro.restauracionDefinitiva.bueno {
+        background-image: url("../images/marcador02_buenorelleno_top_bottom.png"); }
+      #odontograma-contenido .direccion-arriba.nocentro.restauracionDefinitiva.malo, #odontograma-contenido .direccion-abajo.nocentro.restauracionDefinitiva.malo {
+        background-image: url("../images/marcador02_malorelleno_top_bottom.png"); }
   #odontograma-contenido .direccion-abajo, #odontograma-contenido .direccion-derecha {
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg); }
   #odontograma-contenido .direccion-centro {
-    height: 1.8%;
-    width: 2.5%; }
+    height: 1.9%;
+    width: 2.5%;
+    background-size: 100%;
+    background-repeat: no-repeat; }
     #odontograma-contenido .direccion-centro.lesionCaries {
-      background-image: url("../images/marcador_lesioncaries_center.png"); }
+      background-image: url("../images/marcador_malorelleno_center.png"); }
+    #odontograma-contenido .direccion-centro.sellantes.bueno {
+      background-image: url("../images/marcador_bueno_center.png"); }
+    #odontograma-contenido .direccion-centro.sellantes.malo {
+      background-image: url("../images/marcador_malo_center.png"); }
+    #odontograma-contenido .direccion-centro.restauracionTemporal {
+      background-image: url("../images/marcador_malo_center.png"); }
+    #odontograma-contenido .direccion-centro.restauracionDefinitiva.bueno {
+      background-image: url("../images/marcador_buenorelleno_center.png"); }
+    #odontograma-contenido .direccion-centro.restauracionDefinitiva.malo {
+      background-image: url("../images/marcador_malorelleno_center.png"); }
   #odontograma-contenido .cursor-1 {
     height: 9.6%;
     top: 9.2%;
@@ -425,14 +527,14 @@
     #odontograma-contenido .direccion-abajo-1.nocentro {
       top: 16.7%; }
   #odontograma-contenido .direccion-izquierda-1 {
-    left: 0.6%;
+    left: 0.55%;
     top: 14.6%; }
   #odontograma-contenido .direccion-derecha-1 {
     left: 4.6%;
     top: 14.6%; }
   #odontograma-contenido .direccion-centro-1 {
     left: 1.9%;
-    top: 15.6%; }
+    top: 15.9%; }
   #odontograma-contenido .cursor-2 {
     height: 9.6%;
     top: 9.2%;
@@ -527,14 +629,14 @@
     #odontograma-contenido .direccion-abajo-2.nocentro {
       top: 16.7%; }
   #odontograma-contenido .direccion-izquierda-2 {
-    left: 6.85%;
+    left: 6.8%;
     top: 14.6%; }
   #odontograma-contenido .direccion-derecha-2 {
     left: 10.85%;
     top: 14.6%; }
   #odontograma-contenido .direccion-centro-2 {
     left: 8.15%;
-    top: 15.6%; }
+    top: 15.9%; }
   #odontograma-contenido .cursor-3 {
     height: 9.6%;
     top: 9.2%;
@@ -629,14 +731,14 @@
     #odontograma-contenido .direccion-abajo-3.nocentro {
       top: 16.7%; }
   #odontograma-contenido .direccion-izquierda-3 {
-    left: 13.1%;
+    left: 13.05%;
     top: 14.6%; }
   #odontograma-contenido .direccion-derecha-3 {
     left: 17.1%;
     top: 14.6%; }
   #odontograma-contenido .direccion-centro-3 {
     left: 14.4%;
-    top: 15.6%; }
+    top: 15.9%; }
   #odontograma-contenido .cursor-4 {
     height: 9.6%;
     top: 9.2%;
@@ -731,14 +833,14 @@
     #odontograma-contenido .direccion-abajo-4.nocentro {
       top: 16.7%; }
   #odontograma-contenido .direccion-izquierda-4 {
-    left: 19.35%;
+    left: 19.3%;
     top: 14.6%; }
   #odontograma-contenido .direccion-derecha-4 {
     left: 23.35%;
     top: 14.6%; }
   #odontograma-contenido .direccion-centro-4 {
     left: 20.65%;
-    top: 15.6%; }
+    top: 15.9%; }
   #odontograma-contenido .cursor-5 {
     height: 9.6%;
     top: 9.2%;
@@ -833,14 +935,14 @@
     #odontograma-contenido .direccion-abajo-5.nocentro {
       top: 16.7%; }
   #odontograma-contenido .direccion-izquierda-5 {
-    left: 25.6%;
+    left: 25.55%;
     top: 14.6%; }
   #odontograma-contenido .direccion-derecha-5 {
     left: 29.6%;
     top: 14.6%; }
   #odontograma-contenido .direccion-centro-5 {
     left: 26.9%;
-    top: 15.6%; }
+    top: 15.9%; }
   #odontograma-contenido .cursor-6 {
     height: 9.6%;
     top: 9.2%;
@@ -935,14 +1037,14 @@
     #odontograma-contenido .direccion-abajo-6.nocentro {
       top: 16.7%; }
   #odontograma-contenido .direccion-izquierda-6 {
-    left: 31.85%;
+    left: 31.8%;
     top: 14.6%; }
   #odontograma-contenido .direccion-derecha-6 {
     left: 35.85%;
     top: 14.6%; }
   #odontograma-contenido .direccion-centro-6 {
     left: 33.15%;
-    top: 15.6%; }
+    top: 15.9%; }
   #odontograma-contenido .cursor-7 {
     height: 9.6%;
     top: 9.2%;
@@ -1037,14 +1139,14 @@
     #odontograma-contenido .direccion-abajo-7.nocentro {
       top: 16.7%; }
   #odontograma-contenido .direccion-izquierda-7 {
-    left: 38.1%;
+    left: 38.05%;
     top: 14.6%; }
   #odontograma-contenido .direccion-derecha-7 {
     left: 42.1%;
     top: 14.6%; }
   #odontograma-contenido .direccion-centro-7 {
     left: 39.4%;
-    top: 15.6%; }
+    top: 15.9%; }
   #odontograma-contenido .cursor-8 {
     height: 9.6%;
     top: 9.2%;
@@ -1139,14 +1241,14 @@
     #odontograma-contenido .direccion-abajo-8.nocentro {
       top: 16.7%; }
   #odontograma-contenido .direccion-izquierda-8 {
-    left: 44.35%;
+    left: 44.3%;
     top: 14.6%; }
   #odontograma-contenido .direccion-derecha-8 {
     left: 48.35%;
     top: 14.6%; }
   #odontograma-contenido .direccion-centro-8 {
     left: 45.65%;
-    top: 15.6%; }
+    top: 15.9%; }
   #odontograma-contenido .cursor-9 {
     height: 9.6%;
     top: 9.2%;
@@ -1241,14 +1343,14 @@
     #odontograma-contenido .direccion-abajo-9.nocentro {
       top: 16.7%; }
   #odontograma-contenido .direccion-izquierda-9 {
-    left: 50.6%;
+    left: 50.55%;
     top: 14.6%; }
   #odontograma-contenido .direccion-derecha-9 {
     left: 54.6%;
     top: 14.6%; }
   #odontograma-contenido .direccion-centro-9 {
     left: 51.9%;
-    top: 15.6%; }
+    top: 15.9%; }
   #odontograma-contenido .cursor-10 {
     height: 9.6%;
     top: 9.2%;
@@ -1343,14 +1445,14 @@
     #odontograma-contenido .direccion-abajo-10.nocentro {
       top: 16.7%; }
   #odontograma-contenido .direccion-izquierda-10 {
-    left: 56.85%;
+    left: 56.8%;
     top: 14.6%; }
   #odontograma-contenido .direccion-derecha-10 {
     left: 60.85%;
     top: 14.6%; }
   #odontograma-contenido .direccion-centro-10 {
     left: 58.15%;
-    top: 15.6%; }
+    top: 15.9%; }
   #odontograma-contenido .cursor-11 {
     height: 9.6%;
     top: 9.2%;
@@ -1445,14 +1547,14 @@
     #odontograma-contenido .direccion-abajo-11.nocentro {
       top: 16.7%; }
   #odontograma-contenido .direccion-izquierda-11 {
-    left: 63.1%;
+    left: 63.05%;
     top: 14.6%; }
   #odontograma-contenido .direccion-derecha-11 {
     left: 67.1%;
     top: 14.6%; }
   #odontograma-contenido .direccion-centro-11 {
     left: 64.4%;
-    top: 15.6%; }
+    top: 15.9%; }
   #odontograma-contenido .cursor-12 {
     height: 9.6%;
     top: 9.2%;
@@ -1547,14 +1649,14 @@
     #odontograma-contenido .direccion-abajo-12.nocentro {
       top: 16.7%; }
   #odontograma-contenido .direccion-izquierda-12 {
-    left: 69.35%;
+    left: 69.3%;
     top: 14.6%; }
   #odontograma-contenido .direccion-derecha-12 {
     left: 73.35%;
     top: 14.6%; }
   #odontograma-contenido .direccion-centro-12 {
     left: 70.65%;
-    top: 15.6%; }
+    top: 15.9%; }
   #odontograma-contenido .cursor-13 {
     height: 9.6%;
     top: 9.2%;
@@ -1649,14 +1751,14 @@
     #odontograma-contenido .direccion-abajo-13.nocentro {
       top: 16.7%; }
   #odontograma-contenido .direccion-izquierda-13 {
-    left: 75.6%;
+    left: 75.55%;
     top: 14.6%; }
   #odontograma-contenido .direccion-derecha-13 {
     left: 79.6%;
     top: 14.6%; }
   #odontograma-contenido .direccion-centro-13 {
     left: 76.9%;
-    top: 15.6%; }
+    top: 15.9%; }
   #odontograma-contenido .cursor-14 {
     height: 9.6%;
     top: 9.2%;
@@ -1751,14 +1853,14 @@
     #odontograma-contenido .direccion-abajo-14.nocentro {
       top: 16.7%; }
   #odontograma-contenido .direccion-izquierda-14 {
-    left: 81.85%;
+    left: 81.8%;
     top: 14.6%; }
   #odontograma-contenido .direccion-derecha-14 {
     left: 85.85%;
     top: 14.6%; }
   #odontograma-contenido .direccion-centro-14 {
     left: 83.15%;
-    top: 15.6%; }
+    top: 15.9%; }
   #odontograma-contenido .cursor-15 {
     height: 9.6%;
     top: 9.2%;
@@ -1853,14 +1955,14 @@
     #odontograma-contenido .direccion-abajo-15.nocentro {
       top: 16.7%; }
   #odontograma-contenido .direccion-izquierda-15 {
-    left: 88.1%;
+    left: 88.05%;
     top: 14.6%; }
   #odontograma-contenido .direccion-derecha-15 {
     left: 92.1%;
     top: 14.6%; }
   #odontograma-contenido .direccion-centro-15 {
     left: 89.4%;
-    top: 15.6%; }
+    top: 15.9%; }
   #odontograma-contenido .cursor-16 {
     height: 9.6%;
     top: 9.2%;
@@ -1955,14 +2057,14 @@
     #odontograma-contenido .direccion-abajo-16.nocentro {
       top: 16.7%; }
   #odontograma-contenido .direccion-izquierda-16 {
-    left: 94.35%;
+    left: 94.3%;
     top: 14.6%; }
   #odontograma-contenido .direccion-derecha-16 {
     left: 98.35%;
     top: 14.6%; }
   #odontograma-contenido .direccion-centro-16 {
     left: 95.65%;
-    top: 15.6%; }
+    top: 15.9%; }
   #odontograma-contenido .cursor-17 {
     height: 9.7%;
     top: 31.5%;
@@ -4449,7 +4551,7 @@
     #odontograma-contenido .direccion-abajo-37.nocentro {
       top: 82.5%; }
   #odontograma-contenido .direccion-izquierda-37 {
-    left: 0.7%;
+    left: 0.6%;
     top: 80.5%; }
   #odontograma-contenido .direccion-derecha-37 {
     left: 4.7%;
@@ -4583,7 +4685,7 @@
     #odontograma-contenido .direccion-abajo-38.nocentro {
       top: 82.5%; }
   #odontograma-contenido .direccion-izquierda-38 {
-    left: 6.95%;
+    left: 6.85%;
     top: 80.5%; }
   #odontograma-contenido .direccion-derecha-38 {
     left: 10.95%;
@@ -4717,7 +4819,7 @@
     #odontograma-contenido .direccion-abajo-39.nocentro {
       top: 82.5%; }
   #odontograma-contenido .direccion-izquierda-39 {
-    left: 13.2%;
+    left: 13.1%;
     top: 80.5%; }
   #odontograma-contenido .direccion-derecha-39 {
     left: 17.2%;
@@ -4851,7 +4953,7 @@
     #odontograma-contenido .direccion-abajo-40.nocentro {
       top: 82.5%; }
   #odontograma-contenido .direccion-izquierda-40 {
-    left: 19.45%;
+    left: 19.35%;
     top: 80.5%; }
   #odontograma-contenido .direccion-derecha-40 {
     left: 23.45%;
@@ -4985,7 +5087,7 @@
     #odontograma-contenido .direccion-abajo-41.nocentro {
       top: 82.5%; }
   #odontograma-contenido .direccion-izquierda-41 {
-    left: 25.7%;
+    left: 25.6%;
     top: 80.5%; }
   #odontograma-contenido .direccion-derecha-41 {
     left: 29.7%;
@@ -5119,7 +5221,7 @@
     #odontograma-contenido .direccion-abajo-42.nocentro {
       top: 82.5%; }
   #odontograma-contenido .direccion-izquierda-42 {
-    left: 31.95%;
+    left: 31.85%;
     top: 80.5%; }
   #odontograma-contenido .direccion-derecha-42 {
     left: 35.95%;
@@ -5253,7 +5355,7 @@
     #odontograma-contenido .direccion-abajo-43.nocentro {
       top: 82.5%; }
   #odontograma-contenido .direccion-izquierda-43 {
-    left: 38.2%;
+    left: 38.1%;
     top: 80.5%; }
   #odontograma-contenido .direccion-derecha-43 {
     left: 42.2%;
@@ -5387,7 +5489,7 @@
     #odontograma-contenido .direccion-abajo-44.nocentro {
       top: 82.5%; }
   #odontograma-contenido .direccion-izquierda-44 {
-    left: 44.45%;
+    left: 44.35%;
     top: 80.5%; }
   #odontograma-contenido .direccion-derecha-44 {
     left: 48.45%;
@@ -5521,7 +5623,7 @@
     #odontograma-contenido .direccion-abajo-45.nocentro {
       top: 82.5%; }
   #odontograma-contenido .direccion-izquierda-45 {
-    left: 50.7%;
+    left: 50.6%;
     top: 80.5%; }
   #odontograma-contenido .direccion-derecha-45 {
     left: 54.7%;
@@ -5655,7 +5757,7 @@
     #odontograma-contenido .direccion-abajo-46.nocentro {
       top: 82.5%; }
   #odontograma-contenido .direccion-izquierda-46 {
-    left: 56.95%;
+    left: 56.85%;
     top: 80.5%; }
   #odontograma-contenido .direccion-derecha-46 {
     left: 60.95%;
@@ -5789,7 +5891,7 @@
     #odontograma-contenido .direccion-abajo-47.nocentro {
       top: 82.5%; }
   #odontograma-contenido .direccion-izquierda-47 {
-    left: 63.2%;
+    left: 63.1%;
     top: 80.5%; }
   #odontograma-contenido .direccion-derecha-47 {
     left: 67.2%;
@@ -5923,7 +6025,7 @@
     #odontograma-contenido .direccion-abajo-48.nocentro {
       top: 82.5%; }
   #odontograma-contenido .direccion-izquierda-48 {
-    left: 69.45%;
+    left: 69.35%;
     top: 80.5%; }
   #odontograma-contenido .direccion-derecha-48 {
     left: 73.45%;
@@ -6057,7 +6159,7 @@
     #odontograma-contenido .direccion-abajo-49.nocentro {
       top: 82.5%; }
   #odontograma-contenido .direccion-izquierda-49 {
-    left: 75.7%;
+    left: 75.6%;
     top: 80.5%; }
   #odontograma-contenido .direccion-derecha-49 {
     left: 79.7%;
@@ -6191,7 +6293,7 @@
     #odontograma-contenido .direccion-abajo-50.nocentro {
       top: 82.5%; }
   #odontograma-contenido .direccion-izquierda-50 {
-    left: 81.95%;
+    left: 81.85%;
     top: 80.5%; }
   #odontograma-contenido .direccion-derecha-50 {
     left: 85.95%;
@@ -6325,7 +6427,7 @@
     #odontograma-contenido .direccion-abajo-51.nocentro {
       top: 82.5%; }
   #odontograma-contenido .direccion-izquierda-51 {
-    left: 88.2%;
+    left: 88.1%;
     top: 80.5%; }
   #odontograma-contenido .direccion-derecha-51 {
     left: 92.2%;
@@ -6459,7 +6561,7 @@
     #odontograma-contenido .direccion-abajo-52.nocentro {
       top: 82.5%; }
   #odontograma-contenido .direccion-izquierda-52 {
-    left: 94.45%;
+    left: 94.35%;
     top: 80.5%; }
   #odontograma-contenido .direccion-derecha-52 {
     left: 98.45%;
