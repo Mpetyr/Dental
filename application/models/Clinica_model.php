@@ -100,4 +100,6 @@ class Clinica_model extends CI_Model
 		return $clinicas;
 	}
 
+
+
 }

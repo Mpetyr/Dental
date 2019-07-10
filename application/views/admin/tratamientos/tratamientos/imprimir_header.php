@@ -1,6 +1,6 @@
 <div class="w100">
 	<div class="w30">
-		<img src="<?= base_url('assets/uploads/logo/logogeneral.png') ?>">
+		<img src="<?= base_url('assets/uploads/logo/'.$this->session->userdata('foto')) ?>" style="max-width: 100px">
 	</div>
 	<div class="w40 text-center">
 		<h5>CLINICA DENTAL <br><?= $clinicas->nomb_clin ?></h5>

@@ -117,7 +117,7 @@ class Regclinica extends CI_Controller {
         $config['max_size']             = 100; //set max size allowed in Kilobyte
         $config['max_width']            = 1000; // set max width image allowed
         $config['max_height']           = 1000; // set max height allowed
-        $config['file_name']            = 'logogeneral.png'; //just milisecond timestamp fot unique name
+        $config['file_name']            = 'logogeneral-'.time().'.png'; //just milisecond timestamp fot unique name
         $this->upload->initialize($config);
        $this->load->library('upload', $config);
 

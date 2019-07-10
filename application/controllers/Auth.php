@@ -11,6 +11,7 @@ class Auth extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model("usuarios_model");
+		$this->load->model("clinica_model");
 		# code...
 	}
 
@@ -29,6 +30,7 @@ class Auth extends CI_Controller
 		$username= $this->input->post("username");
 		$paswoord= $this->input->post("paswoord");
 		$res = $this->usuarios_model->login($username,sha1($paswoord));
+		$logo =$this->clinica_model->getclinica($data);
 		if(!$res){
 			$this->session->set_flashdata("error","El usuario y/o contraseña son incorrectos");
 			redirect(base_url());
@@ -44,6 +46,7 @@ class Auth extends CI_Controller
 			'tipo_documento' => $res->tipo_documento,
 			'logi_usu' =>$res->logi_usu,
 			'pass_usu' =>$res->pass_usu,
+			'foto' => $logo->photo,
 			'login' => TRUE
 			 );
 			$this->session->set_userdata($data);

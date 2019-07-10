@@ -49,17 +49,15 @@
     <div class="wrapper">
         <header class="main-header">
            <a href="<?= base_url('dashboard') ?>" class="logo">
-               <center>  <img style="width:60%;margin-top: auto;" src="<?= base_url() ?>assets/img/dentalsac.png"> </center> 
+              <span class="logo-mini"><b>D</b></span>
+               <!-- <center>  <img style="width:60%;margin-top: auto;" src="<?= base_url() ?>assets/img/dentalsac.png"> </center>  -->
            </a>
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top">
                 <!-- Sidebar toggle button-->
-                <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </a>
+                
+                    <img style="max-width: 118px; padding-top: 1px; margin-left: 5px" src="<?= base_url() ?>assets/img/dentalsac.png"> 
+                
                 <div class="navbar-custom-menu">
                   <ul class="nav navbar-nav">
                     <!-- Messages: style can be found in dropdown.less-->
