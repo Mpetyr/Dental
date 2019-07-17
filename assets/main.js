@@ -3552,4 +3552,266 @@ $('#TableMantenimientoAlergia tbody').on('click', '.anular', function(event) {
 });
 
 
+/*===========================================
+=            USUARIO - LISTADO            =
+===========================================*/
+var TableMantenimientoUsu =  $('#TableMantenimientoUsu').DataTable({
+	"language": {
+		"url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
+	},
+	"searching": false,
+	"processing": true,
+	"serverSide": true,
+	"iDisplayLength": 10,
+	"aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, 'Todos']],
+	"aaSorting": [[0, 'desc']],
+	"ajax": {
+		"url": path+'mantenimiento/usuario/jsonUsu',
+		"type": "GET",
+		"data": function (d) {
+			d.desde = $("input[name=desde]").val();
+			d.hasta = $("input[name=hasta]").val();
+			d.usuario = $("input[name=usuario]").val();
+			d.rol = $("select[name=rol]").val();
+		}
+	},
+	"columns": [
+		{"orderable":true},
+		{"orderable":true},
+		{"orderable":true},
+		{"orderable":true},
+		{"orderable":true},
+		{"orderable":true},
+		{"orderable":true},
+		{"orderable":false},
+
+	]
+});
+
+$('#UsuariosFormBusqueda').validate({
+	submitHandler:function() {
+		$('#TableMantenimientoUsu').DataTable().ajax.reload();
+	}
+});
+
+
+/*==========================================
+		  USUARIO - EDITAR
+===========================================*/
+
+$('#TableMantenimientoUsu').on('click', '.editar-usuario', function(event) {
+	event.preventDefault();
+	var id = $(this).data('id');
+	$.getJSON(path+'mantenimiento/usuario/getUsuario', {id}, function(json, textStatus) {
+		$('#FormEditarUsuario input[name=id]').val(json.codi_usu);
+		$('#FormEditarUsuario input[name=apellido]').val(json.apellido);
+		$('#FormEditarUsuario input[name=nombre]').val(json.nombre);
+		$('#FormEditarUsuario input[name=telefono]').val(json.telefono);
+		$('#FormEditarUsuario input[name=direccion]').val(json.direccion);
+		$('#FormEditarUsuario input[name=email]').val(json.email);
+		$('#FormEditarUsuario select[name=tipo_documento]').val(json.tipo_documento);
+		$('#FormEditarUsuario input[name=documento]').val(json.documento);
+		$('#FormEditarUsuario select[name=codigorol]').val(json.codi_rol);
+		$('#FormEditarUsuario input[name=login]').val(json.logi_usu);
+		$('#FormEditarUsuario input[name=fecharegistro]').val(json.fecha_registro);
+		$('#FormEditarUsuario select[name=estado]').val(json.esta_usu);
+	});
+});
+
+$('#cambiarPassword').click(function(event) {
+	
+	if ($(this).is(":checked")) {
+		$('#FormEditarUsuario input[name=passwoord]').prop('disabled', false);
+	}else{
+		$('#FormEditarUsuario input[name=passwoord]').prop('disabled', true);
+	}
+});
+
+$('#FormEditarUsuario').validate({
+	ignore: [],
+	rules:{
+		apellido:{required:true},
+		nombre:{required:true},
+		direccion:{required:true},
+		telefono:{required:true},
+		documento:{required:true},
+		email:{required:true},
+		login:{required:true},
+		passwoord:{required:true},
+		fecharegistro:{required:true},
+		grupo:{required:true},
+		perfil:{required:true},
+		estado:{required:true}
+		
+	},
+	submitHandler:function() {
+		enviarFormulario('#FormEditarUsuario',function(json){
+			if (json.success) {
+				$('#TableMantenimientoUsu').DataTable().ajax.reload();
+			}
+			$('#ModalEditarUsuario').modal('hide');
+			$('#FormEditarUsuario input[name=apellido]').val('');
+			$('#FormEditarUsuario input[name=nombre]').val('');
+			$('#FormEditarUsuario input[name=telefono]').val('');
+			$('#FormEditarUsuario input[name=direccion]').val('');
+			$('#FormEditarUsuario input[name=email]').val('');
+			$('#FormEditarUsuario select[name=tipo_documento]').select('val','');
+			$('#FormEditarUsuario input[name=documento]').val('');
+			$('#FormEditarUsuario select[name=codigorol]').select('val','');
+		    $('#FormEditarUsuario input[name=login]').val('');
+		    $('#FormEditarUsuario input[name=passwoord]').val('');
+		    $('#FormEditarUsuario input[name=fecharegistro]').datepicker('setDate',null);    
+		    $('#FormEditarUsuario select[name=estado]').select('val','');
+		})
+	}
+});
+
+
+/*==========================================
+		 USUARIO - ANULAR
+===========================================*/
+
+$('#TableMantenimientoUsu').on('click', '.anular-usuario', function(event) {
+	event.preventDefault();
+	var id = $(this).data('id');
+	Swal.fire({
+		title: "Confirmar",
+		type: "warning",
+		cancelButtonText:'No',
+		confirmButtonText:'Si',
+		showCancelButton: true,
+		confirmButtonColor: "#007AFF",
+		cancelButtonColor: "#d43f3a",
+		text: "¿Anular usuario?"
+	}).then((result) => {
+		if (result.value) {
+			$.getJSON(path+'mantenimiento/usuario/anularUsuario', {id}, function(json, textStatus) {
+				if (json.success) {
+					Swal.fire({
+						title: "Buen trabajo",
+						text: "Se anulo correctamente.",
+						type: "success"
+					});
+					$('#TableMantenimientoUsu').DataTable().ajax.reload();
+				}else{
+					Swal.fire({
+						title: "Error",
+						text: "Ocurrio un error, vuelva a intentarlo.",
+						type: "error"
+					});
+				}
+			});
+		}
+	});
+});
+
+/*===========================================
+=            ROL - LISTADO            =
+===========================================*/
+var TableMantenimientoRol =  $('#TableMantenimientoRol').DataTable({
+	"language": {
+		"url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
+	},
+	"searching": false,
+	"processing": true,
+	"serverSide": true,
+	"iDisplayLength": 10,
+	"aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, 'Todos']],
+	"aaSorting": [[0, 'desc']],
+	"ajax": {
+		"url": path+'mantenimiento/rol/jsonRol',
+		"type": "GET",
+		"data": function (d) {
+			d.rol = $("input[name=rol]").val();
+		}
+	},
+	"columns": [
+		{"orderable":true},
+		{"orderable":true},
+		{"orderable":true},
+		{"orderable":false},
+
+	]
+});
+
+$('#RolesFormBusqueda').validate({
+	submitHandler:function() {
+		$('#TableMantenimientoRol').DataTable().ajax.reload();
+	}
+});
+
+
+/*==========================================
+		  ROL - EDITAR
+===========================================*/
+
+$('#TableMantenimientoRol').on('click', '.editar-rol', function(event) {
+	event.preventDefault();
+	var id = $(this).data('id');
+	$.getJSON(path+'mantenimiento/rol/getRol', {id}, function(json, textStatus) {
+		$('#FormEditarRol input[name=id]').val(json.codi_rol);
+		$('#FormEditarRol input[name=nombre]').val(json.nomb_rol);
+		$('#FormEditarRol select[name=estado]').val(json.esta_rol);
+	});
+});
+
+
+$('#FormEditarRol').validate({
+	ignore: [],
+	rules:{
+		nombre:{required:true},
+		estado:{required:true}
+		
+	},
+	submitHandler:function() {
+		enviarFormulario('#FormEditarRol',function(json){
+			if (json.success) {
+				$('#TableMantenimientoRol').DataTable().ajax.reload();
+			}
+			$('#ModalEditarRol').modal('hide');
+			$('#FormEditarRol input[name=nombre]').val('');  
+		    $('#FormEditarRol select[name=estado]').select('val','');
+		})
+	}
+});
+
+/*==========================================
+		 USUARIO - ANULAR
+===========================================*/
+
+$('#TableMantenimientoRol').on('click', '.anular-rol', function(event) {
+	event.preventDefault();
+	var id = $(this).data('id');
+	Swal.fire({
+		title: "Confirmar",
+		type: "warning",
+		cancelButtonText:'No',
+		confirmButtonText:'Si',
+		showCancelButton: true,
+		confirmButtonColor: "#007AFF",
+		cancelButtonColor: "#d43f3a",
+		text: "¿Anular rol?"
+	}).then((result) => {
+		if (result.value) {
+			$.getJSON(path+'mantenimiento/rol/anularRol', {id}, function(json, textStatus) {
+				if (json.success) {
+					Swal.fire({
+						title: "Buen trabajo",
+						text: "Se anulo correctamente.",
+						type: "success"
+					});
+					$('#TableMantenimientoRol').DataTable().ajax.reload();
+				}else{
+					Swal.fire({
+						title: "Error",
+						text: "Ocurrio un error, vuelva a intentarlo.",
+						type: "error"
+					});
+				}
+			});
+		}
+	});
+});
+
+
 });

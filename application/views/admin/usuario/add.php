@@ -1,33 +1,34 @@
+<div id="content" class="content-wrapper-2">
 
-        <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
-          <section class="content">
-            <div class="box box-solid">
-                <div class="panel-heading">
-               <div class="box-header with-border">
-                  <h3 class="box-title" >Empleados</h3>
-                  <div class="box-tools pull-right">
-                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                    
-                    <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                  </div>
-                </div>
-                </div>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+     <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Agregar
+      
+      </h1>
+      <ol class="breadcrumb">
+        <li><a><i class="fa fa-dashboard"></i> Modulo</a></li>
+        <li><a>Administrador</a></li>
+        <li class="active">Usuario</li>
+      </ol>
+    </section>
 
-
-                <div class="box-body">
-                            <?php if($this->session->flashdata("error")):?>
-                                <div class="alert alert-danger alert-dismissible">
-                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                  <p><i class="icon fa fa-ban"></i><?php echo $this->session->flashdata("error");?></p>  
-                                </div>
-                            <?php endif;?>
-                                <form action="<?php echo base_url();?>mantenimiento/usuario/user_add" method="POST">
+       <!-- Main content -->
+    <section class="content">
+      <div class="row">
+       <div class="col-md-12">
+          <div class="box box-info">
+             <ol class="breadcrumb">
+               <li><a href="<?= base_url('mantenimiento/medida') ?>"><i class="fa fa-hand-o-left"></i> Volver</a></li>  
+            </ol>
+            <div class="box-body pad">
+               <form action="<?php echo base_url();?>mantenimiento/usuario/user_add" method="POST" autocomplete="off">
                                   <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
                                        <label>Los campos con (*) son olbigatorios</label>
                                   </div>
-
-                               <div class="row">
+                                     <div class="row">
                                    <div class="col-lg-12 left">
                                       <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                                          <div class="form-group has-success has-feedback">
@@ -88,38 +89,13 @@
                                                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                                       <div class="form-group has-success">
                                                           <label>Email (*):</label>
-                                                          <input  type="text" maxlength="20" name="email" required="" class="form-control" placeholder="Email" autofocus="" />
+                                                          <input  type="email" maxlength="20" name="email" required="" class="form-control" placeholder="Email" autofocus="" />
                                                       </div>
                                                   </div>
                                            
                                             </div>
 
-                <div class="col-lg-12 left">
                
-                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                            <div class="form-group has-success">
-                                <label>Fecha Registro (*):</label>
-                                <input  type="date" name="fecha_registro" class="form-control" autofocus="" />
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                            <div class="form-group has-success">
-                                <label>Foto :</label>
-                                <input  type="file" class="form-control" name="foto" autofocus="" />
-                            <!-- <input type="text" class="form-control" name="txtRutaImgEmp" autofocus="" /> -->
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                            <div class="form-group has-success">
-                                <label>Estado (*):</label>
-                                <select class="form-control" required="" name="esta_usu" >
-                                  <option value="1">Activado</option>
-                                  <option value="0">Inactivo</option>
-   
-                                </select>
-                            </div>
-                        </div>
-                 </div>
 
                      <div class="col-lg-12 left">
                 
@@ -154,26 +130,44 @@
                             </div>
                         </div>
                      </div>
+
+                      <div class="col-lg-12 left">
+               
+              
+                       
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <div class="form-group has-success">
+                                <label>Estado (*):</label>
+                                <select class="form-control" required="" name="esta_usu" >
+                                  <option value="1">Activado</option>
+                                  <option value="0">Inactivo</option>
+   
+                                </select>
+                            </div>
+                        </div>
+                 </div>
                                            
                  </div>
+
 
                                          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 left">
                                         <button type="submit" class="btn btn-success"><i class="fa fa-floppy-o"></i> Guardar</button>
                                        <a href="<?php echo base_url();?>mantenimiento/usuario/" class="btn btn-primary" ><i class="fa fa-remove"></i> Cancelar</a>
-                                     </div>  
-                                     
+                                     </div> 
 
-                                </div>
-                             </form>
-                </div>
+               </form>                   
 
 
             </div>
+          </div>
+       </div>
+      </div>
 
+    </section>
 
-          </section>
-
-        </div>
+  </div>
+</div>
+       
 
           
              
