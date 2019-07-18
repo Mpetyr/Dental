@@ -18,7 +18,7 @@ class permisos extends CI_Controller
 			redirect(base_url());
 		}
 		$this->load->model('permisos_model');
-		$this->load->model('roles_model');
+		$this->load->model('modelgeneral');
 	}
 
 	public function index()
@@ -36,7 +36,7 @@ class permisos extends CI_Controller
 	public function add(){
 
 		$data = array(
-			'roles' => $this->roles_model->getroles(),
+			'roles' =>  $this->modelgeneral->getTable('rol'),
 			'menus' => $this->permisos_model->getMenus(),
 
 		);

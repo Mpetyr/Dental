@@ -40,13 +40,19 @@
                 <div class="col-md-2">
                   <div class="form-group">
                     <label class="control-label">Desde</label>
-                    <input type="text" name="desde" class="form-control input-sm datepicker">
+                      <div class="input-group date">
+                       <input type="text" name="desde" class="form-control input-sm datepicker" >
+                       <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                     </div>
                   </div>
                 </div>
                 <div class="col-md-2">
                   <div class="form-group">
                     <label class="control-label">Hasta</label>
-                    <input type="text" name="hasta" class="form-control input-sm datepicker">
+                     <div class="input-group date">
+                       <input type="text" name="hasta" class="form-control input-sm datepicker" >
+                       <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                     </div>
                   </div>
                 </div>
                 <div class="col-md-4">

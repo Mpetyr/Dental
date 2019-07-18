@@ -179,42 +179,82 @@ class Historia_model extends CI_Model {
 	function getHistoriaImprimir($id)
 	{
 		$paciente = $this->db->from('paciente')
-		->select('paciente.*,CONCAT(apel_pac," ", nomb_pac) as paciente, dni_pac as dni, sexo_pac as sexo,telf_pac as telefono, dire_pac as direccion,civi_pac as estadocivil,edad_pac as edad,emai_pac as email,paises.nombre as pais, lugar_nacimiento as lugarnacimiento, fena_pac as fechanacimiento, estudios_pac as estudios,ocupacion as ocupacion,civi_pac as civil,informacion_clinica as entero, departamento.departamento_nombre as departamento,
+		->select("paciente.*,CONCAT(apel_pac,' ', nomb_pac) as paciente, dni_pac as dni, CASE sexo_pac WHEN 'M' THEN 'Masculino' ELSE 'Femenino' END as sexo,telf_pac as telefono, dire_pac as direccion,civi_pac as estadocivil,edad_pac as edad,emai_pac as email,paises.nombre as pais, lugar_nacimiento as lugarnacimiento, fena_pac as fechanacimiento, CASE estudios_pac WHEN 'S' THEN 'Secundaria Completa' WHEN 'U' THEN 'Universitario Superior' WHEN 'P' THEN 'Primaria Completa' ELSE 'No Especifica' END as estudios,ocupacion as ocupacion, CASE civi_pac WHEN 'C' THEN 'Casado' WHEN 'S' THEN 'Soltero' WHEN 'V' THEN 'Viudo(a)' ELSE 'Divorciado(a)' END as civil,informacion_clinica as entero, departamento.departamento_nombre as departamento,
 			provincia.provincia_nombre as provincia,
 			distrito.distrito_nombre as distrito,
 		    paciente_enfermedadactual.motivo_enfact as motivo,
 		    paciente_enfermedadactual.tiempo_enfact as enfermedad,
-		    paciente_enfermedadactual.medicam_enfact as medicamento,
+            CASE paciente_enfermedadactual.medicam_enfact
+            WHEN 1 THEN 'Si'
+            ELSE 'No' END AS 'medicamento',
 		    paciente_enfermedadactual.nommedicam_enfact as nombmedi,
 		    paciente_enfermedadactual.antecper_enfact as antecpersonales,
 		    paciente_enfermedadactual.antecfam_enfact as antecfamiliares,
-		    paciente_consulta.ortod_paccon as consulortodoncia,
-		    paciente_consulta.ortodtexto_paccon as respuesta1,
-		    paciente_consulta.medic_paccon as consutmedicamento,
+		    CASE paciente_consulta.ortod_paccon WHEN 1 THEN 'Si' ELSE 'No' END  as consulortodoncia,
+		    paciente_consulta.ortodtexto_paccon  as respuesta1,
+		    CASE paciente_consulta.medic_paccon WHEN 1 THEN 'Si' ELSE 'No' END as consutmedicamento,
 		    paciente_consulta.medictexto_paccon as respuesta2,
-		    paciente_consulta.alergico_paccon as consulalergico,
-		    paciente_consulta.alergicotexto_paccon	as respuesta3,
-		    paciente_consulta.hosp_paccon as consulhospi,
+		    CASE paciente_consulta.alergico_paccon WHEN 1 THEN 'Si' ELSE 'No' END as consulalergico,
+		    paciente_consulta.alergicotexto_paccon as respuesta3,
+		    CASE paciente_consulta.hosp_paccon WHEN 1 THEN 'Si' ELSE 'No' END as consulhospi,
 		    paciente_consulta.hosptexto_paccon as respuesta4,
-		    paciente_consulta.trans_paccon as consultranstorno,
+		    CASE paciente_consulta.trans_paccon   WHEN 1 THEN 'Si' ELSE 'No' END as consultranstorno,
 		    paciente_consulta.transtexto_paccon as respuesta5,
 		    paciente_consulta.padece_paccon as padece,
 		    paciente_consulta.cepilla_paccon as consulcepilla,
 		    paciente_consulta.cepillatexto_paccon as respuesta6,
 		    paciente_consulta.presion_paccon as consulpresion,
-		    paciente_consulta.presiontexto_paccon as respuesta7'
-		    )
+		    paciente_consulta.presiontexto_paccon as respuesta7,
+		    paciente_exploracion.pa_exp as exploracion,
+		    paciente_exploracion.pulso_exp as pulso,
+		    paciente_exploracion.temperat_exp as temperatura,
+		    paciente_exploracion.fc_exp as fcardiaca,
+		    paciente_exploracion.frec_exp as frespiratoria,
+		    paciente_exploracion.peso_exp as peso,
+		    paciente_exploracion.talla_exp as talla,
+		    paciente_exploracion.masa_exp as imc,
+		    paciente_exploracion.clinico_exp as exmclinico,
+		    paciente_exploracion.complement_exp as exmcomplet,
+		    paciente_exploracion.odontoesto_exp as exmodonto" )
+		  
 		->join('paises','paciente.pais_id=paises.id')
 		->join('departamento','paciente.departamento_id=departamento.departamento_id')
 		->join('provincia','paciente.provincia_id=provincia.provincia_id')
 		->join('distrito','paciente.distrito_id=distrito.distrito_id')
 		->join('paciente_enfermedadactual','paciente_enfermedadactual.codi_pac=paciente.codi_pac')
 		->join('paciente_consulta','paciente_consulta.codi_pac=paciente.codi_pac')
+		->join('paciente_exploracion','paciente_exploracion.codi_pac=paciente.codi_pac')
 		->where('paciente.codi_pac',$id)
 		->get()->row();
 
 		$paciente->alergias = $this->db->from('paciente_alergia')
 		->join('alergia','paciente_alergia.cod_ale = alergia.cod_ale')
+		->where('codi_pac',$id)
+		->get()->result();
+
+		$paciente->odinicial = $this->db->from('paciente_odontograma')
+		->join('hallazgos','paciente_odontograma.id_hal=hallazgos.id_hal')
+		->join('dientes','paciente_odontograma.numero_die=dientes.numero_die')
+		->where('paciente_odontograma.pacodo_tipo','Inicial')
+		->where('codi_pac',$id)
+		->get()->result();
+
+		$paciente->evolucionado = $this->db->from('paciente_odontograma')
+		->join('hallazgos','paciente_odontograma.id_hal=hallazgos.id_hal')
+		->join('dientes','paciente_odontograma.numero_die=dientes.numero_die')
+		->where('paciente_odontograma.pacodo_tipo','Evolucion')
+		->where('codi_pac',$id)
+		->get()->result();
+
+		$paciente->evolucion = $this->db->from('paciente_evolucion')
+		->join('especialidad','paciente_evolucion.cod_especialidad = especialidad.cod_especialidad')
+		->join('medico','paciente_evolucion.codi_med = medico.codi_med')
+		->where('paciente_evolucion.pacevol_estado','1')
+		->where('codi_pac',$id)
+		->get()->result();
+
+		$paciente->receta = $this->db->from('paciente_receta')
+		->where('paciente_receta.pacrec_estado','1')
 		->where('codi_pac',$id)
 		->get()->result();
 
