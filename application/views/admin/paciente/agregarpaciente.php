@@ -18,7 +18,7 @@
      
     <!-- Main content -->
     <section class="content">
-       <form id='FormRegistrarPaciente' action="<?= base_url('mantenimiento/paciente/guardar')?>" method="POST" autocomplete="OFF">
+       <form id='FormRegistrarPaciente' action="<?= base_url('mantenimiento/paciente/guardar')?>" method="POST" autocomplete="OFF" enctype="multipart/form-data">
  
       <div class="row">
         <div class="col-md-3">
@@ -39,7 +39,7 @@
                   <div class="input-group">
               
                   
-                                <input name="" type="file">
+                                <input name="foto_paciente" type="file">
                                 <span class="help-block"></span>
                            
                   </div>
@@ -80,8 +80,7 @@
            <div class="box box-primary collapsed-box">
              <div class="box-header with-border">
                  <div class="nav-tabs-custom">
-                    <? php  echo  validation_errors ();  ?>
-                    <? php  echo  form_open ( 'form' );  ?>
+                    
            <!-- /.tab-pane -->
              <div class="row">
                   <div class="col-md-6">

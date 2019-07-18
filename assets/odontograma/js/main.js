@@ -919,10 +919,11 @@ $('#FormHistoriaMovimientoAgregarHallazgo').validate({
 	submitHandler:function() {
 		$('html, body').animate({scrollTop:1000});
 		$('html, body').animate({scrollTop:0});
+		$('#ModalAgregarHallazgo').modal('hide');
 		enviarFormulario('#FormHistoriaMovimientoAgregarHallazgo',function(resp){
 			if (resp.success) {
 				pintarHallazgos(resp.data);
-				$('#ModalAgregarHallazgo').modal('hide');
+				$('body').css('padding-right:0');
 				$('#FormHistoriaMovimientoAgregarHallazgo textarea[name=especificaciones]').val('');
 				$('#BotonSeleccion').trigger('click');
 				setTimeout(function() {

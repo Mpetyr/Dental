@@ -18,7 +18,7 @@
      
     <!-- Main content -->
     <section class="content">
-       <form id='FormRegistrarPaciente' action="<?= base_url('mantenimiento/paciente/paciente_update')?>" method="POST" autocomplete="OFF">
+       <form id='FormRegistrarPaciente' action="<?= base_url('mantenimiento/paciente/paciente_update')?>" method="POST" autocomplete="OFF" enctype="multipart/form-data">
  
       <div class="row">
         <div class="col-md-3">
@@ -26,10 +26,11 @@
           <!-- Profile Image -->
           <div class="box box-primary">
             <div class="box-body box-profile">
-              <img class="profile-user-img img-responsive img-circle" src="<?= base_url() ?>assets/img/Odontologo.jpg" alt="User profile picture">
-
-
-
+              <?php if (!is_null($pacientes->foto_paciente)): ?>
+              <img src="<?= base_url('assets/uploads/pacientes/'.$pacientes->foto_paciente) ?>" alt="<?= $pacientes->nomb_paciente.' '.$pacientes->apel_pac ?>" class="img img-responsive">
+              <?php else: ?>
+              <img class="profile-user-img img-responsive img-circle" src="<?= base_url() ?>assets/img/Odontologo.jpg" alt="User profile picture" class="img img-responsive">
+              <?php endif ?>
               <p class="text-muted text-center">Paciente</p>
 
               <ul class="list-group list-group-unbordered">
@@ -37,11 +38,8 @@
             
                 <div class="form-group">
                   <div class="input-group">
-              
-                  
-                                <input name="" type="file">
-                                <span class="help-block"></span>
-                           
+                    <input name="foto_paciente" type="file">
+                    <span class="text-danger">Solo subir imagen si va a modificar.</span><br>
                   </div>
                   
                 </div>
@@ -80,8 +78,7 @@
            <div class="box box-primary collapsed-box">
              <div class="box-header with-border">
                  <div class="nav-tabs-custom">
-                    <? php  echo  validation_errors ();  ?>
-                    <? php  echo  form_open ( 'form' );  ?>
+                    
            <!-- /.tab-pane -->
 
 

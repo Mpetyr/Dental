@@ -13,3 +13,6 @@ assets/uploads/placas/thumbs/*.png
 
 assets/img/odontogramas/*
 !assets/img/odontogramas/*.txt
+
+assets/uploads/pacientes/*
+!assets/uploads/pacientes/*.txt
