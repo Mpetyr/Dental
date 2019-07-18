@@ -1,4 +1,3 @@
- 
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,267 +19,167 @@
 <body>
 
 
+ <div id="content" class="content-wrapper-2">
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        ROLES
-
+        <i class="fa fa-user-md" aria-hidden="true"></i>
+        Rol
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Mantenimiento</a></li>
-        <li><a href="#">Tabla</a></li>
-        <li class="active">Usuarios</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> Modulo</a></li>
+        <li><a href="#">Usuario</a></li>
+        <li><a href="#">Rol</a></li>
       </ol>
     </section>
-
+        <?php if ($this->session->flashdata('success')): ?>
+        <script type="text/javascript">
+           $(function(){
+         Swal.fire(
+  'Guardo Exitosamente!',
+  'Su Medico!',
+  'success'
+)
+      });
+</script>
+    <?php endif ?> 
+    <!-- Main content -->
     <section class="content">
       <div class="row">
-        <div class="col-xs-12">
-               <?php if($this->session->flashdata("error")):?>
-                                <div class="alert alert-danger alert-dismissible">
-                              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                  <p><i class="icon fa fa-ban"></i><?php echo $this->session->flashdata("error");?></p>  
-                                </div>
-                            <?php endif;?>
+        <div class="col-md-12">
+          <div class="box box-info">
+                 
+                   <ol class="breadcrumb">
+                      <li><a href="<?= base_url('mantenimiento/rol') ?>"><i class="fa fa-refresh"></i> Lista</a></li>
+                      <li><a href="<?= base_url('mantenimiento/rol/add') ?>"><i class="fa fa-user-plus"></i> Nuevo</a></li>
+                     
+                  </ol>
+                      <?php if ($this->session->flashdata('success')): ?>
+        <script type="text/javascript">
+           $(function(){
+         Swal.fire(
+  'Guardo Exitosamente!',
+  'Diagnostico!',
+  'success'
+)
+      });
+</script>
+    <?php endif ?>
+              <!-- tools box -->
+      
+              <!-- /. tools -->
+          
+            <!-- /.box-header -->
+            <div class="box-body pad">
+              <form id="UsuariosFormBusqueda" autocomplete="off">
+                        <div class="row">
+             
+           
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="control-label">Busqueda por apellido:</label>
+                    <input type="text" name="usuario" class="form-control input-sm">
+                  </div>
+                </div>
+             
+                <div class="col-md-2">
+                  <button type="submit" style="margin-top:24px" class="btn btn-success btn-sm"><i class="fa fa-search"></i> Buscar</button>
+           
+                </div>         
+            
+              </div>    
+              </form>
+            </div>
+          </div>
+          <!-- /.box -->
 
           <div class="box">
             <div class="box-header">
-              <div class="box-tools pull-right">
-                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                    
-                    <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                  </div>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body table-responsive no-padding">
-
-              <a  href="<?php echo base_url();?>mantenimiento/rol/add" class="btn btn-primary" id="btnNuevo"><i class="fa fa-file"></i> Nuevo </a>
-                    <br><br>
-    <!-- Main content -->
-              <table id="example1" class="table table-bordered table-hover">
-                <thead>
-                <tr>
-                   <th style="width: 2%; text-align: center">Secuencia</th>
-                  <th style="width: 8%; text-align: center">Rol</th>
-                  <th style="width: 5%; text-align: center">Estado</th>
-                 <th style="width: 5%; text-align: center">Opciones</th>
-                </tr>
-                </thead>
-                <tbody>
-                
-                
-                 <?php if(!empty($rol)):?>
-                                                <?php foreach($rol as $roles):?>
-                                            <tr>
-                                                <td ><?php echo $roles->codi_rol;?></td>
-                                                <td><?php echo $roles->nomb_rol;?></td>
-                                                    <td style="text-align: center;"><?php if($roles->esta_rol == '1'){$text_estado="activo";$label_class='label-success';}   else {$text_estado="inactivo";$label_class='label label-warning';}?>
-                                                    <span class="label <?php echo $label_class;?>"><?php echo $text_estado; ?></span>
-                                                  </td>
-                                               
-                                                <td>
-                                                    <div class="btn-footer text-center">
-
-                                                        <button class="btn btn-warning" onclick="edit_roles(<?php echo $roles->codi_rol;?>)">
-                                                            <i class="glyphicon glyphicon-pencil"></i></button>
-
-                                                        <button class="btn btn-danger btn-remove" onclick="delete_rol(<?php echo $roles->codi_rol;?>)">
-                                                         <i class="glyphicon glyphicon-trash"></i>  </button>
-                                                        <!-- <a onclick="if(confirma()==false) return false"  href="<?php echo base_url()?>mantenimiento/Area/delete/<?php echo $areas->id_area;?>" class="btn-sm btn-danger btn-remove"><i class="glyphicon glyphicon-trash"></i>Desactivar</a> -->
-
-                                                       <!--  <a onclick=href="#" class="btn-sm btn-info"><i class="fa fa-eye"></i>View</a> -->
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        <?php endforeach;?>
-                                        <?php endif;?>
+              <div class="col-md-12">
+                <div class="table-responsive">
+                  <table id="TableMantenimientoRol" class="table table-bordered table-striped table-sm">
+                    <thead>
+                      <tr>
+                        <th style="background-color: #3c8dbc; color: white; text-align: center;">ID</th>
+                        <th style="background-color: #3c8dbc; color: white; text-align: center;">Nombre</th>
+                        <th style="background-color: #3c8dbc; color: white;text-align: center;">Estado</th>
+                        <th style="background-color: #3c8dbc; color: white;text-align: center;">Opciones</th>
+                      </tr>
+                    </thead>
                
-                </tbody>
-                <tfoot>
-              
-                </tfoot>
-              </table>
+                  </table>
+                </div>
+          
             </div>
-            <!-- /.box-body -->
+            
+        
           </div>
-          <!-- /.box -->
         </div>
-        <!-- /.col -->
+        <!-- /.col-->
       </div>
-      <!-- /.row -->
+      <!-- ./row -->
     </section>
     <!-- /.content -->
   </div>
 
-
-  <script type="text/javascript">
-
-
-     function reload_table()
-    {
-      table.ajax.reload(null,false); //reload datatable ajax 
-    }
-
-     function save()
-    {
-      var url;
-      if(save_method == 'update')
-      {
-           url = "<?php echo site_url('mantenimiento/rol/roles_update')?>";
-      }
-     
-     
-
-       // ajax adding data to database
-          $.ajax({
-            url : url,
-            type: "POST",
-            data: $('#form').serialize(),
-            dataType: "JSON",
-
-            success: function(data)
-            {
-               //if success close modal and reload ajax table
-              //  $('#modal_form').modal('hide');
-              // location.reload();// for reload a page
-               $('#modal_form').modal('hide');
-              
-
-               swal(
-                'Good job!',
-                'Data has been save!',
-                'success',
-
-                )
-                location.reload();
-               // location.reload();
-
-            },
-            error: function (jqXHR, textStatus, errorThrown)
-            {
-                alert('Error adding / update data');
-            }
-        });
-    }
-
-     function edit_roles(id)
-    {
-      save_method = 'update';
-      $('#form')[0].reset(); // reset form on modals
-
-      //Ajax Load data from ajax
-      $.ajax({
-        url : "<?php echo site_url('mantenimiento/rol/roles_edit')?>/" + id,
-        type: "GET",
-        dataType: "JSON",
-        success: function(data)
-        {
-
-            $('[name="codi_rol"]').val(data.codi_rol);
-            $('[name="nomb_rol"]').val(data.nomb_rol);
-       
-            $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
-            $('.modal-title').text('EDITAR ROLES'); // Set title to Bootstrap modal title
-
-        },
-        error: function (jqXHR, textStatus, errorThrown)
-        {
-            alert('Error get data from ajax');
-        }
-    });
-    }
+</div>
 
 
-  function delete_rol(id)
-    {
-    swal({
-        title: 'Desea anular?',
-        text: "Esta seguro..!!",
-        type: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Si, anular!',
-        closeOnConfirm: false
-      }).then(function(isConfirm) {
-        if (isConfirm) {
+</body>
 
-     // ajax delete data to database
-     $.ajax({
-      url : "<?php echo base_url('mantenimiento/rol/delete')?>/"+id,
-      type: "post",
+<div id="ModalEditarRol" class="modal fade bs-example-modal-center" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"  style="display: none;" aria-hidden="true">
+             <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                                                <form id="FormEditarRol" action="<?= base_url('mantenimiento/rol/editRol') ?>" method="post" autocomplete="off">
+                                                <input type="hidden" name="id" > 
+                                                      <div class="modal-header">
+                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Editar Rol</h4>
+                                                    </div>
+                                             <div class="modal-body">
+                                                    <div class="row">
+                                                        
 
-      data: {id:id},
- 
-      success: function(data)
-      {
-               //if success reload ajax table
-               
-               swal(
-                'Deleted!','Your file has been deleted.',  'success'  );
-                $("#delete_"+id).fadeTo("show",0.7, function(){
-                  $(this).remove();
-                })
-              
-              
-             },
-             error: function ()
-             {
-              swal('Error adding / update data');
-            }
-          });
+                                                     
+                                                                      <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label class="control-label">Cargo:</label>
+                                                                <input type="text" name="nombre" class="form-control input-sm">
+                                                            </div>
+                                                       </div>
+                                                 
+                                                       
 
-     
-   }
- })
-    }
+                                                         <div class="col-md-4">
+                                                            <div class="form-group">
+                                                    <label  class="control-label">Estado</label>
+                                                    <select class="form-control select input-sm" name="estado" >
+                                                       <option value="1" <?php echo set_value('estado',$roles>esta_rol)==1 ? "selected" : "" ?>>Habilitar</option>
+                                  <option value="2" <?php echo set_value('estado',$roles->esta_rol)==2 ? "selected" : "" ?>>Deshabilitar</option>
+   
+                                                   </select>
+                                               </div>
+                                                </div>
+                                                    
 
-</script>
+                                                   
 
+                                                   
 
-  <div class="modal fade" id="modal_form" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h3 class="modal-title">AREA DE TRABAJO</h3>
-      </div>
-      <div class="modal-body form">
-        <form action="#" id="form" class="form-horizontal" method="post">
-          <input type="hidden" value="" name="codi_rol"/>
-          <div class="form-body">
-      
+                                             
 
-             <div class="form-group has-success">
-              <label class="control-label col-md-2">Nombre :</label>
-              <div class="col-md-6">
-                <input name="nomb_rol" placeholder="" class="form-control" type="text">
-              </div>
-            </div>
-
-
-          </div>
-        </form>
-          </div>
-
-     
-          <div class="modal-footer ">
-            <button type="button" id="btnSave" onclick="save()" class="btn btn-primary">Guardar</button>
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-          </div>
-        </div><!-- /.modal-content -->
-      </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
-  <!-- End Bootstrap modal -->
-
-
-
-
-
-
-</body>    
+                                         </div> 
+                                              </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-danger waves-effect" data-dismiss="modal">Cerrar</button>
+                                                        <button type="submit" class="btn btn-success waves-effect waves-light">Guardar</button>
+                                                    </div>
+                                          </form>
+                                     </div><!-- /.modal-content -->
+                  </div><!-- /.modal-dialog -->
+         </div><!-- /.modal -->
 
 </html>

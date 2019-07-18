@@ -1,23 +1,31 @@
-
+<div id="content" class="content-wrapper-2">
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
-                  <!-- Main content -->
+                  
+
+             <section class="content-header">
+    <h1>
+      Agregar
+    
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-dashboard"></i> Modulo</a></li>
+      <li><a href="#">Caja</a></li>
+      <li class="active">Banco</li>
+    </ol>
+  </section>
             <section class="content">
 
+
                 <!-- Default box -->
-                <div class="box box-solid">
-                  <div class="panel-heading">
-                <div class="box-header with-border">
-                  <h3 class="box-title" >Roles</h3>
-                  <div class="box-tools pull-right">
-                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                    
-                    <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                  </div>
-                </div>
-            </div>
-                    <div class="box-body">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="box box-info">
+                             <ol class="breadcrumb">
+                              <li><a href="<?= base_url('mantenimiento/banco') ?>"><i class="fa fa-hand-o-left"></i> Volver</a></li>
+                              </ol>
+                       <div class="box-body">
              
                         
                          <div class="row">
@@ -51,6 +59,11 @@
                              </div>
                          </div>
                     </div>
+                   
+               
+                      </div>
+                </div>
+          
                     <!-- /.box-body -->
                 </div>
                 <!-- /.box -->
@@ -58,3 +71,5 @@
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
+
+</div>
