@@ -96,8 +96,31 @@ class Clinica_model extends CI_Model
 
 	 function getClinica($data){
 		$this->db->from('clinica');
-		$clinicas = $this->db->get()->result();
+		$this->db->where('id_clin',1);
+		$clinicas = $this->db->get()->row();
 		return $clinicas;
 	}
+
+	public function getPlanes(){
+		$this->db->select("c.*, p.nomb_plan as planes");
+		$this->db->from("clinica c");
+	 $this->db->join("planes p","c.cod_plan=p.cod_plan");
+
+	 $this->db->where('id_clin',1);
+		
+		$resultados = $this->db->get()->row();
+		return $resultados;
+	}
+
+	public function getUserRol(){
+		$this->db->select("u.*, r.nomb_rol as nombrerol");
+		$this->db->from("usuario u");
+	 $this->db->join("rol r","u.codi_rol=r.codi_rol");
+		
+		$resultados = $this->db->get()->row();
+		return $resultados;
+	}
+
+
 
 }

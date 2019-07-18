@@ -10,3 +10,9 @@ assets/uploads/placas/*.png
 assets/uploads/placas/thumbs/*.jpg
 assets/uploads/placas/thumbs/*.jpeg
 assets/uploads/placas/thumbs/*.png
+
+assets/img/odontogramas/*
+!assets/img/odontogramas/*.txt
+
+assets/uploads/pacientes/*
+!assets/uploads/pacientes/*.txt

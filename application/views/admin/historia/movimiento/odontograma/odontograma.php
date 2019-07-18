@@ -1,32 +1,43 @@
-<script src="http://cburgmer.github.io/rasterizeHTML.js/rasterizeHTML.allinone.js"></script>
-<div id="HistoriaContenidoOdontograma" class="panel panel-primary">
+<style>
+  .checkbox-inline{
+    margin-right: 20px;
+  }
+</style>
+<div id="HistoriaContenidoOdontograma" class="panel panel-primary" style="display: none">
   <div class="panel-heading">
-    <span class="glyphicon glyphicon-list"></span> Odontograma
+    <span class="glyphicon glyphicon-list"></span> Odontograma - <span id="TipoOdontogramaSpan">Inicial</span>
     <div class="pull-right action-buttons">
       <div class="btn-group pull-right">
         <button type="button" class="btn btn-default btn-xs" data-toggle="dropdown">
           <span class="fa fa-bars" style="margin-right: 0px;"></span>
         </button>
-        <ul class="dropdown-menu slidedown imprimirOdontograma">
-          <li data-tipo="inicial"><a href="#">Odontograma inicial</a></li>
-          <li data-tipo="evolucion"><a href="#">Odontograma evolucionado</a></li>
+        <ul class="dropdown-menu slidedown" id="tipoOdontograma">
+          <li data-tipo="Inicial"><a href="#">Odontograma Inicial</a></li>
+          <li data-tipo="Evolución"><a href="#">Odontograma Evolución</a></li>
         </ul>
       </div>
     </div>
   </div>
   <div class="panel-body">
-    <div id="odontograma">
-      <div id="odontograma-contenido" class="detalle">
-        <img src="<?= base_url('assets/odontograma/images/plantilla_nuevo10.png') ?>" class="img-responsive">
-        <?php $this->load->view('admin/historia/movimiento/odontograma/cursores.php') ?>
+    <div class="row">
+      <div class="col-md-12">
+         <div id="imprimir" style="width: 800px"></div>
+      </div>
+      <div class="col-md-9" id="OdontogramaImprimir">
+        <div id="odontograma">
+          <div id="odontograma-contenido" class="detalle" data-marcaClass="">
+            <img src="<?= base_url('assets/odontograma/images/plantilla_nuevo11.png') ?>" class="img-responsive">
+            <div id="cursoresRecuadros">
+              
+              <?php $this->load->view('admin/historia/movimiento/odontograma/cursores.php') ?>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <?php $this->load->view('admin/historia/movimiento/odontograma/odontograma_nav') ?>
       </div>
     </div>
-    <div id="imprimir" style="width: 800px">
-     
-    </div>
-    
-
-
   </div>
 </div>
 
@@ -42,9 +53,11 @@
           <thead>
             <tr>
               <th>Nombre</th>
+              <th>Categoria</th>
               <th>Diente</th>
               <th>Diente Final</th>
               <th>Estado</th>
+              <th>Dibujo</th>
               <th>Especificaciones</th>
               <th></th>
             </tr>
@@ -68,6 +81,8 @@
         <input type="hidden" name="hallazgo">
         <input type="hidden" name="estado">
         <input type="hidden" name="paciente" value="<?= $paciente->codi_pac ?>">
+        <input type="hidden" name="marcas" value="0">
+        <input type="hidden" name="tipoOdontograma" value="Inicial">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title">Agregar Hallazgo</h4>
@@ -78,6 +93,12 @@
               <div class="form-group">
                 <label class="control-label">Hallazgo</label>
                 <input type="text" id="modalHallazgo" class="form-control" readonly>
+              </div>
+            </div>
+            <div class="col-md-3" id="colCategoria">
+              <div class="form-group">
+                <label class="control-label">Categoria</label>
+                <input type="text" name="categoria" class="form-control" readonly>
               </div>
             </div>
             <div class="col-md-3">
@@ -104,6 +125,105 @@
                 <input type="text" name="sigla" class="form-control" readonly>
               </div>
             </div>
+          </div>
+          <div id="FormMarcarPieza">
+            <div class="row">
+              <div class="col-md-12">
+                <p><b>Seleccione las partes</b></p>
+              </div>
+            </div> 
+            <div class="row">
+              <div class="col-md-3">
+                <div id="dibujar">
+                  <div id="pieza">
+                    <img src="<?= base_url('assets/odontograma/images/pieza_tres.png') ?>">
+                    <div class="direccionPieza" id="direccionPieza-arriba"></div>
+                    <div class="direccionPieza" id="direccionPieza-abajo"></div>
+                    <div class="direccionPieza" id="direccionPieza-izquierda"></div>
+                    <div class="direccionPieza" id="direccionPieza-derecha"></div>
+                    <div class="direccionPieza" id="direccionPieza-centro"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-9">
+                <div class="row">
+                  <div class="col-md-12">
+                    <label class="checkbox-inline">
+                      <input id="CheckBoxVestibular" type="checkbox" name="Vestibular" value="Vestibular">
+                      Vestibular
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="VestibularEstado" id="RadioVestibularBuenEstado" value="bueno"> Buen Estado
+                    </label>
+                    <label class="radio-inline" for="RadioVestibularMalEstado">
+                      <input type="radio" name="VestibularEstado" id="RadioVestibularMalEstado" value="malo"> Mal Estado
+                    </label>
+                  </div>
+                  <div class="col-md-12">
+                    <label class="checkbox-inline" id="ContentCheckBoxPalatino">
+                      <input id="CheckBoxPalatino" type="checkbox" name="Palatino" value="Palatino">
+                      Palatino
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="PalatinoEstado" value="bueno"> Buen Estado
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="PalatinoEstado" value="malo"> Mal Estado
+                    </label>
+                  </div>
+                  <div class="col-md-12">
+                    <label class="checkbox-inline" for="CheckBoxLingual" id="ContentCheckBoxLingual">
+                      <input id="CheckBoxLingual" type="checkbox" name="Lingual" value="Lingual">
+                      Lingual
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="LingualEstado" value="bueno"> Buen Estado
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="LingualEstado" value="malo"> Mal Estado
+                    </label>
+                  </div>
+                  <div class="col-md-12">
+                    <label class="checkbox-inline">
+                      <input id="CheckBoxDistal" type="checkbox" name="Distal" value="Distal">
+                      Distal
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="DistalEstado" value="bueno"> Buen Estado
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="DistalEstado" value="malo"> Mal Estado
+                    </label>
+                  </div>
+                  <div class="col-md-12">
+                    <label class="checkbox-inline">
+                      <input id="CheckBoxMesial" type="checkbox" name="Mesial" value="Mesial">
+                      Mesial
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="MesialEstado" value="bueno"> Buen Estado
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="MesialEstado" value="malo"> Mal Estado
+                    </label>
+                  </div>
+                  <div class="col-md-12">
+                    <label class="checkbox-inline" id="ContentCheckBoxOclusal">
+                      <input id="CheckBoxOclusal" type="checkbox" name="Oclusal" value="Oclusal">
+                      Oclusal
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="OclusalEstado" value="bueno"> Buen Estado
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="OclusalEstado" value="malo"> Mal Estado
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
             <div class="col-md-12">
               <div class="form-group">
                 <label class="control-label">Especificaciones</label>

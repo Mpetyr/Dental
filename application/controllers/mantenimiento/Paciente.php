@@ -106,7 +106,6 @@ class Paciente extends CI_Controller
 		$this->form_validation->set_rules('departamento','','requerid');
 
 		$data = array(
-			
 			'nomb_pac' => $this->input->post('nombre'),
 			'apel_pac' => $this->input->post('apellidos'),
 			  'edad_pac' => $this->input->post('edad'),
@@ -129,16 +128,25 @@ class Paciente extends CI_Controller
 			  'esta_pac' => $this->input->post('estado')
 		);
 
+		$config['upload_path'] = 'assets/uploads/pacientes/';
+		$config['allowed_types'] = 'png|jpg|jpeg';
+		$config['max_size'] = '40000';
+		$config['max_width'] = '40000';
+		$config['max_height'] = '40000';
+		$this->upload->initialize($config);
+		if ($this->upload->do_upload('foto_paciente')) {
+			$fileData = $this->upload->data();
+			$data['foto_paciente'] = $fileData['file_name'];
+		}
+
 		$insert = $this->pacientes_model->agregarpaciente($data);
 		$primary['codi_pac'] = $insert;
 		$this->modelgeneral->insertRegist('paciente_enfermedadactual',$primary);
 		$this->modelgeneral->insertRegist('paciente_consulta',$primary);
 		$this->modelgeneral->insertRegist('paciente_exploracion',$primary);
 
-		echo json_encode(array("status" => TRUE));
 		redirect(base_url().'mantenimiento/paciente');
-
-		}
+	}
 
 	// else{
 	// 	ECHO '<PRE>';
@@ -258,6 +266,17 @@ private function _do_upload()
 			  'observacion'=> $observacion,
 			  'esta_pac' => $estado
 		);
+
+		$config['upload_path'] = 'assets/uploads/pacientes/';
+		$config['allowed_types'] = 'png|jpg|jpeg';
+		$config['max_size'] = '40000';
+		$config['max_width'] = '40000';
+		$config['max_height'] = '40000';
+		$this->upload->initialize($config);
+		if ($this->upload->do_upload('foto_paciente')) {
+			$fileData = $this->upload->data();
+			$data['foto_paciente'] = $fileData['file_name'];
+		}
 
 		if($this->pacientes_model->update($codi_pac,$data)){
 				$this->session->set_flashdata('success', 'Actualizo correctamente los datos');

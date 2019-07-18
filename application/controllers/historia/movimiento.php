@@ -593,15 +593,15 @@ class Movimiento extends CI_Controller {
 	function subir()
 	{
 		$config['upload_path'] = 'assets/uploads/placas/';
-		$config['allowed_types'] = 'pdf|png|jpg|jpeg';
+		$config['allowed_types'] = 'png|jpg|jpeg';
 		$config['max_size'] = '40000';
 		$config['max_width'] = '40000';
 		$config['max_height'] = '40000';
 		$this->upload->initialize($config);
+		$resp = [];
 		if ($this->upload->do_upload('placaArchivo')){
 			$upload = $this->upload->data();
 			
-			$resp = [];
 			$resp['success'] = 1;
 			$resp['name'] = $upload['file_name'];
 
@@ -610,8 +610,11 @@ class Movimiento extends CI_Controller {
 				->load('assets/uploads/placas/'.$resp['name'])
 				->resize_crop(100,100)
 				->save('assets/uploads/placas/thumbs/'.$resp['name']);
-			echo json_encode($resp);
+		}else{
+			$resp['success'] = false;
+			$resp['error'] = $this->upload->display_errors();
 		}
+		echo json_encode($resp);
 	}
 
 
@@ -658,7 +661,7 @@ class Movimiento extends CI_Controller {
 			10, //HEADER
 			10);
 		$data['historia'] = $this->historia_model->getHistoriaImprimir($id);
-
+		$data['paciente'] = $this->modelgeneral->getTableWhereRow('paciente',['codi_pac'=>$id]);
 		$html = $this->load->view('admin/historia/imprimir/contenido',$data,TRUE);
 		//$htmlHeader = $this->load->view('admin/historia/imprimir/header',NULL,true);
 		$htmlFooter = $this->load->view('admin/historia/imprimir/footer',NULL,true);
@@ -740,24 +743,28 @@ class Movimiento extends CI_Controller {
 			echo json_encode($datos);
 		}
 
-	function getOdontograma()
+	function getOdontograma($json=null)
 	{
 		$paciente = $this->input->get('paciente');
-		$tipo = 'Inicial';
+		$tipo = $this->input->get('tipoOdontograma');
 		$odontograma = $this->db->from('paciente_odontograma')
-		->select('pacodo_id as id,id_hal,pacodo_estado as estado,pacodo_sigla as sigla,pacodo_id,inicio.orden_die as inicio, fin.orden_die as fin')
+		->select('pacodo_id as id,id_hal,pacodo_categoria as categoria,pacodo_estado as estado,pacodo_sigla as sigla,pacodo_id,inicio.orden_die as inicio, fin.orden_die as fin,pacodo_marcas as marcas, paciente_odontograma.numero_die as diente')
 		->join('dientes as inicio','paciente_odontograma.numero_die = inicio.numero_die')
 		->join('dientes as fin','paciente_odontograma.pacodo_dientefinal = fin.numero_die','left')
 		->where('pacodo_tipo',$tipo)
 		->where('codi_pac',$paciente)
 		->get()->result();
-		echo json_encode($odontograma);
+		if (is_null($json)) {
+			echo json_encode($odontograma);
+		}else{
+			return $odontograma;
+		}
 	}
 
 	function getHallazgo($id)
 	{
 		return $this->db->from('paciente_odontograma')
-		->select('pacodo_id as id,id_hal,pacodo_estado as estado,pacodo_sigla as sigla,pacodo_id,inicio.orden_die as inicio, fin.orden_die as fin')
+		->select('pacodo_id as id,id_hal,pacodo_categoria as categoria,pacodo_estado as estado,pacodo_sigla as sigla,pacodo_id,inicio.orden_die as inicio, fin.orden_die as fin,pacodo_marcas as marcas, paciente_odontograma.numero_die as diente')
 		->join('dientes as inicio','paciente_odontograma.numero_die = inicio.numero_die')
 		->join('dientes as fin','paciente_odontograma.pacodo_dientefinal = fin.numero_die','left')
 		->where('pacodo_id',$id)
@@ -766,14 +773,16 @@ class Movimiento extends CI_Controller {
 
 	function getHallazgosDientePaciente()
 	{
+		$tipoOdontograma = $this->input->get('tipoOdontograma');
 		$paciente = $this->input->get('paciente');
 		$diente = $this->input->get('diente');
 		$query = $this->db->from('paciente_odontograma')
-		->select('pacodo_id as id,nombre_hal,paciente_odontograma.id_hal,pacodo_estado as estado,pacodo_sigla as sigla,pacodo_id,inicio.orden_die as inicio, fin.orden_die as fin, paciente_odontograma.numero_die as dienteInicio, paciente_odontograma.pacodo_dientefinal as dienteFinal, pacodo_espec as especificaciones')
+		->select('pacodo_id as id,nombre_hal,pacodo_categoria as categoria,paciente_odontograma.id_hal,pacodo_estado as estado,pacodo_sigla as sigla,pacodo_id,inicio.orden_die as inicio, fin.orden_die as fin, paciente_odontograma.numero_die as dienteInicio, paciente_odontograma.pacodo_dientefinal as dienteFinal, pacodo_espec as especificaciones,,pacodo_marcas as marcas, paciente_odontograma.numero_die as diente')
 		->join('dientes as inicio','paciente_odontograma.numero_die = inicio.numero_die')
 		->join('dientes as fin','paciente_odontograma.pacodo_dientefinal = fin.numero_die','left')
 		->join('hallazgos','paciente_odontograma.id_hal = hallazgos.id_hal')
 		->where('codi_pac',$paciente)
+		->where('pacodo_tipo',$tipoOdontograma)
 		->where('paciente_odontograma.numero_die',$diente)
 		->get()->result();
 		echo json_encode($query);
@@ -782,7 +791,7 @@ class Movimiento extends CI_Controller {
 	function agregarHallazgo()
 	{
 		$data['codi_pac'] = $this->input->post('paciente');
-		$data['pacodo_tipo'] = 'Inicial';
+		$data['pacodo_tipo'] = $this->input->post('tipoOdontograma');
 		$data['id_hal'] = $this->input->post('hallazgo');
 		if ($this->input->post('estado')!='') {
 			$data['pacodo_estado'] = $this->input->post('estado');
@@ -793,6 +802,51 @@ class Movimiento extends CI_Controller {
 		}
 		if ($this->input->post('sigla')!='') {
 			$data['pacodo_sigla'] = $this->input->post('sigla');
+		}
+		if ($this->input->post('categoria')!='') {
+			$data['pacodo_categoria'] = $this->input->post('categoria');
+		}
+		if ($this->input->post('marcas')=='1') {
+			$marcas = [];
+			if (isset($_POST['Vestibular'])) {
+				$marcas['Vestibular']['Valor'] = true;
+				if (isset($_POST['VestibularEstado'])) {
+					$marcas['Vestibular']['Estado'] = $this->input->post('VestibularEstado');
+				}
+			}
+			if (isset($_POST['Palatino'])) {
+				$marcas['Palatino']['Valor'] = true;
+				if (isset($_POST['PalatinoEstado'])) {
+					$marcas['Palatino']['Estado'] = $this->input->post('PalatinoEstado');
+				}
+			}
+			if (isset($_POST['Lingual'])) {
+				$marcas['Lingual']['Valor'] = true;
+				if (isset($_POST['LingualEstado'])) {
+					$marcas['Lingual']['Estado'] = $this->input->post('LingualEstado');
+				}
+			}
+			if (isset($_POST['Distal'])) {
+				$marcas['Distal']['Valor'] = true;
+				if (isset($_POST['DistalEstado'])) {
+					$marcas['Distal']['Estado'] = $this->input->post('DistalEstado');
+				}
+			}
+			if (isset($_POST['Mesial'])) {
+				$marcas['Mesial']['Valor'] = true;
+				if (isset($_POST['MesialEstado'])) {
+					$marcas['Mesial']['Estado'] = $this->input->post('MesialEstado');
+				}
+			}
+			if (isset($_POST['Oclusal'])) {
+				$marcas['Oclusal']['Valor'] = true;
+				if (isset($_POST['OclusalEstado'])) {
+					$marcas['Oclusal']['Estado'] = $this->input->post('OclusalEstado');
+				}
+			}
+
+			$data['pacodo_marcas'] = json_encode($marcas);
+
 		}
 		$data['pacodo_espec'] = $this->input->post('especificaciones');
 		$data['codi_usu'] = 1;
@@ -822,24 +876,47 @@ class Movimiento extends CI_Controller {
 		echo json_encode($resp);
 	}
 
-	function imprimirOdontograma()
+	function guardarImagenOdontograma()
 	{
-		$this->mpdf = new mPDF('utf-8','A4','','',
-			10, //LEFT
-			10, //RIGHT
-			40, //TOP
-			50, //BOTTOM
-			10, //HEADER
-			10);
-		$photo = "<img src=\"data:image/jpeg;base64, ".$this->input->post('imgData')."\"/>";
-		//echo $photo;
-		$css = $css = file_get_contents('assets/styles_pdf.css');
-		$this->mpdf->SetTitle('Odontograma');
-		//$this->mpdf->setHTMLHeader($htmlHeader);
-		//$this->mpdf->setHTMLFooter($htmlFooter);
-		$this->mpdf->writeHTML($css,1);
-		$this->mpdf->writeHTML($photo,2);
-		$this->mpdf->Output('assets/pdfs/odontogramas/prueba-'.time().'.pdf','F');
+		// baseFromJavascript will be the javascript base64 string retrieved of some way (async or post submited)
+		$baseFromJavascript = $this->input->post('imgData'); // $_POST['base64']; //your data in base64 'data:image/png....';
+		// We need to remove the "data:image/png;base64,"
+		$base_to_php = explode(',', $baseFromJavascript);
+		// the 2nd item in the base_to_php array contains the content of the image
+		$data = base64_decode($base_to_php[1]);
+		// here you can detect if type is png or jpg if you want
+		if ($this->input->post('tipo')=='Inicial') {
+			$tipo = 'ini';
+		}else{
+			$tipo = 'evo';
+		}
+		$filepath = "assets/img/odontogramas/odontograma-".$this->input->post('paciente')."-".$tipo.".png"; // or image.jpg
+
+		// Save the image in a defined path
+		file_put_contents($filepath,$data);
+	}
+
+	function guardarDetalleOdontograma()
+	{
+		$data['detalleodontograma_pac'] = $this->input->post('detalle');
+		$where['codi_pac'] = $this->input->post('paciente');
+		$edit = $this->modelgeneral->editRegist('paciente',$where,$data);
+		$resp = [];
+		if (!is_null($edit)) {
+			$resp['success'] = true;
+		} else {
+			$resp['success'] = false;
+		}
+		echo json_encode($resp);
+	}
+
+	function cambiarTipoOdontograma()
+	{
+		$resp = [];
+		$resp['html'] = $this->load->view('admin/historia/movimiento/odontograma/cursores',$data,TRUE);
+		$resp['odontograma'] = $this->getOdontograma('Json');
+		echo json_encode($resp);
+
 	}
 }
 
