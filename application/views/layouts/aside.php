@@ -16,7 +16,7 @@
                            <i class="fa fa-tachometer" aria-hidden="true"></i> <span>Inicio</span>
                            <ul class="treeview-menu">
                             <li><a href="<?php echo base_url();?>dashboard"><i class="fa fa-user-circle-o"></i>Cuenta</a></li>
-                            <li><a href="<?php echo base_url();?>mantenimiento/medico"><i class="fa fa-video-camera"></i>Video Tutorial</a></li>
+                            <li><a href="<?php echo base_url();?>regtuto"><i class="fa fa-video-camera"></i>Video Tutorial</a></li>
                              </ul>
                         </a>
 

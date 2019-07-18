@@ -66,7 +66,7 @@ class Usuario extends CI_Controller
 	public function add()
 	{	
 		$data =  array('user' => $this->user_model->getUser(),
-					'rol'=>$this->Roles_model->getroles(),
+					'rol'=>$this->modelgeneral->getTable('rol'),
 				
 		 );
 		
