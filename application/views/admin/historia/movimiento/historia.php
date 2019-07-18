@@ -45,7 +45,12 @@
               </div>
               <div class="col-md-3">
                 <div class="text-center">
-                  <img src="<?= base_url('assets/img/avatar04.png') ?>" class="img-circle">
+                  <?php if (!is_null($paciente->foto_paciente)): ?>
+                  <img src="<?= base_url('assets/uploads/pacientes/'.$paciente->foto_paciente) ?>" alt="<?= $paciente->nomb_paciente.' '.$paciente->apel_pac ?>" class="img img-responsive">
+                  <?php else: ?>
+                  <img class="profile-user-img img-responsive img-circle" src="<?= base_url() ?>assets/img/Odontologo.jpg" alt="User profile picture" class="img img-responsive">
+                  <?php endif ?>
+                  
                   <h4>H.C: <?= $paciente->codi_pac ?></h4>
                   <h5><?= $paciente->nomb_pac.' '.$paciente->apel_pac ?></h5>
                 </div>
