@@ -18,7 +18,7 @@
      
     <!-- Main content -->
     <section class="content">
-       <form id='FormRegistrar' action="<?= base_url('mantenimiento/medico/guardar')?>" method="POST" autocomplete="OFF">
+       <form id='FormRegistrar' action="<?= base_url('mantenimiento/medico/guardar')?>" method="POST" autocomplete="OFF" enctype="multipart/form-data">
  
       <div class="row">
         <div class="col-md-3">
@@ -94,6 +94,20 @@
                       <option value="<?= $e->cod_especialidad ?>"><?= $e->nombre_especialidad ?></option>
                     <?php endforeach ?>
                     </select>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label>Tipo Documento (*):</label>
+                        <select  name="tipo_documento" class="form-control">
+                          <option value="1">DNI</option>
+                          <option value="2">RUC</option>
+                          <option value="3">PASAPORTE</option>
+                          <option value="4">NIC</option>
+                          <option value="5">CEDULA</option>
+
+
+                        </select>
                     </div>
                   </div>
                   <div class="col-md-4">
@@ -175,17 +189,37 @@
                  
             </div>
              
-             <div class="row">
-                  <div class="col-md-12">
-                    <div class="form-group">
-                      <label class="col-form-label">Correo: *</label>
-                      <div class="input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-  <input name="email" placeholder="E-Mail Address" class="form-control input-sm"  type="email">
-    </div>
-                    </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label class="col-form-label">Correo: *</label>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                    <input name="email" placeholder="E-Mail Address" class="form-control input-sm"  type="email">
                   </div>
+                </div>
               </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="control-label">Foto</label>
+                  <input type="file" name="foto">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="control-label">Usuario</label>
+                  <input type="text" name="usuarioMedico" class="form-control">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="control-label">Password</label>
+                  <input type="password" name="passwordMedico" class="form-control">
+                </div>
+              </div>
+            </div>
 
                <div class="row">
                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 left">

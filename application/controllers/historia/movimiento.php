@@ -458,7 +458,7 @@ class Movimiento extends CI_Controller {
 		$data['pacrec_hora'] = date('H:i:s');
 		$data['pacrec_asunto'] = $this->input->post('asunto');
 		$data['pacrec_receta'] = $this->input->post('receta');
-		$data['codi_med'] = 1;//ID DE MEDICO
+		$data['codi_med'] = $this->session->useerdata('medico');
 		if ($this->input->post('diagnostico01')!='') {
 			$data['codi_enf01'] = $this->input->post('diagnostico01');
 		}else{
@@ -648,7 +648,31 @@ class Movimiento extends CI_Controller {
 		echo json_encode($resp);
 	}
 
+	function getPlaca()
+	{
+		$id = $this->input->get('id');
+		$placa = $this->modelgeneral->getTableWhereRow('paciente_placa',['pla_id'=>$id]);
+		echo json_encode($placa);
+	}
 
+	function editarPlaca()
+	{
+		$data['pla_nombre'] = $this->input->post('nombre');
+		$data['pla_notas'] = $this->input->post('notas');
+		if ($_POST['archivo']!='') {
+			$data['pla_archivo'] = $this->input->post('archivo');
+			$data['pla_fecha'] = date('Y-m-d H:i:s');
+		}
+		$where['pla_id'] = $this->input->post('id');
+		$edit = $this->modelgeneral->editRegist('paciente_placa',$where,$data);
+		$resp = [];
+		if ($edit){
+			$resp['success'] = true;
+		}else{
+			$resp['success'] = false;
+		}
+		echo json_encode($resp);
+	}
 
 	function imprimirHistoria($id)
 	{
