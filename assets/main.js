@@ -1942,6 +1942,8 @@ $('#SubirPlaca').fileupload({
 }).prop('disabled', !$.support.fileInput)
 	.parent().addClass($.support.fileInput ? undefined : 'disabled');
 
+
+
 $('#FormHistoriaMovimientoAgregarPlaca').validate({
 	rules:{
 		nombre:{required:true}
@@ -1952,6 +1954,57 @@ $('#FormHistoriaMovimientoAgregarPlaca').validate({
 				$('#TableHistoriaMovimientoPlacas').DataTable().ajax.reload();
 			}
 			$('#ModalAgregarPlaca').modal('hide');
+			$('#FormHistoriaMovimientoAgregarPlaca input[name=nombre]').val('');
+			$('#FormHistoriaMovimientoAgregarPlaca texarea[name=notas]').val('');
+			$('.pekecontainer').empty();
+		})
+	}
+});
+
+
+$('#SubirPlacaEditar').fileupload({
+  url: path+'historia/movimiento/subir',
+  dataType: 'json',
+  done: function (e, data) {
+  	var image = `<image src="${ path+'assets/uploads/placas/thumbs/'+data.result.name}">`;
+  	$('#filesEditar').show().html(image);
+  	$('#FormHistoriaMovimientoEditarPlaca input[name=archivo]').val(data.result.name);
+  },
+  progressall: function (e, data) {
+    var progress = parseInt(data.loaded / data.total * 100, 10);
+    $('#progressEditar .progress-bar').show();
+    $('#progressEditar .progress-bar').css(
+      'width',
+      progress + '%'
+    );
+  }
+}).prop('disabled', !$.support.fileInput)
+	.parent().addClass($.support.fileInput ? undefined : 'disabled');
+
+$('#TableHistoriaMovimientoPlacas').on('click', '.editar-placa', function(event) {
+	event.preventDefault();
+	$("#FormHistoriaMovimientoEditarPlaca #filesEditar img").attr('src','');
+	$("#FormHistoriaMovimientoEditarPlaca input[name='archivo']").val('');
+	var id = $(this).data('id');
+	$.getJSON(path+'historia/movimiento/getPlaca', {id}, function(json, textStatus) {
+		$("#FormHistoriaMovimientoEditarPlaca input[name='id']").val(id);
+		$("#FormHistoriaMovimientoEditarPlaca input[name='nombre']").val(json.pla_nombre);
+		$("#FormHistoriaMovimientoEditarPlaca textarea[name='notas']").val(json.pla_notas);
+		$("#FormHistoriaMovimientoEditarPlaca #filesEditar img").attr('src',path+'assets/uploads/placas/thumbs/'+json.pla_archivo);
+		$('#ModalEditarPlaca').modal();
+	});
+});
+
+$('#FormHistoriaMovimientoEditarPlaca').validate({
+	rules:{
+		nombre:{required:true}
+	},
+	submitHandler:function() {
+		enviarFormulario('#FormHistoriaMovimientoEditarPlaca',function(json){
+			if (json.success) {
+				$('#TableHistoriaMovimientoPlacas').DataTable().ajax.reload();
+			}
+			$('#ModalEditarPlaca').modal('hide');
 			$('#FormHistoriaMovimientoAgregarPlaca input[name=nombre]').val('');
 			$('#FormHistoriaMovimientoAgregarPlaca texarea[name=notas]').val('');
 			$('.pekecontainer').empty();
@@ -2058,7 +2111,9 @@ $('#FormRegistrar').validate({
 		telefono:{required:true},
 		email:{required:true},
 		fecha_registro:{required:true},
-		estado:{required:true},
+		usuarioMedico:{required:true},
+		passwordMedico:{required:true},
+
 	
 	},
 	

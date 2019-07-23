@@ -18,8 +18,8 @@
      
     <!-- Main content -->
     <section class="content">
-       <form id="FormRegistrar" action="<?php echo base_url();?>mantenimiento/medico/update" method="POST" autocomplete="OFF">
- 
+       <form id="FormRegistrar" action="<?php echo base_url();?>mantenimiento/medico/update" method="POST" autocomplete="OFF" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="usuario" value="<?= $medicos->codi_usu ?>">
       <div class="row">
         <div class="col-md-3">
 
@@ -190,16 +190,17 @@
             </div>
              
              <div class="row">
-                  <div class="col-md-12">
-                    <div class="form-group">
-                      <label class="col-form-label">Correo *</label>
-                      <div class="input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-  <input name="email"  class="form-control input-sm"  type="text" value="<?php echo !empty(form_error('email')) ? set_value('celular'):$medicos->emai_med?>">
-    </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="col-form-label">Correo *</label>
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                      <input name="email"  class="form-control input-sm"  type="text" value="<?php echo !empty(form_error('email')) ? set_value('celular'):$medicos->emai_med?>">
                     </div>
                   </div>
-              </div>
+                </div>
+            </div>
+            
 
                <div class="row">
                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 left">

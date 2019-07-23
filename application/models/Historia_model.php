@@ -5,15 +5,25 @@ class Historia_model extends CI_Model {
 
 	function getHistoria($data)
 	{
-		$this->db->from('paciente');
-		$this->db->where('DATE(fecha_registro) >=',$data['desde']);
-		$this->db->where('DATE(fecha_registro) <=',$data['hasta']);
+		$medico = $this->session->userdata('medico');
+		$rol = $this->session->userdata('rol');
+		$this->db->from('cita_medica');
+		$this->db->join('paciente','cita_medica.codi_pac = paciente.codi_pac');
+		$this->db->where('DATE(fech_cit) >=',$data['desde']);
+		$this->db->where('DATE(fech_cit) <=',$data['hasta']);
+		if ($rol==1) {
+			$this->db->where('codi_med',$medico);
+		}
 		$queryLike = $this->db->get();
 
-		$this->db->from('paciente');
-		$this->db->select('codi_pac,CONCAT(nomb_pac," ",apel_pac) AS NombresApellidos,edad_pac,dni_pac, DATE(fecha_registro) as fecha_registro,esta_pac');
-		$this->db->where('DATE(fecha_registro) >=',$data['desde']);
-		$this->db->where('DATE(fecha_registro) <=',$data['hasta']);
+		$this->db->from('cita_medica');
+		$this->db->select('cita_medica.codi_pac,CONCAT(nomb_pac," ",apel_pac) AS NombresApellidos,edad_pac,dni_pac, DATE(fecha_registro) as fecha_registro,esta_pac');
+		$this->db->join('paciente','cita_medica.codi_pac = paciente.codi_pac');
+		$this->db->where('DATE(fech_cit) >=',$data['desde']);
+		$this->db->where('DATE(fech_cit) <=',$data['hasta']);
+		if ($rol==1) {
+			$this->db->where('codi_med',$medico);
+		}
 		if (isset($data['nombresApellidos'])) {
 			$this->db->having("NombresApellidos LIKE '%".$data['nombresApellidos']."%'");
 		}
@@ -161,7 +171,8 @@ class Historia_model extends CI_Model {
 		foreach ($query->result() as $q) {
 			$boton = '<div class="btn-footer text-center">
 
-			<button data-id="'.$q->pla_id.'" class="anular-placa btn btn-danger btn-xs">Anular</button>';
+			<button data-id="'.$q->pla_id.'" class="anular-placa btn btn-danger btn-xs">Anular</button>
+			<button data-id="'.$q->pla_id.'" class="editar-placa btn btn-warning btn-xs">Editar</button>';
 			$archivo = '
 			<a data-fancybox="gallery" href="'.base_url('assets/uploads/placas/'.$q->pla_archivo).'"><i class="fa fa-image"></i> Ver placa</a>';
 			$row[] = [

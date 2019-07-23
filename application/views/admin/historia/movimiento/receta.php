@@ -88,7 +88,7 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <label class="control-label">Medico:</label>
-                    <input type="text" name="medico" class="form-control input-sm">
+                    <input type="text" name="medico" class="form-control input-sm" value="<?= $this->session->userdata('nombre').' '.$this->session->userdata('apellido') ?>" disabled>
                   </div>
                 </div>
               </div>
@@ -209,7 +209,7 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <label class="control-label">Medico</label>
-                    <input type="text" name="medico" class="form-control input-sm">
+                    <input type="text" name="medico"  disabled class="form-control input-sm" value="<?= $this->session->userdata('nombre').' '.$this->session->userdata('apellido') ?>">
                   </div>
                 </div>
               </div>

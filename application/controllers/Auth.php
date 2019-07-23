@@ -54,6 +54,8 @@ class Auth extends CI_Controller
 			'telefono' =>$logo->telf_clin,
 			'plan' => $plan->planes,
 			'email' => $logo->email_clin,
+			'rol' => $res->codi_rol,
+			'medico' => $res->codi_med,
 			'login' => TRUE
 			 );
 			$this->session->set_userdata($data);
