@@ -17,6 +17,7 @@
    
 
 
+<script src="<?php echo base_url();?>assets/template/jquery/jquery.min.js"></script>
 <script src="<?php echo base_url();?>assets/template/highcharts/highcharts.js"></script>
 <script src="<?php echo base_url();?>assets/template/highcharts/exporting.js"></script>
 <script src="<?php echo base_url();?>assets/template/highcharts/export-data.js"></script>
@@ -92,13 +93,13 @@
 
 $(document).ready(function () {
  var base_url="<?php echo base_url();?>"; 
+ datagrafico(base_url);
  var year = (new Date).getFullYear();
- //datagrafico(base_url, year);
- $("#year").on("change",function(){
-
-    yearselect = $(this).val();
-    //datagrafico(base_url,yearselect);
- });
+    datagrafico(base_url,year);
+    $("#year").on("change",function(){
+        yearselect = $(this).val();
+        datagrafico(base_url,yearselect);
+    });
 
 
 
@@ -112,74 +113,12 @@ $(document).ready(function () {
   });
    
 
-    $(".btn-remove").on("click", function(e){
-        e.preventDefault();
-        var ruta = $(this).attr("href");
-       // alert(ruta);
-       $.ajax({
-        url: ruta,
-        type:"POST",
-        success:function(resp){
-          window.location.href = base_url + resp;
-        }
-       });
-        
-    });
-    $(".btn-view").on("click",function (){
-        var id=$(this).val();
-        $.ajax({
-            url: base_url + "mantenimiento/categorias/view/" + id,
-            type:"POST",
-            success:function(resp){
-                $("#modal-default .modal-body").html(resp);
-               // alert(resp);
-            }
-        });
-    });
 
 
-     $('#example1').DataTable( {
-        dom: 'Bfrtip',
-        buttons: [
-            {
-                extend: 'excelHtml5',
-                title: "Listado de Almacen",
-                exportOptions: {
-                    columns: [ 0, 1,2, 3, 4, 5,6]
-                }
-            },
-            {
-                extend: 'pdfHtml5',
-                title: "Listado de Almacen",
-                exportOptions: {
-                    columns: [ 0, 1,2, 3, 4, 5, 6 ]
-                }
-                
-            }
-        ],
-        language: {
-            "lengthMenu": "Mostrar _MENU_ registros por pagina",
-            "zeroRecords": "No se encontraron resultados en su busqueda",
-            "searchPlaceholder": "Buscar registros",
-            "info": "Mostrando registros de _START_ al _END_ de un total de  _TOTAL_ registros",
-            "infoEmpty": "No existen registros",
-            "infoFiltered": "(filtrado de un total de _MAX_ registros)",
-            "search": "Buscar:",
-            "paginate": {
-                "first": "Primero",
-                "last": "Último",
-                "next": "Siguiente",
-                "previous": "Anterior"
-            },
-        },
-   "bDestroy":true,
-        "iDisplayLength": 10,
-        "order": [[0,"desc"]]
- });
-/*function datagrafico(base_url,year){
-    namesMonth= ["Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Set","Oct","Nov","Dic"];
+function datagrafico(base_url,year){
+    namesMonth= ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Setiembre","Octubre","Noviembre","Diciembre"];
     $.ajax({
-        url: base_url + "reportes/iconos/getData",
+        url: base_url + "reportes/redashboard/getData",
         type:"POST",
         data:{year: year},
         dataType:"json",
@@ -188,20 +127,20 @@ $(document).ready(function () {
             var montos = new Array();
             $.each(data,function(key, value){
                 meses.push(namesMonth[value.mes - 1]);
-                valor = Number(value.totalcarita);
+                valor = Number(value.montos);
                 montos.push(valor);
             });
             graficar(meses,montos,year);
         }
     });
-}*/
+}
 function graficar(meses, montos, year ) {
     Highcharts.chart('grafico', {
     chart: {
         type: 'column'
     },
     title: {
-        text: 'Cantidad de caritas acumuladas'
+        text: 'Tratamientos x Meses '
     },
     subtitle: {
         text: 'Año:' + year
@@ -214,13 +153,13 @@ function graficar(meses, montos, year ) {
     yAxis: {
         min: 0,
         title: {
-            text: 'Total'
+            text: 'Monto Total (soles)'
         }
     },
     tooltip: {
         headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
         pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-            '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
+            '<td style="padding:0"><b>{point.y:.1f} Soles</b></td></tr>',
         footerFormat: '</table>',
         shared: true,
         useHTML: true
@@ -241,31 +180,27 @@ function graficar(meses, montos, year ) {
         }
     },
     series: [{
-        name: 'Excelente' ,
+        name: 'Tratamientos cobrados' ,
         data: montos
+},
+     
+    // {
+    //     name: 'Regular' ,
+    //     data: montos
 
-    }, {
-        name: 'Bueno' ,
-        data: montos
+    // },
 
-    },
-    {
-        name: 'Regular' ,
-        data: montos
+    //  {
+    //     name: 'Pesimo' ,
+    //     data: montos
 
-    },
+    // },
 
-     {
-        name: 'Pesimo' ,
-        data: montos
+    // {
+    //     name: 'Malo' ,
+    //     data: montos
 
-    },
-
-    {
-        name: 'Malo' ,
-        data: montos
-
-    },
+    // },
 
 
      ]

@@ -123,7 +123,7 @@
                   <div class="col-md-4">
                     <div class="form-group">
                      <label class="control-label">Colegiatura: *</label>
-                       <input type="text" name="colegiatura"  class="form-control input-sm" placeholder="Colegiatura" maxlength="5" minlength="5" onKeyPress="if (event.keyCode < 48 || event.keyCode > 57)event.returnValue = false;">
+                       <input type="text" name="colegiatura"  class="form-control input-sm" placeholder="Colegiatura" maxlength="9" minlength="4" onKeyPress="if (event.keyCode < 48 || event.keyCode > 57)event.returnValue = false;">
                     </div>
                   </div>
                   <div class="col-md-4">
@@ -165,7 +165,7 @@
                   <div class="col-md-4">
                     <div class="form-group">
                      <label class="control-label">Estado: *</label>
-                      <select class="form-control input-sm" required="" name="esta_med" >
+                      <select class="form-control input-sm" required="" name="estado" >
                                   <option value="S">Activado</option>
                                   <option value="N">Inactivo</option>
    

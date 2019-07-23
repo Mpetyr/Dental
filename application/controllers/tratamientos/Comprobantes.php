@@ -10,6 +10,7 @@ class Comprobantes extends CI_Controller {
 			redirect(base_url());
 		}
 		$this->load->model('tratamientos_model');
+		$this->load->model('clinica_model');
 	}
 
 	public function index()
@@ -60,6 +61,7 @@ class Comprobantes extends CI_Controller {
 			10, //BOTTOM
 			10, //HEADER
 			10); //FOOTER
+		$data['clinicas'] = $this->clinica_model->getClinica($data);
 		$data['comprobantes'] = $this->tratamientos_model->getImprimirComprobantes($data);
 		$html = $this->load->view('admin/tratamientos/comprobantes/imprimir_listado',$data,TRUE);
 		$htmlHeader = $this->load->view('admin/tratamientos/comprobantes/imprimir_header',NULL,true);

@@ -136,7 +136,7 @@
                   <div class="col-md-4">
                     <div class="form-group">
                      <label class="control-label">Colegiatura *</label>
-                       <input type="text" name="colegiatura"  class="form-control input-sm" value="<?php echo !empty(form_error('colegiatura')) ? set_value('colegiatura'):$medicos->coleg_med?>" maxlength="5" minlength="5" onKeyPress="if (event.keyCode < 48 || event.keyCode > 57)event.returnValue = false;" >
+                       <input type="text" name="colegiatura"  class="form-control input-sm" value="<?php echo !empty(form_error('colegiatura')) ? set_value('colegiatura'):$medicos->coleg_med?>" maxlength="9" minlength="4" onKeyPress="if (event.keyCode < 48 || event.keyCode > 57)event.returnValue = false;" >
                     </div>
                   </div>
                   <div class="col-md-4">

@@ -97,7 +97,7 @@ class Medico extends CI_Controller
 		$this->form_validation->set_rules("especialidad","especialidad","required");
 		$this->form_validation->set_rules("nombre","nombre","required");
 		$this->form_validation->set_rules("apellidos","apellidos","required");
-		$this->form_validation->set_rules("dni","Dni","trim | required | min_length [5] | max_length [12]");
+		$this->form_validation->set_rules("dni","dni","required");
 		$this->form_validation->set_rules("colegiatura","Colegiatura","required");
 		$this->form_validation->set_rules("telefono","Telefono","required");
 		$this->form_validation->set_rules("direccion","Direccion","required");
@@ -117,7 +117,7 @@ class Medico extends CI_Controller
 		$email = $this->input->post('email');
 		$fechanacimiento = $this->input->post('fechanacimiento');
 		$sexo = $this->input->post('sexo');
-		//$estado = $this->input->post('estado');
+		$estado = $this->input->post('estado');
 
 		
 		//$this->form_validation->set_rules("estado","Estado","required");
@@ -137,7 +137,7 @@ class Medico extends CI_Controller
 				'fena_med' =>$fechanacimiento,
 				'sexo_med' =>$sexo,
 				'fecha_registro' =>$fecharegistro,
-				'esta_med' => S
+				'esta_med' => $estado
 			);
 			if($this->medico_model->guardarmedico($data)){
 				$this->session->set_flashdata('success', 'Te has registrado correctamente en nuestro sistema.<br>Hemos enviado un código de verificación a ');

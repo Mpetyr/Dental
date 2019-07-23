@@ -14,6 +14,6 @@
 <div>
 	<p style="padding:4px;font-size:14px;background-color:green;color:white; text-align: center">
 		ATENCIÓN: DE LUNES A SABADO DE 9:00 A.M - 9:00 P.M - DOMINGOS PREVIA CITA<br>
-		CORREO: clinicadentalvitaldent@hotmail.com
+		CORREO: <?= $clinicas->email_clin ?>
 	</p>
 </div>

@@ -171,7 +171,7 @@
           </ul>
         </li>
         <li class="dropdown">
-          <img src="<?= base_url() ?>assets/odontograma/images/interrogacion.png">
+          <img src="<?= base_url() ?>assets/odontograma/images/Coronatemp.png">
           <a class="dropdown-toggle nombreHallazgo" id="dropdownCoronaTemporal" data-hallazgo="37" data-sigla="CT" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
             Corona Temporal
             <span class="caret"></span>
@@ -226,20 +226,20 @@
           </ul>
         </li>
         <li>
-          <img src="<?= base_url() ?>assets/odontograma/images/interrogacion.png">
+          <img src="<?= base_url() ?>assets/odontograma/images/imgdiastema.png">
           <a class="dropdown-toggle nombreHallazgo odontograma-item" data-hallazgo="17">
             Diastema
           </a>
         </li>
         
         <li>
-          <img src="<?= base_url() ?>assets/odontograma/images/interrogacion.png">
+          <img src="<?= base_url() ?>assets/odontograma/images/imgendtotal.png">
           <a class="dropdown-toggle rango nombreHallazgo odontograma-item" data-hallazgo="13">
             Edentulo Total
           </a>
         </li>
         <li class="dropdown">
-          <img src="<?= base_url() ?>assets/odontograma/images/interrogacion.png">
+          <img src="<?= base_url() ?>assets/odontograma/images/resized_imgdiente.PNG">
           <a class="dropdown-toggle nombreHallazgo" id="dropdownMunon" data-hallazgo="30"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
             Espigo Muñon
             <span class="caret"></span>
@@ -250,25 +250,27 @@
           </ul>
         </li>
         <li>
-          <img src="<?= base_url() ?>assets/odontograma/images/interrogacion.png">
+          <img src="<?= base_url() ?>assets/odontograma/images/resized_imgdiente.PNG">
           <a class="dropdown-toggle nombreHallazgo odontograma-item" data-hallazgo="8">
             Fosas y Fisuras Profundas
           </a>
         </li>
         <li class="dropdown">
-          <img src="<?= base_url() ?>assets/odontograma/images/interrogacion.png">
+          <img src="<?= base_url() ?>assets/odontograma/images/imgfractura.png">
           <a class="dropdown-toggle nombreHallazgo" id="dropdownFractura" data-hallazgo="7" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
             Fractura
             <span class="caret"></span>
           </a>
           <ul class="dropdown-menu" aria-labelledby="dropdownFractura">
-            <li><a href="#" class="odontograma-item" data-categoria="Coronal">Fractura Coronal</a></li>
-            <li><a href="#" class="odontograma-item" data-categoria="Incisal">Fractura Incisal</a></li>
-            <li><a href="#" class="odontograma-item" data-categoria="Raiz y Coronal">Fractura Raiz y Coronal</a></li>
+
+            <li><a href="#" class="odontograma-item" data-categoria="Coronal"> <img src="<?= base_url() ?>assets/odontograma/images/imgfracturacorona.png"> Fractura Coronal</a></li>
+            <li><a href="#" class="odontograma-item" data-categoria="Incisal"><img src="<?= base_url() ?>assets/odontograma/images/imgfracturaincisal.png"> Fractura Incisal</a></li>
+            <li><a href="#" class="odontograma-item" data-categoria="Raiz y Coronal"><img src="<?= base_url() ?>assets/odontograma/images/imgfacturaiz.png"> Fractura Raiz y Coronal</a></li>
           </ul>
         </li>
+
         <li>
-          <img src="<?= base_url() ?>assets/odontograma/images/interrogacion.png">
+          <img src="<?= base_url() ?>assets/odontograma/images/resized_imgdiente.PNG">
           <a class="dropdown-toggle nombreHallazgo odontograma-item" data-hallazgo="24">
             Fusión
           </a>
@@ -280,7 +282,7 @@
           </a>
         </li>
         <li class="dropdown">
-          <img src="<?= base_url() ?>assets/odontograma/images/interrogacion.png">
+          <img src="<?= base_url() ?>assets/odontograma/images/resized_imgiroversion.PNG">
           <a class="dropdown-toggle nombreHallazgo" id="dropdownGiroversion" data-hallazgo="18" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
             Giroversión
             <span class="caret"></span>
@@ -291,13 +293,13 @@
           </ul>
         </li>
         <li>
-          <img src="<?= base_url() ?>assets/odontograma/images/interrogacion.png">
+          <img src="<?= base_url() ?>assets/odontograma/images/imgimpactacion.png">
           <a class="dropdown-toggle nombreHallazgo odontograma-item" data-hallazgo="26">
             Impactación
           </a>
         </li>
         <li class="dropdown">
-          <img src="<?= base_url() ?>assets/odontograma/images/interrogacion.png">
+          <img src="<?= base_url() ?>assets/odontograma/images/imgimplant.png">
           <a class="dropdown-toggle nombreHallazgo" id="dropdownImplanteDental" data-hallazgo="31"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
             Implante Dental
             <span class="caret"></span>
@@ -312,7 +314,7 @@
     <div role="tabpanel" class="tab-pane" id="LP">
       <ul class="odontograma-navegacion">
         <li class="dropdown">
-          <img src="<?= base_url() ?>assets/odontograma/images/interrogacion.png">
+          <img src="<?= base_url() ?>assets/odontograma/images/imgariosa.png">
           <a class="dropdown-toggle nombreHallazgo hallazgoMarcar" data-marcaclass="lesionCaries" id="dropdownLesiónCaries" data-hallazgo="4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
             Lesión de Caries Dental
             <span class="caret"></span>
@@ -325,19 +327,19 @@
           </ul>
         </li>
         <li>
-          <img src="<?= base_url() ?>assets/odontograma/images/interrogacion.png">
+          <img src="<?= base_url() ?>assets/odontograma/images/imgmacrodoncia.png">
           <a class="dropdown-toggle nombreHallazgo odontograma-item" data-hallazgo="22">
-            Macrofoncia
+            Macrodoncia
           </a>
         </li>
         <li>
-          <img src="<?= base_url() ?>assets/odontograma/images/interrogacion.png">
+          <img src="<?= base_url() ?>assets/odontograma/images/imgmicrodoncia.png">
           <a class="dropdown-toggle nombreHallazgo odontograma-item" data-hallazgo="23">
             Microdoncia
           </a>
         </li>
         <li class="dropdown">
-          <img src="<?= base_url() ?>assets/odontograma/images/interrogacion.png">
+          <img src="<?= base_url() ?>assets/odontograma/images/imgmovilidadpat.png">
           <a class="dropdown-toggle nombreHallazgo" id="dropdownMovilidadPatologica" data-hallazgo="29" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
             Movilidad Patológica
             <span class="caret"></span>
@@ -351,43 +353,43 @@
           </ul>
         </li>
         <li>
-          <img src="<?= base_url() ?>assets/odontograma/images/interrogacion.png">
+          <img src="<?= base_url() ?>assets/odontograma/images/resized_imgpiezausente.png">
           <a class="dropdown-toggle nombreHallazgo odontograma-item" data-hallazgo="9">
             Pieza Dentaria Ausente
           </a>
         </li>
         <li>
-          <img src="<?= base_url() ?>assets/odontograma/images/interrogacion.png">
+          <img src="<?= base_url() ?>assets/odontograma/images/resized_imgpiezaocto.png">
           <a class="dropdown-toggle nombreHallazgo odontograma-item" data-hallazgo="21" data-sigla="E">
             Pieza Dentaria Ectópica
           </a>
         </li>
         <li>
-          <img src="<?= base_url() ?>assets/odontograma/images/interrogacion.png">
+          <img src="<?= base_url() ?>assets/odontograma/images/imgdienteclavija.png">
           <a class="dropdown-toggle nombreHallazgo odontograma-item" data-hallazgo="20">
             Pieza Dentaria en Clavija
           </a>
         </li>
         <li>
-          <img src="<?= base_url() ?>assets/odontograma/images/interrogacion.png">
+          <img src="<?= base_url() ?>assets/odontograma/images/imgdienterupcion.png">
           <a class="dropdown-toggle nombreHallazgo odontograma-item" data-hallazgo="10">
             Pieza Dentaria en Erupción
           </a>
         </li>
         <li>
-          <img src="<?= base_url() ?>assets/odontograma/images/interrogacion.png">
+          <img src="<?= base_url() ?>assets/odontograma/images/imgdientextruido.png">
           <a class="dropdown-toggle nombreHallazgo odontograma-item" data-hallazgo="15">
             Pieza Dentaria  Extruida
           </a>
         </li>
         <li>
-          <img src="<?= base_url() ?>assets/odontograma/images/interrogacion.png">
+          <img src="<?= base_url() ?>assets/odontograma/images/imgdientintruido.png">
           <a class="dropdown-toggle nombreHallazgo odontograma-item" data-hallazgo="16">
             Pieza Dentaria Intruida
           </a>
         </li>
         <li>
-          <img src="<?= base_url() ?>assets/odontograma/images/interrogacion.png">
+          <img src="<?= base_url() ?>assets/odontograma/images/imgpupernumerario.png">
           <a class="dropdown-toggle nombreHallazgo odontograma-item" data-hallazgo="14">
             Pieza Dentaria Supernumeraria
           </a>
@@ -407,7 +409,7 @@
           </ul>
         </li>
         <li class="dropdown">
-          <img src="<?= base_url() ?>assets/odontograma/images/interrogacion.png">
+          <img src="<?= base_url() ?>assets/odontograma/images/imgProtesisFija.png">
           <a class="dropdown-toggle rango nombreHallazgo" data-hallazgo="32" id="dropdownProtesisFija" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
             Prótesis Fija
             <span class="caret"></span>
@@ -418,7 +420,7 @@
           </ul>
         </li>
         <li class="dropdown">
-          <img src="<?= base_url() ?>assets/odontograma/images/interrogacion.png">
+          <img src="<?= base_url() ?>assets/odontograma/images/imgprotesisremovible.png">
           <a class="dropdown-toggle rango nombreHallazgo" data-hallazgo="33" id="dropdownProtesisRemovible" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
             Prótesis Removible
             <span class="caret"></span>
@@ -429,7 +431,7 @@
           </ul>
         </li>
         <li class="dropdown">
-          <img src="<?= base_url() ?>assets/odontograma/images/interrogacion.png">
+          <img src="<?= base_url() ?>assets/odontograma/images/imgprotesistotal.png">
           <a class="dropdown-toggle rango nombreHallazgo" data-hallazgo="34" id="dropdownProtesisTotal" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
             Prótesis Total
             <span class="caret"></span>
@@ -444,13 +446,13 @@
     <div role="tabpanel" class="tab-pane" id="RT">
       <ul class="odontograma-navegacion">
         <li>
-          <img src="<?= base_url() ?>assets/odontograma/images/interrogacion.png">
+          <img src="<?= base_url() ?>assets/odontograma/images/imgremanenteradicular.png">
           <a class="dropdown-toggle nombreHallazgo odontograma-item" data-hallazgo="28">
             Remanente Radicular
           </a>
         </li>
         <li class="dropdown">
-          <img src="<?= base_url() ?>assets/odontograma/images/interrogacion.png">
+          <img src="<?= base_url() ?>assets/odontograma/images/imgrestauraciondefinitiva.png">
           <a class="dropdown-toggle nombreHallazgo hallazgoMarcar hallazgoMarcarEstado" data-marcaclass="restauracionDefinitiva" id="dropdownPosicionDentaria" data-hallazgo="11" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
             Restauración Definitiva
             <span class="caret"></span>
@@ -465,13 +467,13 @@
           </ul>
         </li>
         <li>
-          <img src="<?= base_url() ?>assets/odontograma/images/interrogacion.png">
+          <img src="<?= base_url() ?>assets/odontograma/images/imgrestauraciontemporal.png">
           <a data-marcaclass="restauracionTemporal" class="dropdown-toggle nombreHallazgo hallazgoMarcar odontograma-item" data-hallazgo="12">
             Restauración Temporal
           </a>
         </li>
         <li>
-          <img src="<?= base_url() ?>assets/odontograma/images/interrogacion.png">
+          <img src="<?= base_url() ?>assets/odontograma/images/imgsellantes.png">
           <a data-marcaclass="sellantes" class="dropdown-toggle nombreHallazgo hallazgoMarcar hallazgoMarcarEstado odontograma-item" data-hallazgo="6">
             Sellantes
           </a>
@@ -483,13 +485,13 @@
           </a>
         </li>
         <li>
-          <img src="<?= base_url() ?>assets/odontograma/images/interrogacion.png">
+          <img src="<?= base_url() ?>assets/odontograma/images/imgtransposicion.png">
           <a class="dropdown-toggle nombreHallazgo odontograma-item" data-hallazgo="36">
             Transposición
           </a>
         </li>
         <li class="dropdown">
-          <img src="<?= base_url() ?>assets/odontograma/images/interrogacion.png">
+          <img src="<?= base_url() ?>assets/odontograma/images/imgtratamientopulpal.png">
           <a class="dropdown-toggle" id="dropdownTratamientoPulpar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
             Tratamiento Pulpar
             <span class="caret"></span>

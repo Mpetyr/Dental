@@ -38,64 +38,55 @@
                      </li>
                
                     <li class="treeview">
-                        <a href="#">
+                        <a>
                             <i class="fa fa-calendar"></i> <span>Citas</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="<?php echo base_url();?>citas/agenda"><i class="fa fa-table"></i> Agenda</a></li>
-                            <li><a href="<?php echo base_url();?>citas/registrar"><i class="fa fa-calendar-plus-o"></i> Registrar</a></li>
-                        </ul>
+                        
+                       
+                                <ul class="treeview-menu">
+                                    <li><a href="<?php echo base_url();?>citas/agenda"><i class="fa fa-table"></i> Agenda</a></li>
+                                    <li><a href="<?php echo base_url();?>citas/registrar"><i class="fa fa-calendar-plus-o"></i> Registrar</a></li>
+                                </ul>
+
+                         </a>
                     </li>
 
                      <li class="treeview">
                         <a>
                             <i class="fa fa-medkit"></i> <span>Tratamientos</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
                         <ul class="treeview-menu">
                             <li><a href="<?= base_url('tratamientos/panel') ?>"><i class="fa fa-medkit"></i>Registrar</a>
                             <li><a href="<?= base_url('tratamientos/comprobantes') ?>"><i class="fa fa-line-chart"></i>Comprobantes</a>
                         </ul>
+
+                        </a>
                     </li>
 
 
                             
 
               <li class="treeview">
-                        <a href="#">
+                        <a>
                             <i class="fa fa-file-text-o"></i> <span>Historia clinica</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
+                       
+                        
+                            <ul class="treeview-menu">
+                                <li><a href="<?= base_url('historia/movimiento')?>"><i class="fa fa-pencil"></i>Movimiento</a></li>
+                                <!-- <li><a href="<?php echo base_url();?>historia/movimiento"><i class="fa fa-table"></i>Kardex</a></li> -->
+                            </ul>
                         </a>
-                        <ul class="treeview-menu">
-                            <li><a href="<?= base_url('historia/movimiento')?>"><i class="fa fa-pencil"></i>Movimiento</a></li>
-                            <li><a href="<?php echo base_url();?>historia/movimiento"><i class="fa fa-table"></i>Kardex</a></li>
-                        </ul>
                     </li>
 
                     <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-print"></i> <span>Reportes</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
+                        <a>
+                            <i class="fa fa-bar-chart-o"></i> <span>Reportes</span>
+                           
+                      
                         <ul class="treeview-menu">
-                            <li><a href="<?php echo base_url();?>reportes/iconos"><i class="glyphicon glyphicon-signal"></i>Estadistica admisión</a></li>
-                            <li><a href="<?php echo base_url();?>reportes/icoemergencia"><i class="glyphicon glyphicon-signal"></i>Estadistica emergencia</a></li>
-                            <li><a href="<?php echo base_url();?>reportes/iconos"><i class="glyphicon glyphicon-signal"></i>Estadistica hospitalización</a></li>
-                             <li><a href="<?php echo base_url();?>reportes/iconos"><i class="glyphicon glyphicon-signal"></i>Estadistica farmacia</a></li>
-                             <li><a href="<?php echo base_url();?>reportes/iconos"><i class="glyphicon glyphicon-signal"></i>Estadistica medico</a></li>
-                            <li><a href="../../index.html"><i class="glyphicon glyphicon-user"></i> Clientes</a></li>
-                            <li><a href="../../index.html"><i class="fa fa-circle-o"></i> Ocurrencias</a></li>
-                            <li><a href="../../index.html"><i class="fa fa-circle-o"></i> Ventas</a></li>
+                            <li><a href="<?php echo base_url();?>reportes/redashboard"><i class="fa fa-money"></i>Tratamientos cobrados</a></li>
+                       
                         </ul>
+
+                          </a>
                     </li>
 
 
