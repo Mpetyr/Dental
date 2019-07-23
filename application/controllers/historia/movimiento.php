@@ -14,6 +14,7 @@ class Movimiento extends CI_Controller {
 		}
 		$this->load->model('historia_model');
 		$this->load->model('citas_model');
+		$this->load->model('clinica_model');
 	}
 
 	public function index()
@@ -552,6 +553,7 @@ class Movimiento extends CI_Controller {
 			50, //BOTTOM
 			10, //HEADER
 			10);
+		$data['clinicas'] = $this->clinica_model->getClinica($data);
 		$data['receta'] = $this->db->from('paciente_receta')
 		->select('nomb_pac,apel_pac,fena_pac,peso_exp,pacrec_receta,pacrec_indicaciones,pacrec_fecha')
 		->join('paciente','paciente_receta.codi_pac = paciente.codi_pac')
@@ -560,7 +562,7 @@ class Movimiento extends CI_Controller {
 		->get()->row();
 		$html = $this->load->view('admin/historia/movimiento/receta_imprimir/contenido',$data,TRUE);
 		$htmlHeader = $this->load->view('admin/historia/movimiento/receta_imprimir/header',NULL,true);
-		$htmlFooter = $this->load->view('admin/historia/movimiento/receta_imprimir/footer',NULL,true);
+		//$htmlFooter = $this->load->view('admin/historia/movimiento/receta_imprimir/footer',NULL,true);
 		$css = $css = file_get_contents('assets/styles_pdf.css');
 		$this->mpdf->SetTitle('Tratamientos');
 		$this->mpdf->setHTMLHeader($htmlHeader);

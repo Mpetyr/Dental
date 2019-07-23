@@ -27,6 +27,8 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="<?php echo base_url();?>assets/template/font-awesome/css/font-awesome.min.css">
     <!-- Theme style -->
+
+
     <link rel="stylesheet" href="<?php echo base_url();?>assets/template/dist/css/AdminLTE.min.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
     folder instead of downloading all of them to reduce the load. -->
@@ -41,7 +43,11 @@
     <link rel="stylesheet" href="<?= base_url() ?>assets/styles.css?v=<?= time() ?>">
     <link rel="stylesheet" href="<?= base_url() ?>assets/odontograma/css/odontograma.css?v=<?= time() ?>">
 
-        <link rel="stylesheet" href="<?php echo base_url();?>assets/template/bootstrap/css/odontogeneral.css">
+    <link rel="stylesheet" href="<?php echo base_url();?>assets/template/bootstrap/css/odontogeneral.css">
+
+
+ 
+
     <script src="<?php echo base_url();?>assets/template/jquery/jquery.min.js"></script>
 </head>
 <body class="sidebar-collapse skin-blue sidebar-mini">
@@ -65,14 +71,31 @@
                     <!-- Messages: style can be found in dropdown.less-->
                     <li class="dropdown user user-menu">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <img src="<?php echo base_url()?>assets/template/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                        <img src="<?= base_url() ?>assets/img/usuario_inicio.png" class="user-image" alt="User Image">
                         <span class="hidden-xs"><?= $this->session->userdata('nombre') ?></span>
                       </a>
                       <ul class="dropdown-menu">
                         
-                        <li class="user-body">
-                          <a href="<?php echo base_url(); ?>auth/logout"> Cerrar Sesión</a> 
+                        <li class="user-header">
+                           <img src="<?= base_url() ?>assets/img/usuario_inicio.png" class="img-circle" alt="User Image">
+
+                         <p>
+                           <span class="hidden-xs"><?= $this->session->userdata('nombre') ?></span>
+                            <small><?= $this->session->userdata('nombrerol') ?></small>
+                </p>
+                         
                         </li>
+
+        
+              <!-- Menu Footer-->
+              <li class="user-footer">
+                <div class="pull-left">
+                  <a href="#" class="btn btn-default btn-flat">Perfil</a>
+                </div>
+                <div class="pull-right">
+                  <a href="<?php echo base_url(); ?>auth/logout" class="btn btn-default btn-flat">Desconectar</a> 
+                </div>
+              </li>
                         
                       </ul>
                     </li>

@@ -76,7 +76,7 @@ class permisos extends CI_Controller
 
 	public function edit($id){
 		$data = array(
-			'roles' => $this->roles_model->getroles(),
+			'roles' => $this->modelgeneral->getTable('rol'),
 			'menus' => $this->permisos_model->getMenus(),
 			'permiso' => $this->permisos_model->getPermiso($id),
 		);

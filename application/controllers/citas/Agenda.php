@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Agenda extends CI_Controller {
-
+	private $permisos;
 	public function __construct()
 	{
 		parent::__construct();
@@ -12,6 +12,7 @@ class Agenda extends CI_Controller {
 		$this->load->model('modelgeneral');
 		$this->load->model('citas_model');
 		$this->load->helper('general');
+		$this->permisos = $this->backend_lib->control();
 	}
 
 	public function index()
@@ -20,6 +21,7 @@ class Agenda extends CI_Controller {
 														->order_by('nombre_especialidad','asc')
 														->get()->result();
 		$data['estados'] = $this->modelgeneral->getTable('tipo_citado');
+		$data['permisos'] =$this->permisos;
 		$this->load->view('layouts/header');
 		$this->load->view('layouts/aside');
 		$this->load->view('admin/citas/agenda',$data);

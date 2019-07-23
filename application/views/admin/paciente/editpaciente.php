@@ -27,9 +27,9 @@
           <div class="box box-primary">
             <div class="box-body box-profile">
               <?php if (!is_null($pacientes->foto_paciente)): ?>
-              <img src="<?= base_url('assets/uploads/pacientes/'.$pacientes->foto_paciente) ?>" alt="<?= $pacientes->nomb_paciente.' '.$pacientes->apel_pac ?>" class="img img-responsive">
+              <img src="<?= base_url('assets/uploads/pacientes/'.$pacientes->foto_paciente) ?>" alt="<?= $pacientes->nomb_paciente.' '.$pacientes->apel_pac ?>" class="img img-responsive" style="max-width: 100px">
               <?php else: ?>
-              <img class="profile-user-img img-responsive img-circle" src="<?= base_url() ?>assets/img/Odontologo.jpg" alt="User profile picture" class="img img-responsive">
+              <img class="profile-user-img img-responsive img-circle" src="<?= base_url() ?>assets/img/usuario_inicio.png" alt="User profile picture" class="img img-responsive" style="max-width: 100px">
               <?php endif ?>
               <p class="text-muted text-center">Paciente</p>
 
