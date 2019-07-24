@@ -6,7 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  */
 class Medico extends CI_Controller
 {
-	
+	private $permisos;
 	public function __construct()
 	{
 		parent::__construct();
@@ -14,13 +14,16 @@ class Medico extends CI_Controller
 			redirect(base_url());
 		}
 		$this->load->model('medico_model');
+		$this->load->model('modelgeneral');
 		$this->load->library('form_validation');
+		$this->permisos = $this->backend_lib->control();
 	}
 
 	public function index()
 	{
 		
 		$data['especialidades'] = $this->modelgeneral->getTable('especialidad');
+		$data['permisos'] =$this->permisos;
 		$this->load->view('layouts/header');
 		$this->load->view('layouts/aside');
 		$this->load->view('admin/medico/listar',$data);
@@ -97,6 +100,7 @@ class Medico extends CI_Controller
 		$this->form_validation->set_rules("especialidad","especialidad","required");
 		$this->form_validation->set_rules("nombre","nombre","required");
 		$this->form_validation->set_rules("apellidos","apellidos","required");
+		$this->form_validation->set_rules("documento","apellidos","required");
 		$this->form_validation->set_rules("dni","dni","required");
 		$this->form_validation->set_rules("colegiatura","Colegiatura","required");
 		$this->form_validation->set_rules("telefono","Telefono","required");

@@ -6,22 +6,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  */
 class Alergia extends CI_Controller
 {
-	
+	private $permisos;
 	public function __construct()
 	{
 		parent::__construct();
-	
+		if(!$this->session->userdata("login")){
+			redirect(base_url());
+		}
 
 		$this->load->model('alergia_model');
+		$this->permisos = $this->backend_lib->control();
 		# code...
 	}
 
 
 	public function index(){
 		
+		    $data['permisos'] =$this->permisos;
 			$this->load->view('layouts/header');
 			$this->load->view('layouts/aside');
-			$this->load->view('admin/alergia/listar');
+			$this->load->view('admin/alergia/listar',$data);
 			$this->load->view('layouts/footer');
 
 		}

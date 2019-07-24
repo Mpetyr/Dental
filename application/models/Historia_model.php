@@ -9,6 +9,7 @@ class Historia_model extends CI_Model {
 		$rol = $this->session->userdata('rol');
 		$this->db->from('cita_medica');
 		$this->db->join('paciente','cita_medica.codi_pac = paciente.codi_pac');
+		$this->db->where_not_in('cita_medica.cod_citado','2');
 		$this->db->where('DATE(fech_cit) >=',$data['desde']);
 		$this->db->where('DATE(fech_cit) <=',$data['hasta']);
 		if ($rol==1) {
@@ -20,6 +21,7 @@ class Historia_model extends CI_Model {
 		$this->db->from('cita_medica');
 		$this->db->select('cita_medica.codi_pac,CONCAT(nomb_pac," ",apel_pac) AS NombresApellidos,edad_pac,dni_pac, DATE(fech_cit) as fecha_cita,TIME(fech_cit) as hora_cita,esta_pac');
 		$this->db->join('paciente','cita_medica.codi_pac = paciente.codi_pac');
+		$this->db->where_not_in('cita_medica.cod_citado','2');
 		$this->db->where('DATE(fech_cit) >=',$data['desde']);
 		$this->db->where('DATE(fech_cit) <=',$data['hasta']);
 		

@@ -99,7 +99,7 @@
                   <div class="col-md-4">
                     <div class="form-group">
                       <label>Tipo Documento (*):</label>
-                        <select  name="tipo_documento" class="form-control">
+                        <select  name="tipoDocumento" class="form-control">
                           <option value="1">DNI</option>
                           <option value="2">RUC</option>
                           <option value="3">PASAPORTE</option>

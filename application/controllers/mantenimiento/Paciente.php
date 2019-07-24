@@ -3,6 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Paciente extends CI_Controller
 {
+	private $permisos;
 	public function __construct()
 	{
 		parent::__construct();
@@ -11,16 +12,17 @@ class Paciente extends CI_Controller
 		}
 		$this->load->model('pacientes_model');
 		$this->load->model('modelgeneral');
+		$this->permisos = $this->backend_lib->control();
 		# code...
 	}
 
 
 	public function index()
 	{
-
+		$data['permisos'] =$this->permisos;
 		$this->load->view('layouts/header');
 		$this->load->view('layouts/aside');
-		$this->load->view('admin/paciente/listarpaciente');
+		$this->load->view('admin/paciente/listarpaciente',$data);
 		$this->load->view('layouts/footer');
 
 
