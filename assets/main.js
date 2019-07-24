@@ -3869,4 +3869,47 @@ $('#TableMantenimientoRol').on('click', '.anular-rol', function(event) {
 });
 
 
+
+/*===========================================
+=            PERMISOS - LISTADO            =
+===========================================*/
+var TableMantenimientoPermisos =  $('#TableMantenimientoPermisos').DataTable({
+	"language": {
+		"url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
+	},
+	"searching": false,
+	"processing": true,
+	"serverSide": true,
+	"iDisplayLength": 10,
+	"aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, 'Todos']],
+	"aaSorting": [[0, 'desc']],
+	"ajax": {
+		"url": path+'administrador/permisos/jsonPermisos',
+		"type": "GET",
+		"data": function (d) {
+			d.menus = $("select[name=menus]").val();
+			d.rol = $("select[name=rol]").val();
+		}
+	},
+	"columns": [
+		{"orderable":true},
+		{"orderable":true},
+		{"orderable":true},
+		{"orderable":true},
+		{"orderable":true},
+		{"orderable":true},
+		{"orderable":true},
+		{"orderable":false},
+
+	]
+});
+
+$('#PermisosFormBusqueda').validate({
+	submitHandler:function() {
+		$('#TableMantenimientoPermisos').DataTable().ajax.reload();
+	}
+});
+
+
+
 });
