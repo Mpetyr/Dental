@@ -167,7 +167,7 @@ class Medico extends CI_Controller
 
 			if($this->medico_model->guardarmedico($data)){
 				$this->session->set_flashdata('success', 'Te has registrado correctamente en nuestro sistema.<br>Hemos enviado un código de verificación a ');
-				//redirect(base_url().'mantenimiento/medico');
+				redirect(base_url().'mantenimiento/medico');
 		}
 		else
 		{
@@ -187,6 +187,7 @@ class Medico extends CI_Controller
 	public function editar($id)
 	{
 		$data['medicos'] = $this->medico_model->getmedico_id($id);
+		$data['usuario'] = $this->modelgeneral->getTableWhereRow('usuario',['codi_usu'=>$data['medicos']->codi_usu]);
 		$data['especialidades'] = $this->modelgeneral->getTable('especialidad');	
 		$this->load->view('layouts/header');
 		$this->load->view('layouts/aside');
@@ -258,6 +259,10 @@ class Medico extends CI_Controller
 			$dataUsuario['email'] = $email;
 			$dataUsuario['tipo_documento'] = $this->input->post('tipoDocumento');
 			$dataUsuario['documento'] = $dni;
+			$dataUsuario['logi_usu'] = $this->input->post('usuarioMedico');
+			if (isset($_POST['passwordMedico'])) {
+				$dataUsuario['pass_usu'] = sha1($this->input->post('passwordMedico'));
+			}
 
 			$config['upload_path'] = 'assets/uploads/usuarios/';
 			$config['allowed_types'] = 'png|jpg|jpeg';

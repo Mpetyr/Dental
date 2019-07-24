@@ -53,14 +53,14 @@
                     <thead>
                       <tr class="btn-primary btn-xs">
           
-                        <th style="text-align: center;" width="60">Historia</th>
-                        <th style="text-align: center;" width="250">Paciente</th>
-                        <th style="text-align: center;" width="50">Edad</th>
-                        <th style="text-align: center;">DNI</th>
-                        <th style="text-align: center;" width="110">Fecha de Registro</th>
-                        <th style="text-align: center;">Tipo de Historia</th>
-                        <th style="text-align: center;" width="10">Estado</th>
-                        <th style="text-align: center;" width="10">Opciones</th>
+                        <th>Historia</th>
+                        <th>Paciente</th>
+                        <th>Edad</th>
+                        <th>DNI</th>
+                        <th>Fecha de Cita</th>
+                        <th>Hora de Cita</th>
+                        <th>Estado</th>
+                        <th>Opciones</th>
                       </tr>
                     </thead>
                     <tbody>
