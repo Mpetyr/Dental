@@ -200,6 +200,33 @@
                   </div>
                 </div>
             </div>
+
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="control-label">Foto</label>
+                  <input type="file" name="foto">
+                  <br>
+                  <img src="<?= base_url('assets/uploads/usuarios/'.$usuario->foto) ?>" width="100">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="control-label">Usuario</label>
+                  <input type="text" name="usuarioMedico" class="form-control" value="<?= $usuario->logi_usu ?>">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="control-label">Password</label>
+                  <input type="password" name="passwordMedico" class="form-control" disabled>
+                  <label for="cambiarPasswordMedico">
+                    <input type="checkbox" id="cambiarPasswordMedico">
+                    Cambiar Password
+                  </label>
+                </div>
+              </div>
+            </div>
             
 
                <div class="row">
@@ -226,6 +253,16 @@
   </div>
 
 <script>
+    $(function(){
+      $('#cambiarPasswordMedico').click(function(event) {
+  
+        if ($(this).is(":checked")) {
+          $('#FormRegistrar input[name=passwordMedico]').prop('disabled', false);
+        }else{
+          $('#FormRegistrar input[name=passwordMedico]').prop('disabled', true);
+        }
+      });
+    })
     function soloLetras(e){
        key = e.keyCode || e.which;
        tecla = String.fromCharCode(key).toLowerCase();

@@ -241,3 +241,31 @@
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
+
+
+
+<div id="ModalCapturarOdontograma" class="modal fade" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content ">
+      <form id="FormGuardarCapturaOdontograma" action="<?= base_url('historia/movimiento/guardarImagenOdontograma') ?>" method="POST">
+        <input type="hidden" name="paciente">
+        <input type="hidden" name="tipo">
+        <input type="hidden" name="imgData">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Odontograma Capturado</h4>
+        </div>
+        <div class="modal-body">
+          <div id="ImagenOdontogramaCapturado">
+            
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Cerrar</button>
+          <button type="submit" class="btn btn-info"><i class="fa fa-save"></i> Guardar</button>
+        </div>
+      </form>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

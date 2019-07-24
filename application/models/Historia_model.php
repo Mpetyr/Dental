@@ -14,13 +14,15 @@ class Historia_model extends CI_Model {
 		if ($rol==1) {
 			$this->db->where('codi_med',$medico);
 		}
+
 		$queryLike = $this->db->get();
 
 		$this->db->from('cita_medica');
-		$this->db->select('cita_medica.codi_pac,CONCAT(nomb_pac," ",apel_pac) AS NombresApellidos,edad_pac,dni_pac, DATE(fecha_registro) as fecha_registro,esta_pac');
+		$this->db->select('cita_medica.codi_pac,CONCAT(nomb_pac," ",apel_pac) AS NombresApellidos,edad_pac,dni_pac, DATE(fech_cit) as fecha_cita,TIME(fech_cit) as hora_cita,esta_pac');
 		$this->db->join('paciente','cita_medica.codi_pac = paciente.codi_pac');
 		$this->db->where('DATE(fech_cit) >=',$data['desde']);
 		$this->db->where('DATE(fech_cit) <=',$data['hasta']);
+		
 		if ($rol==1) {
 			$this->db->where('codi_med',$medico);
 		}
@@ -46,7 +48,7 @@ class Historia_model extends CI_Model {
 
 			<a href="'.base_url('historia/movimiento/historia/'.$q->codi_pac).'" class="btn btn-info btn-xs" style="text-align:center"><i class="fa fa-edit"></i></a>';
 	    
-			$row[] = [$q->codi_pac,$q->NombresApellidos,$q->edad_pac,$q->dni_pac,$q->fecha_registro,'',$estado,$opciones];
+			$row[] = [$q->codi_pac,$q->NombresApellidos,$q->edad_pac,$q->dni_pac,$q->fecha_cita,$q->hora_cita,$estado,$opciones];
 		}
 		$result['aaData'] = $row;
 		return $result;

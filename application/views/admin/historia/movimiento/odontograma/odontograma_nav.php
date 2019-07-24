@@ -92,6 +92,8 @@
 }
 </style>
 <div id="odontograma-navegacion">
+  <button id="CapturarOdontograma" class="btn btn-flat btn-lg btn-success btn-block">Capturar Odont.</button>
+  <br>
   <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">
     <li role="presentation" class="active"><a href="#AI" aria-controls="AI" role="tab" data-toggle="tab">A-I</a></li>

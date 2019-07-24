@@ -16,3 +16,6 @@ assets/img/odontogramas/*
 
 assets/uploads/pacientes/*
 !assets/uploads/pacientes/*.txt
+
+assets/uploads/usuarios/*
+!assets/uploads/usuarios/*.txt
