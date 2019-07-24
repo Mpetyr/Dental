@@ -920,6 +920,9 @@ class Movimiento extends CI_Controller {
 
 		// Save the image in a defined path
 		file_put_contents($filepath,$data);
+
+		$resp['success'] = true;
+		echo json_encode($resp);
 	}
 
 	function guardarDetalleOdontograma()
