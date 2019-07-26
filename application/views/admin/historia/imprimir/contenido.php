@@ -1120,7 +1120,10 @@
 			<div style="padding: 0px; padding-top: 5px">
 			
 			<div style="border:1px solid #070707; padding:3px">
+				<?php if (is_file(base_url('assets/img/odontogramas/odontograma-'.$paciente->codi_pac.'-ini.png'))): ?>
+				
 				<img src="" style="width: 100%" alt="" src="<?= base_url('assets/img/odontogramas/odontograma-'.$paciente->codi_pac.'-ini.png') ?>">
+				<?php endif ?>
 			</div>
 
 			</div>
@@ -1176,10 +1179,11 @@
 
 		<div class="w100">
 			<div style="padding: 0px; padding-top: 0px">
-			
-			<div style="border:1px solid #070707; padding:3px" height="680">
-				<img src="" style="width: 100%" alt="" src="<?= base_url('assets/img/odontogramas/odontograma-'.$paciente->codi_pac.'-evo.png') ?>">
-			</div>
+				<?php if (is_file(base_url('assets/img/odontogramas/odontograma-'.$paciente->codi_pac.'-evo.png'))): ?>
+				<div style="border:1px solid #070707; padding:3px">
+					<img src="" style="width: 100%" alt="" src="<?= base_url('assets/img/odontogramas/odontograma-'.$paciente->codi_pac.'-evo.png') ?>">
+				</div>
+				<?php endif ?>
 
 			</div>
 		</div>
