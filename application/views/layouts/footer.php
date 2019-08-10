@@ -16,7 +16,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>    -->
    
 
-
 <script src="<?php echo base_url();?>assets/template/jquery/jquery.min.js"></script>
 <script src="<?php echo base_url();?>assets/template/highcharts/highcharts.js"></script>
 <script src="<?php echo base_url();?>assets/template/highcharts/exporting.js"></script>
@@ -80,8 +79,33 @@
 
 <script src="<?= base_url() ?>assets/main.js?v=<?= time() ?>"></script>
 <script src="<?= base_url() ?>assets/html2canvas.min.js"></script>
+
+<script src="<?= base_url() ?>assets/template/ckeditor/ckeditor.js"></script>
+
+
 <script src="<?= base_url() ?>assets/odontograma/js/main.js?v=<?= time() ?>"></script>
 
+<?php if ($this->session->flashdata('titulo')): ?>
+<div id="ModalMensajeFlash" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-md" role="document">
+    <div class="modal-content ">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title"><?= $this->session->userdata('titulo') ?></h4>
+      </div>
+      <div class="modal-body">
+        <?= $this->session->userdata('contenido') ?>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Cerrar</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<script>
+    $('#ModalMensajeFlash').modal();
+</script>
+<?php endif ?>
 
 <script language="javascript">
     var base_url = '<?php echo base_url(); ?>';
