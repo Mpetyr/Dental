@@ -6,12 +6,13 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
+       <i class="fa fa-th-list" aria-hidden="true"></i>
       Tipo moneda
     </h1>
     <ol class="breadcrumb">
-      <li><a href="#"><i class="fa fa-dashboard"></i> Modulo</a></li>
-      <li><a href="#">caja</a></li>
-      <li class="active">tipo moneda</li>
+      <li><a><i class="fa fa-dashboard"></i> Modulo</a></li>
+      <li><a>Caja</a></li>
+      <li class="active">Tipo moneda</li>
     </ol>
   </section>
   <?php if ($this->session->flashdata('success')): ?>

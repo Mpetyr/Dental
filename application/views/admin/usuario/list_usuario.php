@@ -26,7 +26,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        <i class="fa fa-user-md" aria-hidden="true"></i>
+        <i class="fa fa-user" aria-hidden="true"></i>
         Usuario
       </h1>
       <ol class="breadcrumb">

@@ -6,13 +6,13 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Actualizar
+      <i class="fa fa-th-list" aria-hidden="true"></i> Actualizar
     
     </h1>
     <ol class="breadcrumb">
       <li><a href="#"><i class="fa fa-dashboard"></i> Modulo</a></li>
       <li><a href="#">Caja</a></li>
-      <li class="active">Banco</li>
+      <li class="active">Tarjeta</li>
     </ol>
   </section>
 

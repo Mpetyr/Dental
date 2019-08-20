@@ -17,7 +17,7 @@
    
 
 
-<script src="<?php echo base_url();?>assets/template/jquery/jquery.min.js"></script>
+
 <script src="<?php echo base_url();?>assets/template/highcharts/highcharts.js"></script>
 <script src="<?php echo base_url();?>assets/template/highcharts/exporting.js"></script>
 <script src="<?php echo base_url();?>assets/template/highcharts/export-data.js"></script>

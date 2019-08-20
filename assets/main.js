@@ -763,8 +763,8 @@ $('#TratamientoAgregarProcedimiento').click(function(event) {
 
 var TableTratamientoProcedimientosModal = $('#TableTratamientoProcedimientosModal').DataTable({
 	"language": {"url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"},
-	"iDisplayLength": 10,
-	"aLengthMenu": [[10, 50, 100], [10, 50, 100]],
+	"iDisplayLength": 5,
+	"aLengthMenu": [[5,10, 50, 100], [10, 50, 100]],
 	"aaSorting": [[0, 'asc']],
 	"columns": [
 		null,
@@ -1895,6 +1895,113 @@ $('#TableHistoriaMovimientoRecetas').on('click', '.anular-receta', function(even
 	});
 });
 
+
+$('#TableHistoriaMovimientoDiagnostico').DataTable({
+	"language": {"url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"},
+	"searching": false,
+	"processing": true,
+	"serverSide": true,
+	"iDisplayLength": 10,
+	"aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, 'Todos']],
+	"aaSorting": [[1, 'desc']],
+	"ajax": {
+		"url": path+'historia/movimiento/jsonDiagnostico',
+		"type": "POST",
+		"data": function (d) {
+			d.paciente = $("#HistoriaContenido").data('paciente');
+		}
+	},
+	"columns": [
+		{"orderable":true},
+		{"orderable":true},
+		{"orderable":true},
+		{"orderable":false}
+	]
+});
+
+
+
+$('#FormHistoriaMovimientoAgregarDiagnostico').validate({
+	ignore: [],
+	rules:{
+		diagnostico01:{required:true},
+	},
+	submitHandler:function() {
+		enviarFormulario('#FormHistoriaMovimientoAgregarDiagnostico',function(json){
+			if (json.success) {
+				$('#TableHistoriaMovimientoDiagnostico').DataTable().ajax.reload();
+			}
+			$('#ModalAgregarDiagnostico').modal('hide');
+			$('#FormHistoriaMovimientoAgregarDiagnostico select[name=diagnostico01]').select2('val', '');
+
+		})
+	}
+});
+
+
+$('#TableHistoriaMovimientoDiagnostico').on('click', '.editar-diagnostico', function(event) {
+	event.preventDefault();
+	//$('input[name=hora]').val(hora());
+	var id = $(this).data('id');
+	$.getJSON(path+'historia/movimiento/getDiagnosticos', {id}, function(json, textStatus) {
+		$('#FormHistoriaMovimientoEditarDiagnostico input[name=id]').val(json.pacdiag_id);
+		$('#FormHistoriaMovimientoEditarDiagnostico select[name=diagnostico01]').select2('val',json.codi_enf01);
+
+	});
+});
+
+$('#FormHistoriaMovimientoEditarDiagnostico').validate({
+	ignore: [],
+	rules:{
+
+		diagnostico01:{required:true}
+	},
+	submitHandler:function() {
+		enviarFormulario('#FormHistoriaMovimientoEditarDiagnostico',function(json){
+			if (json.success) {
+				$('#TableHistoriaMovimientoDiagnostico').DataTable().ajax.reload();
+			}
+			$('#ModalEditarDiagnostico').modal('hide');
+			$('#FormHistoriaMovimientoEditarDiagnostico select[name=diagnostico01]').select2('val', '');
+		})
+	}
+});
+
+$('#TableHistoriaMovimientoDiagnostico').on('click', '.anular-diagnostico', function(event) {
+	event.preventDefault();
+	var id = $(this).data('id');
+	Swal.fire({
+		title: "Confirmar",
+		type: "warning",
+		cancelButtonText:'No',
+		confirmButtonText:'Si',
+		showCancelButton: true,
+		confirmButtonColor: "#007AFF",
+		cancelButtonColor: "#d43f3a",
+		text: "¿Anular receta?"
+	}).then((result) => {
+		if (result.value) {
+			$.getJSON(path+'historia/movimiento/anularDiagnostico', {id}, function(json, textStatus) {
+				if (json.success) {
+					Swal.fire({
+						title: "Buen trabajo",
+						text: "La solicitud ha sido procesada.",
+						type: "success"
+					});
+					$('#TableHistoriaMovimientoDiagnostico').DataTable().ajax.reload();
+				}else{
+					Swal.fire({
+						title: "Error",
+						text: "Ocurrio un error, vuelva a intentarlo.",
+						type: "error"
+					});
+				}
+			});
+		}
+	});
+});
+
+
 $('#TableHistoriaMovimientoPlacas').DataTable({
 	"language": {"url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"},
 	"searching": false,
@@ -2406,6 +2513,7 @@ $('#FormRegistrarPaciente').validate({
 		fechanacimiento:{required:true},
 		sexo:{required:true},
 		email:{required:true},
+		pais:{required:true},
 		departamento:{required:true},
 	
 	},
@@ -3907,6 +4015,50 @@ var TableMantenimientoPermisos =  $('#TableMantenimientoPermisos').DataTable({
 $('#PermisosFormBusqueda').validate({
 	submitHandler:function() {
 		$('#TableMantenimientoPermisos').DataTable().ajax.reload();
+	}
+});
+
+
+
+$('#TableMantenimientoDocumento').on('click', '.editar-tipodocumento', function(event) {
+	event.preventDefault();
+	var id = $(this).data('id');
+	$.getJSON(path+'mantenimiento/tipodocumento/getTipoDocumento', {id}, function(json, textStatus) {
+		$('#FormEditarTipoDocumento input[name=id]').val(json.cod_tipodocumento);
+		$('#FormEditarTipoDocumento input[name=nombre]').val(json.descripcion);
+		$('#FormEditarTipoDocumento input[name=abreviatura]').val(json.abreviatura);
+		$('#FormEditarTipoDocumento input[name=serie]').val(json.serie);
+		$('#FormEditarTipoDocumento input[name=inicio]').val(json.inicio);
+		$('#FormEditarTipoDocumento input[name=fin]').val(json.fin);
+		$('#FormEditarTipoDocumento input[name=correlativo]').val(json.correlativo_actual);
+		$('#FormEditarTipoDocumento select[name=estado]').val(json.estado);
+	});
+});
+
+$('#FormEditarTipoDocumento').validate({
+	rules:{
+		nombre:{required:true},
+		abreviatura:{required:true},
+		serie:{required:true},
+		inicio:{required:true},
+		fin:{required:true},
+		correlativo:{required:true},
+		estado:{required:true},
+	},
+	submitHandler:function() {
+		$('#ModalEditarTipoDocumento').modal('hide');
+		enviarFormulario('#FormEditarTipoDocumento',function(json){
+			if (json.success) {
+				$('#TableMantenimientoDocumento').DataTable().ajax.reload();
+				$('#FormEditarTipoDocumento input[name=nombre]').val('');
+				$('#FormEditarTipoDocumento input[name=abreviatura]').val('');
+				$('#FormEditarTipoDocumento input[name=serie]').val('');
+				$('#FormEditarTipoDocumento input[name=inicio]').val('');
+				$('#FormEditarTipoDocumento input[name=fin]').val('');
+				$('#FormEditarTipoDocumento input[name=correlativo]').val('');
+				$('#FormEditarTipoDocumento select[name=estado]').select('val','');
+			}
+		})
 	}
 });
 

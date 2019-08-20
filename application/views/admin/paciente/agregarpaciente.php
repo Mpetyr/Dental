@@ -127,7 +127,19 @@
                   </div>
             </div>
             <div class="row">
-                  <div class="col-md-4">
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                     <label class="col-form-label">Pais: *</label>
+                    <select  name="pais" class="form-control select input-sm">
+                      <option value="">--Seleccionar--</option>
+                    <?php foreach ($pais as $pa): ?>
+                      <option value="<?= $pa->id ?>"><?= $pa->nombre ?></option>
+                    <?php endforeach ?>
+                    </select>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
                     <div class="form-group">
                      <label class="col-form-label">Departamento: *</label>
                     <select  name="departamento" class="form-control input-sm">
@@ -139,7 +151,7 @@
                     </div>
                   </div>
 
-                      <div class="col-md-4">
+                      <div class="col-md-3">
                     <div class="form-group">
                  
                     <label class="col-form-label">Provincia:</label>
@@ -149,7 +161,7 @@
                     </div>
                   </div>
 
-                     <div class="col-md-4">
+                     <div class="col-md-3">
                     <div class="form-group">
                     
                         <label class="col-form-label">Distrito:</label>

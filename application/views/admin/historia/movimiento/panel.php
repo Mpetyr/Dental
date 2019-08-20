@@ -15,15 +15,21 @@
                     <div class="col-md-2">
                       <div class="form-group">
                         <label class="control-label">Desde:</label>
+                        <div class="input-group date">
                         <input type="text" name="desde" class="form-control datepicker input-sm" value="<?= date('Y-m-d') ?>">
+                         <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                       </div>
                     </div>
+                  </div>
                     <div class="col-md-2">
                       <div class="form-group">
                         <label class="control-label">Hasta:</label>
+                        <div class="input-group date">
                         <input type="text" name="hasta" class="form-control datepicker input-sm" value="<?= date('Y-m-d') ?>">
+                         <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                       </div>
                     </div>
+                  </div>
                     <div class="col-md-4">
                       <div class="form-group">
                         <label class="control-label">Nombres Apellidos:</label>
@@ -53,14 +59,14 @@
                     <thead>
                       <tr class="btn-primary btn-xs">
           
-                        <th>Historia</th>
-                        <th>Paciente</th>
-                        <th>Edad</th>
-                        <th>DNI</th>
-                        <th>Fecha de Cita</th>
-                        <th>Hora de Cita</th>
-                        <th>Estado</th>
-                        <th>Opciones</th>
+                        <th style="text-align: center;">Historia</th>
+                        <th style="text-align: center;">Paciente</th>
+                        <th style="text-align: center;">Edad</th>
+                        <th style="text-align: center;">DNI</th>
+                        <th style="text-align: center;">Fecha de Cita</th>
+                        <th style="text-align: center;">Hora de Cita</th>
+                        <th style="text-align: center;">Estado</th>
+                        <th style="text-align: center;">Opciones</th>
                       </tr>
                     </thead>
                     <tbody>

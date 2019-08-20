@@ -5,7 +5,7 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Alergia
+     <i class="fa fa-th-list" aria-hidden="true"></i>  Alergia
     </h1>
     <ol class="breadcrumb">
       <li><a href="#"><i class="fa fa-dashboard"></i> Modulo</a></li>

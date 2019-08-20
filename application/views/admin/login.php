@@ -9,7 +9,7 @@
         <title>Dental</title>
         <meta content="with=device-width, initial-scale=1, maximun-scale=1, user-scalable=no" name="viewport">
         <!-- CSS -->
-        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
         <link rel="stylesheet" href="<?php echo base_url();?>assets/template/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="<?php echo base_url();?>assets/template/bootstrap/font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" href="<?php echo base_url();?>assets/template/bootstrap/css/form-elements.css">

@@ -105,7 +105,7 @@
               <div class="form-group">
                 <label class="control-label">Especilidad:</label>
                 <select name="especialidad" class="form-control input-sm filtrarMedicos" style="width: 100%">
-                  <option value="">Seleccione</option>
+                
                   <?php foreach ($especialidad as $e): ?>
                   <option value="<?= $e->cod_especialidad ?>"><?= $e->nombre_especialidad ?></option>
                   <?php endforeach ?>

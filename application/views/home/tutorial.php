@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Widgets</title>
+  <title>DentalSac | Tutorial</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
@@ -49,13 +49,12 @@
 
       <div class="row">
 
-                <!-- /.col -->
-        <div class="col-md-4">
+             <div class="col-md-4">
           <!-- Widget: user widget style 1 -->
           <div class="box box-widget widget-user">
             <!-- Add the bg color to the header using any of the bg-* classes -->
             <div class="widget-user-header bg-aqua-active" style="background: url('assets/img/modulos/agenda.jpg') center center;">
-              <h3 class="widget-user-username">Modulo Agenda</h3>
+            <h3 class="widget-user-username">Modulo Usuario</h3>
 
             </div>
             <div class="widget-user-image">
@@ -65,9 +64,82 @@
               <div class="row">
            
                 <!-- /.col -->
-                <div class="col-sm-4">
+                <div class="col-sm-12">
                   <span>
-                     <a target="_blank" href="https://www.youtube.com/watch?v=YMMQExFd2c0&t=11s"><i class="fa  fa-video-camera fa-lg"  aria-hidden="true"></i></a>
+
+                     <a>Click en la camara</a>
+
+                      <a style="margin-left: 190px;" target="_blank" href="https://www.youtube.com/watch?v=fq3Im2A9DMw&t=45s"><i class="fa  fa-video-camera fa-lg"  aria-hidden="true"></i></a>
+                     
+                  </span>
+                   
+
+                  <!-- /.description-block -->
+                </div>
+
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
+            </div>
+          </div>
+          <!-- /.widget-user -->
+        </div>
+
+
+                   <!-- /.col -->
+        <div class="col-md-4">
+          <!-- Widget: user widget style 1 -->
+          <div class="box box-widget widget-user">
+            <!-- Add the bg color to the header using any of the bg-* classes -->
+            <div class="widget-user-header bg-black" style="background: url('assets/img/modulos/registro.jpeg') center center;">
+              <h3 class="widget-user-username">Modulo Paciente</h3>
+            </div>
+        
+            <div class="box-footer">
+              <div class="row">
+                   <div class="col-sm-12">
+
+                      <span>
+                        <a>Click en la camara</a>
+                     <a style="margin-left: 190px;" target="_blank" href="https://www.youtube.com/watch?v=hIPnkR9HZbQ&t=36s"><i class="fa  fa-video-camera fa-lg"  aria-hidden="true"></i></a>
+
+                  <!-- /.description-block -->
+                </div>
+                <!-- /.col -->
+              
+                <!-- /.col -->
+              
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
+            </div>
+          </div>
+          <!-- /.widget-user -->
+        </div>
+
+
+
+      <!-- /.col -->
+        <div class="col-md-4">
+          <!-- Widget: user widget style 1 -->
+          <div class="box box-widget widget-user">
+            <!-- Add the bg color to the header using any of the bg-* classes -->
+            <div class="widget-user-header bg-aqua-active" style="background: url('assets/img/modulos/agenda.jpg') center center;">
+              <h3 class="widget-user-username">Modulo Medico</h3>
+
+            </div>
+            <div class="widget-user-image">
+              <img class="img-circle" src="<?= base_url() ?>assets/img/modulos/regmedico.png">
+            </div>
+            <div class="box-footer">
+              <div class="row">
+           
+                <!-- /.col -->
+                <div class="col-sm-12">
+                  <span>
+                      <span>
+                        <a>Click en la camara</a>
+                     <a style="margin-left: 190px;" target="_blank" href="https://www.youtube.com/watch?v=hIPnkR9HZbQ&t=36s"><i class="fa  fa-video-camera fa-lg"  aria-hidden="true"></i></a>
 
                   </span>
                    
@@ -83,6 +155,41 @@
           <!-- /.widget-user -->
         </div>
   
+
+
+      <!-- /.col -->
+        <div class="col-md-4">
+          <!-- Widget: user widget style 1 -->
+          <div class="box box-widget widget-user">
+            <!-- Add the bg color to the header using any of the bg-* classes -->
+            <div class="widget-user-header bg-aqua-active" style="background: url('assets/img/modulos/calendario.jpg') center center;">
+              <h3 class="widget-user-username">Modulo Citas</h3>
+
+            </div>
+          
+            <div class="box-footer">
+              <div class="row">
+           
+                <!-- /.col -->
+                <div class="col-sm-12">
+                  
+                   <span>
+                        <a>Click en la camara</a>
+                     <a style="margin-left: 190px;" target="_blank" href="https://www.youtube.com/watch?v=f6OHb99YS2A&t=57s"><i class="fa  fa-video-camera fa-lg"  aria-hidden="true"></i></a>
+
+                    </span>
+                   
+
+                  <!-- /.description-block -->
+                </div>
+
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
+            </div>
+          </div>
+          <!-- /.widget-user -->
+        </div>
         <!-- /.col -->
         <div class="col-md-4">
           <!-- Widget: user widget style 1 -->
@@ -97,11 +204,14 @@
             </div>
             <div class="box-footer">
               <div class="row">
-             <div class="col-sm-4">
-                  <span>
-                     <a target="_blank" href="https://www.youtube.com/watch?v=YMMQExFd2c0&t=11s"><i class="fa  fa-video-camera fa-lg"  aria-hidden="true"></i></a>
+             <div class="col-sm-12">
+                 
+                      <span>
+                        <a>Click en la camara</a>
+                     <a style="margin-left: 190px;" target="_blank" href="https://www.youtube.com/watch?v=Xye0TLWV81g&t=16s"><i class="fa  fa-video-camera fa-lg"  aria-hidden="true"></i></a>
 
-                  </span>
+                    </span>
+                   
                    
 
                   <!-- /.description-block -->

@@ -6,7 +6,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Agregar
+        <i class="fa fa-th-list" aria-hidden="true"></i> Agregar
       
       </h1>
       <ol class="breadcrumb">

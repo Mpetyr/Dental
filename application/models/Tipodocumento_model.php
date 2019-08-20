@@ -50,12 +50,14 @@ class Tipodocumento_model extends CI_Model
 			}	
 
 
-			$botones = '<div class="btn-footer text-center">
+
                                           
-                                                   <a href="'.base_url('mantenimiento/tipodocumento/editar/'.$q->cod_tipodocumento).'"class="btn btn-primary" style="padding:2px 5px;margin:0px 2px"> <i class="fa fa-edit"></i> </a>
+                                                $botones = '<div class="btn-footer text-center">
+		<button data-id="'.$q->cod_tipodocumento.'" class="editar-tipodocumento btn btn-primary waves-effect waves-light" 
+		data-toggle="modal" data-target="#ModalEditarTipoDocumento" style="padding:2px 5px;margin:0px 2px"><i class="fa fa-edit"></i></button>';
                                                    
                                                            
-                                                     <button data-id="'.$q->cod_tipodocumento.'" class="anular btn btn-danger" style="padding:2px 5px;margin:0px 2px" >
+                                                  $botones .=   '<button data-id="'.$q->cod_tipodocumento.'" class="anular btn btn-danger" style="padding:2px 5px;margin:0px 2px" >
                                                          <i class="glyphicon glyphicon-trash"></i> </button>';
             
 			$row[] = [$q->descripcion,$q->abreviatura,$q->serie,$q->inicio,$q->fin,$q->correlativo_actual,$estado,$botones];

@@ -5,7 +5,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        <i class="fa fa-user-md" aria-hidden="true"></i>
+         <i class="fa fa-th-list" aria-hidden="true"></i>
         Permisos del sistema
       </h1>
       <ol class="breadcrumb">
