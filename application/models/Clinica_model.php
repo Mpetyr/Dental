@@ -112,8 +112,9 @@ class Clinica_model extends CI_Model
 		return $resultados;
 	}
 
-	public function getUserRol(){
-		$this->db->select("u.*, r.nomb_rol as nombrerol");
+	public function getUserRol($usuario){
+		$this->db->select("r.codi_rol,r.nomb_rol as nombrerol");
+		$this->db->where('u.codi_usu',$usuario);
 		$this->db->from("usuario u");
 	 $this->db->join("rol r","u.codi_rol=r.codi_rol");
 		

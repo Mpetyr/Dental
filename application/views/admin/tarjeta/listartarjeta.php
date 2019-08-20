@@ -5,7 +5,7 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Tipo de Tarjeta
+      <i class="fa fa-th-list" aria-hidden="true"></i> Tipo de Tarjeta
     </h1>
     <ol class="breadcrumb">
       <li><a href="#"><i class="fa fa-dashboard"></i> Modulo</a></li>

@@ -160,7 +160,7 @@ class Registrar extends CI_Controller {
 		$config['protocol'] = 'mail'; 
     $config['mailtype'] = 'html'; 
     $this->email->initialize($config); 
-    $this->email->from('sysdentalsac@gmail.com','Sistema Dental'); 
+    $this->email->from('notificacion@dentalsac.com','Sistema Dental'); 
     $this->email->to($data['cita']->emai_pac); 
     $this->email->subject('Notificación de Clinica Dental'); 
     $this->email->message($mensaje); 

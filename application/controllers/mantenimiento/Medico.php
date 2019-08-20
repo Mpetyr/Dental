@@ -100,7 +100,7 @@ class Medico extends CI_Controller
 		$this->form_validation->set_rules("especialidad","especialidad","required");
 		$this->form_validation->set_rules("nombre","nombre","required");
 		$this->form_validation->set_rules("apellidos","apellidos","required");
-		$this->form_validation->set_rules("documento","apellidos","required");
+		//$this->form_validation->set_rules("documento","apellidos","required");
 		$this->form_validation->set_rules("dni","dni","required");
 		$this->form_validation->set_rules("colegiatura","Colegiatura","required");
 		$this->form_validation->set_rules("telefono","Telefono","required");
@@ -217,14 +217,7 @@ class Medico extends CI_Controller
 		$sexo = $this->input->post('sexo');
 		$estado = $this->input->post('estado');
 
-		$MedicoActual = $this->medico_model->getmedico_id($codi_med);
-		if($nombre == $MedicoActual->nomb_med){
-			$is_unique ="";
-
-		}else{
-			$is_unique= '|is_unique[medico.nomb_med]';
-
-		}
+	
 		$this->form_validation->set_rules("codigo","codigo","required");
 		$this->form_validation->set_rules("especialidad","especialidad","required");
 		$this->form_validation->set_rules("nombre","nombre","required");
@@ -279,7 +272,7 @@ class Medico extends CI_Controller
 				$dataUsuario['foto'] = $fileData['file_name'];
 			}
 
-			$this->modelgeneral->editRegist('usuario',['codi_usu'=>$this->input->post('usuario')]);
+			$this->modelgeneral->editRegist('usuario',['codi_usu'=>$this->input->post('usuario')],$dataUsuario);
 
 			if($this->medico_model->update($idmedico,$data)){
 				$this->session->set_flashdata('success', 'Actualizo correctamente los datos');

@@ -6,13 +6,13 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Procedimiento
-      
+        <i class="fa fa-th-list" aria-hidden="true"></i>
+      Procedimiento
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i>Modulo</a></li>
-        <li><a href="#">procedimiento</a></li>
-        <li class="active">listado</li>
+        <li><a href="#">Procedimiento</a></li>
+        <li class="active">Listado</li>
       </ol>
     </section>
     <?php if ($this->session->flashdata('success')): ?>

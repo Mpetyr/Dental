@@ -4,8 +4,9 @@
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <h1>
-                Permisos
-                <small>Editar</small>
+                     <i class="fa fa-th-list" aria-hidden="true"></i>
+                Permisos del Sistema
+
                 </h1>
             </section>
             <!-- Main content -->

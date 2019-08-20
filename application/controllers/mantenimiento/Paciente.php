@@ -61,7 +61,7 @@ class Paciente extends CI_Controller
 
 	public function add()
 	{
-
+		$data['pais'] = $this->modelgeneral->getTable('paises');
 		$data['departamentos'] = $this->modelgeneral->getTable('departamento');
 
 		$this->load->view('layouts/header');
@@ -105,6 +105,7 @@ class Paciente extends CI_Controller
 		$this->form_validation->set_rules('sexo','','requerid');
 		$this->form_validation->set_rules('estadocivil','','requerid');
 		$this->form_validation->set_rules('email','','requerid');
+		$this->form_validation->set_rules('pais','','requerid');
 		$this->form_validation->set_rules('departamento','','requerid');
 
 		$data = array(
@@ -123,6 +124,7 @@ class Paciente extends CI_Controller
 			'afil_pac' => $this->input->post('afiliado'),
 			 'aler_pac' => $this->input->post('alergia'),
 			  'emai_pac' => $this->input->post('email'),
+			  'pais_id' => $this->input->post('pais'),
 			 'departamento_id' => $this->input->post('departamento'),
 			 'provincia_id' => $this->input->post('provincia'),
 			 'distrito_id' => $this->input->post('distrito'),

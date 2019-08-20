@@ -1,7 +1,7 @@
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
    <section class="content-header">
-    <h1>Tratamientos</h1>
+    <h1><i class="fa fa-th-list" aria-hidden="true"></i> Tratamientos</h1>
       <ol class="breadcrumb">
       <li><a href="#"><i class="fa fa-dashboard"></i> Modulo</a></li>
       <li><a href="#">tratamiento</a></li>
@@ -59,7 +59,7 @@
                 <div class="col-md-4">
                   <div class="form-group">
                     <label class="control-label">Paciente</label>
-                    <select name="paciente" class="form-control input-sm">
+                    <select name="paciente" class="form-control select2 input-sm">
                       <option value="">Seleccione</option>
                       <?php foreach ($pacientes as $p): ?>
                       <option value="<?= $p->codi_pac ?>"><?= $p->apel_pac.' '.$p->nomb_pac ?></option>
@@ -164,14 +164,15 @@
         <h4 class="modal-title">PROCEDIMIENTOS</h4>
       </div>
       <div class="modal-body">
+         <div class="table-responsive">
         <table id="TableTratamientoProcedimientosModal" class="table table-bordered">
           <thead>
-            <tr >
-              <th>Código</th>
-              <th>Procedimiento</th>
-              <th width="100">Cant.</th>
-              <th>Precio</th>
-              <th width="70"></th>
+            <tr class="btn-primary">
+              <th style="text-align: center;">Código</th>
+              <th style="text-align: center;">Procedimiento</th>
+              <th style="text-align: center;" width="100">Cant.</th>
+              <th style="text-align: center;">Precio</th>
+              <th style="text-align: center;" width="70"></th>
             </tr>
           </thead>
           <tfoot>
@@ -195,6 +196,7 @@
           <?php endforeach ?>
           </tbody>
         </table>
+      </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i> Cerrar</button>

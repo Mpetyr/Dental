@@ -4,10 +4,10 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>
-        <i class="fa fa-user-md" aria-hidden="true"></i>
-        Medico
-      </h1>
+       <h1 >
+       <i class="fa fa-user-md" ></i> Medicos
+      </h1>    
+
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Modulo</a></li>
         <li><a href="#">Medicos</a></li>

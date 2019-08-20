@@ -618,22 +618,14 @@
 	
 			
 			<div style="border:1px solid #070707; padding:3px;" height="20">
-				¿Padece o a padecido alguna de las siguientes enfermedades?
+				¿Padece o a padecido alguna enfermedad?
 			</div>
 
 	
 		</div>
-		<div class="w10">
-			<div>
-			
-			<div style="border:1px solid #070707; padding:3px" height="20">
-				
-			</div>
 
-			</div>
-		</div>
 
-		<div class="w30">
+		<div class="w40">
 			<div>
 			
 			<div style="border:1px solid #070707; padding:3px" height="20">
@@ -1275,14 +1267,14 @@
 						<tr>
 							<th style="border:1px solid #070707; padding: 6px; background-color: #B5ADAD; text-align: center; width: 100px;">SIGLAS</th>
 							<th style="border:1px solid #070707; padding: 6px; background-color: #B5ADAD; text-align: center; width: 380px;">CIE10</th>
-							<th style="border:1px solid #070707; padding: 6px; background-color: #B5ADAD; text-align: center;">OBSERVACION</th>
+				
 						</tr>
 					</thead>
 					<tbody>
-						<?php foreach ($historia->alergias as $a): ?>
+						<?php foreach ($historia->pacdiagnostico as $dg): ?>
 						<tr>
-							<!-- <td style="border:1px solid #070707; padding: 6px; text-align: center; "><?= $a->pacale_observacion ?></td>
-							<td style="border:1px solid #070707; padding: 6px; text-align: center; "><?= $a->nombre_ale ?></td> -->
+							<td style="border:1px solid #070707; padding: 6px; text-align: center; "><?= $dg->codi_enf01 ?></td>
+							<td style="border:1px solid #070707; padding: 6px; text-align: center; "><?= $dg->desc_enf ?></td>
 						</tr>
 						<?php endforeach ?>
 					</tbody>

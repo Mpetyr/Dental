@@ -15,7 +15,7 @@
     <!-- Bootstrap 3.3.7 -->
           <!-- Datatbles -->
     <link rel="stylesheet" href="<?php echo base_url();?>assets/template/datatables.net-bs/css/dataTables.bootstrap.min.css">
-    <link rel="stylesheet" href="<?php echo base_url();?>assets/template/datatables-export/css/buttons.dataTables.min.css">
+    <!-- <link rel="stylesheet" href="<?php echo base_url();?>assets/template/datatables-export/css/buttons.dataTables.min.css"> -->
 
 
     <link rel="stylesheet" href="<?php echo base_url();?>assets/template/datatables/css/dataTables.bootstrap.css">
@@ -81,7 +81,7 @@
 
                          <p>
                            <span class="hidden-xs"><?= $this->session->userdata('nombre') ?></span>
-                            <small><?= $this->session->userdata('nombrerol') ?></small>
+                             <small><?= $this->session->userdata('nombrerol') ?></small>
                 </p>
                          
                         </li>
@@ -93,7 +93,7 @@
                   <a href="#" class="btn btn-default btn-flat">Perfil</a>
                 </div>
                 <div class="pull-right">
-                  <a href="<?php echo base_url(); ?>auth/logout" class="btn btn-default btn-flat">Desconectar</a> 
+                  <a href="<?php echo base_url(); ?>auth/logout" class="btn btn-default btn-flat">Cerrar Sesion</a> 
                 </div>
               </li>
                         

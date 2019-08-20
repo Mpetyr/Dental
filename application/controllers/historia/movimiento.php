@@ -70,6 +70,7 @@ class Movimiento extends CI_Controller {
 		$data['exploracion'] = $this->modelgeneral->getTableWhereRow('paciente_exploracion',['codi_pac'=>$id]);
 		$data['paises'] = $this->modelgeneral->getTable('paises');
 		$data['diagnosticos'] = $this->modelgeneral->getTableWhere('enfermedad',['esta_enf'=>'S']);
+	//	$data['pacdiagnostico'] =$this->modelgeneral->getTableWhere('paciente_diagnostico',['codi_pac'=>$id]);
 
 		$data['especialidad'] = $this->modelgeneral->getTable('especialidad');
 			$data['sedes'] = $this->modelgeneral->getTable('sede');
@@ -460,7 +461,7 @@ class Movimiento extends CI_Controller {
 		$data['pacrec_hora'] = date('H:i:s');
 		$data['pacrec_asunto'] = $this->input->post('asunto');
 		$data['pacrec_receta'] = $this->input->post('receta');
-		$data['codi_med'] = $this->session->useerdata('medico');
+		$data['codi_med'] = $this->session->userdata('medico');
 		if ($this->input->post('diagnostico01')!='') {
 			$data['codi_enf01'] = $this->input->post('diagnostico01');
 		}else{
@@ -571,6 +572,93 @@ class Movimiento extends CI_Controller {
 		$this->mpdf->writeHTML($css,1);
 		$this->mpdf->writeHTML($html,2);
 		$this->mpdf->Output('Receta','I');
+	}
+
+
+	function jsonDiagnostico()
+	{
+		$data['start'] = $this->input->get_post('start', true);
+		$data['length'] = $this->input->get_post('length', true);
+		$data['sEcho']  = $this->input->get_post('_', true);
+
+		$columns = array('pacdiag_estado','codi_enf01','diagnostico01');
+		$orderCampo = $this->input->get_post('order', true);
+		$orderCampo = $orderCampo[0]['column'];
+		$orderCampo = $columns[$orderCampo];
+		$orderDireccion = $this->input->get_post('order', true);
+		$orderDireccion = $orderDireccion[0]['dir'];
+		$data['orderCampo'] = $orderCampo;
+		$data['orderDireccion'] = $orderDireccion;
+		$data['paciente'] = $this->input->get_post('paciente');		
+		$datos = $this->historia_model->getDiagnostico($data);
+		header('content-type: application/json; charset=utf-8');
+		echo json_encode($datos);
+	}
+
+
+	public function agregarDiagnostico()
+	{
+		$data['codi_pac'] = $this->input->post('paciente');
+		$data['pacdiag_fecha'] = date('Y-m-d');
+		if ($this->input->post('diagnostico01')!='') {
+			$data['codi_enf01'] = $this->input->post('diagnostico01');
+		}else{
+			$data['codi_enf01'] = null;
+		}
+
+
+		$insert  = $this->modelgeneral->insertRegist('paciente_diagnostico',$data);
+		$resp = [];
+		if (!is_null($insert)) {
+			$resp['success'] = true;
+		}else{
+			$resp['success'] = false;
+		}
+		echo json_encode($resp);
+	}
+
+
+	function getDiagnosticos()
+	{
+		$id = $this->input->get('id');
+		$diagnostico = $this->modelgeneral->getTableWhereRow('paciente_diagnostico',['pacdiag_id'=>$id]);
+		echo json_encode($diagnostico);
+	}
+
+	function editarDiagnostico()
+	{
+	
+		if ($this->input->post('diagnostico01')!='') {
+			$data['codi_enf01'] = $this->input->post('diagnostico01');
+		}else{
+			$data['codi_enf01'] = null;
+		}
+
+
+		$where['pacdiag_id'] = $this->input->post('id');
+		$edit = $this->modelgeneral->editRegist('paciente_diagnostico',$where,$data);
+		$resp = [];
+		if ($edit) {
+			$resp['success'] = true;
+		}else{
+			$resp['success'] = false;
+		}
+		echo json_encode($resp);
+	}
+
+
+	function anularDiagnostico()
+	{
+		$data['pacdiag_estado'] = 2; //ANULAR
+		$where['pacdiag_id'] = $this->input->get('id');
+		$edit = $this->modelgeneral->editRegist('paciente_diagnostico',$where,$data);
+		$resp = [];
+		if ($edit) {
+			$resp['success'] = true;
+		}else{
+			$resp['success'] = false;
+		}
+		echo json_encode($resp);
 	}
 
 	function jsonPlacas()

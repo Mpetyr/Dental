@@ -467,8 +467,8 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-12">
-            <table id="TableHistoriaMovimientoAlergias" class="table table-bordered">
+          <div class="col-md-12 table-responsive">
+            <table id="TableHistoriaMovimientoAlergias" class="table table-bordered table-striped table-sm">
               <thead>
                 <tr class="btn-primary btn-xs">
                   <th style="text-align: center;" width="10">Secuencia</th>
