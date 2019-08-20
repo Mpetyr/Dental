@@ -2,7 +2,9 @@
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
   <section class="content-header">
-    <h1>Citas</h1>
+     <h1>
+       <i class="fa fa-calendar"></i> Citas
+      </h1>
   </section>
   <!-- Main content -->
   <section class="content">
@@ -316,7 +318,7 @@
             <div class="col-md-12">
               <div class="form-group">
                 <div class="checkbox">
-                  <label><input type="checkbox" name="notificar">Notificar correo del paciente</label>
+                  <label><input type="checkbox" checked="true" name="notificar">Notificar correo del paciente</label>
                 </div>
               </div>
             </div>

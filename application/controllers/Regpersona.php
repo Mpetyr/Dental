@@ -20,7 +20,9 @@ class Regpersona extends CI_Controller
 	public function index()
 	{
 			$data['roles'] = $this->modelgeneral->getTable('rol');
+
 			$this->load->view('admin/usuario/registrar',$data);
+
 
 	}
 
@@ -59,10 +61,10 @@ class Regpersona extends CI_Controller
 		$this->form_validation->set_rules('tipo_documento','','required');
 		$this->form_validation->set_rules('documento','','required');
 		$this->form_validation->set_rules('tipo_usuario','','required');
-		$this->form_validation->set_rules('email','Email','required|valid_email|is_unique[usuario.email]');
-		$this->form_validation->set_rules('usuario','','required|is_unique[usuario.logi_usu]');
+		$this->form_validation->set_rules('email','Email','required');
+		$this->form_validation->set_rules('usuario','','required');
 		$this->form_validation->set_rules('password','','required');
-		$this->form_validation->set_rules('passconf', '', 'required|matches[password]');
+		$this->form_validation->set_rules('passconf', '', 'required');
 		if ($this->form_validation->run() == TRUE) {
 			$data['apellido']= $this->input->post('apellidos');
 			$data['nombre']= $this->input->post('nombres');

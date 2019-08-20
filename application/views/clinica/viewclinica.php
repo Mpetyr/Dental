@@ -22,7 +22,7 @@
     <section class="content-header">
       <h1>
         <i class="fa fa-hospital-o" aria-hidden="true"></i>
-        Datos Empresa
+        Datos tu Clinica
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Modulo</a></li>

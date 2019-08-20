@@ -29,6 +29,7 @@
 
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
 </head>
 <body data-path="<?= base_url() ?>" class="hold-transition register-page">
  
@@ -46,17 +47,17 @@
       
     
       <div class="form-group">
-        <input name="apellidos" type="text" class="form-control" placeholder="Apellidos" >
+        <input name="apellidos" type="text" class="form-control" placeholder="Apellidos" required="ingrese su nombres">
         <span class="glyphicon glyphicon-hand-left form-control-feedback"></span>
       </div>
 
       <div class="form-group has-feedback">
-        <input name="nombres" type="text" class="form-control" placeholder="Nombres">
+        <input name="nombres" type="text" class="form-control" placeholder="Nombres" required="ingresar sus nombres">
         <span class="glyphicon glyphicon-hand-left form-control-feedback"></span>
       </div>
 
         <div class="form-group has-feedback">
-        <select class="form-control input-sm" name="tipo_documento" >
+        <select class="form-control input-sm" name="tipo_documento" required="" >
                                   <option value="">--Tipo Documento--</option>
                                   <option value="1">DNI</option>
                                   <option value="2">RUC</option>
@@ -68,13 +69,13 @@
       </div>
 
          <div class="form-group has-feedback">
-        <input name="documento" type="text" class="form-control" placeholder="Documento">
+        <input name="documento" type="text" class="form-control" placeholder="Documento" required="">
         <span class="glyphicon glyphicon-edit form-control-feedback"></span>
       </div>
 
 
        <div class="form-group has-feedback" visible="false">
-        <select  name="tipo_usuario" class="form-control input-sm" style="display:none" >
+        <select  name="tipo_usuario" class="form-control input-sm" style="display:none" required="">
                     
                     <?php foreach ($roles as $r): ?>
                       <option value="<?= $r->codi_rol ?>"><?= $r->nomb_rol ?> </option>
@@ -83,21 +84,21 @@
       </div>
 
       <div class="form-group has-feedback">
-        <input name="email" type="email" class="form-control" placeholder="Email">
+        <input name="email" type="email" class="form-control" placeholder="Email" required="">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
 
         <div class="form-group has-feedback">
-        <input name="usuario" type="text" class="form-control" placeholder="Usuario">
+        <input name="usuario" type="text" class="form-control" placeholder="Usuario" required="">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input name="password" type="password" class="form-control" placeholder="Password">
+        <input name="password" type="password" class="form-control" placeholder="Password"  minlength="6" required="">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
 
          <div class="form-group has-feedback">
-        <input name="passconf" type="password" class="form-control" placeholder="Retype password">
+        <input name="passconf" type="password" class="form-control" placeholder="Repita password"  minlength="6" required="">
         <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
       </div>
 
@@ -131,8 +132,14 @@
 <!-- /.register-box -->
 
 <!-- jQuery 3 -->
+
+
+
+
+
 <script src="<?php echo base_url();?>assets/template/jquery/jquery.min.js"></script>
 <script src="<?= base_url();?>assets/plugins/jquery-validate/jquery.validate.js"></script>
+
 <script src="<?= base_url();?>assets/plugins/jquery-validate/additional-methods.js"></script>
 <script src="<?= base_url();?>assets/plugins/jquery-validate/localization/messages_es.js"></script>
 <script src="<?= base_url();?>assets/plugins/jquery-form/jquery.form.js"></script>
@@ -142,8 +149,6 @@
   <script src="<?php echo base_url();?>assets/template/bootstrap/jsregistro/jquery.backstretch.min.js"></script>
    <script src="<?php echo base_url();?>assets/template/bootstrap/jsregistro/scripts.js"></script>
 
-
-<script src="<?php echo base_url();?>assets/validacion.js?>"></script>
 
 <script language="javascript">
     var base_url = '<?php echo base_url(); ?>';

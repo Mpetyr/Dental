@@ -128,6 +128,20 @@
             <li><a href="#" data-estado="malo" class="odontograma-item"><i class="fa fa-thumbs-o-down mal"></i>Mal Estado</a></li>
           </ul>
         </li>
+
+          <li class="dropdown">
+          <img src="<?= base_url() ?>assets/odontograma/images/imgariosa.png">
+          <a class="dropdown-toggle nombreHallazgo hallazgoMarcar" data-marcaclass="lesionCaries" id="dropdownLesiónCaries" data-hallazgo="4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          Caries Dental
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="dropdownLesiónCaries">
+            <li><a href="#" class="siglas odontograma-item" data-sigla="MB">MB</a></li>
+            <li><a href="#" class="siglas odontograma-item" data-sigla="CE">CE</a></li>
+            <li><a href="#" class="siglas odontograma-item" data-sigla="CD">CD</a></li>
+            <li><a href="#" class="siglas odontograma-item" data-sigla="CDP">CDP</a></li>
+          </ul>
+        </li>
         <li class="dropdown">
           <img src="<?= base_url() ?>assets/odontograma/images/CoronaDefinitivaIcono.png">
           <a class="dropdown-toggle" id="dropdownCoronaDefinitiva" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -142,6 +156,7 @@
                 <li><a href="#" data-estado="malo" class="odontograma-item"><i class="fa fa-thumbs-o-down mal"></i>Mal Estado</a></li>
               </ul>
             </li>
+
             <li class="dropdown-submenu">
               <a tabindex="-1" class="nombreHallazgo" data-hallazgo="3" data-sigla="CF"  href="#"><b>CF:</b> Corona Fenestrada</a>
               <ul class="dropdown-menu">
@@ -315,19 +330,7 @@
     </div>
     <div role="tabpanel" class="tab-pane" id="LP">
       <ul class="odontograma-navegacion">
-        <li class="dropdown">
-          <img src="<?= base_url() ?>assets/odontograma/images/imgariosa.png">
-          <a class="dropdown-toggle nombreHallazgo hallazgoMarcar" data-marcaclass="lesionCaries" id="dropdownLesiónCaries" data-hallazgo="4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-            Lesión de Caries Dental
-            <span class="caret"></span>
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="dropdownLesiónCaries">
-            <li><a href="#" class="siglas odontograma-item" data-sigla="MB">MB</a></li>
-            <li><a href="#" class="siglas odontograma-item" data-sigla="CE">CE</a></li>
-            <li><a href="#" class="siglas odontograma-item" data-sigla="CD">CD</a></li>
-            <li><a href="#" class="siglas odontograma-item" data-sigla="CDP">CDP</a></li>
-          </ul>
-        </li>
+      
         <li>
           <img src="<?= base_url() ?>assets/odontograma/images/imgmacrodoncia.png">
           <a class="dropdown-toggle nombreHallazgo odontograma-item" data-hallazgo="22">

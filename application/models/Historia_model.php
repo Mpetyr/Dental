@@ -148,6 +148,51 @@ class Historia_model extends CI_Model {
 		return $result;
 	}
 
+
+	function getDiagnostico($data)
+	{
+		$this->db->from('paciente_diagnostico');
+		$this->db->where('codi_pac',$data['paciente']);
+		$this->db->where('pacdiag_estado',1);
+		$queryLike = $this->db->get();
+
+		$this->db->from('paciente_diagnostico');
+		$this->db->select('pacdiag_id,pacdiag_fecha,codi_enf01,a.desc_enf as diagnostico01');
+		$this->db->join('enfermedad as a','paciente_diagnostico.codi_enf01 = a.codi_enf','left');
+		$this->db->where('codi_pac',$data['paciente']);
+		$this->db->where('pacdiag_estado',1);
+		if ($data['length']!=-1) {
+			$this->db->limit($data['length'],$data['start']);
+		}
+		if (isset($data['orderCampo'])) {
+			$this->db->order_by($data['orderCampo'],$data['orderDireccion']);
+		}
+		$query = $this->db->get();
+
+		$result = array();
+		$result['sEcho'] = $data['sEcho'];
+		$result['iTotalRecords'] = $queryLike->num_rows();
+		$result['iTotalDisplayRecords'] = $queryLike->num_rows();
+		
+		$row = [];
+		foreach ($query->result() as $q) {
+			$boton = '<div class="btn-footer text-center">
+			<button data-id="'.$q->pacdiag_id.'" class="editar-diagnostico btn btn-warning btn-xs" data-toggle="modal" data-target="#ModalEditarDiagnostico">Editar</button>';
+			$boton .= '<button data-id="'.$q->pacdiag_id.'" class="anular-diagnostico btn btn-danger btn-xs">Anular</button>';
+			//$siglas=$q->codi_enf01;
+			$diagnostico = $q->diagnostico01;
+
+			$row[] = [
+				$q->pacdiag_fecha,
+				$q->codi_enf01,
+				$diagnostico,
+				$boton
+			];
+		}
+		$result['aaData'] = $row;
+		return $result;
+	}
+
 	function getPlacas($data)
 	{
 		$this->db->from('paciente_placa');
@@ -215,10 +260,10 @@ class Historia_model extends CI_Model {
 		    paciente_consulta.hosptexto_paccon as respuesta4,
 		    CASE paciente_consulta.trans_paccon   WHEN 1 THEN 'Si' ELSE 'No' END as consultranstorno,
 		    paciente_consulta.transtexto_paccon as respuesta5,
-		    paciente_consulta.padece_paccon as padece,
-		    paciente_consulta.cepilla_paccon as consulcepilla,
+		    paciente_consulta.padece_paccon  as padece,
+		    CASE paciente_consulta.cepilla_paccon WHEN 1 THEN 'Si' ELSE 'No' END as consulcepilla,
 		    paciente_consulta.cepillatexto_paccon as respuesta6,
-		    paciente_consulta.presion_paccon as consulpresion,
+		    CASE paciente_consulta.presion_paccon WHEN 1 THEN 'Si' ELSE 'No' END as consulpresion,
 		    paciente_consulta.presiontexto_paccon as respuesta7,
 		    paciente_exploracion.pa_exp as exploracion,
 		    paciente_exploracion.pulso_exp as pulso,
@@ -270,6 +315,12 @@ class Historia_model extends CI_Model {
 
 		$paciente->receta = $this->db->from('paciente_receta')
 		->where('paciente_receta.pacrec_estado','1')
+		->where('codi_pac',$id)
+		->get()->result();
+
+		$paciente->pacdiagnostico = $this->db->from('paciente_diagnostico')
+		->join('enfermedad','paciente_diagnostico.codi_enf01 = enfermedad.codi_enf')
+		->where('paciente_diagnostico.pacdiag_estado','1')
 		->where('codi_pac',$id)
 		->get()->result();
 

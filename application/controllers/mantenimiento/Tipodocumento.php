@@ -12,6 +12,7 @@ class Tipodocumento extends CI_Controller
 		}
 		$this->permisos = $this->backend_lib->control();
 		$this->load->model('tipodocumento_model');
+		$this->load->model('modelgeneral');
 		# code...
 	}
 
@@ -19,6 +20,7 @@ class Tipodocumento extends CI_Controller
 	public function index()
 	{
 		$data['permisos'] =$this->permisos;
+		$data['documentos'] = $this->modelgeneral->getTable('tipo_documento');
 		$this->load->view('layouts/header');
 		$this->load->view('layouts/aside');
 		$this->load->view('admin/documento/listartipodocumento',$data);
@@ -59,7 +61,7 @@ class Tipodocumento extends CI_Controller
 
 	public function guardar()
 	{
-		$this->form_validation->set_rules('nombre','','required|is_unique[tipo_documento.descripcion]|validaDocumento');
+		$this->form_validation->set_rules('nombre','','required|trim|is_unique[tipo_documento.descripcion]');
 		$this->form_validation->set_rules('abreviatura','','requerid');
 		$this->form_validation->set_rules('serie','','requerid');
 		$this->form_validation->set_rules('inicio','','requerid');
@@ -89,40 +91,18 @@ class Tipodocumento extends CI_Controller
 		redirect(base_url().'mantenimiento/tipodocumento');
 	}
 
-	public function editar($id)
+	public function getTipoDocumento()
 	{
-		$data['documento'] = $this->tipodocumento_model->getdocumentoid($id);
-		$this->load->view('layouts/header');
-		$this->load->view('layouts/aside');
-		$this->load->view('admin/documento/actualizardocumento',$data);
-		$this->load->view('layouts/footer');
+		$id = $this->input->get('id');
+		$documento = $this->modelgeneral->getTableWhereRow('tipo_documento',['cod_tipodocumento	'=>$id]);
+		echo json_encode($documento);
     }
     
 
-	public function update()
+	public function editTipoDocumento()
 	{
-			
-		$codigo=$this->input->post('codigo');
-		$descripcion=$this->input->post('nombre');
-		$abreviatura=$this->input->post('abreviatura');
-		$serie=$this->input->post('serie');
-		$inicio=$this->input->post('inicio');
-		$fin=$this->input->post('fin');
-		$correlativo=$this->input->post('correlativo');
-		$estado=$this->input->post('estado');
-
-		$NombreActual = $this->tipodocumento_model->getdocumentoid($codigo);
-
-		if($descripcion == $NombreActual->descripcion){
-			$is_unique ="";
-
-		}else{
-			$is_unique= '|is_unique[tipo_documento.descripcion]';
-
-		}
-
-	
-		$this->form_validation->set_rules("nombre","nombre","required".$is_unique);
+		$this->form_validation->set_rules('id', '', 'required');
+		$this->form_validation->set_rules("nombre","nombre","required");
 		$this->form_validation->set_rules("abreviatura","abreviatura","required");
 		$this->form_validation->set_rules("serie","serie","required");
 		$this->form_validation->set_rules("inicio","inicio","required");
@@ -130,33 +110,24 @@ class Tipodocumento extends CI_Controller
 		$this->form_validation->set_rules("correlativo","correlativo","required");
 		$this->form_validation->set_rules("estado","estado","required");
 
-		if($this->form_validation->run()==true){
-			$data  = array(
-				'cod_tipodocumento' =>$codigo,
-				'descripcion'=>$descripcion,
-				'abreviatura'=>$abreviatura,
-				'serie'=>$serie,
-				'inicio'=>$inicio,
-				'fin'=>$fin,
-				'correlativo_actual'=>$correlativo,
-				'estado'=>$estado
-				);
+		if ($this->form_validation->run() == TRUE){
+			$data['descripcion'] = $this->input->post('nombre');
+			$data['abreviatura'] = $this->input->post('abreviatura');
+			$data['serie'] = $this->input->post('serie');
+			$data['inicio'] = $this->input->post('inicio');
+			$data['fin'] = $this->input->post('fin');
+			$data['estado']= $this->input->post('estado');
+			$data['correlativo_actual'] = $this->input->post('correlativo');
+			$where['cod_tipodocumento'] = $this->input->post('id');
+			$edit  = $this->modelgeneral->editRegist('tipo_documento',$where,$data);
 
-				
-		if($this->tipodocumento_model->update($codigo,$data)){
-				$this->session->set_flashdata('success', 'Te has registrado correctamente en nuestro sistema.<br>Hemos enviado un código de verificación a ');
-			redirect(base_url().'mantenimiento/tipodocumento');
-		//	var_dump($data);
-			
-		}
-		else{
-		
-				redirect(base_url().'mantenimiento/tipodocumento/editar'.$codigo);
-
-		}
-		}
-		else{
-			$this->editar($codigo);
+			$resp = [];
+			if ($edit){
+				$resp['success'] = true;
+			}else{
+				$resp['success'] = false;
+			}
+			echo json_encode($resp);
 		}
 
 	}

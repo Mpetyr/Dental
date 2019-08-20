@@ -20,15 +20,21 @@
                    
                   <div class="form-group">
                     <label class="control-label">Desde</label>
+                    <div class="input-group date">
                     <input  name="desde" class="form-control input-sm datepicker text-box single-line" value="<?= date('Y-m-d') ?>">
+                     <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                   </div>
+                </div>
                 </div>
                 <div class="col-md-2">
                   <div class="form-group">
                     <label class="control-label">Hasta</label>
+                     <div class="input-group date">
                     <input  name="hasta" class="form-control input-sm datepicker text-box single-line" value="<?= date('Y-m-d') ?>">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                   </div>
                 </div>
+              </div>
                 <div class="col-md-2">
                   <div class="form-group">
                     <label class="control-label">Estado</label>
@@ -49,11 +55,10 @@
 
                 </div>
 
-              </div>
-
             </form>
           </div>
         </div>
+      </div>
             <div class="row">
               <div class="col-md-12">
                 <div class="form-group">

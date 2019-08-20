@@ -65,9 +65,7 @@
            <div class="box box-primary collapsed-box">
              <div class="box-header with-border">
                  <div class="nav-tabs-custom">
-                  <? php  echo  validation_errors ();  ?>
 
-<? php  echo  form_open ( 'form' );  ?>
            <!-- /.tab-pane -->
                    <div class="row">
                   <div class="col-md-6">

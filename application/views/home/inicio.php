@@ -129,11 +129,7 @@
                   </div>
                   <!-- /.user-block -->
                   <p>
-                    Lorem ipsum represents a long-held tradition for designers,
-                    typographers and the like. Some people hate it and argue for
-                    its demise, but others ignore the hate as they create awesome
-                    tools to help create filler text for everyone from bacon lovers
-                    to Charlie Sheen fans.
+                    Bienvenido al sistema odontologico Dentalsac  desarrollado para clínicas y consultorios odontológicos con el objetivo de sistematizar sus procesos en registro de citas,pagos de tratamientos, historia clínica y odontograma virtual.
                   </p>
                <!--    <ul class="list-inline">
                     <li><a href="#" class="link-black text-sm"><i class="fa fa-share margin-r-5"></i> Share</a></li>
@@ -153,18 +149,19 @@
                   <div class="user-block">
                     <img class="img-circle img-bordered-sm" src="<?= base_url() ?>assets/img/analista.jpg" alt="User Image">
                         <span class="username">
-                          <a href="#">Manual del Sistema Odontologico</a>
+                          <a href="#">Buscar agenda de citas  </a> <small class="label bg-yellow">nuevo</small>
+
+              
+    
                          
                         </span>
+
+
                     <span class="description">Sent you a message - 3 days ago</span>
                   </div>
                   <!-- /.user-block -->
                   <p>
-                    Lorem ipsum represents a long-held tradition for designers,
-                    typographers and the like. Some people hate it and argue for
-                    its demise, but others ignore the hate as they create awesome
-                    tools to help create filler text for everyone from bacon lovers
-                    to Charlie Sheen fans.
+                    Aqui dejamos el manual de como registrar  y buscar tu agenda de citas odontologicas por especialidades de manera muy rapida.
                   </p>
 
                    <form class="form-horizontal">

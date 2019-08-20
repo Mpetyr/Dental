@@ -2,7 +2,10 @@
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
   <section class="content-header">
-    <h1>Comprobantes</h1>
+    <h1>
+        <i class="fa fa-th-list" aria-hidden="true"></i>
+        Comprobantes
+      </h1>
   </section>
   <!-- Main content -->
   <section class="content">
@@ -18,15 +21,21 @@
                 <div class="col-md-2">
                   <div class="form-group">
                     <label class="control-label">Desde:</label>
+                    <div class="input-group date">
                     <input type="text" name="desde" class="form-control input-sm datepicker" value="<?= date('Y-m-d') ?>">
+                     <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                   </div>
                 </div>
+              </div>
                 <div class="col-md-2">
                   <div class="form-group">
                     <label class="control-label">Hasta:</label>
+                    <div class="input-group date">
                     <input type="text" name="hasta" class="form-control input-sm datepicker" value="<?= date('Y-m-d') ?>">
+                     <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                   </div>
                 </div>
+              </div>
                 <div class="col-md-3">
                   <div class="form-group">
                     <label class="control-label">Busqueda por Paciente:</label>
@@ -70,7 +79,7 @@
                         <th style="background-color: #3c8dbc; color: white; text-align: center;">Total</th>
                         <th style="background-color: #3c8dbc; color: white; text-align: center;">Estado</th>
                         <th style="background-color: #3c8dbc; color: white; text-align: center;">Tratamiento</th>
-                        <th style="background-color: #3c8dbc; color: white; text-align: center;"></th>
+                        <th style="background-color: #3c8dbc; color: white; text-align: center;">Opciones</th>
                       </tr>
                     </thead>
       
