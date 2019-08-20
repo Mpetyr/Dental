@@ -44,6 +44,7 @@ class Auth extends CI_Controller
 			'codi_usu' => $res->codi_usu,
 			'apellido' => $res->apellido,
 			'nombre' => $res->nombre,
+			'rol'=> $res->codi_rol,
 			'nombrerol' => $roles->nombrerol,
 			'tipo_documento' => $res->tipo_documento,
 			'logi_usu' =>$res->logi_usu,
@@ -54,14 +55,21 @@ class Auth extends CI_Controller
 			'telefono' =>$logo->telf_clin,
 			'plan' => $plan->planes,
 			'email' => $logo->email_clin,
+			'rol' => $res->codi_rol,
+			'medico' => $res->codi_med,
 			'login' => TRUE
 			 );
 			$this->session->set_userdata($data);
+			$mensaje = $this->modelgeneral->getTableWhereRow('mensaje',['id'=>1,'activo'=>'s']);
+			if (!is_null($mensaje)) {
+				$this->session->set_flashdata('titulo',$mensaje->titulo);
+				$this->session->set_flashdata('contenido',$mensaje->contenido);
+			}
 			redirect(base_url()."dashboard");
 		}
 	}
 
-		public function logout(){
+	public function logout(){
 		$this->session->sess_destroy();
 		redirect(base_url());
 	}

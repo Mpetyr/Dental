@@ -83,3 +83,62 @@
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
+<div id="ModalEditarPlaca" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-md" role="document">
+    <div class="modal-content ">
+      <form id="FormHistoriaMovimientoEditarPlaca" action="<?= base_url('historia/movimiento/editarPlaca') ?>" method="post" autocomplete="off">
+        <input type="hidden" name="id">
+        <input type="hidden" name="archivo">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Editar Placa</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <span class="btn btn-success fileinput-button">
+                  <i class="glyphicon glyphicon-plus"></i>
+                  <span>Buscar Archivo...</span>
+                  <input id="SubirPlacaEditar" type="file" name="placaArchivo">
+                </span>
+                <div class="row">
+                  <div class="col-md-12">
+                    <span class='text-danger'>Subir archivo solo si va a cambiar la imagen.</span>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div id="progressEditar" class="progress">
+                        <div class="progress-bar progress-bar-success"></div>
+                    </div>
+                  </div>
+                </div>
+                <div id="filesEditar">
+                  <img src="" >
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="control-label">Nombre de la Placa</label>
+                <input type="text" name="nombre" class="form-control input-sm">
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="control-label">Notas</label>
+                <textarea name="notas" class="form-control input-sm" rows="5"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Cancelar</button>
+          <button type="submit" class="btn btn-info"><i class="fa fa-save"></i> Guardar</button>
+        </div>
+      </form>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+

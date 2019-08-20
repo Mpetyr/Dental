@@ -18,8 +18,8 @@
      
     <!-- Main content -->
     <section class="content">
-       <form id="FormRegistrar" action="<?php echo base_url();?>mantenimiento/medico/update" method="POST" autocomplete="OFF">
- 
+       <form id="FormRegistrar" action="<?php echo base_url();?>mantenimiento/medico/update" method="POST" autocomplete="OFF" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="usuario" value="<?= $medicos->codi_usu ?>">
       <div class="row">
         <div class="col-md-3">
 
@@ -136,7 +136,7 @@
                   <div class="col-md-4">
                     <div class="form-group">
                      <label class="control-label">Colegiatura *</label>
-                       <input type="text" name="colegiatura"  class="form-control input-sm" value="<?php echo !empty(form_error('colegiatura')) ? set_value('colegiatura'):$medicos->coleg_med?>" maxlength="5" minlength="5" onKeyPress="if (event.keyCode < 48 || event.keyCode > 57)event.returnValue = false;" >
+                       <input type="text" name="colegiatura"  class="form-control input-sm" value="<?php echo !empty(form_error('colegiatura')) ? set_value('colegiatura'):$medicos->coleg_med?>" maxlength="9" minlength="4" onKeyPress="if (event.keyCode < 48 || event.keyCode > 57)event.returnValue = false;" >
                     </div>
                   </div>
                   <div class="col-md-4">
@@ -190,16 +190,44 @@
             </div>
              
              <div class="row">
-                  <div class="col-md-12">
-                    <div class="form-group">
-                      <label class="col-form-label">Correo *</label>
-                      <div class="input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-  <input name="email"  class="form-control input-sm"  type="text" value="<?php echo !empty(form_error('email')) ? set_value('celular'):$medicos->emai_med?>">
-    </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="col-form-label">Correo *</label>
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                      <input name="email"  class="form-control input-sm"  type="text" value="<?php echo !empty(form_error('email')) ? set_value('celular'):$medicos->emai_med?>">
                     </div>
                   </div>
+                </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="control-label">Foto</label>
+                  <input type="file" name="foto">
+                  <br>
+                  <img src="<?= base_url('assets/uploads/usuarios/'.$usuario->foto) ?>" width="100">
+                </div>
               </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="control-label">Usuario</label>
+                  <input type="text" name="usuarioMedico" class="form-control" value="<?= $usuario->logi_usu ?>">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="control-label">Password</label>
+                  <input type="password" name="passwordMedico" class="form-control" disabled>
+                  <label for="cambiarPasswordMedico">
+                    <input type="checkbox" id="cambiarPasswordMedico">
+                    Cambiar Password
+                  </label>
+                </div>
+              </div>
+            </div>
+            
 
                <div class="row">
                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 left">
@@ -225,6 +253,16 @@
   </div>
 
 <script>
+    $(function(){
+      $('#cambiarPasswordMedico').click(function(event) {
+  
+        if ($(this).is(":checked")) {
+          $('#FormRegistrar input[name=passwordMedico]').prop('disabled', false);
+        }else{
+          $('#FormRegistrar input[name=passwordMedico]').prop('disabled', true);
+        }
+      });
+    })
     function soloLetras(e){
        key = e.keyCode || e.which;
        tecla = String.fromCharCode(key).toLowerCase();

@@ -46,9 +46,9 @@
               <div class="col-md-3">
                 <div class="text-center">
                   <?php if (!is_null($paciente->foto_paciente)): ?>
-                  <img src="<?= base_url('assets/uploads/pacientes/'.$paciente->foto_paciente) ?>" alt="<?= $paciente->nomb_paciente.' '.$paciente->apel_pac ?>" class="img img-responsive">
+                  <img src="<?= base_url('assets/uploads/pacientes/'.$paciente->foto_paciente) ?>" alt="<?= $paciente->nomb_paciente.' '.$paciente->apel_pac ?>" class="img img-responsive" style="max-width: 200px; padding-left: 80px">
                   <?php else: ?>
-                  <img class="profile-user-img img-responsive img-circle" src="<?= base_url() ?>assets/img/Odontologo.jpg" alt="User profile picture" class="img img-responsive">
+                  <img class="profile-user-img img-responsive img-circle" src="<?= base_url() ?>assets/img/usuario_inicio.png" alt="User profile picture" class="img img-responsive" style="max-width: 100px">
                   <?php endif ?>
                   
                   <h4>H.C: <?= $paciente->codi_pac ?></h4>

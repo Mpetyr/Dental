@@ -3,19 +3,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Usuario extends CI_Controller
 {
+	private $permisos;
 	public function __construct()
 	{
 		parent::__construct();
 		 if(!$this->session->userdata("login")){
             redirect(base_url());
         }
+        $this->permisos = $this->backend_lib->control();
 		$this->load->model(array("user_model","Roles_model","modelgeneral"));
 		# code...
 	}
 
 	
 	public function index()
-	{
+	{	
+		$data['permisos'] =$this->permisos;
 		$data =  array('user' => $this->user_model->getUser(),
 					'rol'=>$this->modelgeneral->getTable('rol'),
 					'usuario'=> $this->modelgeneral->getTable('usuario'),

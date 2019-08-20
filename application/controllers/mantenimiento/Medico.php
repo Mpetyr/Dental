@@ -6,7 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  */
 class Medico extends CI_Controller
 {
-	
+	private $permisos;
 	public function __construct()
 	{
 		parent::__construct();
@@ -14,13 +14,16 @@ class Medico extends CI_Controller
 			redirect(base_url());
 		}
 		$this->load->model('medico_model');
+		$this->load->model('modelgeneral');
 		$this->load->library('form_validation');
+		$this->permisos = $this->backend_lib->control();
 	}
 
 	public function index()
 	{
 		
-			$data['especialidades'] = $this->modelgeneral->getTable('especialidad');
+		$data['especialidades'] = $this->modelgeneral->getTable('especialidad');
+		$data['permisos'] =$this->permisos;
 		$this->load->view('layouts/header');
 		$this->load->view('layouts/aside');
 		$this->load->view('admin/medico/listar',$data);
@@ -97,7 +100,8 @@ class Medico extends CI_Controller
 		$this->form_validation->set_rules("especialidad","especialidad","required");
 		$this->form_validation->set_rules("nombre","nombre","required");
 		$this->form_validation->set_rules("apellidos","apellidos","required");
-		$this->form_validation->set_rules("dni","Dni","trim | required | min_length [5] | max_length [12]");
+		$this->form_validation->set_rules("documento","apellidos","required");
+		$this->form_validation->set_rules("dni","dni","required");
 		$this->form_validation->set_rules("colegiatura","Colegiatura","required");
 		$this->form_validation->set_rules("telefono","Telefono","required");
 		$this->form_validation->set_rules("direccion","Direccion","required");
@@ -117,7 +121,7 @@ class Medico extends CI_Controller
 		$email = $this->input->post('email');
 		$fechanacimiento = $this->input->post('fechanacimiento');
 		$sexo = $this->input->post('sexo');
-		//$estado = $this->input->post('estado');
+		$estado = $this->input->post('estado');
 
 		
 		//$this->form_validation->set_rules("estado","Estado","required");
@@ -137,11 +141,37 @@ class Medico extends CI_Controller
 				'fena_med' =>$fechanacimiento,
 				'sexo_med' =>$sexo,
 				'fecha_registro' =>$fecharegistro,
-				'esta_med' => S
+				'esta_med' => $estado
 			);
+			$dataUsuario['apellido'] = $apellidos;
+			$dataUsuario['nombre'] = $nombre;
+			$dataUsuario['telefono'] = $telefono;
+			$dataUsuario['direccion'] = $direccion;
+			$dataUsuario['email'] = $email;
+			$dataUsuario['tipo_documento'] = $this->input->post('tipoDocumento');
+			$dataUsuario['documento'] = $dni;
+			$dataUsuario['codi_rol'] = 1;
+			$dataUsuario['logi_usu'] = $this->input->post('usuarioMedico');
+			$dataUsuario['pass_usu'] = sha1($this->input->post('passwordMedico'));
+			$dataUsuario['fecha_registro'] = date('Y-m-d H:i:s');
+			$dataUsuario['esta_usu'] = 1;
+
+			$config['upload_path'] = 'assets/uploads/usuarios/';
+			$config['allowed_types'] = 'png|jpg|jpeg';
+			$config['max_size'] = '40000';
+			$config['max_width'] = '40000';
+			$config['max_height'] = '40000';
+			$this->upload->initialize($config);
+			if ($this->upload->do_upload('foto')) {
+				$fileData = $this->upload->data();
+				$dataUsuario['foto'] = $fileData['file_name'];
+			}
+
+			$data['codi_usu'] = $this->modelgeneral->insertRegist('usuario',$dataUsuario);
+
 			if($this->medico_model->guardarmedico($data)){
 				$this->session->set_flashdata('success', 'Te has registrado correctamente en nuestro sistema.<br>Hemos enviado un código de verificación a ');
-			redirect(base_url().'mantenimiento/medico');
+				redirect(base_url().'mantenimiento/medico');
 		}
 		else
 		{
@@ -161,6 +191,7 @@ class Medico extends CI_Controller
 	public function editar($id)
 	{
 		$data['medicos'] = $this->medico_model->getmedico_id($id);
+		$data['usuario'] = $this->modelgeneral->getTableWhereRow('usuario',['codi_usu'=>$data['medicos']->codi_usu]);
 		$data['especialidades'] = $this->modelgeneral->getTable('especialidad');	
 		$this->load->view('layouts/header');
 		$this->load->view('layouts/aside');
@@ -224,6 +255,32 @@ class Medico extends CI_Controller
 				'fecha_registro' =>$fecharegistro,
 				'esta_med' => $estado
 			);
+
+			$dataUsuario['apellido'] = $apellidos;
+			$dataUsuario['nombre'] = $nombre;
+			$dataUsuario['telefono'] = $telefono;
+			$dataUsuario['direccion'] = $direccion;
+			$dataUsuario['email'] = $email;
+			$dataUsuario['tipo_documento'] = $this->input->post('tipoDocumento');
+			$dataUsuario['documento'] = $dni;
+			$dataUsuario['logi_usu'] = $this->input->post('usuarioMedico');
+			if (isset($_POST['passwordMedico'])) {
+				$dataUsuario['pass_usu'] = sha1($this->input->post('passwordMedico'));
+			}
+
+			$config['upload_path'] = 'assets/uploads/usuarios/';
+			$config['allowed_types'] = 'png|jpg|jpeg';
+			$config['max_size'] = '40000';
+			$config['max_width'] = '40000';
+			$config['max_height'] = '40000';
+			$this->upload->initialize($config);
+			if ($this->upload->do_upload('foto')) {
+				$fileData = $this->upload->data();
+				$dataUsuario['foto'] = $fileData['file_name'];
+			}
+
+			$this->modelgeneral->editRegist('usuario',['codi_usu'=>$this->input->post('usuario')]);
+
 			if($this->medico_model->update($idmedico,$data)){
 				$this->session->set_flashdata('success', 'Actualizo correctamente los datos');
 			redirect(base_url().'mantenimiento/medico');

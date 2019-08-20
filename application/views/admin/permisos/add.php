@@ -25,8 +25,8 @@
                             <?php endif;?>
                                 <form action="<?php echo base_url();?>administrador/permisos/store" method="POST">
                                      <div class="form-group">
-                                        <label >Roles:</label>
-                                        <select name="rol"  class="form-control">
+                                        <label >Cargo:</label>
+                                        <select name="rol"  class="form-control select2">
                                        <?php foreach ($roles as $rol): ?>
                       <option value="<?= $rol->codi_rol ?>"><?= $rol->nomb_rol ?></option>
                     <?php endforeach ?>
@@ -34,10 +34,10 @@
                                         </select>
                                     
                                     </DIV>
-
+                                 
                                     <DIV class="form-group">
-                                        <label for="menu">Menu:</label>
-                                        <select name="menu"  class="form-control">
+                                        <label for="menu">Modulo:</label>
+                                        <select name="menu"  class="form-control select2">
                                           <?php foreach ($menus as  $menu):?> 
                                     <option value="<?php echo $menu->id_menu;?>">
                                     <?php echo $menu->nombre;?></option>

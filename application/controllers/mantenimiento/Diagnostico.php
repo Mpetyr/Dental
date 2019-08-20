@@ -3,12 +3,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Diagnostico extends CI_Controller
 {
-		public function __construct()
+	private $permisos;
+	public function __construct()
+	
 	{
 		parent::__construct();
-		// if($this->session->userdata('login')){
-		// 	redirect(base_url());
-		// }
+		if(!$this->session->userdata("login")){
+			redirect(base_url());
+		}
+		$this->permisos = $this->backend_lib->control();
 
 		$this->load->model('diagnostico_model');
 		# code...
@@ -16,10 +19,10 @@ class Diagnostico extends CI_Controller
 
 	public function index()
 	{
-
+		$data['permisos'] =$this->permisos;
 		$this->load->view('layouts/header');
 		$this->load->view('layouts/aside');
-		$this->load->view('admin/diagnostico/listardiagnostico');
+		$this->load->view('admin/diagnostico/listardiagnostico',$data);
 		$this->load->view('layouts/footer');
 
 

@@ -18,7 +18,7 @@
      
     <!-- Main content -->
     <section class="content">
-       <form id='FormRegistrar' action="<?= base_url('mantenimiento/medico/guardar')?>" method="POST" autocomplete="OFF">
+       <form id='FormRegistrar' action="<?= base_url('mantenimiento/medico/guardar')?>" method="POST" autocomplete="OFF" enctype="multipart/form-data">
  
       <div class="row">
         <div class="col-md-3">
@@ -98,6 +98,20 @@
                   </div>
                   <div class="col-md-4">
                     <div class="form-group">
+                      <label>Tipo Documento (*):</label>
+                        <select  name="tipoDocumento" class="form-control">
+                          <option value="1">DNI</option>
+                          <option value="2">RUC</option>
+                          <option value="3">PASAPORTE</option>
+                          <option value="4">NIC</option>
+                          <option value="5">CEDULA</option>
+
+
+                        </select>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
                       <label class="col-form-label">Nro Doc: *</label>
                       <input type="text"  name="dni"  class="form-control input-sm" placeholder="Documento" maxlength="8" minlength="8" onKeyPress="if (event.keyCode < 48 || event.keyCode > 57)event.returnValue = false;">
                     </div>
@@ -123,7 +137,7 @@
                   <div class="col-md-4">
                     <div class="form-group">
                      <label class="control-label">Colegiatura: *</label>
-                       <input type="text" name="colegiatura"  class="form-control input-sm" placeholder="Colegiatura" maxlength="5" minlength="5" onKeyPress="if (event.keyCode < 48 || event.keyCode > 57)event.returnValue = false;">
+                       <input type="text" name="colegiatura"  class="form-control input-sm" placeholder="Colegiatura" maxlength="9" minlength="4" onKeyPress="if (event.keyCode < 48 || event.keyCode > 57)event.returnValue = false;">
                     </div>
                   </div>
                   <div class="col-md-4">
@@ -165,7 +179,7 @@
                   <div class="col-md-4">
                     <div class="form-group">
                      <label class="control-label">Estado: *</label>
-                      <select class="form-control input-sm" required="" name="esta_med" >
+                      <select class="form-control input-sm" required="" name="estado" >
                                   <option value="S">Activado</option>
                                   <option value="N">Inactivo</option>
    
@@ -175,17 +189,37 @@
                  
             </div>
              
-             <div class="row">
-                  <div class="col-md-12">
-                    <div class="form-group">
-                      <label class="col-form-label">Correo: *</label>
-                      <div class="input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-  <input name="email" placeholder="E-Mail Address" class="form-control input-sm"  type="email">
-    </div>
-                    </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label class="col-form-label">Correo: *</label>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                    <input name="email" placeholder="E-Mail Address" class="form-control input-sm"  type="email">
                   </div>
+                </div>
               </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="control-label">Foto</label>
+                  <input type="file" name="foto">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="control-label">Usuario</label>
+                  <input type="text" name="usuarioMedico" class="form-control">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="control-label">Password</label>
+                  <input type="password" name="passwordMedico" class="form-control">
+                </div>
+              </div>
+            </div>
 
                <div class="row">
                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 left">

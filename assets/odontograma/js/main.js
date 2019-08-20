@@ -925,7 +925,13 @@ $('#FormHistoriaMovimientoAgregarHallazgo').validate({
 				pintarHallazgos(resp.data);
 				$('body').css('padding-right:0');
 				$('#FormHistoriaMovimientoAgregarHallazgo textarea[name=especificaciones]').val('');
-				$('#BotonSeleccion').trigger('click');
+				//$('#BotonSeleccion').trigger('click');
+				if ($('#odontograma-contenido').hasClass('fin')) {
+
+					$('#odontograma-contenido').removeClass('fin');
+					$('#odontograma-contenido').addClass('inicio');
+					$('.cursor').removeClass('inicioSelec');
+				}
 				setTimeout(function() {
 					guardarImagenOdontograma();
 				}, 1000);
@@ -1013,6 +1019,8 @@ function pintarHallazgos(val){
 		piezaSupernumeraria(val['id'],val['inicio'])
 	if (val['id_hal'] == 13)
 		edentuloTotal(val['id'],val['inicio'],val['fin'])
+	if (val['id_hal'] == 30)
+		espigoMunon(val['id'],val['inicio'],val['estado'])
 	if (val['id_hal'] == 8)
 		fosasFisurasProfundas(val['id'],val['inicio'])
 	if (val['id_hal'] == 7)
@@ -1069,7 +1077,7 @@ function pintarHallazgos(val){
 =            PINTAR CADA HALLAZGO            =
 ============================================*/
 function sellantes($id,$inicio,$diente,$marcas,$sigla){
-	var sigla = `<span class="hallazgo-${$id}">${$sigla},<span>`;
+	var sigla = `<span class="hallazgo-${$id}">${$sigla},</span>`;
 	$('.recuadro-'+$inicio).append(sigla);
 	$.each(jQuery.parseJSON($marcas), function(index, val) {
 		if (piezas[$diente]['OclusalStatus']) {
@@ -1084,7 +1092,7 @@ function sellantes($id,$inicio,$diente,$marcas,$sigla){
 }
 
 function restauracionDefinitiva($id,$inicio,$diente,$marcas,$sigla){
-	var sigla = `<span class="malo hallazgo-${$id}">${$sigla},<span>`;
+	var sigla = `<span class="malo hallazgo-${$id}">${$sigla},</span>`;
 	$('.recuadro-'+$inicio).append(sigla);
 	$.each(jQuery.parseJSON($marcas), function(index, val) {
 		if (piezas[$diente]['OclusalStatus']) {
@@ -1112,7 +1120,7 @@ function restauracionTemporal($id,$inicio,$diente,$marcas){
 }
 
 function lesionCaries($id,$inicio,$sigla,$diente,$marcas){
-	var sigla = `<span class="malo hallazgo-${$id}">${$sigla},<span>`;
+	var sigla = `<span class="malo hallazgo-${$id}">${$sigla},</span>`;
 	$('.recuadro-'+$inicio).append(sigla);
 	$.each(jQuery.parseJSON($marcas), function(index, val) {
 		if (piezas[$diente]['OclusalStatus']) {
@@ -1133,7 +1141,7 @@ function tratamientoPulpar($id,$inicio,$estado,$sigla){
 		var hallazgo = `<div class="hallazgos hallazgo-${$id} tratamientoPulparPP ${$estado} tratamientoPulparPP-${$inicio}"></div>`;
 	}
 	$('#odontograma-contenido').append(hallazgo);
-	var sigla = `<span class="${$estado} hallazgo-${$id}">${$sigla},<span>`;
+	var sigla = `<span class="${$estado} hallazgo-${$id}">${$sigla},</span>`;
 	$('.recuadro-'+$inicio).append(sigla);
 }
 
@@ -1143,12 +1151,12 @@ function transposicion($id,$inicio,){
 }
 
 function superficieDesgastada($id,$inicio){
-	var sigla = `<span class="malo hallazgo-${$id}">DES,<span>`;
+	var sigla = `<span class="malo hallazgo-${$id}">DES,</span>`;
 	$('.recuadro-'+$inicio).append(sigla);
 }
 
 function remanenteRadicular($id,$inicio){
-	var sigla = `<span class="malo hallazgo-${$id}">RR,<span>`;
+	var sigla = `<span class="malo hallazgo-${$id}">RR,</span>`;
 	$('.recuadro-'+$inicio).append(sigla);
 }
 
@@ -1185,32 +1193,32 @@ function protesisFija($id,$inicio,$fin,$estado){
 }
 
 function posicionDentaria($id,$inicio,$sigla){
-	var sigla = `<span class="bueno hallazgo-${$id}">${$sigla},<span>`;
+	var sigla = `<span class="bueno hallazgo-${$id}">${$sigla},</span>`;
 	$('.recuadro-'+$inicio).append(sigla);
 }
 
 function movilidadPatologica($id,$inicio,$sigla){
-	var sigla = `<span class="malo hallazgo-${$id}">${$sigla},<span>`;
+	var sigla = `<span class="malo hallazgo-${$id}">${$sigla},</span>`;
 	$('.recuadro-'+$inicio).append(sigla);
 }
 
 function microdoncia($id,$inicio){
-	var sigla = `<span class="bueno hallazgo-${$id}">MIC,<span>`;
+	var sigla = `<span class="bueno hallazgo-${$id}">MIC,</span>`;
 	$('.recuadro-'+$inicio).append(sigla);
 }
 
 function macrodoncia($id,$inicio){
-	var sigla = `<span class="bueno hallazgo-${$id}">MAC,<span>`;
+	var sigla = `<span class="bueno hallazgo-${$id}">MAC,</span>`;
 	$('.recuadro-'+$inicio).append(sigla);
 }
 
 function implanteDental($id,$inicio,$estado){
-	var sigla = `<span class="${ $estado } hallazgo-${$id}">IMP,<span>`;
+	var sigla = `<span class="${ $estado } hallazgo-${$id}">IMP,</span>`;
 	$('.recuadro-'+$inicio).append(sigla);
 }
 
 function impactacion($id,$inicio){
-	var sigla = `<span class="bueno hallazgo-${$id}">I,<span>`;
+	var sigla = `<span class="bueno hallazgo-${$id}">I,</span>`;
 	$('.recuadro-'+$inicio).append(sigla);
 }
 
@@ -1243,7 +1251,7 @@ function fractura($id,$inicio,$categoria){
 }
 
 function fosasFisurasProfundas($id,$inicio){
-	var sigla = `<span class="bueno hallazgo-${$id}">FFP,<span>`;
+	var sigla = `<span class="bueno hallazgo-${$id}">FFP,</span>`;
 	$('.recuadro-'+$inicio).append(sigla);
 }
 
@@ -1287,7 +1295,7 @@ function piezaClavija($id,$inicio){
 }
 
 function piezaEctopica($id,$inicio,$sigla){
-	var sigla = `<span class="hallazgo-${$id}">${$sigla},<span>`;
+	var sigla = `<span class="hallazgo-${$id}">${$sigla},</span>`;
 	$('.recuadro-'+$inicio).append(sigla);
 }
 
@@ -1302,7 +1310,7 @@ function diastema($id,$inicio){
 }
 
 function defectosDesarrolloEsmalte($id,$inicio,$estado,$sigla){
-	var sigla = `<span class="${$estado} hallazgo-${$id}">${$sigla},<span>`;
+	var sigla = `<span class="${$estado} hallazgo-${$id}">${$sigla},</span>`;
 	$('.recuadro-'+$inicio).append(sigla);
 }
 
@@ -1332,7 +1340,7 @@ function aparatoOrtoRemovible($id,$inicio,$fin,$estado){
 function corona($id,$inicio,$estado,$sigla){
 	var hallazgo = `<div class="hallazgos hallazgo-${$id} corona ${$estado} corona-${$inicio}"></div>`;
 	$('#odontograma-contenido').append(hallazgo);
-	var sigla = `<span class="${$estado} hallazgo-${$id}">${$sigla},<span>`;
+	var sigla = `<span class="${$estado} hallazgo-${$id}">${$sigla},</span>`;
 	$('.recuadro-'+$inicio).append(sigla);
 }
 
@@ -1340,7 +1348,7 @@ function coronaTemporal($id,$inicio,$estado,$sigla)
 {
 	var hallazgo = `<div class="hallazgos hallazgo-${$id} coronaTemporal ${$estado} coronaTemporal-${$inicio}"></div>`;
 	$('#odontograma-contenido').append(hallazgo);
-	var sigla = `<span class="${$estado} hallazgo-${$id}">${$sigla},<span>`;
+	var sigla = `<span class="${$estado} hallazgo-${$id}">${$sigla},</span>`;
 	$('.recuadro-'+$inicio).append(sigla);
 }
 /*=====  End of PINTAR CADA HALLAZGO  ======*/
@@ -1401,5 +1409,44 @@ $('#tipoOdontograma li').click(function(event) {
 ============================================*/
 
 
+/*============================================
+=            CAPTURAR ODONTOGRAMA            =
+============================================*/
+$('#CapturarOdontograma').click(function(event) {
+	$(this).text('Procesando').prop('disabled',true);
+	html2canvas(document.querySelector("#OdontogramaImprimir")).then(canvas => {
+		var imgData = canvas.toDataURL('image/png');
+		
+		var imagen = imgData.replace('data:image/png:base64,','');
+		var img = `<img src="${imagen}" style="width:100%">`;
+
+		var paciente = $('#HistoriaContenido').data('paciente');
+		var tipo = $('#FormHistoriaMovimientoAgregarHallazgo input[name=tipoOdontograma]').val();
+		$('#FormGuardarCapturaOdontograma input[name=paciente]').val(paciente);
+		$('#FormGuardarCapturaOdontograma input[name=tipo]').val(tipo);
+		$('#FormGuardarCapturaOdontograma input[name=imgData]').val(imgData);
+
+		$('#ImagenOdontogramaCapturado').html(img);
+		$('#ModalCapturarOdontograma').modal();
+		$(this).text('Capturar Odont.').prop('disabled',false);
+	});
+});
+
+$('#FormGuardarCapturaOdontograma').validate({
+	ignore: [],
+	rules: {
+		paciente:{required:true},
+		tipo:{required:true},
+		imgData:{required:true}
+	},
+	submitHandler:function() {
+		enviarFormulario('#FormGuardarCapturaOdontograma',function(resp){
+			if (resp.success) {
+				$('#ModalCapturarOdontograma').modal('hide');
+			}
+		})
+	}
+});
+/*=====  End of CAPTURAR ODONTOGRAMA  ======*/
 
 });

@@ -24,7 +24,7 @@
                <li><a href="<?= base_url('mantenimiento/medida') ?>"><i class="fa fa-hand-o-left"></i> Volver</a></li>  
             </ol>
             <div class="box-body pad">
-               <form action="<?php echo base_url();?>mantenimiento/usuario/user_add" method="POST" autocomplete="off">
+               <form action="<?php echo base_url();?>mantenimiento/usuario/user_add" method="POST" autocomplete="off" enctype="multipart/form-data">
                                   <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
                                        <label>Los campos con (*) son olbigatorios</label>
                                   </div>

@@ -3,7 +3,7 @@
 
 	<div class="w100">
 		<div class="w20">
-			<img src="<?= base_url('assets/img/dentalsac.png') ?>">
+			<img style="max-width: 90px"src="<?= base_url('assets/uploads/logo/'.$this->session->userdata('foto')) ?>">
 		</div>
 		<div class="w60 text-center">
 		<h3 style=" font-weight: bold; padding-top: 30px;">HISTORIA CLINICA</h3>
@@ -1103,7 +1103,7 @@
 
 
 
-<div style="padding: 0px; padding-top: 240px">
+<div style="padding: 0px; padding-top: 210px">
 			
 			<div style="border:1px solid #070707; padding:3px; text-align: center; font-weight:bold; font-size: 16; background-color: #B5ADAD;" height="20">
 				<label>
@@ -1120,7 +1120,10 @@
 			<div style="padding: 0px; padding-top: 5px">
 			
 			<div style="border:1px solid #070707; padding:3px">
+				<?php if (is_file(base_url('assets/img/odontogramas/odontograma-'.$paciente->codi_pac.'-ini.png'))): ?>
+				
 				<img src="" style="width: 100%" alt="" src="<?= base_url('assets/img/odontogramas/odontograma-'.$paciente->codi_pac.'-ini.png') ?>">
+				<?php endif ?>
 			</div>
 
 			</div>
@@ -1176,10 +1179,11 @@
 
 		<div class="w100">
 			<div style="padding: 0px; padding-top: 0px">
-			
-			<div style="border:1px solid #070707; padding:3px" height="680">
-				<img src="" style="width: 100%" alt="" src="<?= base_url('assets/img/odontogramas/odontograma-'.$paciente->codi_pac.'-evo.png') ?>">
-			</div>
+				<?php if (is_file(base_url('assets/img/odontogramas/odontograma-'.$paciente->codi_pac.'-evo.png'))): ?>
+				<div style="border:1px solid #070707; padding:3px">
+					<img src="" style="width: 100%" alt="" src="<?= base_url('assets/img/odontogramas/odontograma-'.$paciente->codi_pac.'-evo.png') ?>">
+				</div>
+				<?php endif ?>
 
 			</div>
 		</div>

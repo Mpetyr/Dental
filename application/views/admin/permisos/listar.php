@@ -1,135 +1,117 @@
+ <div id="content" class="content-wrapper-2">
 
-    
-
-        <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
-            <!-- Content Header (Page header) -->
-            <section class="content-header">
-                <h1>
-                Permisos
-                <small>listado</small>
-                </h1>
-            </section>
-            <!-- Main content -->
-            <section class="content">
-                <!-- Default box -->
-                <div class="box box-solid">
-                    <div class="box-body">
-
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        <i class="fa fa-user-md" aria-hidden="true"></i>
+        Permisos del sistema
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Modulo</a></li>
+        <li><a href="#">Permisos</a></li>
+      </ol>
+    </section>
+        <?php if ($this->session->flashdata('success')): ?>
+        <script type="text/javascript">
+           $(function(){
+         Swal.fire(
+  'Guardo Exitosamente!',
+  'Su Medico!',
+  'success'
+)
+      });
+</script>
+    <?php endif ?> 
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="box box-info">
+                 
+                   <ol class="breadcrumb">
+                      <li><a href="<?= base_url('administrador/permisos') ?>"><i class="fa fa-refresh"></i> Lista</a></li>
+                      <li><a href="<?= base_url('administrador/permisos/add') ?>"><i class="fa fa-user-plus"></i> Nuevo</a></li>
+                     
+                  </ol>
+              <!-- tools box -->
+      
+              <!-- /. tools -->
+          
+            <!-- /.box-header -->
+            <div class="box-body pad">
+              <form id="PermisosFormBusqueda" autocomplete="off">
                         <div class="row">
-                            <div class="col-md-12">
-                                <a href="<?php echo base_url();?>administrador/permisos/add" class="btn btn-primary btn-flat"><span class="fa fa-plus"></span>
-                                Agregar Permisos</a>
-                            </div>
-                        </div>
-
-                         <!-- tablas -->
-                         <hr>
-                         <div class="row">
-                             <div class="col-md-12">
-                                <div class="table-responsive">
-                                  
-                               
-                                <table id="example1" class="table table-bordered btn-hover">
-                                    <thead>
-                                        <tr class="btn-primary" >
-                                            <th style="text-align: center;">#</th>
-                                            <th style="text-align: center;">Menu</th>
-                                            <th style="text-align: center;">Rol</th>
-                                            <th style="text-align: center;">Leer</th>
-                                            <th style="text-align: center;">Insertar</th>
-                                             <th style="text-align: center;">Actualizar</th>
-                                              <th style="text-align: center;">Anular</th>
-                                               <th style="text-align: center;">Opciones</th>
-
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php if(!empty($permisos)):?>
-                                            <?php foreach ($permisos as $permiso):?> 
-                                        <tr>
-                                            <td><?php echo $permiso->id_permiso;?></td>
-                                            <td><?php echo $permiso->menu;?></td>
-                                              <td><?php echo $permiso->roles;?></td>
-                                            <td style="text-align: center;">
-                                              <?php if($permiso->read==0):?>
-                                                <span class="fa fa-times"></span>
-                                                <?php else:?>
-                                                  <span class="fa fa-check"></span>
-                                                <?php endif; ?>
-                                            </td>
-
-                                            <td style="text-align: center;">
-                                              <?php if($permiso->insert==0):?>
-                                                <span class="fa fa-times"></span>
-                                                <?php else:?>
-                                                  <span class="fa fa-check"></span>
-                                                <?php endif; ?>
-                                            </td>
-                                                
-                                             <td style="text-align: center;">
-                                              <?php if($permiso->update==0):?>
-                                                <span class="fa fa-times"></span>
-                                                <?php else:?>
-                                                  <span class="fa fa-check"></span>
-                                                <?php endif; ?>
-                                            </td>
-                                            
-                                              <td style="text-align: center;">
-                                              <?php if($permiso->delete==0):?>
-                                                <span class="fa fa-times"></span>
-                                                <?php else:?>
-                                                  <span class="fa fa-check"></span>
-                                                <?php endif; ?>
-                                            </td>
-                                       
-                                            <td>
-                                                <div class="btn-group">
-                                                    <button type="button" class="btn btn-info btn-view" data-toggle="modal" data-target="#modal-default" value="<?php echo $categoria->id_categoria;?>">
-                                                        <span class="fa fa-search"></span>
-                                                    </button>
-                                                    <a href="<?php echo base_url()?>administrador/permisos/edit/<?php echo $permiso->id_permiso;?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
-                                                    <a href="<?php echo base_url()?>mantenimiento/permisos/delete/<?php echo $permiso->id_permiso;?>" class="btn btn-danger btn-remove"><span class="fa fa-remove"></span></a>
-                                                </div>
-                                              </td>
-                                        </tr> 
-                                        <?php endforeach;?>      
-                                     <?php endif;?>
-                                    </tbody>
-                                     </div>
-                                </table>
-
-
-                             </div>
-                         </div>
-                    </div>
-                    <!-- /.box-body -->
+              
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="control-label">Busqueda por menu:</label>
+                    <select  name="menus" class="form-control select2 input-sm">
+                      <option value="">--Todos--</option>
+                    <?php foreach ($menus as $m): ?>
+                      <option value="<?= $m->id_menu ?>"><?= $m->nombre ?></option>
+                    <?php endforeach ?>
+                    </select>
+                  </div>
                 </div>
-                <!-- /.box -->
-            </section>
-            <!-- /.content -->
-        </div>
-        <!-- /.content-wrapper -->
-
-
-<div class="modal fade" id="modal-default">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Informacion de la categoria</h4>
-              </div>
-              <div class="modal-body">
-             
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cerrar</button>
                
-              </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="control-label">Busqueda por rol:</label>
+                    <select  name="rol" class="form-control select2 input-sm">
+                      <option value="">--Todos--</option>
+                    <?php foreach ($rol as $r): ?>
+                      <option value="<?= $r->codi_rol ?>"><?= $r->nomb_rol ?></option>
+                    <?php endforeach ?>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <button type="submit" style="margin-top:24px" class="btn btn-success btn-sm"><i class="fa fa-search"></i> Buscar</button>
+           
+                </div>         
+            
+              </div>    
+              </form>
             </div>
-            <!-- /.modal-content -->
           </div>
-          <!-- /.modal-dialog -->
+          <!-- /.box -->
+
+          <div class="box">
+            <div class="box-header">
+              <div class="col-md-12">
+       
+
+                <div class="table-responsive">
+                  <table id="TableMantenimientoPermisos" class="table table-bordered table-striped table-sm">
+                    <thead>
+                      <tr>
+                        <th style="background-color: #3c8dbc; color: white; text-align: center;">ID</th>
+                        <th style="background-color: #3c8dbc; color: white; text-align: center;">Modulo</th>
+                        <th style="background-color: #3c8dbc; color: white; text-align: center;">Cargo</th>
+                        <th style="background-color: #3c8dbc; color: white; text-align: center;">Leer</th>
+                        <th style="background-color: #3c8dbc; color: white; text-align: center;">Insertar</th>
+                        <th style="background-color: #3c8dbc; color: white; text-align: center;">Actualizar</th>
+                        <th style="background-color: #3c8dbc; color: white;text-align: center;">Anular</th>
+                        <th style="background-color: #3c8dbc; color: white;text-align: center;">Opciones</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+               
+                  </table>
+                </div>
+          
+            </div>
+            
+        
+          </div>
         </div>
-        <!-- /.modal -->
+        <!-- /.col-->
+      </div>
+      <!-- ./row -->
+    </section>
+    <!-- /.content -->
+  </div>
+
+</div>

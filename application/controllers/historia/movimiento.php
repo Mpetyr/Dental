@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * 
  */
 class Movimiento extends CI_Controller {
-
+	private $permisos;
 	public function __construct()
 	{
 		parent::__construct();
@@ -12,13 +12,15 @@ class Movimiento extends CI_Controller {
 		if(!$this->session->userdata("login")){
 			redirect(base_url());
 		}
+		$this->permisos = $this->backend_lib->control();
 		$this->load->model('historia_model');
 		$this->load->model('citas_model');
+		$this->load->model('clinica_model');
 	}
 
 	public function index()
 	{
-		
+		$data['permisos'] =$this->permisos;
 		$this->load->view('layouts/header');
 		$this->load->view('layouts/aside');
 		$this->load->view('admin/historia/movimiento/panel',$data);
@@ -458,7 +460,7 @@ class Movimiento extends CI_Controller {
 		$data['pacrec_hora'] = date('H:i:s');
 		$data['pacrec_asunto'] = $this->input->post('asunto');
 		$data['pacrec_receta'] = $this->input->post('receta');
-		$data['codi_med'] = 1;//ID DE MEDICO
+		$data['codi_med'] = $this->session->useerdata('medico');
 		if ($this->input->post('diagnostico01')!='') {
 			$data['codi_enf01'] = $this->input->post('diagnostico01');
 		}else{
@@ -552,6 +554,7 @@ class Movimiento extends CI_Controller {
 			50, //BOTTOM
 			10, //HEADER
 			10);
+		$data['clinicas'] = $this->clinica_model->getClinica($data);
 		$data['receta'] = $this->db->from('paciente_receta')
 		->select('nomb_pac,apel_pac,fena_pac,peso_exp,pacrec_receta,pacrec_indicaciones,pacrec_fecha')
 		->join('paciente','paciente_receta.codi_pac = paciente.codi_pac')
@@ -560,7 +563,7 @@ class Movimiento extends CI_Controller {
 		->get()->row();
 		$html = $this->load->view('admin/historia/movimiento/receta_imprimir/contenido',$data,TRUE);
 		$htmlHeader = $this->load->view('admin/historia/movimiento/receta_imprimir/header',NULL,true);
-		$htmlFooter = $this->load->view('admin/historia/movimiento/receta_imprimir/footer',NULL,true);
+		//$htmlFooter = $this->load->view('admin/historia/movimiento/receta_imprimir/footer',NULL,true);
 		$css = $css = file_get_contents('assets/styles_pdf.css');
 		$this->mpdf->SetTitle('Tratamientos');
 		$this->mpdf->setHTMLHeader($htmlHeader);
@@ -648,7 +651,31 @@ class Movimiento extends CI_Controller {
 		echo json_encode($resp);
 	}
 
+	function getPlaca()
+	{
+		$id = $this->input->get('id');
+		$placa = $this->modelgeneral->getTableWhereRow('paciente_placa',['pla_id'=>$id]);
+		echo json_encode($placa);
+	}
 
+	function editarPlaca()
+	{
+		$data['pla_nombre'] = $this->input->post('nombre');
+		$data['pla_notas'] = $this->input->post('notas');
+		if ($_POST['archivo']!='') {
+			$data['pla_archivo'] = $this->input->post('archivo');
+			$data['pla_fecha'] = date('Y-m-d H:i:s');
+		}
+		$where['pla_id'] = $this->input->post('id');
+		$edit = $this->modelgeneral->editRegist('paciente_placa',$where,$data);
+		$resp = [];
+		if ($edit){
+			$resp['success'] = true;
+		}else{
+			$resp['success'] = false;
+		}
+		echo json_encode($resp);
+	}
 
 	function imprimirHistoria($id)
 	{
@@ -894,6 +921,9 @@ class Movimiento extends CI_Controller {
 
 		// Save the image in a defined path
 		file_put_contents($filepath,$data);
+
+		$resp['success'] = true;
+		echo json_encode($resp);
 	}
 
 	function guardarDetalleOdontograma()

@@ -75,6 +75,23 @@ class Regpersona extends CI_Controller
 			$data['fecha_registro']= date("Y-m-d H:i:s");
 			$data['esta_usu'] = 1;
 			$insert = $this->modelgeneral->insertRegist('usuario',$data);
+
+			$dataMedico['codi_usu'] = $insert;
+			$dataMedico['cod_especialidad'] = 1;
+			$dataMedico['nomb_med'] = $this->input->post('nombres');
+			$dataMedico['apel_med'] = $this->input->post('apellidos');
+			$dataMedico['dni_med'] = $this->input->post('documento');
+			$dataMedico['ruc_med'] = '111';
+			$dataMedico['coleg_med'] = '111';
+			$dataMedico['telf_med'] = '111';
+			$dataMedico['cel_med'] = '111';
+			$dataMedico['dire_med'] = 'direccion';
+			$dataMedico['emai_med'] = $this->input->post('email');
+			$dataMedico['fena_med'] = date('Y-m-d');
+			$dataMedico['sexo_med'] = 'M';
+			$dataMedico['fecha_registro'] = date('Y-m-d H:i:s');
+			$this->modelgeneral->insertRegist('medico',$dataMedico);
+
 			$resp =[];
 			if (!is_null($insert)) {
 				if ($this->input->post('notificar')=='on') {
