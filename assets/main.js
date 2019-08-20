@@ -3911,5 +3911,25 @@ $('#PermisosFormBusqueda').validate({
 });
 
 
+/*=============================================
+=            FORMULARIO DE MENSAJE            =
+=============================================*/
+CKEDITOR.replace('textareaContenido');
+$('#FormMensaje').validate({
+	ignore: [],
+	rules:{
+		titulo:{required:true},
+		contenido:{required:true}
+		
+	},
+	submitHandler:function() {
+		enviarFormulario('#FormMensaje',function(json){
+			
+		})
+	}
+});
+/*=====  End of FORMULARIO DE MENSAJE  ======*/
+
+
 
 });
