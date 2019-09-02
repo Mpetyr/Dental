@@ -157,6 +157,7 @@ if(!String.prototype.formatNum) {
 		// INTERNAL USE ONLY. DO NOT ASSIGN IT WILL BE OVERRIDDEN ANYWAY
 		// -------------------------------------------------------------
 		events: [],
+		horasSemana:{},
 		templates: {
 			year: '',
 			month: '',
@@ -983,6 +984,7 @@ if(!String.prototype.formatNum) {
 							}
 							if(json.result) {
 								events = json.result;
+								self.horasSemana = json.semana;
 							}
 						});
 						return events;

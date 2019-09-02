@@ -25,6 +25,31 @@ function classAgendaCita($estado)
 	return $res;
 }
 
+function estadoCita($estado)
+{
+	if ($estado==1) { //Atendido
+		$res = 'Atendido';
+	}elseif($estado==2){ //Anulado
+		$res = 'Anulado';
+	}elseif($estado==3){ //Pendiente
+		$res = 'Pendiente';
+	}elseif($estado==4){ //Atendiendose
+		$res = 'Atendiendose';
+	}elseif($estado==5){ //Citado
+		$res = 'Citado';
+	}elseif($estado==6){ //Confirmado por Telefono
+		$res = 'Confirmado por Telefono';
+	}elseif($estado==7){ //En sala de espera
+		$res = 'En sala de espera';
+	}elseif($estado==8){ //No asiste
+		$res = 'No asiste';
+	}elseif($estado==9){ //No confirmado
+		$res = 'No confirmado';
+	}
+
+	return $res;
+}
+
 function filaEstadoCita($estado)
 {
 	if ($estado==1) { //Atendido

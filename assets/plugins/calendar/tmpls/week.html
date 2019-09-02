@@ -1,18 +1,27 @@
-<div class="cal-week-box">
-	<div class="cal-offset1 cal-column"></div>
-	<div class="cal-offset2 cal-column"></div>
-	<div class="cal-offset3 cal-column"></div>
-	<div class="cal-offset4 cal-column"></div>
-	<div class="cal-offset5 cal-column"></div>
-	<div class="cal-offset6 cal-column"></div>
-	<div class="cal-row-fluid cal-row-head">
-		<% _.each(days_name, function(name) { %>
-			<div class="cal-cell1 <%= cal._getDayClass('week', start) %>" data-toggle="tooltip" title="<%= cal._getHolidayName(start) %>"><%= name %><br>
-				<small><span data-cal-date="<%= start.getFullYear() %>-<%= start.getMonthFormatted() %>-<%= start.getDateFormatted() %>" data-cal-view="day"><%= start.getDate() %> <%= cal.locale['ms' + start.getMonth()] %></span></small>
-			</div>
-			<% start.setDate(start.getDate() + 1); %>
+
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>Hora</th>
+			<% _.each(days_name, function(name) { %>
+				<th><%= name %></th>
+				<% start.setDate(start.getDate() + 1); %>
+			<% }) %>
+		</tr>
+	</thead>
+	<tbody>
+		<% _.each(cal.horasSemana, function(val) { %>
+		<tr>
+			<td><b><%= val.Hora %></b></td>
+			<td><%= val[1] %></td>
+			<td><%= val[2] %></td>
+			<td><%= val[3] %></td>
+			<td><%= val[4] %></td>
+			<td><%= val[5] %></td>
+			<td><%= val[6] %></td>
+			<td><%= val[7] %></td>
+		</tr>		
+		
 		<% }) %>
-	</div>
-	<hr>
-	<%= cal._week() %>
-</div>
+	</tbody>
+</table>
