@@ -40,7 +40,7 @@ class Citas_model extends CI_Model {
 	function getCitas($desde,$hasta,$medico,$especialidad,$estado)
 	{
 		$this->db->from('cita_medica');
-		$this->db->select("cita_medica.codi_cit,paciente.codi_pac,nomb_pac,apel_pac,nomb_med,apel_med,fech_cit,cita_medica.cod_citado,nomb_citado
+		$this->db->select("cita_medica.codi_cit,paciente.codi_pac,nomb_pac,apel_pac,nomb_med,apel_med,fech_cit,cita_medica.cod_citado,nomb_citado,telf_pac,esta_cit
 		");
 		$this->db->join('paciente','cita_medica.codi_pac = paciente.codi_pac');
 		$this->db->join('medico','cita_medica.codi_med = medico.codi_med');

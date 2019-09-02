@@ -47,21 +47,55 @@ class Agenda extends CI_Controller {
 
 		$citas = $this->citas_model->getCitas($desde,$hasta,$medico,$especialidad,$estado);
 
+		$semana = $this->citasDeSemana($citas);
+
 		foreach ($citas as $c) {
 
+			$inicio = strtotime($c->fech_cit);
+			$fin = strtotime('+15 minute',strtotime(date($c->fech_cit)));
 			$result[] = [
 				'id' => $c->codi_cit,
 				"start" => strtotime(date($c->fech_cit)) * 1000, // Milliseconds
 				"end" => strtotime('+15 minute',strtotime(date($c->fech_cit))) * 1000, //Milliseconds
 				'class' => 'event-'.classAgendaCita($c->cod_citado),
 				'title' => $c->nomb_pac.' '.$c->apel_pac,
-				'url' => base_url('citas/agenda/getCita/'.$c->codi_cit)
+				'url' => base_url('citas/agenda/getCita/'.$c->codi_cit),
+				'inicio' => date('H:i:s',$inicio),
+				'fin' => date('H:i:s',$fin),
+				'telefono' => $c->telf_pac,
+				'medico' => $c->nomb_med.' '.$c->apel_med,
+				'estado' => estadoCita($c->esta_cit)				
 			];
-		}
 
+			$semana[date('H:i',$inicio)][date('N',$inicio)] = $c->nomb_pac.' '.$c->apel_pac;
+		}
 		$data['success'] = 1;
+		$data['semana'] = $semana;
 		$data['result'] = $result;
 		echo json_encode($data);
+	}
+
+	private function citasDeSemana($citas)
+	{
+		$horas = [];
+		foreach ($citas as $c) {
+			$hora = date('H:i',strtotime($c->fech_cit));
+			if (!in_array($hora,$horas)) {
+				$horas[] = $hora;
+			}
+		}
+
+		$semana = [];
+		foreach ($horas as $key => $value) {
+			$array = [
+				'Hora' => $value,
+				1 => '',2 => '',3 => '',4 => '',
+				5 => '',6 => '',7 => ''
+			];
+			$semana[$value] = $array;
+		}
+
+		return $semana;
 	}
 
 	function getCita($id)
