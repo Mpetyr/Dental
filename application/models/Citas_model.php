@@ -47,8 +47,12 @@ class Citas_model extends CI_Model {
 		$this->db->join('tipo_citado','cita_medica.cod_citado = tipo_citado.cod_citado');
 		$this->db->where('DATE(fech_cit) >= ',$desde);
 		$this->db->where('DATE(fech_cit) <= ',$hasta);
-		$this->db->where('medico.codi_med',$medico);
-		$this->db->where('medico.cod_especialidad',$especialidad);
+		if ($medico!='') {
+			$this->db->where('medico.codi_med',$medico);
+		}
+		if ($especialidad!='') {
+			$this->db->where('medico.cod_especialidad',$especialidad);
+		}
 		if ($estado!='') {
 			$this->db->where('cita_medica.cod_citado',$estado);
 		}

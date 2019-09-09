@@ -64,7 +64,7 @@
                       <div class="form-group">
                         <label class="control-label">Médico</label>
                         <select name="medico" class="form-control input-sm" style="width: 100%;" tabindex="-1" aria-hidden="true">
-                          
+                          <option value=""></option>
                         </select>
                       </div>
                     </div>

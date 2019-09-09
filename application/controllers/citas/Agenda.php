@@ -72,6 +72,8 @@ class Agenda extends CI_Controller {
 		$data['success'] = 1;
 		$data['semana'] = $semana;
 		$data['result'] = $result;
+		$data['medico'] = $medico;
+		$data['espe'] = $especialidad;
 		echo json_encode($data);
 	}
 

@@ -433,8 +433,8 @@ function loadCalendario()
 		tmpl_path: base_url+'assets/plugins/calendar/tmpls/',
 		tmpl_cache: false,
 		view: $('input[name=vista]:checked').val(),
-		time_start: '07:00',
-		time_end: '20:00',
+		time_start: '00:00',
+		time_end: '23:45',
 		time_split: '15',
 		language:'es-ES',
 		weekbox:false,
@@ -538,6 +538,8 @@ $('#FormAgendaFiltro').validate({
 		loadCalendario();		
 	}
 });
+
+loadCalendario();
 /*=====  End of AGENDA  ======*/
 
 
