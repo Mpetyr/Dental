@@ -1,17 +1,17 @@
 <div class="w100">
 	<div class="w30">
-		<img src="<?= base_url('assets/img/logo_dental.png') ?>">
+		<img src="<?= base_url('assets/uploads/logo/'.$this->session->userdata('foto')) ?>" style="max-width: 100px; padding-top: -10px">
 	</div>
 	<div class="w40 text-center">
-		<h5>VIDAL DENT <br>CLÍNICA DENTAL</h5>
+		<h5><?= $clinicas->nomb_clin ?><br>CLÍNICA DENTAL</h5>
 		<p>
-			Dirección: San Alegría N° 1 <br>
-			Email: vidaldent@gmail.com
+			Dirección:<?= $clinicas->direc_clin ?> <br>
+			Email: <?= $clinicas->email_clin ?>
 		</p>
 	</div>
 	<div class="w30">
 		<div class="Comp-Marco">
-			<div class="Com-Marco-RUC">R.U.C: 20230608688</div>
+			<div class="Com-Marco-RUC">R.U.C: <?= $clinicas->ruc_clin ?></div>
 			<div class="Com-Marco-Recibo">RECIBO DE CAJA</div>
 			<div class="Com-Marco-Serie"><?= $comprobante->abreviatura ?>-<?= $comprobante->serie_com ?>-<?= $comprobante->secuencia_com ?></div>
 		</div>
