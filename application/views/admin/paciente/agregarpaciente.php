@@ -185,13 +185,24 @@
                   </div>
 </div>
                    <div class="row">
+              <!--         <div class="col-md-4">
+                    <div class="form-group">
+                     <label class="control-label">Entero de la clinica: *</label>
+                    <select  name="especialidad" class="form-control select2 input-sm">
+                      <option value="">Seleccione</option>
+                    <?php foreach ($especialidades as $e): ?>
+                      <option value="<?= $e->cod_especialidad ?>"><?= $e->nombre_especialidad ?></option>
+                    <?php endforeach ?>
+                    </select>
+                    </div>
+                  </div> -->
                   <div class="col-md-6">
                     <div class="form-group">
                       <label class="col-form-label">Entero de la clinica:</label>
                        <input type="text" name="informacionclinica"  class="form-control input-sm" placeholder="Informacion">
                     </div>
                   </div>
-                  <div class="col-md-6">
+                  <div class="col-md-4">
                     <div class="form-group">
                       <label class="col-form-label">Documento: *</label>
                       <input type="text" name="dni" class="form-control input-sm" placeholder="Documento" maxlength="8" minlength="8" onKeyPress="if (event.keyCode < 48 || event.keyCode > 57)event.returnValue = false;">

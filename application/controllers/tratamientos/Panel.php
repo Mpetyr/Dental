@@ -286,6 +286,7 @@ class Panel extends CI_Controller {
 	{
 		$this->mpdf = new mPDF('utf-8',"A4");
 		$data['comprobante'] = $this->tratamientos_model->getComprobante($id);
+		$data['clinicas'] = $this->clinica_model->getClinica($data);
 		$html = $this->load->view('admin/tratamientos/pagos/imprimir_comprobante',$data,TRUE);
 		$css = $css = file_get_contents('assets/styles_pdf.css');
 		$this->mpdf->SetTitle('Comprobante');
