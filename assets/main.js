@@ -539,7 +539,10 @@ $('#FormAgendaFiltro').validate({
 	}
 });
 
-loadCalendario();
+if($('#FormAgendaFiltro')[0])
+{
+	loadCalendario();
+}
 /*=====  End of AGENDA  ======*/
 
 
@@ -1772,130 +1775,7 @@ $('#TableHistoriaMovimientoAlergias').on('click', '.anular-alergia', function(ev
 });
 
 
-$('#TableHistoriaMovimientoRecetas').DataTable({
-	"language": {"url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"},
-	"searching": false,
-	"processing": true,
-	"serverSide": true,
-	"iDisplayLength": 10,
-	"aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, 'Todos']],
-	"aaSorting": [[1, 'desc']],
-	"ajax": {
-		"url": path+'historia/movimiento/jsonRecetas',
-		"type": "POST",
-		"data": function (d) {
-			d.paciente = $("#HistoriaContenido").data('paciente');
-		}
-	},
-	"columns": [
-		{"orderable":true},
-		{"orderable":true},
-		{"orderable":false},
-		{"orderable":false},
-		{"orderable":false}
-	]
-});
 
-$('#ModalAgregarReceta').click(function(event) {
-	$('input[name=hora]').val(hora());
-});
-
-$('#FormHistoriaMovimientoAgregarReceta').validate({
-	ignore: [],
-	rules:{
-		receta:{required:true},
-		diagnostico01:{required:true},
-		indicaciones:{required:true}
-	},
-	submitHandler:function() {
-		enviarFormulario('#FormHistoriaMovimientoAgregarReceta',function(json){
-			if (json.success) {
-				$('#TableHistoriaMovimientoRecetas').DataTable().ajax.reload();
-			}
-			$('#ModalAgregarReceta').modal('hide');
-			$('FormHistoriaMovimientoAgregarRecetainput[name=asunto]').val('');
-			$('#FormHistoriaMovimientoAgregarReceta input[name=asunto]').val('');
-			$('#FormHistoriaMovimientoAgregarReceta textarea[name=receta]').val('');
-			$('#FormHistoriaMovimientoAgregarReceta select[name=diagnostico01]').select2('val', '');
-			$('#FormHistoriaMovimientoAgregarReceta select[name=diagnostico02]').select2('val', '');
-			$('#FormHistoriaMovimientoAgregarReceta select[name=diagnostico03]').select2('val', '');
-			$('#FormHistoriaMovimientoAgregarReceta textarea[name=indicaciones]').val('');
-		})
-	}
-});
-
-$('#TableHistoriaMovimientoRecetas').on('click', '.editar-receta', function(event) {
-	event.preventDefault();
-	$('input[name=hora]').val(hora());
-	var id = $(this).data('id');
-	$.getJSON(path+'historia/movimiento/getReceta', {id}, function(json, textStatus) {
-		$('#FormHistoriaMovimientoEditarReceta input[name=id]').val(json.pacrec_id);
-		$('#FormHistoriaMovimientoEditarReceta input[name=asunto]').val(json.pacrec_asunto);
-		$('#FormHistoriaMovimientoEditarReceta textarea[name=receta]').val(json.pacrec_receta);
-		$('#FormHistoriaMovimientoEditarReceta select[name=diagnostico01]').select2('val',json.codi_enf01);
-		$('#FormHistoriaMovimientoEditarReceta select[name=diagnostico02]').select2('val',json.codi_enf02);
-		$('#FormHistoriaMovimientoEditarReceta select[name=diagnostico03]').select2('val',json.codi_enf03);
-		$('#FormHistoriaMovimientoEditarReceta textarea[name=indicaciones]').val(json.pacrec_indicaciones);
-	});
-});
-
-$('#FormHistoriaMovimientoEditarReceta').validate({
-	ignore: [],
-	rules:{
-		receta:{required:true},
-		diagnostico01:{required:true},
-		indicaciones:{required:true}
-	},
-	submitHandler:function() {
-		enviarFormulario('#FormHistoriaMovimientoEditarReceta',function(json){
-			if (json.success) {
-				$('#TableHistoriaMovimientoRecetas').DataTable().ajax.reload();
-			}
-			$('#ModalEditarReceta').modal('hide');
-			$('#FormHistoriaMovimientoEditarReceta input[name=asunto]').val('');
-			$('#FormHistoriaMovimientoEditarReceta input[name=asunto]').val('');
-			$('#FormHistoriaMovimientoEditarReceta textarea[name=receta]').val('');
-			$('#FormHistoriaMovimientoEditarReceta select[name=diagnostico01]').select2('val', '');
-			$('#FormHistoriaMovimientoEditarReceta select[name=diagnostico02]').select2('val', '');
-			$('#FormHistoriaMovimientoEditarReceta select[name=diagnostico03]').select2('val', '');
-			$('#FormHistoriaMovimientoEditarReceta textarea[name=indicaciones]').val('');
-		})
-	}
-});
-
-$('#TableHistoriaMovimientoRecetas').on('click', '.anular-receta', function(event) {
-	event.preventDefault();
-	var id = $(this).data('id');
-	Swal.fire({
-		title: "Confirmar",
-		type: "warning",
-		cancelButtonText:'No',
-		confirmButtonText:'Si',
-		showCancelButton: true,
-		confirmButtonColor: "#007AFF",
-		cancelButtonColor: "#d43f3a",
-		text: "¿Anular receta?"
-	}).then((result) => {
-		if (result.value) {
-			$.getJSON(path+'historia/movimiento/anularReceta', {id}, function(json, textStatus) {
-				if (json.success) {
-					Swal.fire({
-						title: "Buen trabajo",
-						text: "La solicitud ha sido procesada.",
-						type: "success"
-					});
-					$('#TableHistoriaMovimientoRecetas').DataTable().ajax.reload();
-				}else{
-					Swal.fire({
-						title: "Error",
-						text: "Ocurrio un error, vuelva a intentarlo.",
-						type: "error"
-					});
-				}
-			});
-		}
-	});
-});
 
 
 $('#TableHistoriaMovimientoDiagnostico').DataTable({
@@ -2396,6 +2276,7 @@ var TableMantenimientoPaciente =  $('#TableMantenimientoPaciente').DataTable({
 			d.desde = $("input[name=desde]").val();
 			d.hasta = $("input[name=hasta]").val();
 			d.paciente = $("input[name=paciente]").val();
+			
 		
 		}
 	},
@@ -2509,6 +2390,8 @@ $('#FormRegistrarPaciente').validate({
 		edad:{required:true},
 		ocupacion:{required:true},
 		lugarnacimiento:{required:true},
+		informacion:{required:true},
+		tipaciente:{required:true},
 		direccion:{required:true},
 		telefono:{required:true},
 		dni:{required:true},

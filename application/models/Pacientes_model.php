@@ -22,12 +22,12 @@ class Pacientes_model extends CI_Model
 			$this->db->where('fecha_registro <=',$data['hasta']);
 
 		}
+	
 
 		$queryLike = $this->db->get();
 
 		$this->db->from('paciente');
 		$this->db->select('paciente.*,CONCAT(nomb_pac," ",apel_pac) as NombrePaciente');
-
 		if ($data['length']!=-1) {
 			$this->db->limit($data['length'],$data['start']);
 		}
@@ -44,6 +44,8 @@ class Pacientes_model extends CI_Model
 			$this->db->where('fecha_registro >=',$data['desde']);
 			$this->db->where('fecha_registro <=',$data['hasta']);
 		}
+
+	
 
 		$query = $this->db->get();
 

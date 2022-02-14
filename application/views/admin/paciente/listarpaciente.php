@@ -61,6 +61,8 @@
                     <input type="text" name="paciente" class="form-control input-sm">
                   </div>
                 </div>
+
+             
            
                 <div class="col-md-2">
                   <button type="submit" style="margin-top:24px" class="btn btn-success btn-sm"><i class="fa fa-search"></i> Buscar</button>

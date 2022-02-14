@@ -1112,10 +1112,10 @@
 			<div style="padding: 0px; padding-top: 5px">
 			
 			<div style="border:1px solid #070707; padding:3px">
-				<?php if (is_file(base_url('assets/img/odontogramas/odontograma-'.$paciente->codi_pac.'-ini.png'))): ?>
+			
 				
 				<img src="" style="width: 100%" alt="" src="<?= base_url('assets/img/odontogramas/odontograma-'.$paciente->codi_pac.'-ini.png') ?>">
-				<?php endif ?>
+
 			</div>
 
 			</div>
@@ -1168,60 +1168,6 @@
    </div>
 	   	<div>
 	
-
-		<div class="w100">
-			<div style="padding: 0px; padding-top: 0px">
-				<?php if (is_file(base_url('assets/img/odontogramas/odontograma-'.$paciente->codi_pac.'-evo.png'))): ?>
-				<div style="border:1px solid #070707; padding:3px">
-					<img src="" style="width: 100%" alt="" src="<?= base_url('assets/img/odontogramas/odontograma-'.$paciente->codi_pac.'-evo.png') ?>">
-				</div>
-				<?php endif ?>
-
-			</div>
-		</div>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-			<div style="padding: 0px; padding-top: 5px">
-			
-			<div style="border:1px solid #070707; padding:3px; font-size: 14;" height="20">
-			- ESTADO DE LAS PIEZAS DENTALES (ODONTOGRAMA EVOLUCIONADO)
-					
-			</div>
-
- 		  </div>
-
- 		  <table class="table table-bordered">
-	<thead>	
-		<tr>
-			<th style="border:1px solid #070707; padding: 6px; background-color: #B5ADAD; text-align: center; width: 240px;">Descripción</th>
-			<th style="border:1px solid #070707; padding: 6px; background-color: #B5ADAD; text-align: center; width: 75px;">Pieza</th>
-				<th style="border:1px solid #070707; padding: 6px; background-color: #B5ADAD; text-align: center; width: 92px;">Pieza Final</th>
-			<th style="border:1px solid #070707; padding: 6px; background-color: #B5ADAD; text-align: center; width: 120px">Estado</th>
-				<th style="border:1px solid #070707; padding: 6px; background-color: #B5ADAD; text-align: center; width: 145px">Observación</th>
-		</tr>
-	</thead>
-	<tbody>
-		<?php foreach ($historia->evolucionado as $e): ?>
-		<tr>
-			<td style="border:1px solid #070707; padding: 6px; text-align: center; "><?= $e->pacodo_sigla.' '. $e->nombre_hal?></td>
-			<td style="border:1px solid #070707; padding: 6px; text-align: center; "><?= $e->numero_die ?></td>
-			<td style="border:1px solid #070707; padding: 6px; text-align: center; "><?= $e->pacodo_dientefinal ?></td>
-			<td style="border:1px solid #070707; padding: 6px; text-align: center; "><?= $e->pacodo_estado ?></td>
-			<td style="border:1px solid #070707; padding: 6px; text-align: center; "><?= $e->pacodo_espec ?></td>
-		</tr>
-		<?php endforeach ?>
-	</tbody>
-</table>
 
 
    <div style="padding: 0px; padding-top: 20px">
@@ -1314,40 +1260,6 @@
 					</tbody>
 				</table>
 
-
-
-			  <div style="padding: 0px; padding-top: 0px">
-					
-					<div style="border:1px solid #070707; padding:3px; text-align: center; font-weight:bold; font-size: 16; background-color: #B5ADAD;" height="20">
-						<label>
-							RECETA
-						</label>
-					</div>
-
-			</div>
-
-					<table class="table table-bordered">
-					<thead>	
-						<tr>
-							<th style="border:1px solid #070707; padding: 6px; background-color: #B5ADAD; text-align: center; width: 100px;">FECHA</th>
-							<th style="border:1px solid #070707; padding: 6px; background-color: #B5ADAD; text-align: center; width: 150px;">TITULO</th>
-							<th style="border:1px solid #070707; padding: 6px; background-color: #B5ADAD; text-align: center; width: 300px;">RECETA</th>
-							<th style="border:1px solid #070707; padding: 6px; background-color: #B5ADAD; text-align: center; width: 50px;">DIAGNOSTICOS</th>
-						
-						</tr>
-					</thead>
-					<tbody>
-						<?php foreach ($historia->receta as $rc): ?>
-						<tr>
-							<td style="border:1px solid #070707; padding: 6px; text-align: center; "><?= $rc->pacrec_fecha ?></td>
-							<td style="border:1px solid #070707; padding: 6px;  "><?= $rc->pacrec_asunto ?></td>
-							<td style="border:1px solid #070707; padding: 6px;  "><?= $rc->pacrec_receta ?></td>
-							<td style="border:1px solid #070707; padding: 6px; "><?= $rc->codi_enf01.' |'. $rc->codi_enf02.' | '.$rc->codi_enf03?></td>
-							
-						</tr>
-						<?php endforeach ?>
-					</tbody>
-				</table>
 	
 	</div>
 

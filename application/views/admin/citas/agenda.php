@@ -64,7 +64,7 @@
                       <div class="form-group">
                         <label class="control-label">Médico</label>
                         <select name="medico" class="form-control input-sm" style="width: 100%;" tabindex="-1" aria-hidden="true">
-                          <option value=""></option>
+                          
                         </select>
                       </div>
                     </div>
@@ -124,14 +124,14 @@
                       </div>
                       <div class="radio-inline">
                         <label class="checkbox">
-                          <input type="radio" name="vista" value="week" data-calendar-view="week"> Semana
+                          <input type="radio" name="vista" value="week" data-calendar-view="week" checked> Semana
                         </label>
                       </div>
-                      <div class="radio-inline">
+                      <!-- <div class="radio-inline">
                         <label class="checkbox">
                           <input type="radio" name="vista" value="day" data-calendar-view="day" checked> Día
                         </label>
-                      </div>
+                      </div> -->
                     </div>
                     </div>
                     

@@ -23,8 +23,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/dental/';
-$config['site_url'] = 'http://localhost/dental/';
+$config['base_url'] = 'http://localhost/demo/';
+$config['site_url'] = 'http://localhost/demo/';
 $config['index_page'] = '';
 $config['uri_protocol']	= 'REQUEST_URI';
 $config['url_suffix'] = '';

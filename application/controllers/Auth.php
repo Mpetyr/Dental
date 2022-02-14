@@ -62,11 +62,8 @@ class Auth extends CI_Controller
 			'login' => TRUE
 			 );
 			$this->session->set_userdata($data);
-			$mensaje = $this->modelgeneral->getTableWhereRow('mensaje',['id'=>1,'activo'=>'s']);
-			if (!is_null($mensaje)) {
-				$this->session->set_flashdata('titulo',$mensaje->titulo);
-				$this->session->set_flashdata('contenido',$mensaje->contenido);
-			}
+			
+			
 			redirect(base_url()."dashboard");
 		}
 	}

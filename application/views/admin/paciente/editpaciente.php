@@ -199,14 +199,12 @@
                     </div>
                   </div>
 </div>
-                   <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label class="col-form-label">Entero de la clinica:</label>
-                       <input type="text" name="entero"  class="form-control input-sm" placeholder="Informacion" value="<?php echo !empty(form_error('entero')) ? set_value('entero'):$pacientes->informacion_clinica?>">
-                    </div>
-                  </div>
-                  <div class="col-md-6">
+              <div class="row">
+          
+                 
+             
+                  
+                  <div class="col-md-4">
                     <div class="form-group">
                       <label class="col-form-label">Documento: *</label>
                       <input type="text" name="dni" class="form-control input-sm" placeholder="Documento" maxlength="8" minlength="8" onKeyPress="if (event.keyCode < 48 || event.keyCode > 57)event.returnValue = false;" value="<?php echo !empty(form_error('dni')) ? set_value('dni'):$pacientes->dni_pac?>">

@@ -1295,7 +1295,7 @@ function piezaClavija($id,$inicio){
 }
 
 function piezaEctopica($id,$inicio,$sigla){
-	var sigla = `<span class="hallazgo-${$id}">${$sigla},</span>`;
+	var sigla = `<span class="hallazgo-${$id}">E,</span>`;
 	$('.recuadro-'+$inicio).append(sigla);
 }
 

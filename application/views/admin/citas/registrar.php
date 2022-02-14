@@ -165,17 +165,17 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-md-6">
+            <!-- <div class="col-md-6">
               <div class="form-group">
                 <label class="contro-label">Sede</label>
                 <select name="sede" class="form-control">
                   <option value=""></option>
-                  <?php foreach ($sedes as $s): ?>
-                  <option value="<?= $s->cod_sede ?>"><?= $s->nombre_sede ?></option>
-                  <?php endforeach ?>
+                  <?//php foreach ($sedes as $s): ?>
+                  <option value="<?//= $s->cod_sede ?>"><?//= $s->nombre_sede ?></option>
+                  <?//php endforeach ?>
                 </select>
               </div>
-            </div>
+            </div> -->
             <div class="col-md-6">
               <div class="form-group">
                 <label class="contro-label">Estado</label>
@@ -187,8 +187,6 @@
                 </select>
               </div>
             </div>
-          </div>
-          <div class="row">
             <div class="col-md-6">
               <div class="form-group">
                 <label class="control-label">Motivo Consulta</label>
@@ -203,14 +201,8 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-md-12">
-              <div class="form-group">
-                <div class="checkbox">
-                  <label><input type="checkbox"    name="notificar" checked="true" >Notificar correo del paciente</label>
-                </div>
-              </div>
-            </div>
           </div>
+       
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-danger pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Cancelar</button>
@@ -314,15 +306,7 @@
               </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-12">
-              <div class="form-group">
-                <div class="checkbox">
-                  <label><input type="checkbox" checked="true" name="notificar">Notificar correo del paciente</label>
-                </div>
-              </div>
-            </div>
-          </div>
+  
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-danger pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Cancelar</button>

@@ -88,7 +88,6 @@ class Tratamientos_model extends CI_Model {
 	    	$pago = '<label class="label label-default">Contado</label>';
 	    }
 	    $opciones .= '<li><a href="'.base_url('tratamientos/panel/imprimirTratamiento/'.$q->codi_tra).'" target="_blank"><i class="fa fa-print" aria-hidden="true"></i>Imprimir</a></li>
-	    <li data-id="'.$q->codi_tra.'" class="tratamiento-enviar-email"><a href="#"><i class="fa fa-envelope-open-o" aria-hidden="true"></i>Enviar Email</a></li>
 	                  </ul>
 	                </div>';
 	    $boton_detalle = '<button class="btn btn-md" ><span class="fa fa-caret-right"></span></button>';

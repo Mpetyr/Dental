@@ -153,25 +153,7 @@ class Registrar extends CI_Controller {
 		}
 	}
 
-	function enviarNotificacion($cita)
-	{
-		$data['cita'] = $this->citas_model->getCita($cita);
-		$mensaje = $this->load->view('admin/citas/notificacion',$data,TRUE);
-		$config['protocol'] = 'mail'; 
-    $config['mailtype'] = 'html'; 
-    $this->email->initialize($config); 
-    $this->email->from('notificacion@dentalsac.com','Sistema Dental'); 
-    $this->email->to($data['cita']->emai_pac); 
-    $this->email->subject('Notificación de Clinica Dental'); 
-    $this->email->message($mensaje); 
-   // $this->email->send(); 
-	}
 
-	function getCita()
-	{
-		$cita = $this->citas_model->getCita($this->input->get('id'));
-		echo json_encode($cita);
-	}
 
 	function editarCita()
 	{

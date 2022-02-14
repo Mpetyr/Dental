@@ -81,13 +81,13 @@
                                     </div>
                                     <button type="submit" class="btn">Ingresar</button>
 
-                            <a style="color:#2D62FF;" href="<?php echo base_url();?>regpersona">¿No tiene cuenta? Crear Cuenta</a>
+                            <!-- <a style="color:#2D62FF;" href="<?//php echo base_url();?>regpersona">¿No tiene cuenta? Crear Cuenta</a> -->
                                 </form>
                             </div>
 
                         </div>
                     </div>
-                    <div class="row">
+                    <!-- <div class="row">
                         <div class="col-sm-6 col-sm-offset-3 social-login">
                             <div class="social-login-buttons">
                                 <a class="btn btn-link-2" href="#">
@@ -101,7 +101,7 @@
                                 </a>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             

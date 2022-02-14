@@ -58,7 +58,7 @@
             <div class="icon">
               <i class="fa  fa-usd"></i>
             </div>
-            <a href="#" class="small-box-footer">ver tratamientos <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="<?php echo base_url();?>tratamientos/panel" class="small-box-footer">ver tratamientos <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -73,7 +73,7 @@
             <div class="icon">
               <i class="fa fa-credit-card"></i>
             </div>
-            <a href="#" class="small-box-footer">ver tratamientos <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="<?php echo base_url();?>tratamientos/panel" class="small-box-footer">ver tratamientos <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -88,7 +88,7 @@
             <div class="icon">
               <i class="ion ion-person-add"></i>
             </div>
-            <a href="#" class="small-box-footer">ver odontologos <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="<?php echo base_url();?>mantenimiento/medico" class="small-box-footer">ver odontologos <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->

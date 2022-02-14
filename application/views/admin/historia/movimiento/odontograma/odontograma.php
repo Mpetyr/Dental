@@ -7,16 +7,7 @@
   <div class="panel-heading">
     <span class="glyphicon glyphicon-list"></span> Odontograma - <span id="TipoOdontogramaSpan">Inicial</span>
     <div class="pull-right action-buttons">
-      <div class="btn-group pull-right">
-        <button type="button" class="btn btn-default btn-xs" data-toggle="dropdown">
-          <span class="fa fa-bars" style="margin-right: 0px;"></span>
-        </button>
-        <ul class="dropdown-menu slidedown" id="tipoOdontograma">
-          
-          <li data-tipo="Inicial"><a href="#"><i class="fa fa-life-ring"></i>Odontograma Inicial</a></li>
-          <li data-tipo="Evolución"><a href="#"><i class="fa fa-life-ring"></i>Odontograma Evolución</a></li>
-        </ul>
-      </div>
+ 
     </div>
   </div>
   <div class="panel-body">

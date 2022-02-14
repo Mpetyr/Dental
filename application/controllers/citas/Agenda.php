@@ -64,7 +64,7 @@ class Agenda extends CI_Controller {
 				'fin' => date('H:i:s',$fin),
 				'telefono' => $c->telf_pac,
 				'medico' => $c->nomb_med.' '.$c->apel_med,
-				'estado' => estadoCita($c->esta_cit)				
+				'estado' => estadoCita($c->cod_citado)				
 			];
 
 			$semana[date('H:i',$inicio)][date('N',$inicio)] = $c->nomb_pac.' '.$c->apel_pac;

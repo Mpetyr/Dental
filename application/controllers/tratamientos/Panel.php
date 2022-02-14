@@ -84,31 +84,7 @@ class Panel extends CI_Controller {
 		$this->mpdf->Output('assets/tratamiento.pdf','I');
 	}
 
-	public function enviarEmail()
-	{
-		$id = $this->input->get('id');
-		$archivo = $this->crearTratamientoEmail($id);
 
-		$tratamiento = $this->db->from('tratamiento')
-		->join('paciente','tratamiento.codi_pac = paciente.codi_pac')
-		->where('codi_tra',$id)
-		->get()->row();
-		$data['tratamiento'] = $tratamiento;
-		$mensaje = $this->load->view('admin/tratamientos/tratamientos/email',$data,TRUE);
-		$config['protocol'] = 'mail'; 
-    $config['mailtype'] = 'html'; 
-    $this->email->initialize($config); 
-    $this->email->from('systemdoradental@gmail.com','Sistema Dental'); 
-    $this->email->to($tratamiento->emai_pac); 
-    $this->email->subject('Tratamiento de Clinica Dental - '.date('d/m/Y'));
-    $this->email->message($mensaje);
-    $this->email->attach($archivo);
-    //$this->email->send();
-
-    $resp = [];
-    $resp['success'] = true;
-    echo json_encode($resp);
-	}
 
 	function anularTratamiento()
 	{

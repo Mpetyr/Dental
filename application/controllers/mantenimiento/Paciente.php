@@ -19,6 +19,7 @@ class Paciente extends CI_Controller
 
 	public function index()
 	{
+		
 		$data['permisos'] =$this->permisos;
 		$this->load->view('layouts/header');
 		$this->load->view('layouts/aside');
@@ -44,7 +45,7 @@ class Paciente extends CI_Controller
 		$desde = $this->input->get_post('desde');
 		$hasta = $this->input->get_post('hasta');
 		$paciente = $this->input->get_post('paciente');
-
+		
 		if ($desde!='' AND $hasta!='') {
 			$data['desde'] = $desde;
 			$data['hasta'] = $hasta;
@@ -52,6 +53,7 @@ class Paciente extends CI_Controller
 		if ($paciente!='') {
 			$data['paciente'] = $paciente;
 		}
+		
 		$datos = $this->pacientes_model->getpaciente($data);
 		header('content-type: application/json; charset=utf-8');
 		echo json_encode($datos);
@@ -63,6 +65,7 @@ class Paciente extends CI_Controller
 	{
 		$data['pais'] = $this->modelgeneral->getTable('paises');
 		$data['departamentos'] = $this->modelgeneral->getTable('departamento');
+		
 
 		$this->load->view('layouts/header');
 		$this->load->view('layouts/aside');
@@ -114,7 +117,6 @@ class Paciente extends CI_Controller
 			  'edad_pac' => $this->input->post('edad'),
 			  'ocupacion' =>$this->input->post('ocupacion'),
 			 'lugar_nacimiento' => $this->input->post('lugarnacimiento'),
-			 'informacion_clinica' => $this->input->post('informacionclinica'),
 			  'dire_pac'  => $this->input->post('direccion'),
 			 'telf_pac' => $this->input->post('telefono'),
 			 'dni_pac' =>$this->input->post('dni'),
@@ -218,7 +220,6 @@ private function _do_upload()
 		$provincia = $this->input->post('provincia');
 		$distrito = $this->input->post('distrito');
 		$direccion = $this->input->post('direccion');
-		$entero = $this->input->post('entero');
 		$telefono = $this->input->post('telefono');
 		$dni = $this->input->post('dni');
 		$fechanacimiento = $this->input->post('fechanacimiento');
@@ -254,7 +255,6 @@ private function _do_upload()
 			  'edad_pac' => $edad,
 			  'estudios_pac' =>$estudios,
 			 'lugar_nacimiento' => $lugarnacimiento,
-			 'informacion_clinica' => $entero,
 			  'dire_pac'  => $direccion,
 			 'telf_pac' =>$telefono,
 			 'dni_pac' =>$dni,

@@ -63,7 +63,7 @@
                   <a href="#" data-id="HistoriaContenidoEvolucion" class="list-group-item"><i class="fa fa-user-md" aria-hidden="true"></i> Evolución</a>
                   <a href="#" data-id="HistoriaContenidoPlacas" class="list-group-item"><i class="fa fa-files-o" data-id="HistoriaContenidoReceta" aria-hidden="true"></i> Exam. Auxiliares Placas</a>
                   <a href="#" data-id="HistoriaContenidoTratamientos" class="list-group-item"><i class="fa fa-credit-card" aria-hidden="true"></i> Tratamientos realizados</a>
-                  <a href="#" data-id="HistoriaContenidoReceta" class="list-group-item"><i class="fa fa-medkit" aria-hidden="true"></i> Receta</a>
+            
                   <a href="#" data-id="HistoriaContenidoCita" class="list-group-item"><i class="fa fa-calendar-plus-o"></i> Citas</a>
                 </div>
                 
