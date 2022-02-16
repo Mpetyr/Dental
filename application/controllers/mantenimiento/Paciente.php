@@ -115,7 +115,7 @@ class Paciente extends CI_Controller
 			'nomb_pac' => $this->input->post('nombre'),
 			'apel_pac' => $this->input->post('apellidos'),
 			  'edad_pac' => $this->input->post('edad'),
-			  'ocupacion' =>$this->input->post('ocupacion'),
+			  'ocupacion' =>$this->input->post('1'),
 			 'lugar_nacimiento' => $this->input->post('lugarnacimiento'),
 			  'dire_pac'  => $this->input->post('direccion'),
 			 'telf_pac' => $this->input->post('telefono'),

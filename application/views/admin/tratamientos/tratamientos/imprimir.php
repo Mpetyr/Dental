@@ -9,10 +9,10 @@
 			<b>Especialidad:</b> <?= $tratamiento->nombre_especialidad ?> <br>
 		</div>
 		<!-- <div class="w100">
-			<b>Doctor:</b> <?= $tratamiento->nomb_med.' '.$tratamiento->apel_med ?> <br>
-		</div> -->
-		<div class="w100">
-			<b>Paciente:</b> <?= $tratamiento->nomb_med.' '.$tratamiento->nomb_med ?> <br>
+			<b>Doctor:</b> <?//= $tratamiento->nomb_med.' '.$tratamiento->apel_med ?> <br>
+		</div>
+		<div class="w100"> -->
+			<b>Paciente:</b> <?= $tratamiento->nomb_pac.' '.$tratamiento->apel_pac ?> <br>
 		</div>
 		<div class="w100">
 			<b>Asunto:</b> <?= $tratamiento->asunto_tra ?> <br>
