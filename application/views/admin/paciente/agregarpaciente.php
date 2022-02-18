@@ -269,7 +269,7 @@
                   </div> -->
                     <div class="col-md-8">
                       <div class="form-group">
-                        <label class="col-form-label">Correo: *</label>
+                        <label class="col-form-label">Correo: </label>
                         <div class="input-group">
                           <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
                           <input name="email" placeholder="email" class="form-control input-sm" type="email">

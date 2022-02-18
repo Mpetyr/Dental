@@ -89,15 +89,15 @@
           </div>
         </div>
       </div>
-      <div class="row">
+      <!-- <div class="row">
         <div class="col-md-3">
           <div class="form-group">
             <label class="control-label">Pais</label>
             <select name="pais" class="form-control select2 input-sm" style="width: 100%">
               <option value=""></option>
-              <?php foreach ($paises as $p): ?>
-              <option value="<?= $p->id ?>" <?= ($p->id==$paciente->pais_id)?'selected':'' ?>><?= $p->nombre ?></option>
-              <?php endforeach ?>
+              <?php //foreach ($paises as $p): ?>
+              <option value="<?//= $p->id ?>" <?//= ($p->id==$paciente->pais_id)?'selected':'' ?>><?//= $p->nombre ?></option>
+              <?php //endforeach ?>
             </select>
           </div>
         </div>
@@ -105,9 +105,9 @@
           <div class="form-group">
             <label class="control-label">Departamento</label>
             <select name="departamento" class="form-control input-sm">
-              <?php foreach ($departamentos as $d): ?>
-                <option value="<?= $d->departamento_id ?>" <?= ($paciente->departamento_id==$d->departamento_id)?'selected':'' ?>><?= $d->departamento_nombre ?></option>
-              <?php endforeach ?>
+              <?php //foreach ($departamentos as $d): ?>
+                <option value="<?//= $d->departamento_id ?>" <?//= ($paciente->departamento_id==$d->departamento_id)?'selected':'' ?>><?//= $d->departamento_nombre ?></option>
+              <?php //endforeach ?>
             </select>
           </div>
         </div>
@@ -115,9 +115,9 @@
           <div class="form-group">
             <label class="control-label">Provincia</label>
             <select name="provincia" class="form-control input-sm">
-              <?php foreach ($provincias as $p): ?>
-              <option value="<?= $p->provincia_id ?>" <?= ($paciente->provincia_id==$p->provincia_id)?'selected':'' ?>><?= $p->provincia_nombre ?></option>
-              <?php endforeach ?>
+              <?php //foreach ($provincias as $p): ?>
+              <option value="<?//= $p->provincia_id ?>" <?//= ($paciente->provincia_id==$p->provincia_id)?'selected':'' ?>><?//= $p->provincia_nombre ?></option>
+              <?php //endforeach ?>
             </select>
           </div>
         </div>
@@ -125,13 +125,13 @@
           <div class="form-group">
             <label class="control-label">Distrito</label>
             <select name="distrito" class="form-control input-sm">
-              <?php foreach ($distritos as $d): ?>
-              <option value="<?= $d->distrito_id ?>" <?= ($d->distrito_id==$paciente->distrito_id)?'selected':'' ?>><?= $d->distrito_nombre ?></option>
-              <?php endforeach ?>
+              <?php //foreach ($distritos as $d): ?>
+              <option value="<?//= $d->distrito_id ?>" <?//= ($d->distrito_id==$paciente->distrito_id)?'selected':'' ?>><?//= $d->distrito_nombre ?></option>
+              <?php //endforeach ?>
             </select>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <div class="row">
         <div class="col-md-12">

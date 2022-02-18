@@ -22,26 +22,26 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-md-6">
+            <!-- <div class="col-md-6">
               <div class="form-group">
                 <label class="control-label">Motivo de la consulta:</label>
-                <textarea name="motivoConsulta" class="form-control input-sm" rows="3"><?= $enfermedad->motivo_enfact ?></textarea>
+                <textarea name="motivoConsulta" class="form-control input-sm" rows="3"><?//= $enfermedad->motivo_enfact ?></textarea>
               </div>
-            </div>
+            </div> -->
             <div class="col-md-6">
               <div class="form-group">
                 <label class="control-label">Signos y sintomas principales:</label>
                 <textarea name="signosSintomas" class="form-control input-sm" rows="3"><?= $enfermedad->signo_enfact ?></textarea>
               </div>
             </div>
-          </div>
-          <div class="row">
             <div class="col-md-6">
               <div class="form-group">
                 <label class="control-label">Antecedentes personales:</label>
                 <textarea name="antecedentesPersonales" class="form-control input-sm" rows="3"><?= $enfermedad->antecper_enfact ?></textarea>
               </div>
             </div>
+          </div>
+          <div class="row">
             <div class="col-md-6">
               <div class="form-group">
                 <label class="control-label">Antecedentes Familiares:</label>
@@ -210,34 +210,34 @@
                 <label class="control-label">¿Padece o a padecido alguna de las siguientes enfermedades?</label>
                 <div>
                   <label class="radio-inline">
-                    <input type="radio" name="padeceEnfermedad" value="Asma" <?= ($consulta->padece_paccon=='Asma')?'checked':'' ?>>Asma
+                    <input type="checkbox" name="padeceEnfermedad" value="Asma" <?= ($consulta->padece_paccon=='Asma')?'checked':'' ?>>Asma
                   </label>
                   <label class="radio-inline">
-                    <input type="radio" name="padeceEnfermedad" value="Hepatitis" <?= ($consulta->padece_paccon=='Hepatitis')?'checked':'' ?>>Hepatitis
+                    <input type="checkbox" name="padeceEnfermedad" value="Hepatitis" <?= ($consulta->padece_paccon=='Hepatitis')?'checked':'' ?>>Hepatitis
                   </label>
                   <label class="radio-inline">
-                    <input type="radio" name="padeceEnfermedad" value="Epilepsia" <?= ($consulta->padece_paccon=='Epilepsia')?'checked':'' ?>>Epilepsia
+                    <input type="checkbox" name="padeceEnfermedad" value="Epilepsia" <?= ($consulta->padece_paccon=='Epilepsia')?'checked':'' ?>>Epilepsia
                   </label>
                   <label class="radio-inline">
-                    <input type="radio" name="padeceEnfermedad" value="Enf. renal" <?= ($consulta->padece_paccon=='Enf. renal')?'checked':'' ?>>Enf. renal
+                    <input type="checkbox" name="padeceEnfermedad" value="Enf. renal" <?= ($consulta->padece_paccon=='Enf. renal')?'checked':'' ?>>Enf. renal
                   </label>
                   <label class="radio-inline">
-                    <input type="radio" name="padeceEnfermedad" value="Sarampion" <?= ($consulta->padece_paccon=='Sarampion')?'checked':'' ?>>Sarampion
+                    <input type="checkbox" name="padeceEnfermedad" value="Sarampion" <?= ($consulta->padece_paccon=='Sarampion')?'checked':'' ?>>Sarampion
                   </label>
                   <label class="radio-inline">
-                    <input type="radio" name="padeceEnfermedad" value="Varicela" <?= ($consulta->padece_paccon=='Varicela')?'checked':'' ?>>Varicela
+                    <input type="checkbox" name="padeceEnfermedad" value="Varicela" <?= ($consulta->padece_paccon=='Varicela')?'checked':'' ?>>Varicela
                   </label>
                   <label class="radio-inline">
-                    <input type="radio" name="padeceEnfermedad" value="Tuberculosis" <?= ($consulta->padece_paccon=='Tuberculosis')?'checked':'' ?>>Tuberculosis
+                    <input type="checkbox" name="padeceEnfermedad" value="Tuberculosis" <?= ($consulta->padece_paccon=='Tuberculosis')?'checked':'' ?>>Tuberculosis
                   </label>
                       </div>
 
 
                   <label class="radio-inline">
-                    <input type="radio" name="padeceEnfermedad" value="Diabetes" <?= ($consulta->padece_paccon=='Diabetes')?'checked':'' ?>>Diabetes
+                    <input type="checkbox" name="padeceEnfermedad" value="Diabetes" <?= ($consulta->padece_paccon=='Diabetes')?'checked':'' ?>>Diabetes
                   </label>
                   <label class="radio-inline">
-                    <input type="radio" name="padeceEnfermedad" value="Otras" <?= ($consulta->padece_paccon=='Otras')?'checked':'' ?>>Otras
+                    <input type="checkbox" name="padeceEnfermedad" value="Otras" <?= ($consulta->padece_paccon=='Otras')?'checked':'' ?>>Otras
                   </label>
             
               </div>

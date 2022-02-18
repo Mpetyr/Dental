@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
 <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 <div id="HistoriaContenidoPlacas" class="panel panel-primary" style="display: none">
-  <div class="panel-heading">Examenes Auxiliares - Placas</div>
+  <div class="panel-heading">Documentos</div>
   <div class="panel-body">
     <div class="row">
       <div class="col-md-12">

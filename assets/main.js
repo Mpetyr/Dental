@@ -1702,7 +1702,7 @@ $('#FormHistoriaMovimientoPacienteExploracion').validate({
 
 
 
-$('#FormHistoriaMovimientoPacienteConsulta input[type=radio]').change(function(event) {
+$('#FormHistoriaMovimientoPacienteConsulta input[type=checkbox]').change(function(event) {
 	var textarea = $(this).parent().parent().parent().next().find('textarea');
 	var valor = $(this).val();
 	if (valor == '0') {
@@ -2397,7 +2397,7 @@ $('#FormRegistrarPaciente').validate({
 		dni:{required:true},
 		fechanacimiento:{required:true},
 		sexo:{required:true},
-		email:{required:true},
+		email:{required:false},
 		pais:{required:true},
 		departamento:{required:true},
 	
