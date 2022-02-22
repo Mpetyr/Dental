@@ -2,7 +2,7 @@
 	<div class="w20">
 		<img  src="<?= base_url('assets/uploads/logo/'.$this->session->userdata('foto')) ?>" style="max-width: 100px">
 	</div>
-<div class="w100">
+<div class="w100" style="font-size:12px;">
 	<h2 class="text-left" style="margin-left: 60px;">Plan de Tratamiento</h2>
 	<div class="w40">
 		<div class="w100">
@@ -25,7 +25,7 @@
 	</div> -->
 </div>
 <br>
-<table class="table table-bordered">
+<table class="table table-bordered" style="font-size: 14px;">
 	<thead>
 		<tr>
 			<th>Descripción</th>
@@ -48,8 +48,8 @@
 	</tbody>
 	<tfoot>
 		<tr>
-			<th colspan="4" class="text-right">Total</th>
-			<th><?= $tratamiento->total_tra ?></th>
+			<th colspan="4" class="text-right" style="font-size: 16px;">Total</th>
+			<th style="font-size: 16px;"><?= $tratamiento->total_tra ?></th>
 		</tr>
 	</tfoot>
 </table>
