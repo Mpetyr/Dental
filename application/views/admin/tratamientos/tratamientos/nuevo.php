@@ -191,9 +191,15 @@
             <td><?= $p->nombre ?></td>
             <td><input id="proc-cant-<?= $p->id_procedimiento ?>" type="number" name="cant" class="form-control" value="1"></td>
             <td><?= $p->prec_procedimiento ?></td>
-            <td><button data-id="<?= $p->id_procedimiento ?>" class="addProcedimiento btn btn-ico btn-info"><i class="fa fa-plus"></i></button></td>
+            <td><button data-id="<?= $p->id_procedimiento ?>" id="<?= $p->id_procedimiento ?>" class="addProcedimiento btn btn-ico btn-info" onclick="this.disabled = 'disabled'"><i class="fa fa-plus"></i></button></td>
           </tr>
           <?php endforeach ?>
+          <!-- <script>
+            let botonAdd = document.getElementById(/* AQUÍ VA EL ID */)
+            botonAdd.addEventListener("click", () => {
+              botonAdd.classList.replace('btn-info', 'btn-secondary');
+            })
+          </script> -->
           </tbody>
         </table>
       </div>
