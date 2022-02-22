@@ -24,7 +24,7 @@
 </div>
 
 <br>
-<div class="w100">
+<div class="w100" style="font-size: 14px;">
 	<div class="w50">
 		<p><b>N° Historia Clínica:</b> <?= $comprobante->codi_pac ?></p>
 		<p><b>Sr(a):</b> <?= $comprobante->nomb_pac.' '.$comprobante->apel_pac ?></p>
@@ -38,15 +38,15 @@
 	</div>
 </div>
 <br>
-<table class="table table-bordered table-condensed">
+<table class="table table-bordered table-condensed" style="font-size: 15px;">
 	<thead>
 		<tr>
-			<th>Código</th>
-			<th>Procedimiento</th>
-			<th>Prec. Unit.</th>
-			<th>Cant.</th>
-			<th>Dsct.</th>
-			<th>Subtotal</th>
+			<th class="text-center">Código</th>
+			<th class="text-center">Procedimiento</th>
+			<th class="text-center">Prec. Unit.</th>
+			<th class="text-center">Cant.</th>
+			<th class="text-center">Dsct.</th>
+			<th class="text-center">Subtotal</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -54,18 +54,18 @@
 		<?php foreach ($comprobante->procedimientos as $p): ?>
 		<?php $impuesto = $comprobante->igvparam_com ?>
 		<tr>
-			<td><?= $p->id_procedimiento ?></td>
+			<td class="text-center"><?= $p->id_procedimiento ?></td>
 			<td><?= $p->nombre ?></td>
 				<?php 
 					$precio_unitario = ($p->precio_unitario / $comprobante->num);
 					$precio_unitario = ($precio_unitario * 100) / ($impuesto + 100);
 				?>
 			
-			<td><?= round($precio_unitario,2) ?></td>
-			<td><?= $p->cant_tradet ?></td>
-			<td><?= $p->descuento_tradet ?>%</td>
+			<td class="text-center"><?= round($precio_unitario,2) ?></td>
+			<td class="text-center"><?= $p->cant_tradet ?></td>
+			<td class="text-center"><?= $p->descuento_tradet ?>%</td>
 			<?php $subtotal =  ($precio_unitario * $p->cant_tradet)?>
-			<td><?= round($subtotal,2) ?></td>
+			<td class="text-center"><?= round($subtotal,2) ?></td>
 			<?php $subtotalAcumulado += $subtotal ?>
 		</tr>
 		<?php endforeach ?>
