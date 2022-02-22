@@ -1,5 +1,5 @@
 
-<div style="font-size: 12px">
+<div style="font-size: 14px">
 
 	<div class="w100">
 		<div class="w20">
@@ -878,7 +878,7 @@
 			</div>
 		</div>
 
-		<div class="w15">
+		<div class="w20">
 			<div>
 			
 			<div style="border:1px solid #070707; padding:3px" height="20">
@@ -1134,21 +1134,21 @@
  		  <table class="table table-bordered">
 	<thead>	
 		<tr>
-			<th style="border:1px solid #070707; padding: 6px; background-color: #B5ADAD; text-align: center; width: 240px;">Descripción</th>
-			<th style="border:1px solid #070707; padding: 6px; background-color: #B5ADAD; text-align: center; width: 75px;">Pieza</th>
-				<th style="border:1px solid #070707; padding: 6px; background-color: #B5ADAD; text-align: center; width: 92px;">Pieza Final</th>
-			<th style="border:1px solid #070707; padding: 6px; background-color: #B5ADAD; text-align: center; width: 120px">Estado</th>
-				<th style="border:1px solid #070707; padding: 6px; background-color: #B5ADAD; text-align: center; width: 145px">Observación</th>
+			<th style="border:1px solid #070707; padding: 6px; background-color: #B5ADAD; text-align: center; width: 240px; font-size: 15px; ">Descripción</th>
+			<th style="border:1px solid #070707; padding: 6px; background-color: #B5ADAD; text-align: center; width: 75px; font-size: 15px; ">Pieza</th>
+				<th style="border:1px solid #070707; padding: 6px; background-color: #B5ADAD; text-align: center; width: 92px; font-size: 15px; ">Pieza Final</th>
+			<th style="border:1px solid #070707; padding: 6px; background-color: #B5ADAD; text-align: center; width: 120px; font-size: 15px; ">Estado</th>
+				<th style="border:1px solid #070707; padding: 6px; background-color: #B5ADAD; text-align: center; width: 145px; font-size: 15px; ">Observación</th>
 		</tr>
 	</thead>
 	<tbody>
 		<?php foreach ($historia->odinicial as $o): ?>
 		<tr>
-			<td style="border:1px solid #070707; padding: 6px; text-align: center; "><?= $o->pacodo_sigla.' '. $o->nombre_hal?></td>
-			<td style="border:1px solid #070707; padding: 6px; text-align: center; "><?= $o->numero_die ?></td>
-			<td style="border:1px solid #070707; padding: 6px; text-align: center; "><?= $o->pacodo_dientefinal ?></td>
-			<td style="border:1px solid #070707; padding: 6px; text-align: center; "><?= $o->pacodo_estado ?></td>
-			<td style="border:1px solid #070707; padding: 6px; text-align: center; "><?= $o->pacodo_espec ?></td>
+			<td style="border:1px solid #070707; padding: 6px; text-align: center; font-size: 15px;"><?= $o->pacodo_sigla.' '. $o->nombre_hal?></td>
+			<td style="border:1px solid #070707; padding: 6px; text-align: center; font-size: 15px;"><?= $o->numero_die ?></td>
+			<td style="border:1px solid #070707; padding: 6px; text-align: center; font-size: 15px;"><?= $o->pacodo_dientefinal ?></td>
+			<td style="border:1px solid #070707; padding: 6px; text-align: center; font-size: 15px;"><?= $o->pacodo_estado ?></td>
+			<td style="border:1px solid #070707; padding: 6px; text-align: center; font-size: 15px;"><?= $o->pacodo_espec ?></td>
 		</tr>
 		<?php endforeach ?>
 	</tbody>
@@ -1183,15 +1183,15 @@
 	<table class="table table-bordered">
 	<thead>	
 		<tr>
-			<th style="border:1px solid #070707; padding: 6px; background-color: #B5ADAD; text-align: center;">NOMBRE</th>
-			<th style="border:1px solid #070707; padding: 6px; background-color: #B5ADAD; text-align: center;">OBSERVACION</th>
+			<th style="border:1px solid #070707; padding: 6px; background-color: #B5ADAD; text-align: center; font-size: 15px;">NOMBRE</th>
+			<th style="border:1px solid #070707; padding: 6px; background-color: #B5ADAD; text-align: center; font-size: 15px;">OBSERVACION</th>
 		</tr>
 	</thead>
 	<tbody>
 		<?php foreach ($historia->alergias as $a): ?>
 		<tr>
-			<td style="border:1px solid #070707; padding: 6px; text-align: center; "><?= $a->pacale_observacion ?></td>
-			<td style="border:1px solid #070707; padding: 6px; text-align: center; "><?= $a->nombre_ale ?></td>
+			<td style="border:1px solid #070707; padding: 6px; text-align: center; font-size: 15px;"><?= $a->pacale_observacion ?></td>
+			<td style="border:1px solid #070707; padding: 6px; text-align: center; font-size: 15px;"><?= $a->nombre_ale ?></td>
 		</tr>
 		<?php endforeach ?>
 	</tbody>
@@ -1211,16 +1211,16 @@
 					<table class="table table-bordered">
 					<thead>	
 						<tr>
-							<th style="border:1px solid #070707; padding: 6px; background-color: #B5ADAD; text-align: center; width: 100px;">SIGLAS</th>
-							<th style="border:1px solid #070707; padding: 6px; background-color: #B5ADAD; text-align: center; width: 380px;">CIE10</th>
+							<th style="border:1px solid #070707; padding: 6px; background-color: #B5ADAD; text-align: center; width: 100px; font-size: 15px;">SIGLAS</th>
+							<th style="border:1px solid #070707; padding: 6px; background-color: #B5ADAD; text-align: center; width: 380px; font-size: 15px;">CIE10</th>
 				
 						</tr>
 					</thead>
 					<tbody>
 						<?php foreach ($historia->pacdiagnostico as $dg): ?>
 						<tr>
-							<td style="border:1px solid #070707; padding: 6px; text-align: center; "><?= $dg->codi_enf01 ?></td>
-							<td style="border:1px solid #070707; padding: 6px; text-align: center; "><?= $dg->desc_enf ?></td>
+							<td style="border:1px solid #070707; padding: 6px; text-align: center; font-size: 15px;"><?= $dg->codi_enf01 ?></td>
+							<td style="border:1px solid #070707; padding: 6px; text-align: center; font-size: 15px;"><?= $dg->desc_enf ?></td>
 						</tr>
 						<?php endforeach ?>
 					</tbody>
@@ -1240,20 +1240,20 @@
 					<table class="table table-bordered">
 					<thead>	
 						<tr>
-							<th style="border:1px solid #070707; padding: 6px; background-color: #B5ADAD; text-align: center; width: 100px;">FECHA</th>
-							<th style="border:1px solid #070707; padding: 6px; background-color: #B5ADAD; text-align: center; width: 230px;">DESCRIPCION DE EVOLUCION</th>
-							<th style="border:1px solid #070707; padding: 6px; background-color: #B5ADAD; text-align: center; width: 115px;">ESPECIALIDAD</th>
-							<th style="border:1px solid #070707; padding: 6px; background-color: #B5ADAD; text-align: center; width: 180px;">DOCTOR</th>
+							<th style="border:1px solid #070707; padding: 6px; background-color: #B5ADAD; text-align: center; width: 100px; font-size: 15px;">FECHA</th>
+							<th style="border:1px solid #070707; padding: 6px; background-color: #B5ADAD; text-align: center; width: 230px; font-size: 15px;">DESCRIPCION DE EVOLUCION</th>
+							<th style="border:1px solid #070707; padding: 6px; background-color: #B5ADAD; text-align: center; width: 115px; font-size: 15px;">ESPECIALIDAD</th>
+							<th style="border:1px solid #070707; padding: 6px; background-color: #B5ADAD; text-align: center; width: 180px; font-size: 15px;">DOCTOR</th>
 						
 						</tr>
 					</thead>
 					<tbody>
 						<?php foreach ($historia->evolucion as $ev): ?>
 						<tr>
-							<td style="border:1px solid #070707; padding: 6px; text-align: center; "><?= $ev->fecha_evolucion ?></td>
-							<td style="border:1px solid #070707; padding: 6px;  "><?= $ev->pacevol_descripcion ?></td>
-							<td style="border:1px solid #070707; padding: 6px;  "><?= $ev->nombre_especialidad ?></td>
-							<td style="border:1px solid #070707; padding: 6px; "><?= $ev->apel_med.' '. $ev->nomb_med?></td>
+							<td style="border:1px solid #070707; padding: 6px; text-align: center; font-size: 15px;"><?= $ev->fecha_evolucion ?></td>
+							<td style="border:1px solid #070707; padding: 6px; font-size: 15px; "><?= $ev->pacevol_descripcion ?></td>
+							<td style="border:1px solid #070707; padding: 6px; font-size: 15px; "><?= $ev->nombre_especialidad ?></td>
+							<td style="border:1px solid #070707; padding: 6px; font-size: 15px;"><?= $ev->apel_med.' '. $ev->nomb_med?></td>
 							
 						</tr>
 						<?php endforeach ?>
