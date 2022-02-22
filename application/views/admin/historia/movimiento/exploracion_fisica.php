@@ -210,34 +210,34 @@
                 <label class="control-label">¿Padece o a padecido alguna de las siguientes enfermedades?</label>
                 <div>
                   <label class="radio-inline">
-                    <input type="checkbox" name="padeceEnfermedad" value="Asma" <?= ($consulta->padece_paccon=='Asma')?'checked':'' ?>>Asma
+                    <input type="checkbox" name="padeceEnfermedad[]" value="Asma" <?= ($consulta->padece_paccon=='Asma')?'checked':'' ?>>Asma
                   </label>
                   <label class="radio-inline">
-                    <input type="checkbox" name="padeceEnfermedad" value="Hepatitis" <?= ($consulta->padece_paccon=='Hepatitis')?'checked':'' ?>>Hepatitis
+                    <input type="checkbox" name="padeceEnfermedad[]" value="Hepatitis" <?= ($consulta->padece_paccon=='Hepatitis')?'checked':'' ?>>Hepatitis
                   </label>
                   <label class="radio-inline">
-                    <input type="checkbox" name="padeceEnfermedad" value="Epilepsia" <?= ($consulta->padece_paccon=='Epilepsia')?'checked':'' ?>>Epilepsia
+                    <input type="checkbox" name="padeceEnfermedad[]" value="Epilepsia" <?= ($consulta->padece_paccon=='Epilepsia')?'checked':'' ?>>Epilepsia
                   </label>
                   <label class="radio-inline">
-                    <input type="checkbox" name="padeceEnfermedad" value="Enf. renal" <?= ($consulta->padece_paccon=='Enf. renal')?'checked':'' ?>>Enf. renal
+                    <input type="checkbox" name="padeceEnfermedad[]" value="Enf. renal" <?= ($consulta->padece_paccon=='Enf. renal')?'checked':'' ?>>Enf. renal
                   </label>
                   <label class="radio-inline">
-                    <input type="checkbox" name="padeceEnfermedad" value="Sarampion" <?= ($consulta->padece_paccon=='Sarampion')?'checked':'' ?>>Sarampion
+                    <input type="checkbox" name="padeceEnfermedad[]" value="Sarampion" <?= ($consulta->padece_paccon=='Sarampion')?'checked':'' ?>>Sarampion
                   </label>
                   <label class="radio-inline">
-                    <input type="checkbox" name="padeceEnfermedad" value="Varicela" <?= ($consulta->padece_paccon=='Varicela')?'checked':'' ?>>Varicela
+                    <input type="checkbox" name="padeceEnfermedad[]" value="Varicela" <?= ($consulta->padece_paccon=='Varicela')?'checked':'' ?>>Varicela
                   </label>
                   <label class="radio-inline">
-                    <input type="checkbox" name="padeceEnfermedad" value="Tuberculosis" <?= ($consulta->padece_paccon=='Tuberculosis')?'checked':'' ?>>Tuberculosis
+                    <input type="checkbox" name="padeceEnfermedad[]" value="Tuberculosis" <?= ($consulta->padece_paccon=='Tuberculosis')?'checked':'' ?>>Tuberculosis
                   </label>
                       </div>
 
 
                   <label class="radio-inline">
-                    <input type="checkbox" name="padeceEnfermedad" value="Diabetes" <?= ($consulta->padece_paccon=='Diabetes')?'checked':'' ?>>Diabetes
+                    <input type="checkbox" name="padeceEnfermedad[]" value="Diabetes" <?= ($consulta->padece_paccon=='Diabetes')?'checked':'' ?>>Diabetes
                   </label>
                   <label class="radio-inline">
-                    <input type="checkbox" name="padeceEnfermedad" value="Otras" <?= ($consulta->padece_paccon=='Otras')?'checked':'' ?>>Otras
+                    <input type="checkbox" name="padeceEnfermedad[]" value="Otras" <?= ($consulta->padece_paccon=='Otras')?'checked':'' ?>>Otras
                   </label>
             
               </div>
