@@ -210,34 +210,49 @@
                 <label class="control-label">¿Padece o a padecido alguna de las siguientes enfermedades?</label>
                 <div>
                   <label class="radio-inline">
-                    <input type="checkbox" name="padeceEnfermedad[]" value="Asma" <?= ($consulta->padece_paccon=='Asma')?'checked':'' ?>>Asma
+                    <input type="checkbox" name="padeceEnfermedad[]" value="Diabetes" <?php $data = explode(',', $consulta->padece_paccon); if (in_array('Diabetes', $data)) {echo 'checked="checked"';}?>>Diabetes
                   </label>
                   <label class="radio-inline">
-                    <input type="checkbox" name="padeceEnfermedad[]" value="Hepatitis" <?= ($consulta->padece_paccon=='Hepatitis')?'checked':'' ?>>Hepatitis
+                    <input type="checkbox" name="padeceEnfermedad[]" value="Hipertensión" <?php $data = explode(',', $consulta->padece_paccon); if (in_array('Hipertensión', $data)) {echo 'checked="checked"';}?>>Hipertensión
                   </label>
                   <label class="radio-inline">
-                    <input type="checkbox" name="padeceEnfermedad[]" value="Epilepsia" <?= ($consulta->padece_paccon=='Epilepsia')?'checked':'' ?>>Epilepsia
+                    <input type="checkbox" name="padeceEnfermedad[]" value="Anemia" <?php $data = explode(',', $consulta->padece_paccon); if (in_array('Anemia', $data)) {echo 'checked="checked"';} ?>>Anemia
                   </label>
                   <label class="radio-inline">
-                    <input type="checkbox" name="padeceEnfermedad[]" value="Enf. renal" <?= ($consulta->padece_paccon=='Enf. renal')?'checked':'' ?>>Enf. renal
+                    <input type="checkbox" name="padeceEnfermedad[]" value="Falcemia" <?php $data = explode(',', $consulta->padece_paccon); if (in_array('Falcemia', $data)) {echo 'checked="checked"';} ?>>Falcemia
                   </label>
                   <label class="radio-inline">
-                    <input type="checkbox" name="padeceEnfermedad[]" value="Sarampion" <?= ($consulta->padece_paccon=='Sarampion')?'checked':'' ?>>Sarampion
+                    <input type="checkbox" name="padeceEnfermedad[]" value="Asma" <?php $data = explode(',', $consulta->padece_paccon); if (in_array('Asma', $data)) {echo 'checked="checked"';} ?>>Asma
                   </label>
                   <label class="radio-inline">
-                    <input type="checkbox" name="padeceEnfermedad[]" value="Varicela" <?= ($consulta->padece_paccon=='Varicela')?'checked':'' ?>>Varicela
+                    <input type="checkbox" name="padeceEnfermedad[]" value="Hemorragia" <?php $data = explode(',', $consulta->padece_paccon); if (in_array('Hemorragia', $data)) {echo 'checked="checked"';} ?>>Hemorragia
                   </label>
                   <label class="radio-inline">
-                    <input type="checkbox" name="padeceEnfermedad[]" value="Tuberculosis" <?= ($consulta->padece_paccon=='Tuberculosis')?'checked':'' ?>>Tuberculosis
+                    <input type="checkbox" name="padeceEnfermedad[]" value="Problemas cardiacos" <?php $data = explode(',', $consulta->padece_paccon); if (in_array('Problemas cardiacos', $data)) {echo 'checked="checked"';} ?>>Problemas cardiacos
                   </label>
                       </div>
 
 
                   <label class="radio-inline">
-                    <input type="checkbox" name="padeceEnfermedad[]" value="Diabetes" <?= ($consulta->padece_paccon=='Diabetes')?'checked':'' ?>>Diabetes
+                    <input type="checkbox" name="padeceEnfermedad[]" value="Problemas renales" <?php $data = explode(',', $consulta->padece_paccon); if (in_array('Problemas renales', $data)) {echo 'checked="checked"';} ?>>Problemas renales
                   </label>
                   <label class="radio-inline">
-                    <input type="checkbox" name="padeceEnfermedad[]" value="Otras" <?= ($consulta->padece_paccon=='Otras')?'checked':'' ?>>Otras
+                    <input type="checkbox" name="padeceEnfermedad[]" value="Alteraciones gástricas" <?php $data = explode(',', $consulta->padece_paccon); if (in_array('Alteraciones gástricas', $data)) {echo 'checked="checked"';} ?>>Alteraciones gástricas
+                  </label>
+                  <label class="radio-inline">
+                    <input type="checkbox" name="padeceEnfermedad[]" value="Dolor" <?php $data = explode(',', $consulta->padece_paccon); if (in_array('Dolor', $data)) {echo 'checked="checked"';} ?>>Dolor
+                  </label>
+                  <label class="radio-inline">
+                    <input type="checkbox" name="padeceEnfermedad[]" value="Hepatitis" <?php $data = explode(',', $consulta->padece_paccon); if (in_array('Hepatitis', $data)) {echo 'checked="checked"';} ?>>Hepatitis
+                  </label>
+                  <label class="radio-inline">
+                    <input type="checkbox" name="padeceEnfermedad[]" value="VIH" <?php $data = explode(',', $consulta->padece_paccon); if (in_array('VIH', $data)) {echo 'checked="checked"';} ?>>VIH
+                  </label>
+                  <label class="radio-inline">
+                    <input type="checkbox" name="padeceEnfermedad[]" value="Tuberculosis" <?php $data = explode(',', $consulta->padece_paccon); if (in_array('Tuberculosis', $data)) {echo 'checked="checked"';} ?>>Tuberculosis
+                  </label>
+                  <label class="radio-inline">
+                    Otras<input type="text" name="padeceEnfermedad[]" <?php $data = explode(',', $consulta->padece_paccon); if (in_array('Hemorragia', $data)) {echo 'checked="checked"';} ?>>
                   </label>
             
               </div>
