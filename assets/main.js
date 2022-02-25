@@ -1702,7 +1702,7 @@ $('#FormHistoriaMovimientoPacienteExploracion').validate({
 
 
 
-$('#FormHistoriaMovimientoPacienteConsulta input[type=checkbox]').change(function(event) {
+$('#FormHistoriaMovimientoPacienteConsulta input[type=radio]').change(function(event) {
 	var textarea = $(this).parent().parent().parent().next().find('textarea');
 	var valor = $(this).val();
 	if (valor == '0') {
