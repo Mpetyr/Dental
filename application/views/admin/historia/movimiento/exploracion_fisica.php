@@ -108,7 +108,7 @@
                   <input type="radio" name="algunaVezMedicamento" value="1" <?= ($consulta->ortod_paccon=='1')?'checked':'' ?>> Si
                 </label>
                 <label class="radio-inline">
-                  <input type="radio" name="algunaVezMedicamento" value="0" selected <?= ($consulta->ortod_paccon=='0')?'checked':'' ?>> No
+                  <input type="radio" name="algunaVezMedicamento" value="0" <?= ($consulta->ortod_paccon=='0')?'checked':'' ?>> No
                 </label>
               </div>
             </div>
@@ -128,7 +128,7 @@
                   <input type="radio" name="tomandoMedicamentoConsulta" value="1" <?= ($consulta->medic_paccon=='1')?'checked':'' ?>> Si
                 </label>
                 <label class="radio-inline">
-                  <input type="radio" name="tomandoMedicamentoConsulta" value="0" selected <?= ($consulta->medic_paccon=='0')?'checked':'' ?>> No
+                  <input type="radio" name="tomandoMedicamentoConsulta" value="0" <?= ($consulta->medic_paccon=='0')?'checked':'' ?>> No
                 </label>
               </div>
             </div>
@@ -148,7 +148,7 @@
                   <input type="radio" name="alergicoAnestesico" value="1" <?= ($consulta->alergico_paccon=='1')?'checked':'' ?>> Si
                 </label>
                 <label class="radio-inline">
-                  <input type="radio" name="alergicoAnestesico" value="0" selected <?= ($consulta->alergico_paccon=='0')?'checked':'' ?>> No
+                  <input type="radio" name="alergicoAnestesico" value="0" <?= ($consulta->alergico_paccon=='0')?'checked':'' ?>> No
                 </label>
               </div>
             </div>
@@ -170,7 +170,7 @@
                   <input type="radio" name="hospitalizadoCirugia" value="1" <?= ($consulta->hosp_paccon=='1')?'checked':'' ?>> Si
                 </label>
                 <label class="radio-inline">
-                  <input type="radio" name="hospitalizadoCirugia" value="0" selected <?= ($consulta->hosp_paccon=='0')?'checked':'' ?>> No
+                  <input type="radio" name="hospitalizadoCirugia" value="0" <?= ($consulta->hosp_paccon=='0')?'checked':'' ?>> No
                 </label>
               </div>
             </div>
@@ -192,7 +192,7 @@
                   <input type="radio" name="transtornoNerviosoEmocional" value="1" <?= ($consulta->trans_paccon=='1')?'checked':'' ?>> Si
                 </label>
                 <label class="radio-inline">
-                  <input type="radio" name="transtornoNerviosoEmocional" value="0" selected <?= ($consulta->trans_paccon=='0')?'checked':'' ?>> No
+                  <input type="radio" name="transtornoNerviosoEmocional" value="0" <?= ($consulta->trans_paccon=='0')?'checked':'' ?>> No
                 </label>
               </div>
             </div>
@@ -268,7 +268,7 @@
                   <input type="radio" name="cepillaDientes" value="1" <?= ($consulta->cepilla_paccon=='1')?'checked':'' ?>> Si
                 </label>
                 <label class="radio-inline">
-                  <input type="radio" name="cepillaDientes" value="0" selected <?= ($consulta->cepilla_paccon=='0')?'checked':'' ?>> No
+                  <input type="radio" name="cepillaDientes" value="0" <?= ($consulta->cepilla_paccon=='0')?'checked':'' ?>> No
                 </label>
               </div>
             </div>
@@ -290,7 +290,7 @@
                   <input type="radio" name="presionArterial" value="1" <?= ($consulta->presion_paccon=='1')?'checked':'' ?>> Si
                 </label>
                 <label class="radio-inline">
-                  <input type="radio" name="presionArterial" value="0" selected <?= ($consulta->presion_paccon=='0')?'checked':'' ?>> No
+                  <input type="radio" name="presionArterial" value="0" <?= ($consulta->presion_paccon=='0')?'checked':'' ?>> No
                 </label>
               </div>
             </div>
