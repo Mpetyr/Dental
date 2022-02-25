@@ -164,12 +164,13 @@
               </div>
             </div>
           </div>
+          <input name="sede" type="hidden" value="1">
           <div class="row">
             <!-- <div class="col-md-6">
               <div class="form-group">
                 <label class="contro-label">Sede</label>
                 <select name="sede" class="form-control">
-                  <option value=""></option>
+                  <option value="1"></option>
                   <?//php foreach ($sedes as $s): ?>
                   <option value="<?//= $s->cod_sede ?>"><?//= $s->nombre_sede ?></option>
                   <?//php endforeach ?>
