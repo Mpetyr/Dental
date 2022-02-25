@@ -146,7 +146,7 @@
                     ?>
                       <option value="<? //= $pa->id 
                                       ?>"><? //= $pa->nombre 
-                                                        ?></option>
+                                          ?></option>
                     <?php // endforeach 
                     ?>
                     </select>
@@ -161,7 +161,7 @@
                     ?>
                       <option value="<? //= $d->departamento_id 
                                       ?>"><? //= $d->departamento_nombre 
-                                                                    ?></option>
+                                          ?></option>
                     <?php //endforeach 
                     ?>
                     </select>
@@ -195,8 +195,8 @@
 
                     <div class="col-md-4">
                       <div class="form-group">
-                        <label class="col-form-label">Documento: *</label>
-                        <input type="text" name="dni" class="form-control input-sm" placeholder="Documento" maxlength="8" minlength="8" onKeyPress="if (event.keyCode < 48 || event.keyCode > 57)event.returnValue = false;">
+                        <label class="col-form-label">Cédula: *</label>
+                        <input type="text" name="dni" class="form-control input-sm" placeholder="Cédula" maxlength="20" minlength="8" onKeyPress="if (event.keyCode < 48 || event.keyCode > 57)event.returnValue = false;">
                       </div>
                     </div>
                     <div class="col-md-4">
