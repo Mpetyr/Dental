@@ -2,7 +2,10 @@
             <div class="pull-right hidden-xs">
                 <b>Version</b> 1.3.0
             </div>
-            <strong>Elaborado por Sysdora <a href="https://adminlte.io"></a>.</strong> 
+            <strong>
+                <!-- Elaborado por Sysdora <a href="https://adminlte.io"></a> -->
+                Modificado y distribuido por MacroBits
+            </strong>
         </footer>
     </div>
     <!-- ./wrapper -->
