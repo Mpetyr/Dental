@@ -648,7 +648,7 @@ class Movimiento extends CI_Controller {
 		$htmlFooter = $this->load->view('admin/historia/imprimir/footer',NULL,true);
 		$css = $css = file_get_contents('assets/styles_pdf.css');
 		$this->mpdf->SetTitle('Historia');
-		$this->mpdf->setHTMLHeader($htmlHeader);
+		//$this->mpdf->setHTMLHeader($htmlHeader);
 		$this->mpdf->setHTMLFooter($htmlFooter);
 		$this->mpdf->writeHTML($css,1);
 		$this->mpdf->writeHTML($html,2);
