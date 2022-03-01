@@ -115,6 +115,10 @@
                     </div>
 
                   </div>
+                  <input name="pais" type="hidden" value="1">
+                  <input name="departamento" type="hidden" value="1">
+                  <input name="provincia" type="hidden" value="1">
+                  <input name="distrito" type="hidden" value="1">
                   <!-- <div class="col-md-4">
                     <div class="form-group">
                       <label class="col-form-label">Grado Instruccion: *</label>

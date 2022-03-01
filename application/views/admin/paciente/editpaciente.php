@@ -115,46 +115,52 @@
                         <input type="number" name="edad" class="form-control input-sm" maxlength="3" minlength="1" value="<?php echo !empty(form_error('edad')) ? set_value('edad') : $pacientes->edad_pac ?>" onkeypress="return soloLetras(event)" onkeypress="return soloLetras(event)" onKeyPress="if (event.keyCode < 48 || event.keyCode > 57)event.returnValue = false;">
                       </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-10">
+                      <div class="form-group">
+                        <label class="col-form-label">Direccion: *</label>
+                        <input type="text" name="direccion" class="form-control input-sm" placeholder="Direccion" value="<?php echo !empty(form_error('direccion')) ? set_value('direccion') : $pacientes->dire_pac ?>">
+                      </div>
+                    </div>
+                    <!-- <div class="col-md-4">
                       <div class="form-group">
                         <label class="col-form-label">Grado Instruccion: *</label>
                         <select class="form-control input-sm" name="estudios">
-                          <option value="S" <?php echo set_value('estudios', $pacientes->estudios_pac) == S ? "selected" : "" ?>>Secundaria Completa</option>
-                          <option value="U" <?php echo set_value('estudios', $pacientes->estudios_pac) == U ? "selected" : "" ?>>Universitaria Completa</option>
-                          <option value="P" <?php echo set_value('estudios', $pacientes->estudios_pac) == P ? "selected" : "" ?>>Primaria Completa</option>
-                          <option value="N" <?php echo set_value('estudios', $pacientes->estudios_pac) == N ? "selected" : "" ?>>No Especifica</option>
+                          <option value="S" <?//php echo set_value('estudios', $pacientes->estudios_pac) == S ? "selected" : "" ?>>Secundaria Completa</option>
+                          <option value="U" <?//php echo set_value('estudios', $pacientes->estudios_pac) == U ? "selected" : "" ?>>Universitaria Completa</option>
+                          <option value="P" <?//php echo set_value('estudios', $pacientes->estudios_pac) == P ? "selected" : "" ?>>Primaria Completa</option>
+                          <option value="N" <?//php echo set_value('estudios', $pacientes->estudios_pac) == N ? "selected" : "" ?>>No Especifica</option>
 
                         </select>
-                        <!--   <select class="form-control input-sm"  name="ocupacion" >
+                          <select class="form-control input-sm"  name="ocupacion" >
                                    <option value="">--Seleccionar--</option>
                                   <option value="S">Secundaria Completa</option>
                                   <option value="U">Universitaria Superior</option>
                                   <option value="P">Primaria Completa</option>
                                   <option value="N">No Especifica</option>
-                                </select> -->
+                                </select>
                       </div>
-                    </div>
+                    </div> -->
 
-                    <div class="col-md-6">
+                    <!-- <div class="col-md-6">
                       <div class="form-group">
                         <label class="col-form-label">Hospital de nacimiento: *</label>
-                        <input type="text" name="lugarnacimiento" class="form-control input-sm" placeholder="Lugar nacimiento" value="<?php echo !empty(form_error('lugarnacimiento')) ? set_value('lugarnacimiento') : $pacientes->lugar_nacimiento ?>">
+                        <input type="text" name="lugarnacimiento" class="form-control input-sm" placeholder="Lugar nacimiento" value="<?//php echo !empty(form_error('lugarnacimiento')) ? set_value('lugarnacimiento') : $pacientes->lugar_nacimiento ?>">
                       </div>
-                    </div>
+                    </div> -->
                   </div>
                   <div class="row">
-                    <div class="col-md-4">
+                    <!-- <div class="col-md-4">
                       <div class="form-group">
                         <label class="col-form-label">Departamento: *</label>
                         <select name="departamento" class="form-control input-sm">
                           <option value="">--Seleccionar--</option>
-                          <?php foreach ($departamentos as $d) : ?>
-                            <?php if ($d->departamento_id == $pacientes->departamento_id) : ?>
-                              <option value="<?= $d->departamento_id ?>" selected><?php echo $d->departamento_nombre; ?></option>
-                            <?php else : ?>
-                              <option value="<?= $d->departamento_id ?>"><?= $d->departamento_nombre ?></option>
-                            <?php endif; ?>
-                          <?php endforeach ?>
+                          <?//php foreach ($departamentos as $d) : ?>
+                            <?//php if ($d->departamento_id == $pacientes->departamento_id) : ?>
+                              <option value="<?//= $d->departamento_id ?>" selected><?//php echo $d->departamento_nombre; ?></option>
+                            <?//php else : ?>
+                              <option value="<?//= $d->departamento_id ?>"><?//= $d->departamento_nombre ?></option>
+                            <?//php endif; ?>
+                          <?//php endforeach ?>
                         </select>
                       </div>
                     </div>
@@ -165,9 +171,9 @@
                         <label class="col-form-label">Provincia:</label>
                         <select name="provincia" class="form-control input-sm">
                           <option value="">--Seleccionar--</option>
-                          <?php foreach ($provincias as $p) : ?>
-                            <option value="<?= $p->provincia_id ?>" <?= ($pacientes->provincia_id == $p->provincia_id) ? 'selected' : '' ?>><?= $p->provincia_nombre ?></option>
-                          <?php endforeach ?>
+                          <?//php foreach ($provincias as $p) : ?>
+                            <option value="<?//= $p->provincia_id ?>" <?//= ($pacientes->provincia_id == $p->provincia_id) ? 'selected' : '' ?>><?//= $p->provincia_nombre ?></option>
+                          <?//php endforeach ?>
                         </select>
                       </div>
                     </div>
@@ -178,27 +184,21 @@
                         <label class="col-form-label">Distrito:</label>
                         <select name="distrito" class="form-control input-sm">
                           <option value="">--Seleccionar--</option>
-                          <?php foreach ($distritos as $d) : ?>
-                            <option value="<?= $d->distrito_id ?>" <?= ($d->distrito_id == $pacientes->distrito_id) ? 'selected' : '' ?>><?= $d->distrito_nombre ?></option>
-                          <?php endforeach ?>
+                          <?//php foreach ($distritos as $d) : ?>
+                            <option value="<?//= $d->distrito_id ?>" <?//= ($d->distrito_id == $pacientes->distrito_id) ? 'selected' : '' ?>><?//= $d->distrito_nombre ?></option>
+                          <?//php endforeach ?>
                         </select>
                       </div>
-                    </div>
+                    </div> -->
 
 
                   </div>
 
-                  <div class="row">
-
-
-                    <div class="col-md-12">
-                      <div class="form-group">
-                        <label class="col-form-label">Direccion: *</label>
-                        <input type="text" name="direccion" class="form-control input-sm" placeholder="Direccion" value="<?php echo !empty(form_error('direccion')) ? set_value('direccion') : $pacientes->dire_pac ?>">
-                      </div>
-                    </div>
-                  </div>
-
+                  <input name="pais" type="hidden" value="1">
+                  <input name="departamento" type="hidden" value="1">
+                  <input name="provincia" type="hidden" value="1">
+                  <input name="distrito" type="hidden" value="1">
+                  
                   <div class="row">
                     <div class="col-md-4">
                       <div class="form-group">
@@ -206,16 +206,13 @@
                         <input type="text" name="dni" class="form-control input-sm" placeholder="Cédula" maxlength="20" minlength="8" onKeyPress="if (event.keyCode < 48 || event.keyCode > 57)event.returnValue = false;" value="<?php echo !empty(form_error('dni')) ? set_value('dni') : $pacientes->dni_pac ?>">
                       </div>
                     </div>
-                  </div>
-
-                  <div class="row">
                     <div class="col-md-4">
                       <div class="form-group">
                         <label class="control-label">Telefono: *</label>
                         <input type="text" name="telefono" class="form-control input-sm" placeholder="Telefono" onKeyPress="if (event.keyCode < 48 || event.keyCode > 57)event.returnValue = false;" value="<?php echo !empty(form_error('telefono')) ? set_value('telefono') : $pacientes->telf_pac ?>">
                       </div>
                     </div>
-                    <div class="col-md-4">
+                    <!-- <div class="col-md-4">
                       <div class="form-group">
                         <label class="control-label">Fecha nacimiento: *</label>
                         <div class="input-group date">
@@ -225,7 +222,7 @@
                           </span>
                         </div>
                       </div>
-                    </div>
+                    </div> -->
                     <div class="col-md-4">
                       <div class="form-group">
                         <label class="col-form-label">Estado civil:</label>
