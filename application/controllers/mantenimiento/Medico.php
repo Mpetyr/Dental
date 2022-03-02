@@ -102,10 +102,10 @@ class Medico extends CI_Controller
 		$this->form_validation->set_rules("apellidos","apellidos","required");
 		//$this->form_validation->set_rules("documento","apellidos","required");
 		$this->form_validation->set_rules("dni","dni","required");
-		$this->form_validation->set_rules("colegiatura","Colegiatura","required");
+		$this->form_validation->set_rules("colegiatura","Colegiatura","");
 		$this->form_validation->set_rules("telefono","Telefono","required");
 		$this->form_validation->set_rules("direccion","Direccion","required");
-		$this->form_validation->set_rules("fechanacimiento","Fecha Nacimiento","required");
+		$this->form_validation->set_rules("fechanacimiento","Fecha Nacimiento","");
 		$this->form_validation->set_rules("sexo","Sexo","required");
 
 		$fecharegistro = date("Y-m-d H:i:s");
@@ -148,7 +148,7 @@ class Medico extends CI_Controller
 			$dataUsuario['telefono'] = $telefono;
 			$dataUsuario['direccion'] = $direccion;
 			$dataUsuario['email'] = $email;
-			$dataUsuario['tipo_documento'] = $this->input->post('tipoDocumento');
+			//$dataUsuario['tipo_documento'] = $this->input->post('tipoDocumento');
 			$dataUsuario['documento'] = $dni;
 			$dataUsuario['codi_rol'] = 1;
 			$dataUsuario['logi_usu'] = $this->input->post('usuarioMedico');
@@ -223,10 +223,10 @@ class Medico extends CI_Controller
 		$this->form_validation->set_rules("nombre","nombre","required");
 		$this->form_validation->set_rules("apellidos","apellidos","required");
 		$this->form_validation->set_rules("dni","Dni","required");
-		$this->form_validation->set_rules("colegiatura","Colegiatura","required");
+		$this->form_validation->set_rules("colegiatura","Colegiatura","");
 		$this->form_validation->set_rules("telefono","Telefono","required");
 		$this->form_validation->set_rules("direccion","Direccion","required");
-		$this->form_validation->set_rules("fechanacimiento","Fecha Nacimiento","required");
+		$this->form_validation->set_rules("fechanacimiento","Fecha Nacimiento","");
 		$this->form_validation->set_rules("sexo","Sexo","required");
 		$this->form_validation->set_rules("estado","Estado","required");
 
