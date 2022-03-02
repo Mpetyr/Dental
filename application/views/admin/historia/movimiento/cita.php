@@ -80,18 +80,19 @@
               </div>
             </div>
           </div>
+          <input name="sede" type="hidden" value="1">
           <div class="row">
-            <div class="col-md-6">
+            <!-- <div class="col-md-6">
               <div class="form-group">
                 <label class="contro-label">Sede</label>
                 <select name="sede" class="form-control">
                   <option value=""></option>
-                  <?php foreach ($sedes as $s): ?>
-                  <option value="<?= $s->cod_sede ?>"><?= $s->nombre_sede ?></option>
-                  <?php endforeach ?>
+                  <?//php foreach ($sedes as $s): ?>
+                  <option value="<?//= $s->cod_sede ?>"><?//= $s->nombre_sede ?></option>
+                  <?//php endforeach ?>
                 </select>
               </div>
-            </div>
+            </div> -->
             <div class="col-md-6">
               <div class="form-group">
                 <label class="contro-label">Estado</label>
@@ -103,14 +104,14 @@
                 </select>
               </div>
             </div>
-          </div>
-          <div class="row">
             <div class="col-md-6">
               <div class="form-group">
                 <label class="control-label">Motivo Consulta</label>
                 <input type="text" name="motivo" class="form-control">
               </div>
             </div>
+          </div>
+          <div class="row">
             <div class="col-md-6">
               <div class="form-group">
                 <label class="control-label">Observación</label>
