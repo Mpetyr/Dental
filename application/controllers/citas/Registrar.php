@@ -154,6 +154,11 @@ class Registrar extends CI_Controller {
 	}
 
 
+	function getCita()
+	{
+		$cita = $this->citas_model->getCita($this->input->get('id'));
+		echo json_encode($cita);
+	}
 
 	function editarCita()
 	{
