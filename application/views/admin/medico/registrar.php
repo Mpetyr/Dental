@@ -94,7 +94,7 @@
                     </select>
                     </div>
                   </div>
-                  <div class="col-md-4">
+                  <!-- <div class="col-md-4">
                     <div class="form-group">
                       <label>Tipo Documento (*):</label>
                         <select  name="tipoDocumento" class="form-control">
@@ -107,17 +107,23 @@
 
                         </select>
                     </div>
-                  </div>
+                  </div> -->
                   <div class="col-md-4">
                     <div class="form-group">
-                      <label class="col-form-label">Nro Doc: *</label>
+                      <label class="col-form-label">Cedula: *</label>
                       <input type="text"  name="dni"  class="form-control input-sm" placeholder="Documento" maxlength="8" minlength="8" onKeyPress="if (event.keyCode < 48 || event.keyCode > 57)event.returnValue = false;">
                     </div>
                   </div>
-                  <div class="col-md-4">
+                  <!-- <div class="col-md-4">
                     <div class="form-group">
                       <label class="col-form-label">Ruc:</label>
                        <input type="text" name="ruc"  class="form-control input-sm" placeholder="Ruc" maxlength="11" minlength="11" onKeyPress="if (event.keyCode < 48 || event.keyCode > 57)event.returnValue = false;">
+                    </div>
+                  </div> -->
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label class="col-form-label">Telefono:</label>
+                       <input type="text" name="telefono"  class="form-control input-sm" placeholder="telefono" onKeyPress="if (event.keyCode < 48 || event.keyCode > 57)event.returnValue = false;">
                     </div>
                   </div>
             </div>
@@ -132,13 +138,13 @@
               </div>
 
               <div class="row">
-                  <div class="col-md-4">
+                  <!-- <div class="col-md-4">
                     <div class="form-group">
                      <label class="control-label">Colegiatura: *</label>
                        <input type="text" name="colegiatura"  class="form-control input-sm" placeholder="Colegiatura" maxlength="9" minlength="4" onKeyPress="if (event.keyCode < 48 || event.keyCode > 57)event.returnValue = false;">
                     </div>
-                  </div>
-                  <div class="col-md-4">
+                  </div> -->
+                  <!-- <div class="col-md-4">
                     <div class="form-group">
                       <label class="control-label">Fecha nacimiento: *</label>
                       <div class="input-group date">
@@ -148,13 +154,8 @@
                     </span>
                      </div>
                     </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
-                      <label class="col-form-label">Telefono:</label>
-                       <input type="text" name="telefono"  class="form-control input-sm" placeholder="telefono" onKeyPress="if (event.keyCode < 48 || event.keyCode > 57)event.returnValue = false;">
-                    </div>
-                  </div>
+                  </div> -->
+                  
             </div>
 
                     <div class="row">
